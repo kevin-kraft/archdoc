@@ -1,0 +1,538 @@
+{
+  "id": "routers.auth",
+  "module": "routers.auth",
+  "source_file": "routers/auth.py",
+  "endpoints": [
+    {
+      "id": "routers.auth.get.capabilities.get-capabilities",
+      "module": "routers.auth",
+      "function_name": "get_capabilities",
+      "qualified_name": "routers.auth.get_capabilities",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/capabilities",
+      "router": "router",
+      "kwargs": {
+        "response_model": "CapabilitiesResponse",
+        "operation_id": "get_capabilities"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/auth.py",
+        "line_start": 614,
+        "line_end": 696
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.auth.get.me.get-current-user-profile",
+      "module": "routers.auth",
+      "function_name": "get_current_user_profile",
+      "qualified_name": "routers.auth.get_current_user_profile",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/me",
+      "router": "router",
+      "kwargs": {
+        "response_model": "UserProfile",
+        "operation_id": "get_current_user_profile"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_NO_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/auth.py",
+        "line_start": 558,
+        "line_end": 610
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.auth.post.auth-refresh-path.refresh-token",
+      "module": "routers.auth",
+      "function_name": "refresh_token",
+      "qualified_name": "routers.auth.refresh_token",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "AUTH_REFRESH_PATH",
+      "router": "router",
+      "kwargs": {
+        "response_model": "AuthResponse"
+      },
+      "parameters": [
+        {
+          "name": "refresh_req",
+          "annotation": "RefreshRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "request",
+          "annotation": "Request",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "response",
+          "annotation": "Response",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_NO_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/auth.py",
+        "line_start": 852,
+        "line_end": 876
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.auth.post.auth-restore-path.restore-auth-session",
+      "module": "routers.auth",
+      "function_name": "restore_auth_session",
+      "qualified_name": "routers.auth.restore_auth_session",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "AUTH_RESTORE_PATH",
+      "router": "router",
+      "kwargs": {
+        "response_model": "AuthResponse",
+        "operation_id": "restore_auth_session"
+      },
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "Request",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "response",
+          "annotation": "Response",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_NO_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/auth.py",
+        "line_start": 880,
+        "line_end": 907
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.auth.post.auth-token-path.login",
+      "module": "routers.auth",
+      "function_name": "login",
+      "qualified_name": "routers.auth.login",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "AUTH_TOKEN_PATH",
+      "router": "router",
+      "kwargs": {
+        "response_model": "AuthResponse"
+      },
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "Request",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "response",
+          "annotation": "Response",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "form_data",
+          "annotation": "OAuth2PasswordRequestForm",
+          "default": "OAUTH2_PASSWORD_FORM_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_NO_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/auth.py",
+        "line_start": 772,
+        "line_end": 800
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.auth.post.credential-actions.complete.complete-staff-credential-token",
+      "module": "routers.auth",
+      "function_name": "complete_staff_credential_token",
+      "qualified_name": "routers.auth.complete_staff_credential_token",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/credential-actions/complete",
+      "router": "router",
+      "kwargs": {
+        "response_model": "StaffCredentialTokenCompleteResponse"
+      },
+      "parameters": [
+        {
+          "name": "payload",
+          "annotation": "StaffCredentialTokenCompleteRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_NO_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/auth.py",
+        "line_start": 925,
+        "line_end": 936
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.auth.post.credential-actions.inspect.inspect-staff-credential-token",
+      "module": "routers.auth",
+      "function_name": "inspect_staff_credential_token",
+      "qualified_name": "routers.auth.inspect_staff_credential_token",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/credential-actions/inspect",
+      "router": "router",
+      "kwargs": {
+        "response_model": "StaffCredentialTokenInspectResponse"
+      },
+      "parameters": [
+        {
+          "name": "payload",
+          "annotation": "StaffCredentialTokenInspectRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_NO_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/auth.py",
+        "line_start": 911,
+        "line_end": 921
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.auth.post.debug-role.assume-role",
+      "module": "routers.auth",
+      "function_name": "assume_role",
+      "qualified_name": "routers.auth.assume_role",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/debug-role",
+      "router": "router",
+      "kwargs": {
+        "response_model": "DebugRoleResponse",
+        "include_in_schema": "_debug_role_enabled()"
+      },
+      "parameters": [
+        {
+          "name": "payload",
+          "annotation": "DebugRoleRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/auth.py",
+        "line_start": 703,
+        "line_end": 769
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.auth.post.logout.logout",
+      "module": "routers.auth",
+      "function_name": "logout",
+      "qualified_name": "routers.auth.logout",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/logout",
+      "router": "router",
+      "kwargs": {
+        "status_code": "status.HTTP_204_NO_CONTENT"
+      },
+      "parameters": [
+        {
+          "name": "logout_req",
+          "annotation": "LogoutRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "response",
+          "annotation": "Response",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_NO_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/auth.py",
+        "line_start": 804,
+        "line_end": 848
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.auth.post.register.register",
+      "module": "routers.auth",
+      "function_name": "register",
+      "qualified_name": "routers.auth.register",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/register",
+      "router": "router",
+      "kwargs": {
+        "response_model": "RegisterResponse"
+      },
+      "parameters": [
+        {
+          "name": "register_req",
+          "annotation": "RegisterRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_NO_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/auth.py",
+        "line_start": 939,
+        "line_end": 1003
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "services.finance.backoffice_export.backoffice-export",
+  "module": "services.finance.backoffice_export",
+  "class_name": "BackofficeExportService",
+  "qualified_name": "services.finance.backoffice_export.BackofficeExportService",
+  "source": {
+    "file": "services/finance/backoffice_export.py",
+    "line_start": 26,
+    "line_end": 400
+  },
+  "operations": [
+    {
+      "id": "services.finance.backoffice_export.backoffice-export.operation.generate_export",
+      "method": "generate_export",
+      "qualified_name": "services.finance.backoffice_export.BackofficeExportService.generate_export",
+      "source": {
+        "file": "services/finance/backoffice_export.py",
+        "line_start": 32,
+        "line_end": 174
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.finance.backoffice_export.backoffice-export.operation.list_exports",
+      "method": "list_exports",
+      "qualified_name": "services.finance.backoffice_export.BackofficeExportService.list_exports",
+      "source": {
+        "file": "services/finance/backoffice_export.py",
+        "line_start": 176,
+        "line_end": 194
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.finance.backoffice_export.backoffice-export.operation.get_export",
+      "method": "get_export",
+      "qualified_name": "services.finance.backoffice_export.BackofficeExportService.get_export",
+      "source": {
+        "file": "services/finance/backoffice_export.py",
+        "line_start": 196,
+        "line_end": 203
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.finance.backoffice_export.backoffice-export.operation.get_download_url",
+      "method": "get_download_url",
+      "qualified_name": "services.finance.backoffice_export.BackofficeExportService.get_download_url",
+      "source": {
+        "file": "services/finance/backoffice_export.py",
+        "line_start": 205,
+        "line_end": 268
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.finance.backoffice_export.backoffice-export.operation.confirm_paid",
+      "method": "confirm_paid",
+      "qualified_name": "services.finance.backoffice_export.BackofficeExportService.confirm_paid",
+      "source": {
+        "file": "services/finance/backoffice_export.py",
+        "line_start": 270,
+        "line_end": 351
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.finance.backoffice_export.backoffice-export.operation.expire_old_exports",
+      "method": "expire_old_exports",
+      "qualified_name": "services.finance.backoffice_export.BackofficeExportService.expire_old_exports",
+      "source": {
+        "file": "services/finance/backoffice_export.py",
+        "line_start": 354,
+        "line_end": 400
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.finance.backoffice_export.backoffice-export.operation.list_export_candidates",
+      "method": "list_export_candidates",
+      "qualified_name": "services.finance.backoffice_export_support.BackofficeExportSupportMixin.list_export_candidates",
+      "source": {
+        "file": "services/finance/backoffice_export_support.py",
+        "line_start": 360,
+        "line_end": 416
+      },
+      "detection": {
+        "method": "inherited_public_method_from_BackofficeExportSupportMixin",
+        "rule": "inherited_public_method_from_BackofficeExportSupportMixin",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

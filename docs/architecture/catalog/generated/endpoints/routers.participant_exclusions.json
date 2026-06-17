@@ -1,0 +1,684 @@
+{
+  "id": "routers.participant_exclusions",
+  "module": "routers.participant_exclusions",
+  "source_file": "routers/participant_exclusions.py",
+  "endpoints": [
+    {
+      "id": "routers.participant_exclusions.get.exclusion-reinclusion.check-auto-reinclusion",
+      "module": "routers.participant_exclusions",
+      "function_name": "check_auto_reinclusion",
+      "qualified_name": "routers.participant_exclusions.check_auto_reinclusion",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "high",
+        "reason": "Endpoint contains a typed or assigned service variable and calls a method on it.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/exclusion-reinclusion",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict",
+        "operation_id": "check_participant_auto_reinclusion"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('participants_edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_exclusions.py",
+        "line_start": 86,
+        "line_end": 93
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_exclusions.get.param-participant-id.exclusion-status.get-participant-exclusion-status",
+      "module": "routers.participant_exclusions",
+      "function_name": "get_participant_exclusion_status",
+      "qualified_name": "routers.participant_exclusions.get_participant_exclusion_status",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "high",
+        "reason": "Endpoint contains a typed or assigned service variable and calls a method on it.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{participant_id}/exclusion-status",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict",
+        "operation_id": "get_participant_exclusion_status"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('participants_show'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "__",
+          "annotation": "None",
+          "default": "Depends(require_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_exclusions.py",
+        "line_start": 26,
+        "line_end": 34
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_exclusions.get.participants.exclusion-reinclusion.check-auto-reinclusion",
+      "module": "routers.participant_exclusions",
+      "function_name": "check_auto_reinclusion",
+      "qualified_name": "routers.participant_exclusions.check_auto_reinclusion",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/participants/exclusion-reinclusion",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict",
+        "include_in_schema": "False"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('participants_edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_exclusions.py",
+        "line_start": 86,
+        "line_end": 93
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_exclusions.get.participants.param-participant-id.exclusion-status.get-participant-exclusion-status",
+      "module": "routers.participant_exclusions",
+      "function_name": "get_participant_exclusion_status",
+      "qualified_name": "routers.participant_exclusions.get_participant_exclusion_status",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/participants/{participant_id}/exclusion-status",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict",
+        "include_in_schema": "False"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('participants_show'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "__",
+          "annotation": "None",
+          "default": "Depends(require_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_exclusions.py",
+        "line_start": 26,
+        "line_end": 34
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_exclusions.post.bulk-exclusion-evaluation.bulk-exclusion-evaluation",
+      "module": "routers.participant_exclusions",
+      "function_name": "bulk_exclusion_evaluation",
+      "qualified_name": "routers.participant_exclusions.bulk_exclusion_evaluation",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "high",
+        "reason": "Endpoint contains a typed or assigned service variable and calls a method on it.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/bulk-exclusion-evaluation",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict",
+        "operation_id": "bulk_evaluate_participant_exclusions"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('participants_edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_exclusions.py",
+        "line_start": 106,
+        "line_end": 114
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_exclusions.post.exclusion-evaluation.evaluate-and-apply-exclusions",
+      "module": "routers.participant_exclusions",
+      "function_name": "evaluate_and_apply_exclusions",
+      "qualified_name": "routers.participant_exclusions.evaluate_and_apply_exclusions",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "high",
+        "reason": "Endpoint contains a typed or assigned service variable and calls a method on it.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/exclusion-evaluation",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict",
+        "operation_id": "evaluate_participant_exclusions"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('participants_edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_exclusions.py",
+        "line_start": 69,
+        "line_end": 77
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_exclusions.post.param-participant-id.apply-exclusion.apply-participant-exclusion",
+      "module": "routers.participant_exclusions",
+      "function_name": "apply_participant_exclusion",
+      "qualified_name": "routers.participant_exclusions.apply_participant_exclusion",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "high",
+        "reason": "Endpoint contains a typed or assigned service variable and calls a method on it.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{participant_id}/apply-exclusion",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict",
+        "operation_id": "apply_participant_exclusion"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "reason",
+          "annotation": "str",
+          "default": "Query(..., description='Reason for exclusion')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('participants_edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_exclusions.py",
+        "line_start": 47,
+        "line_end": 60
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_exclusions.post.participants.bulk-exclusion-evaluation.bulk-exclusion-evaluation",
+      "module": "routers.participant_exclusions",
+      "function_name": "bulk_exclusion_evaluation",
+      "qualified_name": "routers.participant_exclusions.bulk_exclusion_evaluation",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/participants/bulk-exclusion-evaluation",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict",
+        "include_in_schema": "False"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('participants_edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_exclusions.py",
+        "line_start": 106,
+        "line_end": 114
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_exclusions.post.participants.exclusion-evaluation.evaluate-and-apply-exclusions",
+      "module": "routers.participant_exclusions",
+      "function_name": "evaluate_and_apply_exclusions",
+      "qualified_name": "routers.participant_exclusions.evaluate_and_apply_exclusions",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/participants/exclusion-evaluation",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict",
+        "include_in_schema": "False"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('participants_edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_exclusions.py",
+        "line_start": 69,
+        "line_end": 77
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_exclusions.post.participants.param-participant-id.apply-exclusion.apply-participant-exclusion",
+      "module": "routers.participant_exclusions",
+      "function_name": "apply_participant_exclusion",
+      "qualified_name": "routers.participant_exclusions.apply_participant_exclusion",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/participants/{participant_id}/apply-exclusion",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict",
+        "include_in_schema": "False"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "reason",
+          "annotation": "str",
+          "default": "Query(..., description='Reason for exclusion')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('participants_edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_exclusions.py",
+        "line_start": 47,
+        "line_end": 60
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

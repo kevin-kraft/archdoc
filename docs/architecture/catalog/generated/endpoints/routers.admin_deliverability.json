@@ -1,0 +1,249 @@
+{
+  "id": "routers.admin_deliverability",
+  "module": "routers.admin_deliverability",
+  "source_file": "routers/admin_deliverability.py",
+  "endpoints": [
+    {
+      "id": "routers.admin_deliverability.get.deliverability.by-domain.get-deliverability-by-domain",
+      "module": "routers.admin_deliverability",
+      "function_name": "get_deliverability_by_domain",
+      "qualified_name": "routers.admin_deliverability.get_deliverability_by_domain",
+      "implementation": {
+        "kind": "passthrough",
+        "confidence": "medium",
+        "reason": "Endpoint mostly delegates to a single helper/function call.",
+        "signals": [
+          "single_meaningful_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/deliverability/by-domain",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[DomainDeliverability]"
+      },
+      "parameters": [
+        {
+          "name": "days",
+          "annotation": "int",
+          "default": "DOMAIN_DAYS_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DELIVERABILITY_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_deliverability.py",
+        "line_start": 216,
+        "line_end": 228
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_deliverability.get.deliverability.metrics.get-deliverability-metrics",
+      "module": "routers.admin_deliverability",
+      "function_name": "get_deliverability_metrics",
+      "qualified_name": "routers.admin_deliverability.get_deliverability_metrics",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/deliverability/metrics",
+      "router": "router",
+      "kwargs": {
+        "response_model": "DeliverabilityMetrics"
+      },
+      "parameters": [
+        {
+          "name": "start_date",
+          "annotation": "Optional[datetime]",
+          "default": "START_DATE_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "end_date",
+          "annotation": "Optional[datetime]",
+          "default": "END_DATE_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DELIVERABILITY_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_deliverability.py",
+        "line_start": 79,
+        "line_end": 145
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_deliverability.get.deliverability.suppression-list.get-suppression-list",
+      "module": "routers.admin_deliverability",
+      "function_name": "get_suppression_list",
+      "qualified_name": "routers.admin_deliverability.get_suppression_list",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/deliverability/suppression-list",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DELIVERABILITY_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_deliverability.py",
+        "line_start": 232,
+        "line_end": 260
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_deliverability.get.deliverability.trends.get-deliverability-trends",
+      "module": "routers.admin_deliverability",
+      "function_name": "get_deliverability_trends",
+      "qualified_name": "routers.admin_deliverability.get_deliverability_trends",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/deliverability/trends",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[DeliverabilityTrend]"
+      },
+      "parameters": [
+        {
+          "name": "days",
+          "annotation": "int",
+          "default": "TREND_DAYS_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DELIVERABILITY_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_deliverability.py",
+        "line_start": 148,
+        "line_end": 213
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

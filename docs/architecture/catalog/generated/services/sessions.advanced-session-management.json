@@ -1,0 +1,131 @@
+{
+  "id": "sessions.advanced-session-management",
+  "module": "services.sessions.advanced",
+  "class_name": "AdvancedSessionManagementService",
+  "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService",
+  "source": {
+    "file": "services/sessions/advanced.py",
+    "line_start": 92,
+    "line_end": 1164
+  },
+  "operations": [
+    {
+      "id": "sessions.advanced-session-management.operation.create_session_with_enhanced_validation",
+      "method": "create_session_with_enhanced_validation",
+      "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.create_session_with_enhanced_validation",
+      "source": {
+        "file": "services/sessions/advanced.py",
+        "line_start": 100,
+        "line_end": 166
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "sessions.advanced-session-management.operation.bulk_update_session_status",
+      "method": "bulk_update_session_status",
+      "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.bulk_update_session_status",
+      "source": {
+        "file": "services/sessions/advanced.py",
+        "line_start": 168,
+        "line_end": 210
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "sessions.advanced-session-management.operation.process_session_completion",
+      "method": "process_session_completion",
+      "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.process_session_completion",
+      "source": {
+        "file": "services/sessions/advanced.py",
+        "line_start": 212,
+        "line_end": 266
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "sessions.advanced-session-management.operation.get_session_completion_tracker",
+      "method": "get_session_completion_tracker",
+      "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.get_session_completion_tracker",
+      "source": {
+        "file": "services/sessions/advanced.py",
+        "line_start": 268,
+        "line_end": 328
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "sessions.advanced-session-management.operation.detect_and_resolve_conflicts",
+      "method": "detect_and_resolve_conflicts",
+      "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.detect_and_resolve_conflicts",
+      "source": {
+        "file": "services/sessions/advanced.py",
+        "line_start": 435,
+        "line_end": 480
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "sessions.advanced-session-management.operation.manage_lab_reservations",
+      "method": "manage_lab_reservations",
+      "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.manage_lab_reservations",
+      "source": {
+        "file": "services/sessions/advanced.py",
+        "line_start": 482,
+        "line_end": 532
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "sessions.advanced-session-management.operation.get_session_analytics",
+      "method": "get_session_analytics",
+      "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.get_session_analytics",
+      "source": {
+        "file": "services/sessions/advanced.py",
+        "line_start": 534,
+        "line_end": 576
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

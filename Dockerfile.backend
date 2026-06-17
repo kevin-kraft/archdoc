@@ -1,0 +1,25 @@
+FROM python:3.12-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+COPY archdoc ./archdoc
+COPY ui_backend/requirements.txt ./ui_backend/requirements.txt
+RUN pip install --no-cache-dir -e ./archdoc -r ./ui_backend/requirements.txt
+
+COPY ui_backend ./ui_backend
+COPY docs ./docs
+COPY site/static/archdoc ./site/static/archdoc
+
+ENV ARCHDOC_STATIC_DIR=/app/site/static/archdoc
+ENV ARCHDOC_USER_STORIES_DIR=/app/docs/architecture/user-stories
+ENV ARCHDOC_OVERLAY_PATH=/data/review-overlay.json
+ENV ARCHDOC_DB_PATH=/data/archdoc-review.sqlite3
+
+RUN mkdir -p /data
+
+EXPOSE 8010
+
+CMD ["uvicorn", "ui_backend.app.main:app", "--host", "0.0.0.0", "--port", "8010"]

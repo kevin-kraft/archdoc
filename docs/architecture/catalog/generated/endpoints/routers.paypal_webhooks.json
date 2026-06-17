@@ -1,0 +1,55 @@
+{
+  "id": "routers.paypal_webhooks",
+  "module": "routers.paypal_webhooks",
+  "source_file": "routers/paypal_webhooks.py",
+  "endpoints": [
+    {
+      "id": "routers.paypal_webhooks.post.handle-paypal-webhook",
+      "module": "routers.paypal_webhooks",
+      "function_name": "handle_paypal_webhook",
+      "qualified_name": "routers.paypal_webhooks.handle_paypal_webhook",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "Request",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_no_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/paypal_webhooks.py",
+        "line_start": 101,
+        "line_end": 218
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

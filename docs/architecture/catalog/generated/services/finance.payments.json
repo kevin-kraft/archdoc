@@ -1,0 +1,147 @@
+{
+  "id": "finance.payments",
+  "module": "services.finance.payments",
+  "class_name": "PaymentsService",
+  "qualified_name": "services.finance.payments.PaymentsService",
+  "source": {
+    "file": "services/finance/payments.py",
+    "line_start": 9,
+    "line_end": 22
+  },
+  "operations": [
+    {
+      "id": "finance.payments.operation.create_payment_method",
+      "method": "create_payment_method",
+      "qualified_name": "services.finance.payment_methods.PaymentMethodsMixin.create_payment_method",
+      "source": {
+        "file": "services/finance/payment_methods.py",
+        "line_start": 13,
+        "line_end": 44
+      },
+      "detection": {
+        "method": "inherited_public_method_from_PaymentMethodsMixin",
+        "rule": "inherited_public_method_from_PaymentMethodsMixin",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "finance.payments.operation.update_payment_method",
+      "method": "update_payment_method",
+      "qualified_name": "services.finance.payment_methods.PaymentMethodsMixin.update_payment_method",
+      "source": {
+        "file": "services/finance/payment_methods.py",
+        "line_start": 46,
+        "line_end": 82
+      },
+      "detection": {
+        "method": "inherited_public_method_from_PaymentMethodsMixin",
+        "rule": "inherited_public_method_from_PaymentMethodsMixin",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "finance.payments.operation.create_payout",
+      "method": "create_payout",
+      "qualified_name": "services.finance.payout_creation.PayoutCreationMixin.create_payout",
+      "source": {
+        "file": "services/finance/payout_creation.py",
+        "line_start": 338,
+        "line_end": 369
+      },
+      "detection": {
+        "method": "inherited_public_method_from_PayoutCreationMixin",
+        "rule": "inherited_public_method_from_PayoutCreationMixin",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "finance.payments.operation.update_payout_status",
+      "method": "update_payout_status",
+      "qualified_name": "services.finance.payout_creation.PayoutCreationMixin.update_payout_status",
+      "source": {
+        "file": "services/finance/payout_creation.py",
+        "line_start": 371,
+        "line_end": 413
+      },
+      "detection": {
+        "method": "inherited_public_method_from_PayoutCreationMixin",
+        "rule": "inherited_public_method_from_PayoutCreationMixin",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "finance.payments.operation.approve_dispatch",
+      "method": "approve_dispatch",
+      "qualified_name": "services.finance.payout_creation.PayoutCreationMixin.approve_dispatch",
+      "source": {
+        "file": "services/finance/payout_creation.py",
+        "line_start": 415,
+        "line_end": 492
+      },
+      "detection": {
+        "method": "inherited_public_method_from_PayoutCreationMixin",
+        "rule": "inherited_public_method_from_PayoutCreationMixin",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "finance.payments.operation.update_payout_from_provider",
+      "method": "update_payout_from_provider",
+      "qualified_name": "services.finance.payout_provider_sync.PayoutProviderSyncMixin.update_payout_from_provider",
+      "source": {
+        "file": "services/finance/payout_provider_sync.py",
+        "line_start": 249,
+        "line_end": 297
+      },
+      "detection": {
+        "method": "inherited_public_method_from_PayoutProviderSyncMixin",
+        "rule": "inherited_public_method_from_PayoutProviderSyncMixin",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "finance.payments.operation.check_payout_provider_status",
+      "method": "check_payout_provider_status",
+      "qualified_name": "services.finance.payout_provider_sync.PayoutProviderSyncMixin.check_payout_provider_status",
+      "source": {
+        "file": "services/finance/payout_provider_sync.py",
+        "line_start": 299,
+        "line_end": 404
+      },
+      "detection": {
+        "method": "inherited_public_method_from_PayoutProviderSyncMixin",
+        "rule": "inherited_public_method_from_PayoutProviderSyncMixin",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "finance.payments.operation.cancel_payout_at_provider",
+      "method": "cancel_payout_at_provider",
+      "qualified_name": "services.finance.payout_provider_sync.PayoutProviderSyncMixin.cancel_payout_at_provider",
+      "source": {
+        "file": "services/finance/payout_provider_sync.py",
+        "line_start": 406,
+        "line_end": 476
+      },
+      "detection": {
+        "method": "inherited_public_method_from_PayoutProviderSyncMixin",
+        "rule": "inherited_public_method_from_PayoutProviderSyncMixin",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

@@ -1,0 +1,994 @@
+{
+  "id": "routers.analytics",
+  "module": "routers.analytics",
+  "source_file": "routers/analytics.py",
+  "endpoints": [
+    {
+      "id": "routers.analytics.get.dashboard.widgets.get-dashboard-widgets",
+      "module": "routers.analytics",
+      "function_name": "get_dashboard_widgets",
+      "qualified_name": "routers.analytics.get_dashboard_widgets",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/dashboard/widgets",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[DashboardWidgetResponse]"
+      },
+      "parameters": [
+        {
+          "name": "user_id",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='User ID for personalized widgets')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 370,
+        "line_end": 391
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.get.experiments.param-experiment-id.get-experiment-analytics",
+      "module": "routers.analytics",
+      "function_name": "get_experiment_analytics",
+      "qualified_name": "routers.analytics.get_experiment_analytics",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/experiments/{experiment_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ExperimentAnalyticsResponse"
+      },
+      "parameters": [
+        {
+          "name": "experiment_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 45,
+        "line_end": 76
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.get.participants.param-participant-id.get-participant-analytics",
+      "module": "routers.analytics",
+      "function_name": "get_participant_analytics",
+      "qualified_name": "routers.analytics.get_participant_analytics",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/participants/{participant_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ParticipantAnalyticsResponse"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 110,
+        "line_end": 140
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.get.sessions.param-session-id.analytics.get-session-analytics",
+      "module": "routers.analytics",
+      "function_name": "get_session_analytics",
+      "qualified_name": "routers.analytics.get_session_analytics",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/sessions/{session_id}/analytics",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SessionAnalyticsResponse"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 173,
+        "line_end": 205
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.get.system.get-system-analytics",
+      "module": "routers.analytics",
+      "function_name": "get_system_analytics",
+      "qualified_name": "routers.analytics.get_system_analytics",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/system",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SystemAnalyticsResponse"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 240,
+        "line_end": 262
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.get.system.public.get-public-system-analytics",
+      "module": "routers.analytics",
+      "function_name": "get_public_system_analytics",
+      "qualified_name": "routers.analytics.get_public_system_analytics",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/system/public",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SystemAnalyticsResponse"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 294,
+        "line_end": 316
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.post.dashboard.get-performance-dashboard",
+      "module": "routers.analytics",
+      "function_name": "get_performance_dashboard",
+      "qualified_name": "routers.analytics.get_performance_dashboard",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/dashboard",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PerformanceDashboardResponse"
+      },
+      "parameters": [
+        {
+          "name": "dashboard_data",
+          "annotation": "PerformanceDashboardRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 485,
+        "line_end": 492
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.post.dashboard.widgets.create-dashboard-widget",
+      "module": "routers.analytics",
+      "function_name": "create_dashboard_widget",
+      "qualified_name": "routers.analytics.create_dashboard_widget",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/dashboard/widgets",
+      "router": "router",
+      "kwargs": {
+        "response_model": "DashboardWidgetResponse"
+      },
+      "parameters": [
+        {
+          "name": "widget_data",
+          "annotation": "DashboardWidgetCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "user_id",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='User ID for personalized widget')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 394,
+        "line_end": 414
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.post.experiments.param-experiment-id.calculate.calculate-experiment-analytics",
+      "module": "routers.analytics",
+      "function_name": "calculate_experiment_analytics",
+      "qualified_name": "routers.analytics.calculate_experiment_analytics",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/experiments/{experiment_id}/calculate",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ExperimentAnalyticsCalculationResponse"
+      },
+      "parameters": [
+        {
+          "name": "experiment_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 79,
+        "line_end": 106
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.post.metrics.create-performance-metric",
+      "module": "routers.analytics",
+      "function_name": "create_performance_metric",
+      "qualified_name": "routers.analytics.create_performance_metric",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/metrics",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PerformanceMetricResponse"
+      },
+      "parameters": [
+        {
+          "name": "metric_data",
+          "annotation": "PerformanceMetricCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 439,
+        "line_end": 458
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.post.participants.param-participant-id.calculate.calculate-participant-analytics",
+      "module": "routers.analytics",
+      "function_name": "calculate_participant_analytics",
+      "qualified_name": "routers.analytics.calculate_participant_analytics",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/participants/{participant_id}/calculate",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ParticipantAnalyticsCalculationResponse"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 143,
+        "line_end": 169
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.post.reports.generate-analytics-report",
+      "module": "routers.analytics",
+      "function_name": "generate_analytics_report",
+      "qualified_name": "routers.analytics.generate_analytics_report",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/reports",
+      "router": "router",
+      "kwargs": {
+        "response_model": "AnalyticsReportResponse"
+      },
+      "parameters": [
+        {
+          "name": "report_data",
+          "annotation": "AnalyticsReportCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 348,
+        "line_end": 366
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.post.sessions.param-session-id.analytics.calculate.calculate-session-analytics",
+      "module": "routers.analytics",
+      "function_name": "calculate_session_analytics",
+      "qualified_name": "routers.analytics.calculate_session_analytics",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/sessions/{session_id}/analytics/calculate",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SessionAnalyticsCalculationResponse"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 208,
+        "line_end": 236
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.post.summary.get-analytics-summary",
+      "module": "routers.analytics",
+      "function_name": "get_analytics_summary",
+      "qualified_name": "routers.analytics.get_analytics_summary",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/summary",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict[str, Any]"
+      },
+      "parameters": [
+        {
+          "name": "summary_data",
+          "annotation": "AnalyticsSummaryRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 462,
+        "line_end": 470
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.post.system.calculate.calculate-system-analytics",
+      "module": "routers.analytics",
+      "function_name": "calculate_system_analytics",
+      "qualified_name": "routers.analytics.calculate_system_analytics",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/system/calculate",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SystemAnalyticsCalculationResponse"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 265,
+        "line_end": 290
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.post.system.public.calculate.calculate-public-system-analytics",
+      "module": "routers.analytics",
+      "function_name": "calculate_public_system_analytics",
+      "qualified_name": "routers.analytics.calculate_public_system_analytics",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/system/public/calculate",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SystemAnalyticsCalculationResponse"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 319,
+        "line_end": 344
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.post.trends.analyze.analyze-trends",
+      "module": "routers.analytics",
+      "function_name": "analyze_trends",
+      "qualified_name": "routers.analytics.analyze_trends",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/trends/analyze",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TrendAnalysisResponse"
+      },
+      "parameters": [
+        {
+          "name": "trend_data",
+          "annotation": "TrendAnalysisRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 474,
+        "line_end": 481
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.analytics.post.trends.create-trend-data",
+      "module": "routers.analytics",
+      "function_name": "create_trend_data",
+      "qualified_name": "routers.analytics.create_trend_data",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/trends",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TrendDataResponse"
+      },
+      "parameters": [
+        {
+          "name": "trend_data",
+          "annotation": "TrendDataCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/analytics.py",
+        "line_start": 418,
+        "line_end": 435
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

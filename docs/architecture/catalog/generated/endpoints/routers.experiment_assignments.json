@@ -1,0 +1,776 @@
+{
+  "id": "routers.experiment_assignments",
+  "module": "routers.experiment_assignments",
+  "source_file": "routers/experiment_assignments.py",
+  "endpoints": [
+    {
+      "id": "routers.experiment_assignments.delete.param-assignment-id.enrollment.cancel-enrollment",
+      "module": "routers.experiment_assignments",
+      "function_name": "cancel_enrollment",
+      "qualified_name": "routers.experiment_assignments.cancel_enrollment",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/{assignment_id}/enrollment",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "assignment_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "reason",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_PARTICIPANT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "participant_auth",
+          "annotation": "tuple[str, str]",
+          "default": "PARTICIPANT_AUTH_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_assignments.py",
+        "line_start": 211,
+        "line_end": 231
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_assignments.get.experiment.param-experiment-id.get-experiment-assignments",
+      "module": "routers.experiment_assignments",
+      "function_name": "get_experiment_assignments",
+      "qualified_name": "routers.experiment_assignments.get_experiment_assignments",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/experiment/{experiment_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[ExperimentAssignmentResponse]"
+      },
+      "parameters": [
+        {
+          "name": "experiment_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "invitation_status",
+          "annotation": "Optional[InvitationStatus]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "participation_status",
+          "annotation": "Optional[ParticipationStatus]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "100",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "0",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_assignments.py",
+        "line_start": 323,
+        "line_end": 345
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_assignments.get.participant.param-participant-id.get-participant-assignments",
+      "module": "routers.experiment_assignments",
+      "function_name": "get_participant_assignments",
+      "qualified_name": "routers.experiment_assignments.get_participant_assignments",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/participant/{participant_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[ExperimentAssignmentResponse]"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_assignments.py",
+        "line_start": 363,
+        "line_end": 378
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_assignments.get.session.param-session-id.get-session-assignments",
+      "module": "routers.experiment_assignments",
+      "function_name": "get_session_assignments",
+      "qualified_name": "routers.experiment_assignments.get_session_assignments",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/session/{session_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[ExperimentAssignmentResponse]"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_assignments.py",
+        "line_start": 349,
+        "line_end": 359
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_assignments.post.batch-invite.batch-invite-participants",
+      "module": "routers.experiment_assignments",
+      "function_name": "batch_invite_participants",
+      "qualified_name": "routers.experiment_assignments.batch_invite_participants",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/batch-invite",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "BatchInviteRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "INVITE_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_assignments.py",
+        "line_start": 109,
+        "line_end": 129
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_assignments.post.check-in.param-check-in-id.check-out.check-out-participant",
+      "module": "routers.experiment_assignments",
+      "function_name": "check_out_participant",
+      "qualified_name": "routers.experiment_assignments.check_out_participant",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/check-in/{check_in_id}/check-out",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "check_in_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "duration_minutes",
+          "annotation": "Optional[int]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EDIT_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_assignments.py",
+        "line_start": 273,
+        "line_end": 292
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_assignments.post.invite.invite-participant",
+      "module": "routers.experiment_assignments",
+      "function_name": "invite_participant",
+      "qualified_name": "routers.experiment_assignments.invite_participant",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/invite",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ExperimentAssignmentResponse",
+        "status_code": "status.HTTP_201_CREATED"
+      },
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "InviteParticipantRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "INVITE_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_assignments.py",
+        "line_start": 82,
+        "line_end": 105
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_assignments.post.param-assignment-id.change-session.change-session",
+      "module": "routers.experiment_assignments",
+      "function_name": "change_session",
+      "qualified_name": "routers.experiment_assignments.change_session",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{assignment_id}/change-session",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ExperimentAssignmentResponse"
+      },
+      "parameters": [
+        {
+          "name": "assignment_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "request",
+          "annotation": "EnrollInSessionRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_PARTICIPANT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "participant_auth",
+          "annotation": "tuple[str, str]",
+          "default": "PARTICIPANT_AUTH_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_assignments.py",
+        "line_start": 187,
+        "line_end": 207
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_assignments.post.param-assignment-id.check-in.check-in-participant",
+      "module": "routers.experiment_assignments",
+      "function_name": "check_in_participant",
+      "qualified_name": "routers.experiment_assignments.check_in_participant",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{assignment_id}/check-in",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "assignment_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "request",
+          "annotation": "CheckInRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EDIT_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_assignments.py",
+        "line_start": 239,
+        "line_end": 269
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_assignments.post.param-assignment-id.enroll.enroll-in-session",
+      "module": "routers.experiment_assignments",
+      "function_name": "enroll_in_session",
+      "qualified_name": "routers.experiment_assignments.enroll_in_session",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{assignment_id}/enroll",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ExperimentAssignmentResponse"
+      },
+      "parameters": [
+        {
+          "name": "assignment_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "request",
+          "annotation": "EnrollInSessionRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_PARTICIPANT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "participant_auth",
+          "annotation": "tuple[str, str]",
+          "default": "PARTICIPANT_AUTH_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_assignments.py",
+        "line_start": 162,
+        "line_end": 183
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_assignments.post.param-assignment-id.mark-no-show.mark-no-show",
+      "module": "routers.experiment_assignments",
+      "function_name": "mark_no_show",
+      "qualified_name": "routers.experiment_assignments.mark_no_show",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{assignment_id}/mark-no-show",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "assignment_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EDIT_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_assignments.py",
+        "line_start": 296,
+        "line_end": 315
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_assignments.post.param-assignment-id.respond.respond-to-invitation",
+      "module": "routers.experiment_assignments",
+      "function_name": "respond_to_invitation",
+      "qualified_name": "routers.experiment_assignments.respond_to_invitation",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{assignment_id}/respond",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ExperimentAssignmentResponse"
+      },
+      "parameters": [
+        {
+          "name": "assignment_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "request",
+          "annotation": "InvitationResponseRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_PARTICIPANT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "participant_auth",
+          "annotation": "tuple[str, str]",
+          "default": "PARTICIPANT_AUTH_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_assignments.py",
+        "line_start": 133,
+        "line_end": 154
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

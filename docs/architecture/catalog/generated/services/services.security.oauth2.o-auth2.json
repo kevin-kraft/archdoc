@@ -1,0 +1,115 @@
+{
+  "id": "services.security.oauth2.o-auth2",
+  "module": "services.security.oauth2",
+  "class_name": "OAuth2Service",
+  "qualified_name": "services.security.oauth2.OAuth2Service",
+  "source": {
+    "file": "services/security/oauth2.py",
+    "line_start": 21,
+    "line_end": 375
+  },
+  "operations": [
+    {
+      "id": "services.security.oauth2.o-auth2.operation.generate_state_parameter",
+      "method": "generate_state_parameter",
+      "qualified_name": "services.security.oauth2.OAuth2Service.generate_state_parameter",
+      "source": {
+        "file": "services/security/oauth2.py",
+        "line_start": 83,
+        "line_end": 88
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.security.oauth2.o-auth2.operation.get_oauth_authorization_url",
+      "method": "get_oauth_authorization_url",
+      "qualified_name": "services.security.oauth2.OAuth2Service.get_oauth_authorization_url",
+      "source": {
+        "file": "services/security/oauth2.py",
+        "line_start": 90,
+        "line_end": 138
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.security.oauth2.o-auth2.operation.exchange_authorization_code",
+      "method": "exchange_authorization_code",
+      "qualified_name": "services.security.oauth2.OAuth2Service.exchange_authorization_code",
+      "source": {
+        "file": "services/security/oauth2.py",
+        "line_start": 140,
+        "line_end": 226
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.security.oauth2.o-auth2.operation.refresh_access_token",
+      "method": "refresh_access_token",
+      "qualified_name": "services.security.oauth2.OAuth2Service.refresh_access_token",
+      "source": {
+        "file": "services/security/oauth2.py",
+        "line_start": 228,
+        "line_end": 310
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.security.oauth2.o-auth2.operation.validate_access_token",
+      "method": "validate_access_token",
+      "qualified_name": "services.security.oauth2.OAuth2Service.validate_access_token",
+      "source": {
+        "file": "services/security/oauth2.py",
+        "line_start": 312,
+        "line_end": 342
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.security.oauth2.o-auth2.operation.revoke_token",
+      "method": "revoke_token",
+      "qualified_name": "services.security.oauth2.OAuth2Service.revoke_token",
+      "source": {
+        "file": "services/security/oauth2.py",
+        "line_start": 344,
+        "line_end": 375
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "finance.compensation",
+  "module": "services.finance.compensation",
+  "class_name": "CompensationService",
+  "qualified_name": "services.finance.compensation.CompensationService",
+  "source": {
+    "file": "services/finance/compensation.py",
+    "line_start": 11,
+    "line_end": 98
+  },
+  "operations": [
+    {
+      "id": "finance.compensation.operation.get_participant_payouts",
+      "method": "get_participant_payouts",
+      "qualified_name": "services.finance.compensation.CompensationService.get_participant_payouts",
+      "source": {
+        "file": "services/finance/compensation.py",
+        "line_start": 21,
+        "line_end": 65
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

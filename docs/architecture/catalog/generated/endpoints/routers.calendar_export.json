@@ -1,0 +1,111 @@
+{
+  "id": "routers.calendar_export",
+  "module": "routers.calendar_export",
+  "source_file": "routers/calendar_export.py",
+  "endpoints": [
+    {
+      "id": "routers.calendar_export.get.experiments.param-experiment-id.sessions.calendar.ics.download-experiment-calendar",
+      "module": "routers.calendar_export",
+      "function_name": "download_experiment_calendar",
+      "qualified_name": "routers.calendar_export.download_experiment_calendar",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/experiments/{experiment_id}/sessions/calendar.ics",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "experiment_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/calendar_export.py",
+        "line_start": 147,
+        "line_end": 212
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.calendar_export.get.sessions.param-session-id.calendar.ics.download-session-calendar",
+      "module": "routers.calendar_export",
+      "function_name": "download_session_calendar",
+      "qualified_name": "routers.calendar_export.download_session_calendar",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/sessions/{session_id}/calendar.ics",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/calendar_export.py",
+        "line_start": 88,
+        "line_end": 143
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "recruitment.recruitment-query-execution",
+  "module": "services.recruitment.query_execution",
+  "class_name": "RecruitmentQueryExecutionService",
+  "qualified_name": "services.recruitment.query_execution.RecruitmentQueryExecutionService",
+  "source": {
+    "file": "services/recruitment/query_execution.py",
+    "line_start": 466,
+    "line_end": 650
+  },
+  "operations": [
+    {
+      "id": "recruitment.recruitment-query-execution.operation.execute_query",
+      "method": "execute_query",
+      "qualified_name": "services.recruitment.query_execution.RecruitmentQueryExecutionService.execute_query",
+      "source": {
+        "file": "services/recruitment/query_execution.py",
+        "line_start": 477,
+        "line_end": 511
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.recruitment-query-execution.operation.get_eligible_participants",
+      "method": "get_eligible_participants",
+      "qualified_name": "services.recruitment.query_execution.RecruitmentQueryExecutionService.get_eligible_participants",
+      "source": {
+        "file": "services/recruitment/query_execution.py",
+        "line_start": 513,
+        "line_end": 560
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.recruitment-query-execution.operation.check_participant_eligibility",
+      "method": "check_participant_eligibility",
+      "qualified_name": "services.recruitment.query_execution.RecruitmentQueryExecutionService.check_participant_eligibility",
+      "source": {
+        "file": "services/recruitment/query_execution.py",
+        "line_start": 562,
+        "line_end": 592
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

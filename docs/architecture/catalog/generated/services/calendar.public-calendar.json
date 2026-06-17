@@ -1,0 +1,99 @@
+{
+  "id": "calendar.public-calendar",
+  "module": "services.calendar.public",
+  "class_name": "PublicCalendarService",
+  "qualified_name": "services.calendar.public.PublicCalendarService",
+  "source": {
+    "file": "services/calendar/public.py",
+    "line_start": 84,
+    "line_end": 503
+  },
+  "operations": [
+    {
+      "id": "calendar.public-calendar.operation.get_public_calendar",
+      "method": "get_public_calendar",
+      "qualified_name": "services.calendar.public.PublicCalendarService.get_public_calendar",
+      "source": {
+        "file": "services/calendar/public.py",
+        "line_start": 90,
+        "line_end": 121
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "calendar.public-calendar.operation.generate_ical_feed",
+      "method": "generate_ical_feed",
+      "qualified_name": "services.calendar.public.PublicCalendarService.generate_ical_feed",
+      "source": {
+        "file": "services/calendar/public.py",
+        "line_start": 123,
+        "line_end": 137
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "calendar.public-calendar.operation.get_calendar_filters",
+      "method": "get_calendar_filters",
+      "qualified_name": "services.calendar.public.PublicCalendarService.get_calendar_filters",
+      "source": {
+        "file": "services/calendar/public.py",
+        "line_start": 139,
+        "line_end": 213
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "calendar.public-calendar.operation.create_calendar_subscription",
+      "method": "create_calendar_subscription",
+      "qualified_name": "services.calendar.public.PublicCalendarService.create_calendar_subscription",
+      "source": {
+        "file": "services/calendar/public.py",
+        "line_start": 215,
+        "line_end": 262
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "calendar.public-calendar.operation.get_calendar_subscriptions",
+      "method": "get_calendar_subscriptions",
+      "qualified_name": "services.calendar.public.PublicCalendarService.get_calendar_subscriptions",
+      "source": {
+        "file": "services/calendar/public.py",
+        "line_start": 264,
+        "line_end": 271
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

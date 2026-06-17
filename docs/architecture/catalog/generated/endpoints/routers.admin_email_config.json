@@ -1,0 +1,416 @@
+{
+  "id": "routers.admin_email_config",
+  "module": "routers.admin_email_config",
+  "source_file": "routers/admin_email_config.py",
+  "endpoints": [
+    {
+      "id": "routers.admin_email_config.delete.root.delete-email-config",
+      "module": "routers.admin_email_config",
+      "function_name": "delete_email_config",
+      "qualified_name": "routers.admin_email_config.delete_email_config",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EMAIL_CONFIG_DELETE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_email_config.py",
+        "line_start": 577,
+        "line_end": 593
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_email_config.get.quota.get-email-quota",
+      "module": "routers.admin_email_config",
+      "function_name": "get_email_quota",
+      "qualified_name": "routers.admin_email_config.get_email_quota",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/quota",
+      "router": "router",
+      "kwargs": {
+        "response_model": "EmailQuotaResponse"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EMAIL_CONFIG_QUOTA_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_email_config.py",
+        "line_start": 601,
+        "line_end": 615
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_email_config.get.root.get-email-config",
+      "module": "routers.admin_email_config",
+      "function_name": "get_email_config",
+      "qualified_name": "routers.admin_email_config.get_email_config",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/",
+      "router": "router",
+      "kwargs": {
+        "response_model": "EmailConfigResponse"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EMAIL_CONFIG_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_email_config.py",
+        "line_start": 318,
+        "line_end": 337
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_email_config.post.quota.reset.reset-email-quota",
+      "module": "routers.admin_email_config",
+      "function_name": "reset_email_quota",
+      "qualified_name": "routers.admin_email_config.reset_email_quota",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/quota/reset",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EMAIL_CONFIG_QUOTA_WRITE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_email_config.py",
+        "line_start": 665,
+        "line_end": 690
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_email_config.post.root.create-or-update-email-config",
+      "module": "routers.admin_email_config",
+      "function_name": "create_or_update_email_config",
+      "qualified_name": "routers.admin_email_config.create_or_update_email_config",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/",
+      "router": "router",
+      "kwargs": {
+        "response_model": "EmailConfigResponse"
+      },
+      "parameters": [
+        {
+          "name": "config_data",
+          "annotation": "EmailConfigCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": "CURRENT_USER_ID_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EMAIL_CONFIG_WRITE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_email_config.py",
+        "line_start": 341,
+        "line_end": 411
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_email_config.post.test.test-email-connection",
+      "module": "routers.admin_email_config",
+      "function_name": "test_email_connection",
+      "qualified_name": "routers.admin_email_config.test_email_connection",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/test",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TestConnectionResponse"
+      },
+      "parameters": [
+        {
+          "name": "test_request",
+          "annotation": "TestConnectionRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EMAIL_CONFIG_WRITE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_email_config.py",
+        "line_start": 415,
+        "line_end": 573
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_email_config.put.quota.update-email-quota",
+      "module": "routers.admin_email_config",
+      "function_name": "update_email_quota",
+      "qualified_name": "routers.admin_email_config.update_email_quota",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/quota",
+      "router": "router",
+      "kwargs": {
+        "response_model": "EmailQuotaResponse"
+      },
+      "parameters": [
+        {
+          "name": "quota_data",
+          "annotation": "EmailQuotaUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": "CURRENT_USER_ID_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EMAIL_CONFIG_QUOTA_WRITE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_email_config.py",
+        "line_start": 619,
+        "line_end": 661
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

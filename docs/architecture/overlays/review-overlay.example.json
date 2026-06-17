@@ -1,0 +1,41 @@
+{
+  "schema_version": "architecture-overlay/v0.1",
+  "project_name": "utilis",
+  "catalog_version": null,
+  "items": [
+    {
+      "target": {
+        "type": "endpoint",
+        "id": "routers.example.post.example.create-example",
+        "source_file": "routers/example.py",
+        "line_start": 42
+      },
+      "review_status": "needs_review",
+      "labels": [
+        "tenant-scoped",
+        "public-contract"
+      ],
+      "status_markers": [
+        "missing-response-model"
+      ],
+      "owner": "architecture",
+      "notes": "Example overlay item. Generated catalog files stay read-only.",
+      "links": {
+        "user_stories": [
+          "US-EXAMPLE-001"
+        ],
+        "bpmn_tasks": [
+          "process.example.task.create"
+        ]
+      },
+      "overrides": {
+        "review_status": "needs_review"
+      },
+      "metadata": {
+        "author": "archdoc",
+        "updated_at": "2026-06-12",
+        "rationale": "Shows the manual review layer format."
+      }
+    }
+  ]
+}

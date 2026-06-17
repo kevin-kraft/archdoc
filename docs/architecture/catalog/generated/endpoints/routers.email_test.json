@@ -1,0 +1,155 @@
+{
+  "id": "routers.email_test",
+  "module": "routers.email_test",
+  "source_file": "routers/email_test.py",
+  "endpoints": [
+    {
+      "id": "routers.email_test.get.config.get-email-configuration",
+      "module": "routers.email_test",
+      "function_name": "get_email_configuration",
+      "qualified_name": "routers.email_test.get_email_configuration",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/config",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict[str, Any]"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "SETTINGS_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_test.py",
+        "line_start": 137,
+        "line_end": 174
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_test.get.connection.test-smtp-connection",
+      "module": "routers.email_test",
+      "function_name": "test_smtp_connection",
+      "qualified_name": "routers.email_test.test_smtp_connection",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/connection",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ConnectionTestResponse"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "SETTINGS_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_test.py",
+        "line_start": 51,
+        "line_end": 83
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_test.post.send.send-test-email",
+      "module": "routers.email_test",
+      "function_name": "send_test_email",
+      "qualified_name": "routers.email_test.send_test_email",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/send",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TestEmailResponse"
+      },
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "TestEmailRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "SETTINGS_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_test.py",
+        "line_start": 87,
+        "line_end": 133
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

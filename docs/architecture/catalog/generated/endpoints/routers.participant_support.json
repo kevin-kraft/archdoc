@@ -1,0 +1,322 @@
+{
+  "id": "routers.participant_support",
+  "module": "routers.participant_support",
+  "source_file": "routers/participant_support.py",
+  "endpoints": [
+    {
+      "id": "routers.participant_support.get.public.param-org-slug.support.tickets.list-participant-support-tickets",
+      "module": "routers.participant_support",
+      "function_name": "list_participant_support_tickets",
+      "qualified_name": "routers.participant_support.list_participant_support_tickets",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/support/tickets",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[SupportTicketSummaryResponse]"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "status",
+          "annotation": "SupportTicketStatus | None",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "ticket_type",
+          "annotation": "SupportTicketType | None",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "context_type",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "context_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_support.py",
+        "line_start": 117,
+        "line_end": 138
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_support.get.public.param-org-slug.support.tickets.param-ticket-id.get-participant-support-ticket",
+      "module": "routers.participant_support",
+      "function_name": "get_participant_support_ticket",
+      "qualified_name": "routers.participant_support.get_participant_support_ticket",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/support/tickets/{ticket_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SupportTicketDetailResponse"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "ticket_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_support.py",
+        "line_start": 142,
+        "line_end": 158
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_support.post.public.param-org-slug.support.tickets.create-participant-support-ticket",
+      "module": "routers.participant_support",
+      "function_name": "create_participant_support_ticket",
+      "qualified_name": "routers.participant_support.create_participant_support_ticket",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/public/{org_slug}/support/tickets",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SupportTicketCreateResponse"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "SupportTicketCreateRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_support.py",
+        "line_start": 89,
+        "line_end": 113
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_support.post.public.param-org-slug.support.tickets.param-ticket-id.entries.add-participant-support-ticket-entry",
+      "module": "routers.participant_support",
+      "function_name": "add_participant_support_ticket_entry",
+      "qualified_name": "routers.participant_support.add_participant_support_ticket_entry",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/public/{org_slug}/support/tickets/{ticket_id}/entries",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SupportTicketDetailResponse"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "ticket_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "SupportTicketEntryCreateRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_support.py",
+        "line_start": 162,
+        "line_end": 179
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_support.post.public.param-org-slug.support.tickets.param-ticket-id.status.update-participant-support-ticket-status",
+      "module": "routers.participant_support",
+      "function_name": "update_participant_support_ticket_status",
+      "qualified_name": "routers.participant_support.update_participant_support_ticket_status",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/public/{org_slug}/support/tickets/{ticket_id}/status",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SupportTicketDetailResponse"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "ticket_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "ParticipantSupportTicketStatusUpdateRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_support.py",
+        "line_start": 183,
+        "line_end": 201
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "services.admin.system.system-settings",
+  "module": "services.admin.system",
+  "class_name": "SystemSettingsService",
+  "qualified_name": "services.admin.system.SystemSettingsService",
+  "source": {
+    "file": "services/admin/system.py",
+    "line_start": 14,
+    "line_end": 111
+  },
+  "operations": [
+    {
+      "id": "services.admin.system.system-settings.operation.get_settings",
+      "method": "get_settings",
+      "qualified_name": "services.admin.system.SystemSettingsService.get_settings",
+      "source": {
+        "file": "services/admin/system.py",
+        "line_start": 20,
+        "line_end": 75
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.admin.system.system-settings.operation.update_settings",
+      "method": "update_settings",
+      "qualified_name": "services.admin.system.SystemSettingsService.update_settings",
+      "source": {
+        "file": "services/admin/system.py",
+        "line_start": 77,
+        "line_end": 111
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

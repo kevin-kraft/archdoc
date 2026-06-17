@@ -1,0 +1,131 @@
+{
+  "id": "services.operations.email_provider.email-provider",
+  "module": "services.operations.email_provider",
+  "class_name": "EmailProviderService",
+  "qualified_name": "services.operations.email_provider.EmailProviderService",
+  "source": {
+    "file": "services/operations/email_provider.py",
+    "line_start": 31,
+    "line_end": 437
+  },
+  "operations": [
+    {
+      "id": "services.operations.email_provider.email-provider.operation.configure_smtp_provider",
+      "method": "configure_smtp_provider",
+      "qualified_name": "services.operations.email_provider.EmailProviderService.configure_smtp_provider",
+      "source": {
+        "file": "services/operations/email_provider.py",
+        "line_start": 37,
+        "line_end": 91
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.email_provider.email-provider.operation.configure_sendgrid_provider",
+      "method": "configure_sendgrid_provider",
+      "qualified_name": "services.operations.email_provider.EmailProviderService.configure_sendgrid_provider",
+      "source": {
+        "file": "services/operations/email_provider.py",
+        "line_start": 93,
+        "line_end": 135
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.email_provider.email-provider.operation.configure_mailgun_provider",
+      "method": "configure_mailgun_provider",
+      "qualified_name": "services.operations.email_provider.EmailProviderService.configure_mailgun_provider",
+      "source": {
+        "file": "services/operations/email_provider.py",
+        "line_start": 137,
+        "line_end": 183
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.email_provider.email-provider.operation.configure_aws_ses_provider",
+      "method": "configure_aws_ses_provider",
+      "qualified_name": "services.operations.email_provider.EmailProviderService.configure_aws_ses_provider",
+      "source": {
+        "file": "services/operations/email_provider.py",
+        "line_start": 185,
+        "line_end": 233
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.email_provider.email-provider.operation.get_active_email_provider",
+      "method": "get_active_email_provider",
+      "qualified_name": "services.operations.email_provider.EmailProviderService.get_active_email_provider",
+      "source": {
+        "file": "services/operations/email_provider.py",
+        "line_start": 235,
+        "line_end": 287
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.email_provider.email-provider.operation.test_email_configuration",
+      "method": "test_email_configuration",
+      "qualified_name": "services.operations.email_provider.EmailProviderService.test_email_configuration",
+      "source": {
+        "file": "services/operations/email_provider.py",
+        "line_start": 289,
+        "line_end": 323
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.email_provider.email-provider.operation.rotate_credentials",
+      "method": "rotate_credentials",
+      "qualified_name": "services.operations.email_provider.EmailProviderService.rotate_credentials",
+      "source": {
+        "file": "services/operations/email_provider.py",
+        "line_start": 364,
+        "line_end": 413
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

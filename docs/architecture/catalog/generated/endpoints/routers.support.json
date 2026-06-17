@@ -1,0 +1,364 @@
+{
+  "id": "routers.support",
+  "module": "routers.support",
+  "source_file": "routers/support.py",
+  "endpoints": [
+    {
+      "id": "routers.support.get.list-support-tickets",
+      "module": "routers.support",
+      "function_name": "list_support_tickets",
+      "qualified_name": "routers.support.list_support_tickets",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[SupportTicketSummaryResponse]"
+      },
+      "parameters": [
+        {
+          "name": "status",
+          "annotation": "SupportTicketStatus | None",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "ticket_type",
+          "annotation": "SupportTicketType | None",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "context_type",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "context_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "search",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(100, ge=1, le=200)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SupportPermissions.VIEW))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/support.py",
+        "line_start": 94,
+        "line_end": 118
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.support.get.param-ticket-id.get-support-ticket",
+      "module": "routers.support",
+      "function_name": "get_support_ticket",
+      "qualified_name": "routers.support.get_support_ticket",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{ticket_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SupportTicketDetailResponse"
+      },
+      "parameters": [
+        {
+          "name": "ticket_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SupportPermissions.VIEW))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/support.py",
+        "line_start": 122,
+        "line_end": 131
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.support.post.param-ticket-id.entries.add-support-ticket-entry",
+      "module": "routers.support",
+      "function_name": "add_support_ticket_entry",
+      "qualified_name": "routers.support.add_support_ticket_entry",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{ticket_id}/entries",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SupportTicketDetailResponse"
+      },
+      "parameters": [
+        {
+          "name": "ticket_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "SupportTicketStaffEntryCreateRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_add_internal_note",
+          "annotation": "bool",
+          "default": "Depends(has_permission(SupportPermissions.INTERNAL_NOTE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SupportPermissions.RESPOND))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/support.py",
+        "line_start": 135,
+        "line_end": 156
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.support.post.param-ticket-id.status.update-support-ticket-status",
+      "module": "routers.support",
+      "function_name": "update_support_ticket_status",
+      "qualified_name": "routers.support.update_support_ticket_status",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{ticket_id}/status",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SupportTicketDetailResponse"
+      },
+      "parameters": [
+        {
+          "name": "ticket_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "SupportTicketStatusUpdateRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SupportPermissions.STATUS_UPDATE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/support.py",
+        "line_start": 160,
+        "line_end": 177
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

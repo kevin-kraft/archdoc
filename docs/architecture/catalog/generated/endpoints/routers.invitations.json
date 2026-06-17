@@ -1,0 +1,915 @@
+{
+  "id": "routers.invitations",
+  "module": "routers.invitations",
+  "source_file": "routers/invitations.py",
+  "endpoints": [
+    {
+      "id": "routers.invitations.get.experiments.param-experiment-id.response-stats.get-experiment-response-stats",
+      "module": "routers.invitations",
+      "function_name": "get_experiment_response_stats",
+      "qualified_name": "routers.invitations.get_experiment_response_stats",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/experiments/{experiment_id}/response-stats",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ResponseStats"
+      },
+      "parameters": [
+        {
+          "name": "experiment_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_any_permission(CAMPAIGN_READ_PERMISSIONS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/invitations.py",
+        "line_start": 611,
+        "line_end": 651
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.invitations.get.invitations.list-invitations",
+      "module": "routers.invitations",
+      "function_name": "list_invitations",
+      "qualified_name": "routers.invitations.list_invitations",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/invitations",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[InvitationResponse]"
+      },
+      "parameters": [
+        {
+          "name": "experiment_id",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by experiment ID')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "status",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by invitation status')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "start_date",
+          "annotation": "Optional[datetime]",
+          "default": "Query(None, description='Start of date range')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "end_date",
+          "annotation": "Optional[datetime]",
+          "default": "Query(None, description='End of date range')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "skip",
+          "annotation": "int",
+          "default": "Query(0, ge=0)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(100, ge=1, le=1000)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_any_permission(CAMPAIGN_READ_PERMISSIONS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/invitations.py",
+        "line_start": 399,
+        "line_end": 467
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.invitations.get.invitations.param-invitation-id.responses.get-invitation-responses",
+      "module": "routers.invitations",
+      "function_name": "get_invitation_responses",
+      "qualified_name": "routers.invitations.get_invitation_responses",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/invitations/{invitation_id}/responses",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[ResponseResponse]"
+      },
+      "parameters": [
+        {
+          "name": "invitation_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_any_permission(CAMPAIGN_READ_PERMISSIONS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/invitations.py",
+        "line_start": 525,
+        "line_end": 563
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.invitations.get.queries.list-queries",
+      "module": "routers.invitations",
+      "function_name": "list_queries",
+      "qualified_name": "routers.invitations.list_queries",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/queries",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[QueryResponse]"
+      },
+      "parameters": [
+        {
+          "name": "name",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by query name (partial match)')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "status",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by query status (active, inactive, error)')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "last_run",
+          "annotation": "Optional[datetime]",
+          "default": "Query(None, description='Filter by last run timestamp')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "skip",
+          "annotation": "int",
+          "default": "Query(0, ge=0)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(100, ge=1, le=1000)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(TargetingPermissions.READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/invitations.py",
+        "line_start": 80,
+        "line_end": 142
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.invitations.post.invitations.create-invitation",
+      "module": "routers.invitations",
+      "function_name": "create_invitation",
+      "qualified_name": "routers.invitations.create_invitation",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/invitations",
+      "router": "router",
+      "kwargs": {
+        "response_model": "InvitationResponse",
+        "status_code": "201"
+      },
+      "parameters": [
+        {
+          "name": "invitation_data",
+          "annotation": "InvitationCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(CampaignPermissions.CREATE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/invitations.py",
+        "line_start": 343,
+        "line_end": 396
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.invitations.post.invitations.param-invitation-id.cancel.cancel-invitation",
+      "module": "routers.invitations",
+      "function_name": "cancel_invitation",
+      "qualified_name": "routers.invitations.cancel_invitation",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/invitations/{invitation_id}/cancel",
+      "router": "router",
+      "kwargs": {
+        "response_model": "InvitationResponse"
+      },
+      "parameters": [
+        {
+          "name": "invitation_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "cancel_data",
+          "annotation": "Optional[InvitationCancelRequest]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(CampaignPermissions.CANCEL))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/invitations.py",
+        "line_start": 507,
+        "line_end": 522
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.invitations.post.invitations.param-invitation-id.remind.send-reminder",
+      "module": "routers.invitations",
+      "function_name": "send_reminder",
+      "qualified_name": "routers.invitations.send_reminder",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/invitations/{invitation_id}/remind",
+      "router": "router",
+      "kwargs": {
+        "response_model": "InvitationResponse"
+      },
+      "parameters": [
+        {
+          "name": "invitation_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "reminder_data",
+          "annotation": "Optional[ReminderRequest]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ReminderPermissions.CREATE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/invitations.py",
+        "line_start": 654,
+        "line_end": 669
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.invitations.post.invitations.param-invitation-id.responses.record-response",
+      "module": "routers.invitations",
+      "function_name": "record_response",
+      "qualified_name": "routers.invitations.record_response",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/invitations/{invitation_id}/responses",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ResponseResponse",
+        "status_code": "201"
+      },
+      "parameters": [
+        {
+          "name": "invitation_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "response_data",
+          "annotation": "ResponseCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_any_permission(CAMPAIGN_EDIT_PERMISSIONS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/invitations.py",
+        "line_start": 566,
+        "line_end": 608
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.invitations.post.invitations.param-invitation-id.send.send-invitation",
+      "module": "routers.invitations",
+      "function_name": "send_invitation",
+      "qualified_name": "routers.invitations.send_invitation",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/invitations/{invitation_id}/send",
+      "router": "router",
+      "kwargs": {
+        "response_model": "InvitationResponse"
+      },
+      "parameters": [
+        {
+          "name": "invitation_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "send_data",
+          "annotation": "Optional[InvitationSendRequest]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(CampaignPermissions.SEND))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/invitations.py",
+        "line_start": 470,
+        "line_end": 504
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.invitations.post.queries.create-query",
+      "module": "routers.invitations",
+      "function_name": "create_query",
+      "qualified_name": "routers.invitations.create_query",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/queries",
+      "router": "router",
+      "kwargs": {
+        "response_model": "QueryResponse",
+        "status_code": "201"
+      },
+      "parameters": [
+        {
+          "name": "query_data",
+          "annotation": "QueryCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(TargetingPermissions.CREATE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/invitations.py",
+        "line_start": 145,
+        "line_end": 196
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.invitations.post.queries.param-query-id.execute.execute-query",
+      "module": "routers.invitations",
+      "function_name": "execute_query",
+      "qualified_name": "routers.invitations.execute_query",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/queries/{query_id}/execute",
+      "router": "router",
+      "kwargs": {
+        "response_model": "QueryExecutionResponse"
+      },
+      "parameters": [
+        {
+          "name": "query_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "execution_data",
+          "annotation": "Optional[QueryExecutionRequest]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(TargetingPermissions.READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/invitations.py",
+        "line_start": 253,
+        "line_end": 277
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.invitations.post.queries.param-query-id.schedule.schedule-query",
+      "module": "routers.invitations",
+      "function_name": "schedule_query",
+      "qualified_name": "routers.invitations.schedule_query",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/queries/{query_id}/schedule",
+      "router": "router",
+      "kwargs": {
+        "response_model": "QueryResponse"
+      },
+      "parameters": [
+        {
+          "name": "query_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "schedule_data",
+          "annotation": "QueryScheduleRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ReminderPermissions.CREATE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/invitations.py",
+        "line_start": 280,
+        "line_end": 340
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.invitations.put.queries.param-query-id.update-query",
+      "module": "routers.invitations",
+      "function_name": "update_query",
+      "qualified_name": "routers.invitations.update_query",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/queries/{query_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "QueryResponse"
+      },
+      "parameters": [
+        {
+          "name": "query_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "query_data",
+          "annotation": "QueryUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(TargetingPermissions.UPDATE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/invitations.py",
+        "line_start": 199,
+        "line_end": 250
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

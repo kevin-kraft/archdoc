@@ -1,0 +1,2226 @@
+{
+  "id": "routers.sessions",
+  "module": "routers.sessions",
+  "source_file": "routers/sessions.py",
+  "endpoints": [
+    {
+      "id": "routers.sessions.delete.param-session-id.delete-session",
+      "module": "routers.sessions",
+      "function_name": "delete_session",
+      "qualified_name": "routers.sessions.delete_session",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/{session_id}",
+      "router": "router",
+      "kwargs": {
+        "operation_id": "delete_session"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_any_permission([SessionPermissions.DELETE_EMPTY, SessionPermissions.DELETE_NONEMPTY]))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 192,
+        "line_end": 208
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.delete.param-session-id.enrollments.param-participant-id.cancel-enrollment",
+      "module": "routers.sessions",
+      "function_name": "cancel_enrollment",
+      "qualified_name": "routers.sessions.cancel_enrollment",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/{session_id}/enrollments/{participant_id}",
+      "router": "router",
+      "kwargs": {
+        "status_code": "status.HTTP_204_NO_CONTENT"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ExperimentPermissions.EDIT_PARTICIPANTS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 309,
+        "line_end": 345
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.audit-log.get-session-audit-log",
+      "module": "routers.sessions",
+      "function_name": "get_session_audit_log",
+      "qualified_name": "routers.sessions.get_session_audit_log",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/audit-log",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict]"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(100, ge=1, le=1000, description='Number of audit entries to return')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 953,
+        "line_end": 976
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.enhanced-details.get-session-enhanced-details",
+      "module": "routers.sessions",
+      "function_name": "get_session_enhanced_details",
+      "qualified_name": "routers.sessions.get_session_enhanced_details",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/enhanced-details",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 749,
+        "line_end": 769
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.enrollment-summary.get-session-enrollment-summary",
+      "module": "routers.sessions",
+      "function_name": "get_session_enrollment_summary",
+      "qualified_name": "routers.sessions.get_session_enrollment_summary",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/enrollment-summary",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.VIEW))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 439,
+        "line_end": 458
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.enrollments.list-enrollments",
+      "module": "routers.sessions",
+      "function_name": "list_enrollments",
+      "qualified_name": "routers.sessions.list_enrollments",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/enrollments",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[EnrollmentWithParticipantResponse]",
+        "operation_id": "list_session_enrollments"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ExperimentPermissions.SHOW_PARTICIPANTS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 352,
+        "line_end": 388
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.finance-status.get-session-finance-status",
+      "module": "routers.sessions",
+      "function_name": "get_session_finance_status",
+      "qualified_name": "routers.sessions.get_session_finance_status",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/finance-status",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SessionFinanceStatusResponse",
+        "operation_id": "get_session_finance_status"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.VIEW))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 226,
+        "line_end": 266
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.get-session",
+      "module": "routers.sessions",
+      "function_name": "get_session",
+      "qualified_name": "routers.sessions.get_session",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SessionResponse",
+        "operation_id": "get_session"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 211,
+        "line_end": 222
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.lock-status.get-session-lock-status",
+      "module": "routers.sessions",
+      "function_name": "get_session_lock_status",
+      "qualified_name": "routers.sessions.get_session_lock_status",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/lock-status",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 933,
+        "line_end": 950
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.performance-stats.get-session-performance-stats",
+      "module": "routers.sessions",
+      "function_name": "get_session_performance_stats",
+      "qualified_name": "routers.sessions.get_session_performance_stats",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/performance-stats",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "hours",
+          "annotation": "int",
+          "default": "Query(24, ge=1, le=168, description='Time period in hours')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 979,
+        "line_end": 997
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.reminders.templates.get-session-reminder-templates",
+      "module": "routers.sessions",
+      "function_name": "get_session_reminder_templates",
+      "qualified_name": "routers.sessions.get_session_reminder_templates",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/reminders/templates",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict]"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ExperimentPermissions.CUSTOMIZE_SESSION_REMINDER))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 621,
+        "line_end": 657
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.security-audit.get-session-security-audit",
+      "module": "routers.sessions",
+      "function_name": "get_session_security_audit",
+      "qualified_name": "routers.sessions.get_session_security_audit",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/security-audit",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "hours",
+          "annotation": "int",
+          "default": "Query(24, ge=1, le=168, description='Time period in hours')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 1000,
+        "line_end": 1023
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.state-history.get-session-state-history",
+      "module": "routers.sessions",
+      "function_name": "get_session_state_history",
+      "qualified_name": "routers.sessions.get_session_state_history",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/state-history",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict]"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(50, ge=1, le=1000, description='Number of transitions to return')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 772,
+        "line_end": 790
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.valid-transitions.list-valid-session-transitions",
+      "module": "routers.sessions",
+      "function_name": "list_valid_session_transitions",
+      "qualified_name": "routers.sessions.list_valid_session_transitions",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/valid-transitions",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[str]"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 1026,
+        "line_end": 1041
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.versions.get-session-versions",
+      "module": "routers.sessions",
+      "function_name": "get_session_versions",
+      "qualified_name": "routers.sessions.get_session_versions",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/versions",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict]"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(20, ge=1, le=500, description='Number of versions to return')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 793,
+        "line_end": 811
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.param-session-id.waitlist.list-waitlist",
+      "module": "routers.sessions",
+      "function_name": "list_waitlist",
+      "qualified_name": "routers.sessions.list_waitlist",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/waitlist",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[WaitlistResponse]"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ExperimentPermissions.SHOW_PARTICIPANTS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 391,
+        "line_end": 407
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.root.list-sessions",
+      "module": "routers.sessions",
+      "function_name": "list_sessions",
+      "qualified_name": "routers.sessions.list_sessions",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[SessionResponse]",
+        "operation_id": "list_sessions"
+      },
+      "parameters": [
+        {
+          "name": "experiment_id",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by experiment ID')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "status",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by session status')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "start_date",
+          "annotation": "Optional[datetime]",
+          "default": "Query(None, description='Start date filter')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "end_date",
+          "annotation": "Optional[datetime]",
+          "default": "Query(None, description='End date filter')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "search",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Search by session or experiment ID')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "skip",
+          "annotation": "int",
+          "default": "Query(0, ge=0)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(100, ge=1, le=1000)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.VIEW))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "response",
+          "annotation": "Response",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 95,
+        "line_end": 131
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.get.summary.get-session-list-summary",
+      "module": "routers.sessions",
+      "function_name": "get_session_list_summary",
+      "qualified_name": "routers.sessions.get_session_list_summary",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/summary",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SessionListSummaryResponse",
+        "operation_id": "get_session_list_summary"
+      },
+      "parameters": [
+        {
+          "name": "experiment_id",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by experiment ID')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "status",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by session status')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "start_date",
+          "annotation": "Optional[datetime]",
+          "default": "Query(None, description='Start date filter')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "end_date",
+          "annotation": "Optional[datetime]",
+          "default": "Query(None, description='End date filter')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "search",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Search by session or experiment ID')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.VIEW))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 73,
+        "line_end": 92
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.post.param-session-id.enrollments.enroll-participant",
+      "module": "routers.sessions",
+      "function_name": "enroll_participant",
+      "qualified_name": "routers.sessions.enroll_participant",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{session_id}/enrollments",
+      "router": "router",
+      "kwargs": {
+        "response_model": "Union[EnrollmentResponse, WaitlistResponse]",
+        "operation_id": "enroll_participant"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ExperimentPermissions.EDIT_PARTICIPANTS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 269,
+        "line_end": 306
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.post.param-session-id.lock.lock-session",
+      "module": "routers.sessions",
+      "function_name": "lock_session",
+      "qualified_name": "routers.sessions.lock_session",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{session_id}/lock",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "lock_type",
+          "annotation": "str",
+          "default": "Query('exclusive', description='Type of lock (exclusive, read, write)')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "reason",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Reason for locking')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "duration",
+          "annotation": "int",
+          "default": "Query(300, ge=60, le=3600, description='Lock duration in seconds')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 854,
+        "line_end": 895
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.post.param-session-id.reminders.schedule.schedule-session-reminder",
+      "module": "routers.sessions",
+      "function_name": "schedule_session_reminder",
+      "qualified_name": "routers.sessions.schedule_session_reminder",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{session_id}/reminders/schedule",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "reminder_time",
+          "annotation": "datetime",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "reminder_template_id",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.SEND_REMINDER))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 660,
+        "line_end": 710
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.post.param-session-id.reminders.send.send-session-reminders",
+      "module": "routers.sessions",
+      "function_name": "send_session_reminders",
+      "qualified_name": "routers.sessions.send_session_reminders",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{session_id}/reminders/send",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "reminder_template_id",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.SEND_REMINDER))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 553,
+        "line_end": 618
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.post.param-session-id.rollback.rollback-session-version",
+      "module": "routers.sessions",
+      "function_name": "rollback_session_version",
+      "qualified_name": "routers.sessions.rollback_session_version",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{session_id}/rollback",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "version_number",
+          "annotation": "int",
+          "default": "Query(..., description='Version number to rollback to')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "reason",
+          "annotation": "str",
+          "default": "Query(..., description='Reason for rollback')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 814,
+        "line_end": 851
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.post.param-session-id.state-transition.transition-session-state",
+      "module": "routers.sessions",
+      "function_name": "transition_session_state",
+      "qualified_name": "routers.sessions.transition_session_state",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{session_id}/state-transition",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "new_state",
+          "annotation": "str",
+          "default": "Query(..., description='New state for the session')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "reason",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Reason for state transition')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 715,
+        "line_end": 746
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.post.param-session-id.unlock.unlock-session",
+      "module": "routers.sessions",
+      "function_name": "unlock_session",
+      "qualified_name": "routers.sessions.unlock_session",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{session_id}/unlock",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 898,
+        "line_end": 930
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.post.param-session-id.validate-transition.validate-session-transition",
+      "module": "routers.sessions",
+      "function_name": "validate_session_transition",
+      "qualified_name": "routers.sessions.validate_session_transition",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{session_id}/validate-transition",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "from_state",
+          "annotation": "str",
+          "default": "Query(..., description='Current state')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "to_state",
+          "annotation": "str",
+          "default": "Query(..., description='Target state')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 1044,
+        "line_end": 1079
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.post.param-session-id.waitlist.promote.promote-waitlist-participant",
+      "module": "routers.sessions",
+      "function_name": "promote_waitlist_participant",
+      "qualified_name": "routers.sessions.promote_waitlist_participant",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{session_id}/waitlist/promote",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ExperimentPermissions.EDIT_PARTICIPANTS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 410,
+        "line_end": 436
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.post.root.create-session",
+      "module": "routers.sessions",
+      "function_name": "create_session",
+      "qualified_name": "routers.sessions.create_session",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SessionResponse",
+        "operation_id": "create_session"
+      },
+      "parameters": [
+        {
+          "name": "session_data",
+          "annotation": "SessionCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 134,
+        "line_end": 157
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.put.param-session-id.enrollments.by-enrollment.param-enrollment-id.state.update-enrollment-state-by-enrollment",
+      "module": "routers.sessions",
+      "function_name": "update_enrollment_state_by_enrollment",
+      "qualified_name": "routers.sessions.update_enrollment_state_by_enrollment",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/{session_id}/enrollments/by-enrollment/{enrollment_id}/state",
+      "router": "router",
+      "kwargs": {
+        "response_model": "EnrollmentResponse",
+        "operation_id": "update_enrollment_state_by_enrollment"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "enrollment_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "new_state",
+          "annotation": "EnrollmentState",
+          "default": "Query(..., description='New enrollment state')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ExperimentPermissions.EDIT_PARTICIPANTS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 507,
+        "line_end": 550
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.put.param-session-id.enrollments.param-participant-id.state.update-enrollment-state",
+      "module": "routers.sessions",
+      "function_name": "update_enrollment_state",
+      "qualified_name": "routers.sessions.update_enrollment_state",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/{session_id}/enrollments/{participant_id}/state",
+      "router": "router",
+      "kwargs": {
+        "response_model": "EnrollmentResponse"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "new_state",
+          "annotation": "EnrollmentState",
+          "default": "Query(..., description='New enrollment state')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ExperimentPermissions.EDIT_PARTICIPANTS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 461,
+        "line_end": 499
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.sessions.put.param-session-id.update-session",
+      "module": "routers.sessions",
+      "function_name": "update_session",
+      "qualified_name": "routers.sessions.update_session",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/{session_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SessionResponse",
+        "operation_id": "update_session"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "session_data",
+          "annotation": "SessionUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/sessions.py",
+        "line_start": 160,
+        "line_end": 189
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

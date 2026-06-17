@@ -1,0 +1,499 @@
+{
+  "id": "participants.participant",
+  "module": "services.participants.service",
+  "class_name": "ParticipantService",
+  "qualified_name": "services.participants.service.ParticipantService",
+  "source": {
+    "file": "services/participants/service.py",
+    "line_start": 50,
+    "line_end": 1607
+  },
+  "operations": [
+    {
+      "id": "participants.participant.operation.list_participants",
+      "method": "list_participants",
+      "qualified_name": "services.participants.service.ParticipantService.list_participants",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 58,
+        "line_end": 81
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.count_participants_for_list",
+      "method": "count_participants_for_list",
+      "qualified_name": "services.participants.service.ParticipantService.count_participants_for_list",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 83,
+        "line_end": 102
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.create_participant",
+      "method": "create_participant",
+      "qualified_name": "services.participants.service.ParticipantService.create_participant",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 154,
+        "line_end": 203
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.update_participant",
+      "method": "update_participant",
+      "qualified_name": "services.participants.service.ParticipantService.update_participant",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 274,
+        "line_end": 298
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.delete_participant_single",
+      "method": "delete_participant_single",
+      "qualified_name": "services.participants.service.ParticipantService.delete_participant_single",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 300,
+        "line_end": 336
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.bulk_delete_participants",
+      "method": "bulk_delete_participants",
+      "qualified_name": "services.participants.service.ParticipantService.bulk_delete_participants",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 338,
+        "line_end": 353
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.bulk_update_status",
+      "method": "bulk_update_status",
+      "qualified_name": "services.participants.service.ParticipantService.bulk_update_status",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 355,
+        "line_end": 369
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.bulk_resend_confirmation",
+      "method": "bulk_resend_confirmation",
+      "qualified_name": "services.participants.service.ParticipantService.bulk_resend_confirmation",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 371,
+        "line_end": 417
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.bulk_mark_confirmed",
+      "method": "bulk_mark_confirmed",
+      "qualified_name": "services.participants.service.ParticipantService.bulk_mark_confirmed",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 419,
+        "line_end": 438
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.get_profile_fields",
+      "method": "get_profile_fields",
+      "qualified_name": "services.participants.service.ParticipantService.get_profile_fields",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 464,
+        "line_end": 481
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.get_participant_with_fields",
+      "method": "get_participant_with_fields",
+      "qualified_name": "services.participants.service.ParticipantService.get_participant_with_fields",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 483,
+        "line_end": 548
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.manage_profile_field",
+      "method": "manage_profile_field",
+      "qualified_name": "services.participants.service.ParticipantService.manage_profile_field",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 550,
+        "line_end": 573
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.update_participant_status",
+      "method": "update_participant_status",
+      "qualified_name": "services.participants.service.ParticipantService.update_participant_status",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 575,
+        "line_end": 582
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.reactivate_participant",
+      "method": "reactivate_participant",
+      "qualified_name": "services.participants.service.ParticipantService.reactivate_participant",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 584,
+        "line_end": 586
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.get_status_history",
+      "method": "get_status_history",
+      "qualified_name": "services.participants.service.ParticipantService.get_status_history",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 588,
+        "line_end": 590
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.enhanced_search_participants",
+      "method": "enhanced_search_participants",
+      "qualified_name": "services.participants.service.ParticipantService.enhanced_search_participants",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 592,
+        "line_end": 617
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.get_participation_history",
+      "method": "get_participation_history",
+      "qualified_name": "services.participants.service.ParticipantService.get_participation_history",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 619,
+        "line_end": 630
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.create_participation_record",
+      "method": "create_participation_record",
+      "qualified_name": "services.participants.service.ParticipantService.create_participation_record",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 632,
+        "line_end": 653
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.create_voucher",
+      "method": "create_voucher",
+      "qualified_name": "services.participants.service.ParticipantService.create_voucher",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 655,
+        "line_end": 672
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.get_participant_vouchers",
+      "method": "get_participant_vouchers",
+      "qualified_name": "services.participants.service.ParticipantService.get_participant_vouchers",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 674,
+        "line_end": 685
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.get_participant_statistics",
+      "method": "get_participant_statistics",
+      "qualified_name": "services.participants.service.ParticipantService.get_participant_statistics",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 687,
+        "line_end": 727
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.process_bulk_import",
+      "method": "process_bulk_import",
+      "qualified_name": "services.participants.service.ParticipantService.process_bulk_import",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 1085,
+        "line_end": 1161
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.search_participants_with_dsl",
+      "method": "search_participants_with_dsl",
+      "qualified_name": "services.participants.service.ParticipantService.search_participants_with_dsl",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 1163,
+        "line_end": 1202
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.count_participants_with_dsl",
+      "method": "count_participants_with_dsl",
+      "qualified_name": "services.participants.service.ParticipantService.count_participants_with_dsl",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 1204,
+        "line_end": 1222
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.assign_participants_to_experiment",
+      "method": "assign_participants_to_experiment",
+      "qualified_name": "services.participants.service.ParticipantService.assign_participants_to_experiment",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 1224,
+        "line_end": 1277
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.deassign_participants_from_experiment",
+      "method": "deassign_participants_from_experiment",
+      "qualified_name": "services.participants.service.ParticipantService.deassign_participants_from_experiment",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 1279,
+        "line_end": 1317
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.find_duplicate_participants",
+      "method": "find_duplicate_participants",
+      "qualified_name": "services.participants.service.ParticipantService.find_duplicate_participants",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 1319,
+        "line_end": 1399
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.create_participant_with_duplicate_check",
+      "method": "create_participant_with_duplicate_check",
+      "qualified_name": "services.participants.service.ParticipantService.create_participant_with_duplicate_check",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 1401,
+        "line_end": 1485
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.merge_duplicate_participants",
+      "method": "merge_duplicate_participants",
+      "qualified_name": "services.participants.service.ParticipantService.merge_duplicate_participants",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 1487,
+        "line_end": 1523
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant.operation.evaluate_and_apply_exclusions",
+      "method": "evaluate_and_apply_exclusions",
+      "qualified_name": "services.participants.service.ParticipantService.evaluate_and_apply_exclusions",
+      "source": {
+        "file": "services/participants/service.py",
+        "line_start": 1562,
+        "line_end": 1607
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

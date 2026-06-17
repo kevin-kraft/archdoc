@@ -1,0 +1,82 @@
+{
+  "id": "routers.experiment_sessions_webhooks",
+  "module": "routers.experiment_sessions_webhooks",
+  "source_file": "routers/experiment_sessions_webhooks.py",
+  "endpoints": [
+    {
+      "id": "routers.experiment_sessions_webhooks.post.webhook.otree.otree-webhook",
+      "module": "routers.experiment_sessions_webhooks",
+      "function_name": "otree_webhook",
+      "qualified_name": "routers.experiment_sessions_webhooks.otree_webhook",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/webhook/otree",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "Request",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_NO_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "x_signature",
+          "annotation": "str | None",
+          "default": "WEBHOOK_SIGNATURE_HEADER",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "x_api_key",
+          "annotation": "str | None",
+          "default": "WEBHOOK_API_KEY_HEADER",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "x_timestamp",
+          "annotation": "str | None",
+          "default": "WEBHOOK_TIMESTAMP_HEADER",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "x_nonce",
+          "annotation": "str | None",
+          "default": "WEBHOOK_NONCE_HEADER",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_sessions_webhooks.py",
+        "line_start": 480,
+        "line_end": 545
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

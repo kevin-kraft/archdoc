@@ -1,0 +1,1126 @@
+{
+  "id": "routers.notifications",
+  "module": "routers.notifications",
+  "source_file": "routers/notifications.py",
+  "endpoints": [
+    {
+      "id": "routers.notifications.delete.push.unsubscribe.unsubscribe-push-notification",
+      "module": "routers.notifications",
+      "function_name": "unsubscribe_push_notification",
+      "qualified_name": "routers.notifications.unsubscribe_push_notification",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/push/unsubscribe",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "endpoint",
+          "annotation": "str",
+          "default": "Query(..., description='Push subscription endpoint')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_participant)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_participant_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 457,
+        "line_end": 466
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.delete.templates.param-template-id.delete-template",
+      "module": "routers.notifications",
+      "function_name": "delete_template",
+      "qualified_name": "routers.notifications.delete_template",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/templates/{template_id}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "template_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(MailPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 213,
+        "line_end": 227
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.get.channels.list-channel-credentials",
+      "module": "routers.notifications",
+      "function_name": "list_channel_credentials",
+      "qualified_name": "routers.notifications.list_channel_credentials",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/channels",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[ChannelCredentialResponse]"
+      },
+      "parameters": [
+        {
+          "name": "channel",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by channel')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SettingsPermissions.VIEW))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 251,
+        "line_end": 268
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.get.delivery-events.param-outbox-id.get-delivery-events",
+      "module": "routers.notifications",
+      "function_name": "get_delivery_events",
+      "qualified_name": "routers.notifications.get_delivery_events",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/delivery-events/{outbox_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[DeliveryEventResponse]"
+      },
+      "parameters": [
+        {
+          "name": "outbox_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(MailPermissions.QUEUE_SHOW_ALL))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 383,
+        "line_end": 418
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.get.outbox.list-outbox",
+      "module": "routers.notifications",
+      "function_name": "list_outbox",
+      "qualified_name": "routers.notifications.list_outbox",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/outbox",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[OutboxResponse]"
+      },
+      "parameters": [
+        {
+          "name": "state",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by state')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "channel",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by channel')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(100, ge=1, le=1000)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "Query(0, ge=0)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(MailPermissions.QUEUE_SHOW_ALL))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 306,
+        "line_end": 343
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.get.templates.list-templates",
+      "module": "routers.notifications",
+      "function_name": "list_templates",
+      "qualified_name": "routers.notifications.list_templates",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/templates",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[MessageTemplateResponse]"
+      },
+      "parameters": [
+        {
+          "name": "channel",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by channel')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "locale",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by locale')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "name",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by template name')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "__mail_edit_perm",
+          "annotation": "None",
+          "default": "Depends(require_permission(MailPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "response",
+          "annotation": "Response",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 96,
+        "line_end": 127
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.get.templates.param-template-id.get-template",
+      "module": "routers.notifications",
+      "function_name": "get_template",
+      "qualified_name": "routers.notifications.get_template",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/templates/{template_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "MessageTemplateResponse"
+      },
+      "parameters": [
+        {
+          "name": "template_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "__mail_edit_perm",
+          "annotation": "None",
+          "default": "Depends(require_permission(MailPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 172,
+        "line_end": 188
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.get.templates.recruitment-defaults.preview.preview-recruitment-default-templates",
+      "module": "routers.notifications",
+      "function_name": "preview_recruitment_default_templates",
+      "qualified_name": "routers.notifications.preview_recruitment_default_templates",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/templates/recruitment-defaults/preview",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[RecruitmentDefaultTemplatePreviewResponse]",
+        "operation_id": "previewRecruitmentDefaultTemplates"
+      },
+      "parameters": [
+        {
+          "name": "locale",
+          "annotation": "str",
+          "default": "Query('en', description='Locale to preview for the branded recruitment templates')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "__mail_edit_perm",
+          "annotation": "None",
+          "default": "Depends(require_permission(MailPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 134,
+        "line_end": 146
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.get.vapid-public-key.get-vapid-public-key",
+      "module": "routers.notifications",
+      "function_name": "get_vapid_public_key",
+      "qualified_name": "routers.notifications.get_vapid_public_key",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/vapid-public-key",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 421,
+        "line_end": 430
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.post.channels.create-channel-credential",
+      "module": "routers.notifications",
+      "function_name": "create_channel_credential",
+      "qualified_name": "routers.notifications.create_channel_credential",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/channels",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ChannelCredentialResponse"
+      },
+      "parameters": [
+        {
+          "name": "credential_data",
+          "annotation": "ChannelCredentialCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SettingsPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 230,
+        "line_end": 248
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.post.delivery-events.create-delivery-event",
+      "module": "routers.notifications",
+      "function_name": "create_delivery_event",
+      "qualified_name": "routers.notifications.create_delivery_event",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/delivery-events",
+      "router": "router",
+      "kwargs": {
+        "response_model": "DeliveryEventResponse"
+      },
+      "parameters": [
+        {
+          "name": "event_data",
+          "annotation": "DeliveryEventCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(MailPermissions.QUEUE_SHOW_ALL))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 346,
+        "line_end": 380
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.post.push.send-reminders.send-session-reminders",
+      "module": "routers.notifications",
+      "function_name": "send_session_reminders",
+      "qualified_name": "routers.notifications.send_session_reminders",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/push/send-reminders",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "minutes_before",
+          "annotation": "int",
+          "default": "Query(60, ge=5, le=1440, description='Minutes before session start to send reminder')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ParticipantPermissions.BULK_MAIL))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 487,
+        "line_end": 512
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.post.push.send.send-push-notification-to-participant",
+      "module": "routers.notifications",
+      "function_name": "send_push_notification_to_participant",
+      "qualified_name": "routers.notifications.send_push_notification_to_participant",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/push/send",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PushNotificationSendResponse"
+      },
+      "parameters": [
+        {
+          "name": "req",
+          "annotation": "PushNotificationSendRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ParticipantPermissions.BULK_MAIL))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 470,
+        "line_end": 483
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.post.push.subscribe.subscribe-push-notification",
+      "module": "routers.notifications",
+      "function_name": "subscribe_push_notification",
+      "qualified_name": "routers.notifications.subscribe_push_notification",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/push/subscribe",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "subscription_data",
+          "annotation": "PushSubscriptionCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_participant)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_participant_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 434,
+        "line_end": 453
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.post.send.send-message",
+      "module": "routers.notifications",
+      "function_name": "send_message",
+      "qualified_name": "routers.notifications.send_message",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/send",
+      "router": "router",
+      "kwargs": {
+        "response_model": "OutboxResponse"
+      },
+      "parameters": [
+        {
+          "name": "outbox_data",
+          "annotation": "OutboxCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ParticipantPermissions.BULK_MAIL))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 271,
+        "line_end": 303
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.post.templates.create-template",
+      "module": "routers.notifications",
+      "function_name": "create_template",
+      "qualified_name": "routers.notifications.create_template",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/templates",
+      "router": "router",
+      "kwargs": {
+        "response_model": "MessageTemplateResponse"
+      },
+      "parameters": [
+        {
+          "name": "template_data",
+          "annotation": "MessageTemplateCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(MailPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 83,
+        "line_end": 93
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.post.templates.recruitment-defaults.seed-recruitment-default-templates",
+      "module": "routers.notifications",
+      "function_name": "seed_recruitment_default_templates",
+      "qualified_name": "routers.notifications.seed_recruitment_default_templates",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/templates/recruitment-defaults",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[MessageTemplateResponse]",
+        "operation_id": "seedRecruitmentDefaultTemplates"
+      },
+      "parameters": [
+        {
+          "name": "locale",
+          "annotation": "str",
+          "default": "Query('en', description='Locale to seed for the branded recruitment templates')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "replace_existing",
+          "annotation": "bool",
+          "default": "Query(False, description='Replace existing branded system templates with the latest defaults')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(MailPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 153,
+        "line_end": 169
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.put.templates.param-template-id.update-template",
+      "module": "routers.notifications",
+      "function_name": "update_template",
+      "qualified_name": "routers.notifications.update_template",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/templates/{template_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "MessageTemplateResponse"
+      },
+      "parameters": [
+        {
+          "name": "template_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "template_data",
+          "annotation": "MessageTemplateUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(MailPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 191,
+        "line_end": 210
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

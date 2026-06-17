@@ -1,0 +1,1044 @@
+{
+  "id": "routers.roles",
+  "module": "routers.roles",
+  "source_file": "routers/roles.py",
+  "endpoints": [
+    {
+      "id": "routers.roles.delete.param-role-id.delete-role",
+      "module": "routers.roles",
+      "function_name": "delete_role",
+      "qualified_name": "routers.roles.delete_role",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/{role_id}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "role_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RolePermissions.DELETE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 436,
+        "line_end": 463
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.delete.param-role-id.permissions.param-permission-id.remove-permission-from-role",
+      "module": "routers.roles",
+      "function_name": "remove_permission_from_role",
+      "qualified_name": "routers.roles.remove_permission_from_role",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/{role_id}/permissions/{permission_id}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "role_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "permission_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RolePermissions.PERMISSIONS_ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 525,
+        "line_end": 554
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.delete.permissions.param-permission-id.delete-permission",
+      "module": "routers.roles",
+      "function_name": "delete_permission",
+      "qualified_name": "routers.roles.delete_permission",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/permissions/{permission_id}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "permission_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.DELETE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 310,
+        "line_end": 336
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.delete.users.param-user-id.assignments.remove-role-from-user",
+      "module": "routers.roles",
+      "function_name": "remove_role_from_user",
+      "qualified_name": "routers.roles.remove_role_from_user",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/users/{user_id}/assignments",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "assignment",
+          "annotation": "UserRoleAssignment",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(UserPermissions.ROLES_REMOVE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 635,
+        "line_end": 677
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.get.param-role-id.get-role",
+      "module": "routers.roles",
+      "function_name": "get_role",
+      "qualified_name": "routers.roles.get_role",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{role_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "RoleResponse"
+      },
+      "parameters": [
+        {
+          "name": "role_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RolePermissions.READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 367,
+        "line_end": 387
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.get.param-role-id.permissions.get-role-permissions",
+      "module": "routers.roles",
+      "function_name": "get_role_permissions",
+      "qualified_name": "routers.roles.get_role_permissions",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{role_id}/permissions",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[PermissionResponse]"
+      },
+      "parameters": [
+        {
+          "name": "role_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RolePermissions.READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 501,
+        "line_end": 521
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.get.permissions.list-permissions",
+      "module": "routers.roles",
+      "function_name": "list_permissions",
+      "qualified_name": "routers.roles.list_permissions",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/permissions",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[PermissionResponse]"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RolePermissions.READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "category",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 189,
+        "line_end": 201
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.get.root.list-roles",
+      "module": "routers.roles",
+      "function_name": "list_roles",
+      "qualified_name": "routers.roles.list_roles",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[RoleResponse]",
+        "operation_id": "list_roles"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RolePermissions.READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "skip",
+          "annotation": "int",
+          "default": "0",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "100",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 173,
+        "line_end": 185
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.get.users.list-users",
+      "module": "routers.roles",
+      "function_name": "list_users",
+      "qualified_name": "routers.roles.list_users",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/users",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[UserSummary]"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(UserPermissions.READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "search",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 340,
+        "line_end": 363
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.get.users.param-user-id.assignments.list-user-assignments",
+      "module": "routers.roles",
+      "function_name": "list_user_assignments",
+      "qualified_name": "routers.roles.list_user_assignments",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/users/{user_id}/assignments",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[UserRoleResponse]"
+      },
+      "parameters": [
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(UserPermissions.READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 558,
+        "line_end": 584
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.post.param-role-id.permissions.assign-permissions-to-role",
+      "module": "routers.roles",
+      "function_name": "assign_permissions_to_role",
+      "qualified_name": "routers.roles.assign_permissions_to_role",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{role_id}/permissions",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[PermissionResponse]"
+      },
+      "parameters": [
+        {
+          "name": "role_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "permission_data",
+          "annotation": "RolePermissionAssignment",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RolePermissions.PERMISSIONS_ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 467,
+        "line_end": 497
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.post.permissions.create-permission",
+      "module": "routers.roles",
+      "function_name": "create_permission",
+      "qualified_name": "routers.roles.create_permission",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/permissions",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PermissionResponse",
+        "status_code": "status.HTTP_201_CREATED"
+      },
+      "parameters": [
+        {
+          "name": "permission_data",
+          "annotation": "PermissionCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 205,
+        "line_end": 257
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.post.root.create-role",
+      "module": "routers.roles",
+      "function_name": "create_role",
+      "qualified_name": "routers.roles.create_role",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/",
+      "router": "router",
+      "kwargs": {
+        "response_model": "RoleResponse"
+      },
+      "parameters": [
+        {
+          "name": "role_data",
+          "annotation": "RoleCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RolePermissions.CREATE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 138,
+        "line_end": 169
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.post.users.param-user-id.assignments.assign-role-to-user",
+      "module": "routers.roles",
+      "function_name": "assign_role_to_user",
+      "qualified_name": "routers.roles.assign_role_to_user",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/users/{user_id}/assignments",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "assignment",
+          "annotation": "UserRoleAssignment",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(UserPermissions.ROLES_ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 588,
+        "line_end": 631
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.put.param-role-id.update-role",
+      "module": "routers.roles",
+      "function_name": "update_role",
+      "qualified_name": "routers.roles.update_role",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/{role_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "RoleResponse"
+      },
+      "parameters": [
+        {
+          "name": "role_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "role_data",
+          "annotation": "RoleUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RolePermissions.UPDATE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 391,
+        "line_end": 432
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.roles.put.permissions.param-permission-id.update-permission",
+      "module": "routers.roles",
+      "function_name": "update_permission",
+      "qualified_name": "routers.roles.update_permission",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/permissions/{permission_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PermissionResponse"
+      },
+      "parameters": [
+        {
+          "name": "permission_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "permission_data",
+          "annotation": "PermissionUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/roles.py",
+        "line_start": 261,
+        "line_end": 306
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

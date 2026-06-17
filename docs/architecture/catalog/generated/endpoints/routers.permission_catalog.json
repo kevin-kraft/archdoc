@@ -1,0 +1,892 @@
+{
+  "id": "routers.permission_catalog",
+  "module": "routers.permission_catalog",
+  "source_file": "routers/permission_catalog.py",
+  "endpoints": [
+    {
+      "id": "routers.permission_catalog.get.catalog.get-permission-catalog",
+      "module": "routers.permission_catalog",
+      "function_name": "get_permission_catalog",
+      "qualified_name": "routers.permission_catalog.get_permission_catalog",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/catalog",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[PermissionCatalogResponse]"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "category",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "resource",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "action",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "search_term",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "skip",
+          "annotation": "int",
+          "default": "Query(default=0)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(default=100)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        }
+      ],
+      "source": {
+        "file": "routers/permission_catalog.py",
+        "line_start": 93,
+        "line_end": 126
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.permission_catalog.get.categories.get-permissions-by-category",
+      "module": "routers.permission_catalog",
+      "function_name": "get_permissions_by_category",
+      "qualified_name": "routers.permission_catalog.get_permissions_by_category",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/categories",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[PermissionCategorySummary]"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/permission_catalog.py",
+        "line_start": 130,
+        "line_end": 157
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.permission_catalog.get.descriptions.get-permission-descriptions",
+      "module": "routers.permission_catalog",
+      "function_name": "get_permission_descriptions",
+      "qualified_name": "routers.permission_catalog.get_permission_descriptions",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/descriptions",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict[str, Any]]"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/permission_catalog.py",
+        "line_start": 372,
+        "line_end": 378
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.permission_catalog.get.enhanced-catalog.get-enhanced-permission-catalog",
+      "module": "routers.permission_catalog",
+      "function_name": "get_enhanced_permission_catalog",
+      "qualified_name": "routers.permission_catalog.get_enhanced_permission_catalog",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/enhanced-catalog",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict[str, Any]]"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "category",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "resource",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "action",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "search_term",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "skip",
+          "annotation": "int",
+          "default": "Query(default=0)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(default=100)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        }
+      ],
+      "source": {
+        "file": "routers/permission_catalog.py",
+        "line_start": 382,
+        "line_end": 431
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.permission_catalog.get.enhanced-categories.get-enhanced-permissions-by-category",
+      "module": "routers.permission_catalog",
+      "function_name": "get_enhanced_permissions_by_category",
+      "qualified_name": "routers.permission_catalog.get_enhanced_permissions_by_category",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/enhanced-categories",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict[str, Any]]"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/permission_catalog.py",
+        "line_start": 435,
+        "line_end": 474
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.permission_catalog.get.legacy-mapping.get-legacy-permission-mapping",
+      "module": "routers.permission_catalog",
+      "function_name": "get_legacy_permission_mapping",
+      "qualified_name": "routers.permission_catalog.get_legacy_permission_mapping",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/legacy-mapping",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict[str, Any]]"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/permission_catalog.py",
+        "line_start": 537,
+        "line_end": 560
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.permission_catalog.get.roles.param-role-id.permissions.get-role-permissions-detailed",
+      "module": "routers.permission_catalog",
+      "function_name": "get_role_permissions_detailed",
+      "qualified_name": "routers.permission_catalog.get_role_permissions_detailed",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/roles/{role_id}/permissions",
+      "router": "router",
+      "kwargs": {
+        "response_model": "RolePermissionSummary"
+      },
+      "parameters": [
+        {
+          "name": "role_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/permission_catalog.py",
+        "line_start": 161,
+        "line_end": 185
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.permission_catalog.get.search-enhanced.search-permissions-enhanced",
+      "module": "routers.permission_catalog",
+      "function_name": "search_permissions_enhanced",
+      "qualified_name": "routers.permission_catalog.search_permissions_enhanced",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/search-enhanced",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict[str, Any]]"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "q",
+          "annotation": "str",
+          "default": "Query(..., description='Search query')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "category",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "resource",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "action",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "include_description",
+          "annotation": "bool",
+          "default": "Query(default=True)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(default=20, le=100)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        }
+      ],
+      "source": {
+        "file": "routers/permission_catalog.py",
+        "line_start": 478,
+        "line_end": 533
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.permission_catalog.get.search.search-permissions",
+      "module": "routers.permission_catalog",
+      "function_name": "search_permissions",
+      "qualified_name": "routers.permission_catalog.search_permissions",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/search",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[PermissionCatalogResponse]"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "q",
+          "annotation": "str",
+          "default": "Query(..., description='Search query')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "category",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "resource",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "action",
+          "annotation": "Optional[str]",
+          "default": "Query(default=None)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "include_description",
+          "annotation": "bool",
+          "default": "Query(default=True)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(default=20, le=100)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        }
+      ],
+      "source": {
+        "file": "routers/permission_catalog.py",
+        "line_start": 329,
+        "line_end": 368
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.permission_catalog.get.standard-roles.get-standard-role-templates",
+      "module": "routers.permission_catalog",
+      "function_name": "get_standard_role_templates",
+      "qualified_name": "routers.permission_catalog.get_standard_role_templates",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/standard-roles",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict[str, Any]]"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/permission_catalog.py",
+        "line_start": 262,
+        "line_end": 278
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.permission_catalog.get.stats.get-permission-catalog-stats",
+      "module": "routers.permission_catalog",
+      "function_name": "get_permission_catalog_stats",
+      "qualified_name": "routers.permission_catalog.get_permission_catalog_stats",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/stats",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PermissionCatalogStats"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/permission_catalog.py",
+        "line_start": 189,
+        "line_end": 232
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.permission_catalog.post.bulk-assign.bulk-permission-assignment",
+      "module": "routers.permission_catalog",
+      "function_name": "bulk_permission_assignment",
+      "qualified_name": "routers.permission_catalog.bulk_permission_assignment",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/bulk-assign",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "assignment",
+          "annotation": "PermissionAssignmentRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/permission_catalog.py",
+        "line_start": 282,
+        "line_end": 325
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.permission_catalog.post.sync-canonical.sync-permission-catalog-canonical",
+      "module": "routers.permission_catalog",
+      "function_name": "sync_permission_catalog_canonical",
+      "qualified_name": "routers.permission_catalog.sync_permission_catalog_canonical",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/sync-canonical",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PermissionCanonicalSyncResponse"
+      },
+      "parameters": [
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(AdminPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "force_update",
+          "annotation": "bool",
+          "default": "Query(default=False, description='If true, overwrite existing metadata to match the canonical catalog.')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        }
+      ],
+      "source": {
+        "file": "routers/permission_catalog.py",
+        "line_start": 236,
+        "line_end": 258
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "id": "routers.participant_profile_fields",
+  "module": "routers.participant_profile_fields",
+  "source_file": "routers/participant_profile_fields.py",
+  "endpoints": [
+    {
+      "id": "routers.participant_profile_fields.delete.profile-fields.param-field-id.delete-profile-field",
+      "module": "routers.participant_profile_fields",
+      "function_name": "delete_profile_field",
+      "qualified_name": "routers.participant_profile_fields.delete_profile_field",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/profile-fields/{field_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict",
+        "operation_id": "delete_participant_profile_field"
+      },
+      "parameters": [
+        {
+          "name": "field_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('pform_config_field_configure'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile_fields.py",
+        "line_start": 113,
+        "line_end": 128
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile_fields.get.fields.get-profile-fields",
+      "module": "routers.participant_profile_fields",
+      "function_name": "get_profile_fields",
+      "qualified_name": "routers.participant_profile_fields.get_profile_fields",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/fields",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict[str, Any]]",
+        "operation_id": "get_participant_profile_field_configuration"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "language",
+          "annotation": "str",
+          "default": "Query('en', description='Language for field labels')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('pform_config_field_configure'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile_fields.py",
+        "line_start": 28,
+        "line_end": 36
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile_fields.get.profile-fields.get-profile-fields-enhanced",
+      "module": "routers.participant_profile_fields",
+      "function_name": "get_profile_fields_enhanced",
+      "qualified_name": "routers.participant_profile_fields.get_profile_fields_enhanced",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/profile-fields",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[ProfileFieldResponse]",
+        "operation_id": "list_participant_profile_fields"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('participants_edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile_fields.py",
+        "line_start": 55,
+        "line_end": 61
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile_fields.post.fields.manage-profile-fields",
+      "module": "routers.participant_profile_fields",
+      "function_name": "manage_profile_fields",
+      "qualified_name": "routers.participant_profile_fields.manage_profile_fields",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/fields",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[ProfileFieldConfig]",
+        "operation_id": "manage_participant_profile_fields"
+      },
+      "parameters": [
+        {
+          "name": "action",
+          "annotation": "ProfileFieldAction",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('pform_config_field_configure'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile_fields.py",
+        "line_start": 40,
+        "line_end": 51
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile_fields.post.profile-fields.add-profile-field",
+      "module": "routers.participant_profile_fields",
+      "function_name": "add_profile_field",
+      "qualified_name": "routers.participant_profile_fields.add_profile_field",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/profile-fields",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ProfileFieldResponse",
+        "operation_id": "add_participant_profile_field"
+      },
+      "parameters": [
+        {
+          "name": "field_data",
+          "annotation": "ProfileFieldRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('pform_config_field_configure'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile_fields.py",
+        "line_start": 65,
+        "line_end": 80
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile_fields.put.profile-fields.param-field-id.update-profile-field",
+      "module": "routers.participant_profile_fields",
+      "function_name": "update_profile_field",
+      "qualified_name": "routers.participant_profile_fields.update_profile_field",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/profile-fields/{field_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ProfileFieldResponse",
+        "operation_id": "update_participant_profile_field"
+      },
+      "parameters": [
+        {
+          "name": "field_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "field_data",
+          "annotation": "ProfileFieldRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('pform_config_field_configure'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile_fields.py",
+        "line_start": 88,
+        "line_end": 105
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

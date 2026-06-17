@@ -1,0 +1,147 @@
+{
+  "id": "common.translation",
+  "module": "services.common.translation",
+  "class_name": "TranslationService",
+  "qualified_name": "services.common.translation.TranslationService",
+  "source": {
+    "file": "services/common/translation.py",
+    "line_start": 24,
+    "line_end": 575
+  },
+  "operations": [
+    {
+      "id": "common.translation.operation.get_available_languages",
+      "method": "get_available_languages",
+      "qualified_name": "services.common.translation.TranslationService.get_available_languages",
+      "source": {
+        "file": "services/common/translation.py",
+        "line_start": 190,
+        "line_end": 195
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "common.translation.operation.get_org_languages",
+      "method": "get_org_languages",
+      "qualified_name": "services.common.translation.TranslationService.get_org_languages",
+      "source": {
+        "file": "services/common/translation.py",
+        "line_start": 197,
+        "line_end": 222
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "common.translation.operation.enable_language",
+      "method": "enable_language",
+      "qualified_name": "services.common.translation.TranslationService.enable_language",
+      "source": {
+        "file": "services/common/translation.py",
+        "line_start": 224,
+        "line_end": 275
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "common.translation.operation.get_translation",
+      "method": "get_translation",
+      "qualified_name": "services.common.translation.TranslationService.get_translation",
+      "source": {
+        "file": "services/common/translation.py",
+        "line_start": 277,
+        "line_end": 334
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "common.translation.operation.get_translations_bulk",
+      "method": "get_translations_bulk",
+      "qualified_name": "services.common.translation.TranslationService.get_translations_bulk",
+      "source": {
+        "file": "services/common/translation.py",
+        "line_start": 336,
+        "line_end": 390
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "common.translation.operation.update_translation",
+      "method": "update_translation",
+      "qualified_name": "services.common.translation.TranslationService.update_translation",
+      "source": {
+        "file": "services/common/translation.py",
+        "line_start": 392,
+        "line_end": 481
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "common.translation.operation.export_translations",
+      "method": "export_translations",
+      "qualified_name": "services.common.translation.TranslationService.export_translations",
+      "source": {
+        "file": "services/common/translation.py",
+        "line_start": 483,
+        "line_end": 497
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "common.translation.operation.calculate_completion",
+      "method": "calculate_completion",
+      "qualified_name": "services.common.translation.TranslationService.calculate_completion",
+      "source": {
+        "file": "services/common/translation.py",
+        "line_start": 546,
+        "line_end": 575
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

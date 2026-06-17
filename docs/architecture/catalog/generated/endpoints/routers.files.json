@@ -1,0 +1,357 @@
+{
+  "id": "routers.files",
+  "module": "routers.files",
+  "source_file": "routers/files.py",
+  "endpoints": [
+    {
+      "id": "routers.files.delete.param-bucket-type.param-object-name-path.delete-file",
+      "module": "routers.files",
+      "function_name": "delete_file",
+      "qualified_name": "routers.files.delete_file",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/{bucket_type}/{object_name:path}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "bucket_type",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "object_name",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_file_permission('delete'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/files.py",
+        "line_start": 193,
+        "line_end": 209
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.files.get.buckets.get-bucket-info",
+      "module": "routers.files",
+      "function_name": "get_bucket_info",
+      "qualified_name": "routers.files.get_bucket_info",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/buckets",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/files.py",
+        "line_start": 213,
+        "line_end": 247
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.files.get.download.param-bucket-type.param-object-name-path.download-file",
+      "module": "routers.files",
+      "function_name": "download_file",
+      "qualified_name": "routers.files.download_file",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/download/{bucket_type}/{object_name:path}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "bucket_type",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "object_name",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_file_permission('download'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/files.py",
+        "line_start": 162,
+        "line_end": 189
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.files.get.info.param-bucket-type.param-object-name-path.get-file-info",
+      "module": "routers.files",
+      "function_name": "get_file_info",
+      "qualified_name": "routers.files.get_file_info",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/info/{bucket_type}/{object_name:path}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "bucket_type",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "object_name",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_file_permission('info'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/files.py",
+        "line_start": 146,
+        "line_end": 158
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.files.get.list.param-bucket-type.list-files",
+      "module": "routers.files",
+      "function_name": "list_files",
+      "qualified_name": "routers.files.list_files",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/list/{bucket_type}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "bucket_type",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "category",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Optional category/folder filter')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_file_permission('list'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/files.py",
+        "line_start": 128,
+        "line_end": 142
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.files.get.stats.param-bucket-type.get-bucket-stats",
+      "module": "routers.files",
+      "function_name": "get_bucket_stats",
+      "qualified_name": "routers.files.get_bucket_stats",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/stats/{bucket_type}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "bucket_type",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_file_permission('stats'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/files.py",
+        "line_start": 251,
+        "line_end": 271
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.files.post.upload.param-bucket-type.upload-file",
+      "module": "routers.files",
+      "function_name": "upload_file",
+      "qualified_name": "routers.files.upload_file",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/upload/{bucket_type}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "bucket_type",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "file",
+          "annotation": "UploadFile",
+          "default": "File(...)",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "category",
+          "annotation": "Optional[str]",
+          "default": "Form(None)",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_file_permission('upload'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/files.py",
+        "line_start": 98,
+        "line_end": 124
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

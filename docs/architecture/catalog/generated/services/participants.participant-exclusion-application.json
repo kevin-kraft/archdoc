@@ -1,0 +1,99 @@
+{
+  "id": "participants.participant-exclusion-application",
+  "module": "services.participants.exclusions",
+  "class_name": "ParticipantExclusionApplicationService",
+  "qualified_name": "services.participants.exclusions.ParticipantExclusionApplicationService",
+  "source": {
+    "file": "services/participants/exclusions.py",
+    "line_start": 13,
+    "line_end": 95
+  },
+  "operations": [
+    {
+      "id": "participants.participant-exclusion-application.operation.get_participant_exclusion_status",
+      "method": "get_participant_exclusion_status",
+      "qualified_name": "services.participants.exclusions.ParticipantExclusionApplicationService.get_participant_exclusion_status",
+      "source": {
+        "file": "services/participants/exclusions.py",
+        "line_start": 18,
+        "line_end": 23
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant-exclusion-application.operation.apply_participant_exclusion",
+      "method": "apply_participant_exclusion",
+      "qualified_name": "services.participants.exclusions.ParticipantExclusionApplicationService.apply_participant_exclusion",
+      "source": {
+        "file": "services/participants/exclusions.py",
+        "line_start": 25,
+        "line_end": 40
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant-exclusion-application.operation.evaluate_and_apply_exclusions",
+      "method": "evaluate_and_apply_exclusions",
+      "qualified_name": "services.participants.exclusions.ParticipantExclusionApplicationService.evaluate_and_apply_exclusions",
+      "source": {
+        "file": "services/participants/exclusions.py",
+        "line_start": 42,
+        "line_end": 79
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant-exclusion-application.operation.check_auto_reinclusion",
+      "method": "check_auto_reinclusion",
+      "qualified_name": "services.participants.exclusions.ParticipantExclusionApplicationService.check_auto_reinclusion",
+      "source": {
+        "file": "services/participants/exclusions.py",
+        "line_start": 81,
+        "line_end": 87
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "participants.participant-exclusion-application.operation.bulk_evaluate_exclusions",
+      "method": "bulk_evaluate_exclusions",
+      "qualified_name": "services.participants.exclusions.ParticipantExclusionApplicationService.bulk_evaluate_exclusions",
+      "source": {
+        "file": "services/participants/exclusions.py",
+        "line_start": 89,
+        "line_end": 95
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

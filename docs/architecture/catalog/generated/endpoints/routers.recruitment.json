@@ -1,0 +1,2014 @@
+{
+  "id": "routers.recruitment",
+  "module": "routers.recruitment",
+  "source_file": "routers/recruitment.py",
+  "endpoints": [
+    {
+      "id": "routers.recruitment.delete.negative-list.param-participant-id.remove-from-negative-list",
+      "module": "routers.recruitment",
+      "function_name": "remove_from_negative_list",
+      "qualified_name": "routers.recruitment.remove_from_negative_list",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/negative-list/{participant_id}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 435,
+        "line_end": 446
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.delete.permanent-queries.param-query-id.delete-permanent-query",
+      "module": "routers.recruitment",
+      "function_name": "delete_permanent_query",
+      "qualified_name": "routers.recruitment.delete_permanent_query",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/permanent-queries/{query_id}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "query_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 592,
+        "line_end": 605
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.delete.saved-queries.param-query-id.delete-saved-query",
+      "module": "routers.recruitment",
+      "function_name": "delete_saved_query",
+      "qualified_name": "routers.recruitment.delete_saved_query",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/saved-queries/{query_id}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "query_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 245,
+        "line_end": 258
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.delete.targeting-rules.param-rule-id.delete-targeting-rule",
+      "module": "routers.recruitment",
+      "function_name": "delete_targeting_rule",
+      "qualified_name": "routers.recruitment.delete_targeting_rule",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/targeting-rules/{rule_id}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "rule_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 137,
+        "line_end": 150
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.get.analytics.query-performance.get-query-performance-metrics",
+      "module": "routers.recruitment",
+      "function_name": "get_query_performance_metrics",
+      "qualified_name": "routers.recruitment.get_query_performance_metrics",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/analytics/query-performance",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "time_range",
+          "annotation": "str",
+          "default": "Query('24h', description='Time range: 1h, 24h, 7d')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ANALYTICS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 835,
+        "line_end": 853
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.get.assignment-history.get-assignment-history",
+      "module": "routers.recruitment",
+      "function_name": "get_assignment_history",
+      "qualified_name": "routers.recruitment.get_assignment_history",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/assignment-history",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[AssignmentHistoryResponse]"
+      },
+      "parameters": [
+        {
+          "name": "experiment_id",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by experiment ID')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by participant ID')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "assignment_type",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by assignment type')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 450,
+        "line_end": 493
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.get.participants.param-participant-id.assignments.get-participant-assignments",
+      "module": "routers.recruitment",
+      "function_name": "get_participant_assignments",
+      "qualified_name": "routers.recruitment.get_participant_assignments",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/participants/{participant_id}/assignments",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 856,
+        "line_end": 874
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.get.permanent-queries.list-permanent-queries",
+      "module": "routers.recruitment",
+      "function_name": "list_permanent_queries",
+      "qualified_name": "routers.recruitment.list_permanent_queries",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/permanent-queries",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[PermanentQueryResponse]"
+      },
+      "parameters": [
+        {
+          "name": "is_active",
+          "annotation": "Optional[bool]",
+          "default": "Query(None, description='Filter by active status')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 524,
+        "line_end": 554
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.get.saved-queries.list-saved-queries",
+      "module": "routers.recruitment",
+      "function_name": "list_saved_queries",
+      "qualified_name": "routers.recruitment.list_saved_queries",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/saved-queries",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[SavedQueryResponse]"
+      },
+      "parameters": [
+        {
+          "name": "query_type",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by query type')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 167,
+        "line_end": 196
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.get.saved-queries.param-query-id.get-saved-query",
+      "module": "routers.recruitment",
+      "function_name": "get_saved_query",
+      "qualified_name": "routers.recruitment.get_saved_query",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/saved-queries/{query_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SavedQueryResponse"
+      },
+      "parameters": [
+        {
+          "name": "query_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 199,
+        "line_end": 225
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.get.targeting-rules.list-targeting-rules",
+      "module": "routers.recruitment",
+      "function_name": "list_targeting_rules",
+      "qualified_name": "routers.recruitment.list_targeting_rules",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/targeting-rules",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[TargetingRuleResponse]"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 84,
+        "line_end": 95
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.get.targeting-rules.param-rule-id.get-targeting-rule",
+      "module": "routers.recruitment",
+      "function_name": "get_targeting_rule",
+      "qualified_name": "routers.recruitment.get_targeting_rule",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/targeting-rules/{rule_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TargetingRuleResponse"
+      },
+      "parameters": [
+        {
+          "name": "rule_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 98,
+        "line_end": 114
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.assign.assign-participants",
+      "module": "routers.recruitment",
+      "function_name": "assign_participants",
+      "qualified_name": "routers.recruitment.assign_participants",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/assign",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ParticipantAssignmentResponse"
+      },
+      "parameters": [
+        {
+          "name": "assignment_data",
+          "annotation": "ParticipantAssignmentRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 316,
+        "line_end": 362
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.assignments.experiment.assign-to-experiment",
+      "module": "routers.recruitment",
+      "function_name": "assign_to_experiment",
+      "qualified_name": "routers.recruitment.assign_to_experiment",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/assignments/experiment",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ParticipantAssignmentResponse"
+      },
+      "parameters": [
+        {
+          "name": "experiment_id",
+          "annotation": "str",
+          "default": "Query(..., description='Experiment ID')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "participant_ids",
+          "annotation": "list[str]",
+          "default": "Query(..., description='List of participant IDs')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "assignment_type",
+          "annotation": "str",
+          "default": "Query('experiment', description='Type of assignment')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "method",
+          "annotation": "str",
+          "default": "Query('manual', description='Assignment method')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "reason",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Reason for assignment')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 718,
+        "line_end": 756
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.assignments.session.assign-to-session",
+      "module": "routers.recruitment",
+      "function_name": "assign_to_session",
+      "qualified_name": "routers.recruitment.assign_to_session",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/assignments/session",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ParticipantAssignmentResponse"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "str",
+          "default": "Query(..., description='Session ID')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "participant_ids",
+          "annotation": "list[str]",
+          "default": "Query(..., description='List of participant IDs')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "method",
+          "annotation": "str",
+          "default": "Query('manual', description='Assignment method')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "reason",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Reason for assignment')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 759,
+        "line_end": 795
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.assignments.targeted.execute-targeted-assignment",
+      "module": "routers.recruitment",
+      "function_name": "execute_targeted_assignment",
+      "qualified_name": "routers.recruitment.execute_targeted_assignment",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/assignments/targeted",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ParticipantAssignmentResponse"
+      },
+      "parameters": [
+        {
+          "name": "experiment_id",
+          "annotation": "str",
+          "default": "Query(..., description='Experiment ID')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "targeting_rule_id",
+          "annotation": "str",
+          "default": "Query(..., description='Targeting rule ID')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "max_participants",
+          "annotation": "int",
+          "default": "Query(100, ge=1, le=1000, description='Maximum participants to assign')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "method",
+          "annotation": "str",
+          "default": "Query('targeted', description='Assignment method')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 798,
+        "line_end": 830
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.deassign.deassign-participants",
+      "module": "routers.recruitment",
+      "function_name": "deassign_participants",
+      "qualified_name": "routers.recruitment.deassign_participants",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/deassign",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ParticipantDeassignmentResponse"
+      },
+      "parameters": [
+        {
+          "name": "deassignment_data",
+          "annotation": "ParticipantDeassignmentRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.DEASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 365,
+        "line_end": 407
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.dsl.execute.execute-dsl-query",
+      "module": "routers.recruitment",
+      "function_name": "execute_dsl_query",
+      "qualified_name": "routers.recruitment.execute_dsl_query",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/dsl/execute",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ParticipantSearchResponse"
+      },
+      "parameters": [
+        {
+          "name": "dsl",
+          "annotation": "str",
+          "default": "Query(..., description='DSL query string')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "query_type",
+          "annotation": "str",
+          "default": "Query('participant_search', description='Type of query')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(100, ge=1, le=1000, description='Limit results')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "Query(0, ge=0, description='Offset for pagination')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 648,
+        "line_end": 677
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.dsl.optimize.optimize-dsl-query",
+      "module": "routers.recruitment",
+      "function_name": "optimize_dsl_query",
+      "qualified_name": "routers.recruitment.optimize_dsl_query",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/dsl/optimize",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "dsl",
+          "annotation": "str",
+          "default": "Query(..., description='DSL query string to optimize')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 698,
+        "line_end": 713
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.dsl.validate.validate-dsl-query",
+      "module": "routers.recruitment",
+      "function_name": "validate_dsl_query",
+      "qualified_name": "routers.recruitment.validate_dsl_query",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/dsl/validate",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict"
+      },
+      "parameters": [
+        {
+          "name": "dsl",
+          "annotation": "str",
+          "default": "Query(..., description='DSL query string to validate')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 680,
+        "line_end": 695
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.export.export-participants",
+      "module": "routers.recruitment",
+      "function_name": "export_participants",
+      "qualified_name": "routers.recruitment.export_participants",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/export",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ExportResponse"
+      },
+      "parameters": [
+        {
+          "name": "export_data",
+          "annotation": "ExportRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.EXPORT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 609,
+        "line_end": 643
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.negative-list.add-to-negative-list",
+      "module": "routers.recruitment",
+      "function_name": "add_to_negative_list",
+      "qualified_name": "routers.recruitment.add_to_negative_list",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/negative-list",
+      "router": "router",
+      "kwargs": {
+        "response_model": "NegativeListResponse"
+      },
+      "parameters": [
+        {
+          "name": "negative_data",
+          "annotation": "NegativeListCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 411,
+        "line_end": 432
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.permanent-queries.create-permanent-query",
+      "module": "routers.recruitment",
+      "function_name": "create_permanent_query",
+      "qualified_name": "routers.recruitment.create_permanent_query",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/permanent-queries",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PermanentQueryResponse"
+      },
+      "parameters": [
+        {
+          "name": "query_data",
+          "annotation": "PermanentQueryCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 497,
+        "line_end": 521
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.saved-queries.create-saved-query",
+      "module": "routers.recruitment",
+      "function_name": "create_saved_query",
+      "qualified_name": "routers.recruitment.create_saved_query",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/saved-queries",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SavedQueryResponse"
+      },
+      "parameters": [
+        {
+          "name": "query_data",
+          "annotation": "SavedQueryCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 154,
+        "line_end": 164
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.search.search-participants",
+      "module": "routers.recruitment",
+      "function_name": "search_participants",
+      "qualified_name": "routers.recruitment.search_participants",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/search",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ParticipantSearchResponse"
+      },
+      "parameters": [
+        {
+          "name": "search_data",
+          "annotation": "ParticipantSearchRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 262,
+        "line_end": 313
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.post.targeting-rules.create-targeting-rule",
+      "module": "routers.recruitment",
+      "function_name": "create_targeting_rule",
+      "qualified_name": "routers.recruitment.create_targeting_rule",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/targeting-rules",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TargetingRuleResponse"
+      },
+      "parameters": [
+        {
+          "name": "rule_data",
+          "annotation": "TargetingRuleCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 70,
+        "line_end": 81
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.put.permanent-queries.param-query-id.update-permanent-query",
+      "module": "routers.recruitment",
+      "function_name": "update_permanent_query",
+      "qualified_name": "routers.recruitment.update_permanent_query",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/permanent-queries/{query_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PermanentQueryResponse"
+      },
+      "parameters": [
+        {
+          "name": "query_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "query_data",
+          "annotation": "PermanentQueryUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 557,
+        "line_end": 589
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.put.saved-queries.param-query-id.update-saved-query",
+      "module": "routers.recruitment",
+      "function_name": "update_saved_query",
+      "qualified_name": "routers.recruitment.update_saved_query",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/saved-queries/{query_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SavedQueryResponse"
+      },
+      "parameters": [
+        {
+          "name": "query_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "query_data",
+          "annotation": "SavedQueryUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 228,
+        "line_end": 242
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.put.targeting-rules.param-rule-id.update-targeting-rule",
+      "module": "routers.recruitment",
+      "function_name": "update_targeting_rule",
+      "qualified_name": "routers.recruitment.update_targeting_rule",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/targeting-rules/{rule_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TargetingRuleResponse"
+      },
+      "parameters": [
+        {
+          "name": "rule_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "rule_data",
+          "annotation": "TargetingRuleUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 117,
+        "line_end": 134
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "id": "routers.admin_permission_drift",
+  "module": "routers.admin_permission_drift",
+  "source_file": "routers/admin_permission_drift.py",
+  "endpoints": [
+    {
+      "id": "routers.admin_permission_drift.get.drift.check-permission-drift",
+      "module": "routers.admin_permission_drift",
+      "function_name": "check_permission_drift",
+      "qualified_name": "routers.admin_permission_drift.check_permission_drift",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/drift",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PermissionDriftResponse"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PERMISSION_DRIFT_VIEW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_permission_drift.py",
+        "line_start": 114,
+        "line_end": 139
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_permission_drift.get.health.permission-health-check",
+      "module": "routers.admin_permission_drift",
+      "function_name": "permission_health_check",
+      "qualified_name": "routers.admin_permission_drift.permission_health_check",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/health",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PERMISSION_DRIFT_VIEW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_permission_drift.py",
+        "line_start": 259,
+        "line_end": 295
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_permission_drift.get.usage.param-permission-name.get-permission-usage",
+      "module": "routers.admin_permission_drift",
+      "function_name": "get_permission_usage",
+      "qualified_name": "routers.admin_permission_drift.get_permission_usage",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/usage/{permission_name}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[PermissionUsage]"
+      },
+      "parameters": [
+        {
+          "name": "permission_name",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PERMISSION_DRIFT_VIEW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_permission_drift.py",
+        "line_start": 222,
+        "line_end": 255
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_permission_drift.post.sync.sync-missing-permissions",
+      "module": "routers.admin_permission_drift",
+      "function_name": "sync_missing_permissions",
+      "qualified_name": "routers.admin_permission_drift.sync_missing_permissions",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/sync",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PermissionSyncResponse"
+      },
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "PermissionSyncRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PERMISSION_DRIFT_MANAGE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_permission_drift.py",
+        "line_start": 143,
+        "line_end": 218
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

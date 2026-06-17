@@ -1,0 +1,147 @@
+{
+  "id": "services.recruitment.query_execution.query-execution",
+  "module": "services.recruitment.query_execution",
+  "class_name": "QueryExecutionService",
+  "qualified_name": "services.recruitment.query_execution.QueryExecutionService",
+  "source": {
+    "file": "services/recruitment/query_execution.py",
+    "line_start": 23,
+    "line_end": 463
+  },
+  "operations": [
+    {
+      "id": "services.recruitment.query_execution.query-execution.operation.execute_query",
+      "method": "execute_query",
+      "qualified_name": "services.recruitment.query_execution.QueryExecutionService.execute_query",
+      "source": {
+        "file": "services/recruitment/query_execution.py",
+        "line_start": 37,
+        "line_end": 144
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.recruitment.query_execution.query-execution.operation.execute_targeting_rule",
+      "method": "execute_targeting_rule",
+      "qualified_name": "services.recruitment.query_execution.QueryExecutionService.execute_targeting_rule",
+      "source": {
+        "file": "services/recruitment/query_execution.py",
+        "line_start": 146,
+        "line_end": 165
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.recruitment.query_execution.query-execution.operation.execute_saved_query",
+      "method": "execute_saved_query",
+      "qualified_name": "services.recruitment.query_execution.QueryExecutionService.execute_saved_query",
+      "source": {
+        "file": "services/recruitment/query_execution.py",
+        "line_start": 167,
+        "line_end": 184
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.recruitment.query_execution.query-execution.operation.search_participants_with_dsl",
+      "method": "search_participants_with_dsl",
+      "qualified_name": "services.recruitment.query_execution.QueryExecutionService.search_participants_with_dsl",
+      "source": {
+        "file": "services/recruitment/query_execution.py",
+        "line_start": 186,
+        "line_end": 192
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.recruitment.query_execution.query-execution.operation.get_participant_enrollment_stats",
+      "method": "get_participant_enrollment_stats",
+      "qualified_name": "services.recruitment.query_execution.QueryExecutionService.get_participant_enrollment_stats",
+      "source": {
+        "file": "services/recruitment/query_execution.py",
+        "line_start": 194,
+        "line_end": 197
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.recruitment.query_execution.query-execution.operation.get_query_performance_metrics",
+      "method": "get_query_performance_metrics",
+      "qualified_name": "services.recruitment.query_execution.QueryExecutionService.get_query_performance_metrics",
+      "source": {
+        "file": "services/recruitment/query_execution.py",
+        "line_start": 199,
+        "line_end": 248
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.recruitment.query_execution.query-execution.operation.validate_query_syntax",
+      "method": "validate_query_syntax",
+      "qualified_name": "services.recruitment.query_execution.QueryExecutionService.validate_query_syntax",
+      "source": {
+        "file": "services/recruitment/query_execution.py",
+        "line_start": 250,
+        "line_end": 266
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.recruitment.query_execution.query-execution.operation.optimize_query",
+      "method": "optimize_query",
+      "qualified_name": "services.recruitment.query_execution.QueryExecutionService.optimize_query",
+      "source": {
+        "file": "services/recruitment/query_execution.py",
+        "line_start": 268,
+        "line_end": 296
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

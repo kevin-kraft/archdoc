@@ -1,0 +1,881 @@
+{
+  "id": "routers.enrollment",
+  "module": "routers.enrollment",
+  "source_file": "routers/enrollment.py",
+  "endpoints": [
+    {
+      "id": "routers.enrollment.delete.param-enrollment-id.delete-enrollment",
+      "module": "routers.enrollment",
+      "function_name": "delete_enrollment",
+      "qualified_name": "routers.enrollment.delete_enrollment",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/{enrollment_id}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "enrollment_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EXPERIMENT_EDIT_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/enrollment.py",
+        "line_start": 204,
+        "line_end": 237
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.enrollment.delete.waitlist.param-session-id.param-participant-id.remove-from-waitlist",
+      "module": "routers.enrollment",
+      "function_name": "remove_from_waitlist",
+      "qualified_name": "routers.enrollment.remove_from_waitlist",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/waitlist/{session_id}/{participant_id}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EXPERIMENT_EDIT_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/enrollment.py",
+        "line_start": 278,
+        "line_end": 295
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.enrollment.get.param-enrollment-id.get-enrollment",
+      "module": "routers.enrollment",
+      "function_name": "get_enrollment",
+      "qualified_name": "routers.enrollment.get_enrollment",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{enrollment_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "EnrollmentResponse"
+      },
+      "parameters": [
+        {
+          "name": "enrollment_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EXPERIMENT_SHOW_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/enrollment.py",
+        "line_start": 145,
+        "line_end": 164
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.enrollment.get.param-enrollment-id.transitions.get-enrollment-transitions",
+      "module": "routers.enrollment",
+      "function_name": "get_enrollment_transitions",
+      "qualified_name": "routers.enrollment.get_enrollment_transitions",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{enrollment_id}/transitions",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "enrollment_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EXPERIMENT_SHOW_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/enrollment.py",
+        "line_start": 360,
+        "line_end": 386
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.enrollment.get.param-session-id.summary.get-session-enrollment-summary",
+      "module": "routers.enrollment",
+      "function_name": "get_session_enrollment_summary",
+      "qualified_name": "routers.enrollment.get_session_enrollment_summary",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{session_id}/summary",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "SESSION_VIEW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/enrollment.py",
+        "line_start": 412,
+        "line_end": 425
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.enrollment.get.root.list-enrollments",
+      "module": "routers.enrollment",
+      "function_name": "list_enrollments",
+      "qualified_name": "routers.enrollment.list_enrollments",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[EnrollmentResponse]"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "Optional[str]",
+          "default": "SESSION_ID_FILTER_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "Optional[str]",
+          "default": "PARTICIPANT_ID_FILTER_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "state",
+          "annotation": "Optional[EnrollmentState]",
+          "default": "ENROLLMENT_STATE_FILTER_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "skip",
+          "annotation": "int",
+          "default": "SKIP_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "LIMIT_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "response",
+          "annotation": "Response",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EXPERIMENT_SHOW_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/enrollment.py",
+        "line_start": 111,
+        "line_end": 142
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.enrollment.get.waitlist.list-waitlist",
+      "module": "routers.enrollment",
+      "function_name": "list_waitlist",
+      "qualified_name": "routers.enrollment.list_waitlist",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/waitlist",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict]"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "Optional[str]",
+          "default": "SESSION_ID_FILTER_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EXPERIMENT_SHOW_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/enrollment.py",
+        "line_start": 241,
+        "line_end": 275
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.enrollment.post.param-enrollment-id.cancel.cancel-enrollment-unified",
+      "module": "routers.enrollment",
+      "function_name": "cancel_enrollment_unified",
+      "qualified_name": "routers.enrollment.cancel_enrollment_unified",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{enrollment_id}/cancel",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "enrollment_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "reason",
+          "annotation": "str",
+          "default": "CANCEL_REASON_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EXPERIMENT_EDIT_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/enrollment.py",
+        "line_start": 320,
+        "line_end": 337
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.enrollment.post.param-session-id.promote-waitlist.promote-waitlist-participant",
+      "module": "routers.enrollment",
+      "function_name": "promote_waitlist_participant",
+      "qualified_name": "routers.enrollment.promote_waitlist_participant",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{session_id}/promote-waitlist",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EXPERIMENT_EDIT_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/enrollment.py",
+        "line_start": 389,
+        "line_end": 409
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.enrollment.post.policies.create-enrollment-policy",
+      "module": "routers.enrollment",
+      "function_name": "create_enrollment_policy",
+      "qualified_name": "routers.enrollment.create_enrollment_policy",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/policies",
+      "router": "router",
+      "kwargs": {
+        "response_model": "EnrollmentPolicyResponse"
+      },
+      "parameters": [
+        {
+          "name": "policy",
+          "annotation": "EnrollmentPolicyCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CONFIG_MANAGE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/enrollment.py",
+        "line_start": 299,
+        "line_end": 315
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.enrollment.post.root.create-enrollment",
+      "module": "routers.enrollment",
+      "function_name": "create_enrollment",
+      "qualified_name": "routers.enrollment.create_enrollment",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/",
+      "router": "router",
+      "kwargs": {
+        "response_model": "Union[EnrollmentResponse, WaitlistResponse]"
+      },
+      "parameters": [
+        {
+          "name": "enrollment",
+          "annotation": "EnrollmentCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EXPERIMENT_EDIT_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/enrollment.py",
+        "line_start": 70,
+        "line_end": 108
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.enrollment.put.param-enrollment-id.state.update-enrollment-state-unified",
+      "module": "routers.enrollment",
+      "function_name": "update_enrollment_state_unified",
+      "qualified_name": "routers.enrollment.update_enrollment_state_unified",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/{enrollment_id}/state",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "enrollment_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "new_state",
+          "annotation": "EnrollmentState",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EXPERIMENT_EDIT_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/enrollment.py",
+        "line_start": 340,
+        "line_end": 357
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.enrollment.put.param-enrollment-id.update-enrollment",
+      "module": "routers.enrollment",
+      "function_name": "update_enrollment",
+      "qualified_name": "routers.enrollment.update_enrollment",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/{enrollment_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "EnrollmentResponse",
+        "operation_id": "update_enrollment"
+      },
+      "parameters": [
+        {
+          "name": "enrollment_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "update_data",
+          "annotation": "EnrollmentUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "EXPERIMENT_EDIT_PARTICIPANTS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/enrollment.py",
+        "line_start": 167,
+        "line_end": 201
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

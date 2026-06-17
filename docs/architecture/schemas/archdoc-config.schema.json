@@ -1,0 +1,587 @@
+{
+  "$defs": {
+    "ActionMappingConfig": {
+      "properties": {
+        "enabled": {
+          "default": true,
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "include_unmatched_type_usages": {
+          "default": true,
+          "title": "Include Unmatched Type Usages",
+          "type": "boolean"
+        },
+        "patterns": {
+          "items": {
+            "$ref": "#/$defs/ActionPatternConfig"
+          },
+          "title": "Patterns",
+          "type": "array"
+        }
+      },
+      "title": "ActionMappingConfig",
+      "type": "object"
+    },
+    "ActionPatternConfig": {
+      "properties": {
+        "access": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Access"
+        },
+        "action": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Action"
+        },
+        "call_contains": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Call Contains",
+          "type": "array"
+        },
+        "call_names": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Call Names",
+          "type": "array"
+        },
+        "call_prefixes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Call Prefixes",
+          "type": "array"
+        },
+        "call_roles": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Call Roles",
+          "type": "array"
+        },
+        "call_suffixes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Call Suffixes",
+          "type": "array"
+        },
+        "confidence": {
+          "default": "medium",
+          "title": "Confidence",
+          "type": "string"
+        },
+        "include_nested_calls": {
+          "default": false,
+          "title": "Include Nested Calls",
+          "type": "boolean"
+        },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "kind"
+      ],
+      "title": "ActionPatternConfig",
+      "type": "object"
+    },
+    "EndpointMappingConfig": {
+      "properties": {
+        "paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Paths",
+          "type": "array"
+        },
+        "route_signal_kind": {
+          "default": "api_route",
+          "title": "Route Signal Kind",
+          "type": "string"
+        }
+      },
+      "title": "EndpointMappingConfig",
+      "type": "object"
+    },
+    "EntityMappingConfig": {
+      "properties": {
+        "class_base_names": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Class Base Names",
+          "type": "array"
+        },
+        "enabled": {
+          "default": true,
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "field_value_calls": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Field Value Calls",
+          "type": "array"
+        },
+        "include_pydantic_models": {
+          "default": true,
+          "title": "Include Pydantic Models",
+          "type": "boolean"
+        },
+        "paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Paths",
+          "type": "array"
+        },
+        "table_name_fields": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Table Name Fields",
+          "type": "array"
+        }
+      },
+      "title": "EntityMappingConfig",
+      "type": "object"
+    },
+    "MappingConfig": {
+      "properties": {
+        "actions": {
+          "$ref": "#/$defs/ActionMappingConfig"
+        },
+        "endpoints": {
+          "$ref": "#/$defs/EndpointMappingConfig"
+        },
+        "entities": {
+          "$ref": "#/$defs/EntityMappingConfig"
+        },
+        "operation_links": {
+          "$ref": "#/$defs/OperationLinkMappingConfig"
+        },
+        "services": {
+          "$ref": "#/$defs/ServiceMappingConfig"
+        },
+        "workers": {
+          "$ref": "#/$defs/WorkerMappingConfig"
+        }
+      },
+      "title": "MappingConfig",
+      "type": "object"
+    },
+    "NamingConfig": {
+      "properties": {
+        "operation_id_template": {
+          "default": "{service_id}.operation.{method_name}",
+          "title": "Operation Id Template",
+          "type": "string"
+        },
+        "service_id_template": {
+          "default": "{domain}.{class_slug}",
+          "title": "Service Id Template",
+          "type": "string"
+        }
+      },
+      "title": "NamingConfig",
+      "type": "object"
+    },
+    "OperationLinkMappingConfig": {
+      "properties": {
+        "enabled": {
+          "default": true,
+          "title": "Enabled",
+          "type": "boolean"
+        }
+      },
+      "title": "OperationLinkMappingConfig",
+      "type": "object"
+    },
+    "OutputConfig": {
+      "properties": {
+        "catalog_dir": {
+          "anyOf": [
+            {
+              "format": "path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Catalog Dir"
+        },
+        "docs_dir": {
+          "anyOf": [
+            {
+              "format": "path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Docs Dir"
+        },
+        "docusaurus_static_dir": {
+          "anyOf": [
+            {
+              "format": "path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Docusaurus Static Dir"
+        },
+        "overlays_dir": {
+          "anyOf": [
+            {
+              "format": "path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Overlays Dir"
+        },
+        "raw_facts": {
+          "format": "path",
+          "title": "Raw Facts",
+          "type": "string"
+        },
+        "schema_dir": {
+          "anyOf": [
+            {
+              "format": "path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Schema Dir"
+        }
+      },
+      "required": [
+        "raw_facts"
+      ],
+      "title": "OutputConfig",
+      "type": "object"
+    },
+    "ProjectConfig": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "root": {
+          "default": ".",
+          "format": "path",
+          "title": "Root",
+          "type": "string"
+        },
+        "source_root": {
+          "format": "path",
+          "title": "Source Root",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "source_root"
+      ],
+      "title": "ProjectConfig",
+      "type": "object"
+    },
+    "ScanConfig": {
+      "properties": {
+        "exclude": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Exclude",
+          "type": "array"
+        },
+        "include": {
+          "default": [
+            "**/*.py"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "title": "Include",
+          "type": "array"
+        }
+      },
+      "title": "ScanConfig",
+      "type": "object"
+    },
+    "ServiceMappingConfig": {
+      "properties": {
+        "class_suffixes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Class Suffixes",
+          "type": "array"
+        },
+        "exclude_classes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Exclude Classes",
+          "type": "array"
+        },
+        "ignore_method_prefixes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Ignore Method Prefixes",
+          "type": "array"
+        },
+        "ignore_methods": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Ignore Methods",
+          "type": "array"
+        },
+        "paths": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Paths",
+          "type": "array"
+        },
+        "public_methods_as_operations": {
+          "default": true,
+          "title": "Public Methods As Operations",
+          "type": "boolean"
+        }
+      },
+      "title": "ServiceMappingConfig",
+      "type": "object"
+    },
+    "WorkerDispatchCallConfig": {
+      "properties": {
+        "job_type_arg": {
+          "default": "job_type",
+          "title": "Job Type Arg",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "org_arg": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "org_id",
+          "title": "Org Arg"
+        },
+        "payload_arg": {
+          "default": "payload",
+          "title": "Payload Arg",
+          "type": "string"
+        },
+        "priority_arg": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "priority",
+          "title": "Priority Arg"
+        },
+        "schedule_arg": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "run_at",
+          "title": "Schedule Arg"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "WorkerDispatchCallConfig",
+      "type": "object"
+    },
+    "WorkerJobModelConfig": {
+      "properties": {
+        "class_name": {
+          "default": "Job",
+          "title": "Class Name",
+          "type": "string"
+        },
+        "job_type_kwarg": {
+          "default": "job_type",
+          "title": "Job Type Kwarg",
+          "type": "string"
+        },
+        "org_kwarg": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "org_id",
+          "title": "Org Kwarg"
+        },
+        "payload_kwarg": {
+          "default": "payload",
+          "title": "Payload Kwarg",
+          "type": "string"
+        },
+        "priority_kwarg": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "priority",
+          "title": "Priority Kwarg"
+        },
+        "schedule_kwarg": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "scheduled_at",
+          "title": "Schedule Kwarg"
+        }
+      },
+      "title": "WorkerJobModelConfig",
+      "type": "object"
+    },
+    "WorkerMappingConfig": {
+      "properties": {
+        "dispatch_calls": {
+          "items": {
+            "$ref": "#/$defs/WorkerDispatchCallConfig"
+          },
+          "title": "Dispatch Calls",
+          "type": "array"
+        },
+        "enabled": {
+          "default": true,
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "injected_attribute_names": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Injected Attribute Names",
+          "type": "array"
+        },
+        "job_model_constructors": {
+          "items": {
+            "$ref": "#/$defs/WorkerJobModelConfig"
+          },
+          "title": "Job Model Constructors",
+          "type": "array"
+        },
+        "queue_method_suffixes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Queue Method Suffixes",
+          "type": "array"
+        },
+        "worker_classes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Worker Classes",
+          "type": "array"
+        }
+      },
+      "title": "WorkerMappingConfig",
+      "type": "object"
+    }
+  },
+  "$id": "https://utilis.local/archdoc/schemas/archdoc-config.schema.json",
+  "properties": {
+    "mapping": {
+      "$ref": "#/$defs/MappingConfig"
+    },
+    "naming": {
+      "$ref": "#/$defs/NamingConfig"
+    },
+    "output": {
+      "$ref": "#/$defs/OutputConfig"
+    },
+    "project": {
+      "$ref": "#/$defs/ProjectConfig"
+    },
+    "scan": {
+      "$ref": "#/$defs/ScanConfig"
+    }
+  },
+  "required": [
+    "project",
+    "output"
+  ],
+  "title": "ArchdocConfig",
+  "type": "object"
+}

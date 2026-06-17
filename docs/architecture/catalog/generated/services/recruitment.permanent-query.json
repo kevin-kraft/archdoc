@@ -1,0 +1,131 @@
+{
+  "id": "recruitment.permanent-query",
+  "module": "services.recruitment.permanent_query",
+  "class_name": "PermanentQueryService",
+  "qualified_name": "services.recruitment.permanent_query.PermanentQueryService",
+  "source": {
+    "file": "services/recruitment/permanent_query.py",
+    "line_start": 16,
+    "line_end": 192
+  },
+  "operations": [
+    {
+      "id": "recruitment.permanent-query.operation.create_permanent_query",
+      "method": "create_permanent_query",
+      "qualified_name": "services.recruitment.permanent_query.PermanentQueryService.create_permanent_query",
+      "source": {
+        "file": "services/recruitment/permanent_query.py",
+        "line_start": 27,
+        "line_end": 55
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.permanent-query.operation.get_permanent_query",
+      "method": "get_permanent_query",
+      "qualified_name": "services.recruitment.permanent_query.PermanentQueryService.get_permanent_query",
+      "source": {
+        "file": "services/recruitment/permanent_query.py",
+        "line_start": 57,
+        "line_end": 76
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.permanent-query.operation.list_permanent_queries",
+      "method": "list_permanent_queries",
+      "qualified_name": "services.recruitment.permanent_query.PermanentQueryService.list_permanent_queries",
+      "source": {
+        "file": "services/recruitment/permanent_query.py",
+        "line_start": 78,
+        "line_end": 98
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.permanent-query.operation.update_permanent_query",
+      "method": "update_permanent_query",
+      "qualified_name": "services.recruitment.permanent_query.PermanentQueryService.update_permanent_query",
+      "source": {
+        "file": "services/recruitment/permanent_query.py",
+        "line_start": 100,
+        "line_end": 140
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.permanent-query.operation.delete_permanent_query",
+      "method": "delete_permanent_query",
+      "qualified_name": "services.recruitment.permanent_query.PermanentQueryService.delete_permanent_query",
+      "source": {
+        "file": "services/recruitment/permanent_query.py",
+        "line_start": 142,
+        "line_end": 166
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.permanent-query.operation.activate_permanent_query",
+      "method": "activate_permanent_query",
+      "qualified_name": "services.recruitment.permanent_query.PermanentQueryService.activate_permanent_query",
+      "source": {
+        "file": "services/recruitment/permanent_query.py",
+        "line_start": 168,
+        "line_end": 179
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.permanent-query.operation.deactivate_permanent_query",
+      "method": "deactivate_permanent_query",
+      "qualified_name": "services.recruitment.permanent_query.PermanentQueryService.deactivate_permanent_query",
+      "source": {
+        "file": "services/recruitment/permanent_query.py",
+        "line_start": 181,
+        "line_end": 192
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

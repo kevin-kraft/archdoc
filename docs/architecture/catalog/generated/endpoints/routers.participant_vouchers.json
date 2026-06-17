@@ -1,0 +1,303 @@
+{
+  "id": "routers.participant_vouchers",
+  "module": "routers.participant_vouchers",
+  "source_file": "routers/participant_vouchers.py",
+  "endpoints": [
+    {
+      "id": "routers.participant_vouchers.get.param-participant-id.vouchers.get-participant-vouchers",
+      "module": "routers.participant_vouchers",
+      "function_name": "get_participant_vouchers",
+      "qualified_name": "routers.participant_vouchers.get_participant_vouchers",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "high",
+        "reason": "Endpoint contains a typed or assigned service variable and calls a method on it.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{participant_id}/vouchers",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict]",
+        "operation_id": "list_participant_vouchers"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('participants_show'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "__",
+          "annotation": "None",
+          "default": "Depends(require_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_vouchers.py",
+        "line_start": 58,
+        "line_end": 67
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_vouchers.get.participants.param-participant-id.vouchers.get-participant-vouchers",
+      "module": "routers.participant_vouchers",
+      "function_name": "get_participant_vouchers",
+      "qualified_name": "routers.participant_vouchers.get_participant_vouchers",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/participants/{participant_id}/vouchers",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict]",
+        "include_in_schema": "False"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('participants_show'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "__",
+          "annotation": "None",
+          "default": "Depends(require_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_vouchers.py",
+        "line_start": 58,
+        "line_end": 67
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_vouchers.post.param-participant-id.vouchers.create-voucher",
+      "module": "routers.participant_vouchers",
+      "function_name": "create_voucher",
+      "qualified_name": "routers.participant_vouchers.create_voucher",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "high",
+        "reason": "Endpoint contains a typed or assigned service variable and calls a method on it.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{participant_id}/vouchers",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict",
+        "operation_id": "create_participant_voucher"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "voucher_data",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('payments_edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_vouchers.py",
+        "line_start": 35,
+        "line_end": 49
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_vouchers.post.participants.param-participant-id.vouchers.create-voucher",
+      "module": "routers.participant_vouchers",
+      "function_name": "create_voucher",
+      "qualified_name": "routers.participant_vouchers.create_voucher",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/participants/{participant_id}/vouchers",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict",
+        "include_in_schema": "False"
+      },
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "voucher_data",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('payments_edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_vouchers.py",
+        "line_start": 35,
+        "line_end": 49
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

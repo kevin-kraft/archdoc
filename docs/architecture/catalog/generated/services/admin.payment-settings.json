@@ -1,0 +1,51 @@
+{
+  "id": "admin.payment-settings",
+  "module": "services.admin.payment_settings",
+  "class_name": "PaymentSettingsService",
+  "qualified_name": "services.admin.payment_settings.PaymentSettingsService",
+  "source": {
+    "file": "services/admin/payment_settings.py",
+    "line_start": 692,
+    "line_end": 955
+  },
+  "operations": [
+    {
+      "id": "admin.payment-settings.operation.update_payment_settings",
+      "method": "update_payment_settings",
+      "qualified_name": "services.admin.payment_settings.PaymentSettingsService.update_payment_settings",
+      "source": {
+        "file": "services/admin/payment_settings.py",
+        "line_start": 823,
+        "line_end": 906
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "admin.payment-settings.operation.reset_payment_settings",
+      "method": "reset_payment_settings",
+      "qualified_name": "services.admin.payment_settings.PaymentSettingsService.reset_payment_settings",
+      "source": {
+        "file": "services/admin/payment_settings.py",
+        "line_start": 908,
+        "line_end": 955
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

@@ -1,0 +1,135 @@
+{
+  "id": "routers.health",
+  "module": "routers.health",
+  "source_file": "routers/health.py",
+  "endpoints": [
+    {
+      "id": "routers.health.get.health.basic-health-check",
+      "module": "routers.health",
+      "function_name": "basic_health_check",
+      "qualified_name": "routers.health.basic_health_check",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/health",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [],
+      "source": {
+        "file": "routers/health.py",
+        "line_start": 256,
+        "line_end": 267
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.health.get.health.detailed.detailed-health-check",
+      "module": "routers.health",
+      "function_name": "detailed_health_check",
+      "qualified_name": "routers.health.detailed_health_check",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/health/detailed",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "x_health_key",
+          "annotation": "Optional[str]",
+          "default": "Header(None)",
+          "kind": "positional_or_keyword",
+          "source": "header"
+        }
+      ],
+      "source": {
+        "file": "routers/health.py",
+        "line_start": 306,
+        "line_end": 405
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.health.get.health.live.liveness-probe",
+      "module": "routers.health",
+      "function_name": "liveness_probe",
+      "qualified_name": "routers.health.liveness_probe",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/health/live",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [],
+      "source": {
+        "file": "routers/health.py",
+        "line_start": 271,
+        "line_end": 280
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.health.get.health.ready.readiness-probe",
+      "module": "routers.health",
+      "function_name": "readiness_probe",
+      "qualified_name": "routers.health.readiness_probe",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/health/ready",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [],
+      "source": {
+        "file": "routers/health.py",
+        "line_start": 284,
+        "line_end": 302
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

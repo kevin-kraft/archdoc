@@ -1,0 +1,884 @@
+{
+  "id": "routers.duplicate_detection",
+  "module": "routers.duplicate_detection",
+  "source_file": "routers/duplicate_detection.py",
+  "endpoints": [
+    {
+      "id": "routers.duplicate_detection.delete.config.param-config-id.delete-detection-config",
+      "module": "routers.duplicate_detection",
+      "function_name": "delete_detection_config",
+      "qualified_name": "routers.duplicate_detection.delete_detection_config",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/config/{config_id}",
+      "router": "router",
+      "kwargs": {
+        "operation_id": "delete_detection_config"
+      },
+      "parameters": [
+        {
+          "name": "config_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 425,
+        "line_end": 451
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.duplicate_detection.delete.exclusion-rules.param-rule-id.delete-exclusion-rule",
+      "module": "routers.duplicate_detection",
+      "function_name": "delete_exclusion_rule",
+      "qualified_name": "routers.duplicate_detection.delete_exclusion_rule",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/exclusion-rules/{rule_id}",
+      "router": "router",
+      "kwargs": {
+        "operation_id": "delete_exclusion_rule"
+      },
+      "parameters": [
+        {
+          "name": "rule_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 300,
+        "line_end": 323
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.duplicate_detection.get.config.get-detection-configs",
+      "module": "routers.duplicate_detection",
+      "function_name": "get_detection_configs",
+      "qualified_name": "routers.duplicate_detection.get_detection_configs",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/config",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[DuplicateDetectionConfigResponse]",
+        "operation_id": "get_detection_configs"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 326,
+        "line_end": 349
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.duplicate_detection.get.dashboard-stats.get-dashboard-stats",
+      "module": "routers.duplicate_detection",
+      "function_name": "get_dashboard_stats",
+      "qualified_name": "routers.duplicate_detection.get_dashboard_stats",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/dashboard-stats",
+      "router": "router",
+      "kwargs": {
+        "response_model": "DuplicateDashboardStats",
+        "operation_id": "get_duplicate_dashboard_stats"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 488,
+        "line_end": 524
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.duplicate_detection.get.exclusion-rules.get-exclusion-rules",
+      "module": "routers.duplicate_detection",
+      "function_name": "get_exclusion_rules",
+      "qualified_name": "routers.duplicate_detection.get_exclusion_rules",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/exclusion-rules",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[DuplicateExclusionRuleResponse]",
+        "operation_id": "get_exclusion_rules"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 247,
+        "line_end": 267
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.duplicate_detection.get.merge-queue.get-merge-queue",
+      "module": "routers.duplicate_detection",
+      "function_name": "get_merge_queue",
+      "qualified_name": "routers.duplicate_detection.get_merge_queue",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/merge-queue",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[DuplicateMergeQueueItem]",
+        "operation_id": "get_duplicate_merge_queue"
+      },
+      "parameters": [
+        {
+          "name": "status",
+          "annotation": "Optional[str]",
+          "default": "MERGE_QUEUE_STATUS_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "MERGE_QUEUE_LIMIT_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 454,
+        "line_end": 485
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.duplicate_detection.get.stats.get-duplicate-stats",
+      "module": "routers.duplicate_detection",
+      "function_name": "get_duplicate_stats",
+      "qualified_name": "routers.duplicate_detection.get_duplicate_stats",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/stats",
+      "router": "router",
+      "kwargs": {
+        "response_model": "DuplicateStats",
+        "operation_id": "get_duplicate_stats"
+      },
+      "parameters": [
+        {
+          "name": "time_range_start",
+          "annotation": "Optional[datetime]",
+          "default": "TIME_RANGE_START_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "time_range_end",
+          "annotation": "Optional[datetime]",
+          "default": "TIME_RANGE_END_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 96,
+        "line_end": 121
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.duplicate_detection.post.config.create-detection-config",
+      "module": "routers.duplicate_detection",
+      "function_name": "create_detection_config",
+      "qualified_name": "routers.duplicate_detection.create_detection_config",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/config",
+      "router": "router",
+      "kwargs": {
+        "response_model": "DuplicateDetectionConfigResponse",
+        "operation_id": "create_detection_config"
+      },
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "DuplicateDetectionConfigCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 352,
+        "line_end": 385
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.duplicate_detection.post.detect.detect-duplicates",
+      "module": "routers.duplicate_detection",
+      "function_name": "detect_duplicates",
+      "qualified_name": "routers.duplicate_detection.detect_duplicates",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/detect",
+      "router": "router",
+      "kwargs": {
+        "response_model": "DuplicateDetectionResponse",
+        "operation_id": "detect_potential_duplicates"
+      },
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "DuplicateDetectionRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 65,
+        "line_end": 93
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.duplicate_detection.post.exclusion-rules.create-exclusion-rule",
+      "module": "routers.duplicate_detection",
+      "function_name": "create_exclusion_rule",
+      "qualified_name": "routers.duplicate_detection.create_exclusion_rule",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/exclusion-rules",
+      "router": "router",
+      "kwargs": {
+        "response_model": "DuplicateExclusionRuleResponse",
+        "operation_id": "create_exclusion_rule"
+      },
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "DuplicateExclusionRuleCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 270,
+        "line_end": 297
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.duplicate_detection.post.merge.bulk.bulk-merge-participants",
+      "module": "routers.duplicate_detection",
+      "function_name": "bulk_merge_participants",
+      "qualified_name": "routers.duplicate_detection.bulk_merge_participants",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/merge/bulk",
+      "router": "router",
+      "kwargs": {
+        "response_model": "DuplicateMergeSummary",
+        "operation_id": "bulk_merge_duplicates"
+      },
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "BulkMergeRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 155,
+        "line_end": 196
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.duplicate_detection.post.merge.merge-participants",
+      "module": "routers.duplicate_detection",
+      "function_name": "merge_participants",
+      "qualified_name": "routers.duplicate_detection.merge_participants",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/merge",
+      "router": "router",
+      "kwargs": {
+        "response_model": "MergeResult",
+        "operation_id": "merge_duplicates"
+      },
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "MergeRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "__",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 124,
+        "line_end": 152
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.duplicate_detection.post.merge.simulate.simulate-merge",
+      "module": "routers.duplicate_detection",
+      "function_name": "simulate_merge",
+      "qualified_name": "routers.duplicate_detection.simulate_merge",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/merge/simulate",
+      "router": "router",
+      "kwargs": {
+        "response_model": "MergeSimulationResult",
+        "operation_id": "simulate_duplicate_merge"
+      },
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "MergeRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 199,
+        "line_end": 244
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.duplicate_detection.put.config.param-config-id.update-detection-config",
+      "module": "routers.duplicate_detection",
+      "function_name": "update_detection_config",
+      "qualified_name": "routers.duplicate_detection.update_detection_config",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/config/{config_id}",
+      "router": "router",
+      "kwargs": {
+        "operation_id": "update_detection_config"
+      },
+      "parameters": [
+        {
+          "name": "config_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "request",
+          "annotation": "DuplicateDetectionConfigCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "DUPLICATES_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/duplicate_detection.py",
+        "line_start": 388,
+        "line_end": 422
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

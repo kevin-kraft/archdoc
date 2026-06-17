@@ -1,0 +1,1767 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-container-width-xl: 90%;
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+   --ifm-container-width-xl: 90%;
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+
+.endpointTableWrapper {
+  width: 100%;
+  font-size: 0.86rem;
+}
+
+@media (min-width: 997px) {
+  .container:has(.endpointTableWrapper) {
+    width: 100%;
+    max-width: none;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .row:has(.endpointTableWrapper) main.col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .row:has(.endpointTableWrapper) [class*='docItemCol'] {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  [class*='docItemCol']:has(.endpointTableWrapper) {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .row:has(.endpointTableWrapper) .theme-doc-toc-desktop {
+    display: none;
+  }
+}
+
+@layer docusaurus.theme-classic {
+  @media (min-width: 997px) {
+    [class*='docItemCol']:has(.endpointTableWrapper) {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+  }
+}
+
+.archdocUserStoryLayout {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+.archdocUserStoryList,
+.archdocUserStoryDetail {
+  min-width: 0;
+}
+
+@media (max-width: 996px) {
+  .archdocUserStoryLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.endpointTableSearchWrapper {
+  margin-bottom: 0.75rem;
+}
+
+.endpointTableSearch {
+  width: 100%;
+  min-width: 220px;
+  padding: 0.58rem 0.68rem;
+  font-size: 0.86rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+}
+
+.endpointTableSummary {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.82rem;
+  margin-bottom: 0.5rem;
+}
+
+.endpointTableScroll {
+  overflow-x: auto;
+  width: 100%;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+}
+
+.endpointTable {
+  width: 100%;
+  min-width: 1120px;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.theme-doc-markdown .endpointTableScroll > .endpointTable,
+.endpointTableScroll > .endpointTable {
+  display: table;
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+.theme-doc-markdown .endpointTableScroll > .endpointTable.archdocDataTable,
+.endpointTableScroll > .endpointTable.archdocDataTable {
+  table-layout: fixed;
+}
+
+.endpointTable th,
+.endpointTable td {
+  border: 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.68rem 0.75rem;
+  vertical-align: top;
+}
+
+.endpointTable th {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.archdocSortHeader {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+  text-align: left;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.archdocSortHeader span:last-child {
+  min-width: 2.2rem;
+  color: var(--ifm-color-primary);
+  font-size: 0.62rem;
+  text-transform: none;
+}
+
+.archdocSortHeader--active {
+  color: var(--ifm-color-primary-dark);
+}
+
+.endpointTable tbody tr:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.endpointTable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.endpointTable code {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  padding: 0.08rem 0.24rem;
+  background: var(--ifm-code-background);
+  font-size: 0.74rem;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.endpointTableLinkedCell {
+  text-align: center;
+  vertical-align: middle !important;
+}
+
+.endpointTableIcon {
+  font-size: 0.95rem;
+}
+
+.endpointTableIconSuccess {
+  color: green;
+}
+
+.endpointTableIconWarning {
+  color: orange;
+}
+
+.endpointTableParam {
+  margin-bottom: 0.15rem;
+  white-space: nowrap;
+}
+
+.endpointTableParam small {
+  font-size: 0.65rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.archdocToolbar {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+}
+
+.archdocToolbarMain {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.archdocToolbar h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.archdocToolbar p {
+  max-width: 760px;
+  margin: 0.25rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.archdocToolbarControls {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.archdocDataTableShell {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.archdocDataTableControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: end;
+  padding: 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+}
+
+.archdocDataTableControls > .endpointTableSearch {
+  flex: 1 1 280px;
+}
+
+.archdocDataTableFilter {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 130px;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.archdocDataTableFilter select {
+  min-height: 36px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 0.35rem 0.45rem;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  font: inherit;
+  font-weight: 500;
+}
+
+.archdocDataTablePagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.82rem;
+}
+
+.archdocDataTablePagination div {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.archdocDataTablePagination button {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 0.32rem 0.55rem;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+}
+
+.archdocDataTablePagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.archdocEmptyCell {
+  padding: 1.2rem !important;
+  color: var(--ifm-color-emphasis-700);
+  text-align: center;
+}
+
+.archdocToolbarBadges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+
+.archdocMetaBadge,
+.archdocResultCount {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 0.18rem 0.5rem;
+  color: var(--ifm-color-emphasis-800);
+  background: var(--ifm-background-color);
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.archdocMetaBadge--editable {
+  border-color: var(--ifm-color-success);
+  color: var(--ifm-color-success-dark);
+}
+
+.archdocCellStack {
+  display: grid;
+  gap: 0.28rem;
+  min-width: 0;
+}
+
+.archdocCellPrimary {
+  color: var(--ifm-font-color-base);
+  font-weight: 650;
+}
+
+.archdocCellSecondary {
+  max-width: 520px;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.74rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.archdocPathCode {
+  color: var(--ifm-color-primary-darkest);
+}
+
+.archdocInlineToken {
+  display: inline-flex;
+  margin: 0 0.25rem 0.2rem 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  padding: 0.08rem 0.28rem;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.7rem;
+}
+
+.archdocMuted {
+  color: var(--ifm-color-emphasis-600);
+}
+
+.archdocMethodBadge,
+.archdocConfidenceBadge,
+.archdocSeverityBadge,
+.archdocLinkState {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  min-height: 26px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 0.14rem 0.45rem;
+  background: var(--ifm-background-color);
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.archdocMethodBadge--get {
+  border-color: #4c9aff;
+  color: #0f5fb8;
+}
+
+.archdocMethodBadge--post {
+  border-color: #36b37e;
+  color: #08704f;
+}
+
+.archdocMethodBadge--put,
+.archdocMethodBadge--patch {
+  border-color: #ffab00;
+  color: #8a5a00;
+}
+
+.archdocMethodBadge--delete {
+  border-color: #ff5630;
+  color: #b72d13;
+}
+
+.archdocLinkState--linked,
+.archdocConfidenceBadge--exact,
+.archdocConfidenceBadge--high,
+.archdocSeverityBadge--info {
+  border-color: var(--ifm-color-success);
+  color: var(--ifm-color-success-dark);
+}
+
+.archdocLinkState--unlinked,
+.archdocConfidenceBadge--medium,
+.archdocSeverityBadge--warning {
+  border-color: var(--ifm-color-warning);
+  color: #8a5a00;
+}
+
+.archdocConfidenceBadge--low,
+.archdocConfidenceBadge--unknown,
+.archdocSeverityBadge--error {
+  border-color: var(--ifm-color-danger);
+  color: var(--ifm-color-danger-dark);
+}
+
+.archdocSourceRef {
+  display: grid;
+  gap: 0.22rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.72rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.archdocSourceRef strong {
+  width: fit-content;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 0.05rem 0.3rem;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-color);
+  font-size: 0.68rem;
+}
+
+.archdocMetricGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.archdocMetric {
+  display: grid;
+  gap: 0.28rem;
+  min-height: 86px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 0.8rem;
+  background: var(--ifm-background-surface-color);
+}
+
+.archdocMetric span {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.archdocMetric strong {
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.archdocMetric--success {
+  border-color: var(--ifm-color-success);
+}
+
+.archdocMetric--warning {
+  border-color: var(--ifm-color-warning);
+}
+
+.archdocMetric--danger {
+  border-color: var(--ifm-color-danger);
+}
+
+.archdocCoverage,
+.archdocSection {
+  margin: 1rem 0;
+}
+
+.archdocCoverageHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.45rem;
+}
+
+.archdocCoverageTrack {
+  height: 12px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--ifm-color-emphasis-200);
+}
+
+.archdocCoverageFill {
+  height: 100%;
+  border-radius: 8px;
+  background: var(--ifm-color-primary);
+}
+
+.archdocTwoColumn {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.archdocSection h2 {
+  margin: 1.4rem 0 0.6rem;
+  font-size: 1.05rem;
+}
+
+.archdocGraphControls {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(180px, 260px);
+  gap: 0.8rem;
+  margin: 1rem 0;
+  align-items: end;
+}
+
+.archdocGraphControls label {
+  display: grid;
+  gap: 0.28rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.archdocGraphControls select {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 0.35rem 0.5rem;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  font: inherit;
+  text-transform: none;
+}
+
+.archdocGraphSummary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.65rem;
+  margin: 1rem 0;
+}
+
+.archdocGraphMetric {
+  min-height: 72px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 0.7rem;
+  background: var(--ifm-background-surface-color);
+}
+
+.archdocGraphMetric span {
+  display: block;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.archdocGraphMetric strong {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.archdocGraphLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1rem;
+  align-items: center;
+  margin: 0.2rem 0 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  background: var(--ifm-background-surface-color);
+}
+
+.archdocGraphLegend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.76rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.archdocLegendDot {
+  width: 0.78rem;
+  height: 0.78rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background: var(--ifm-color-emphasis-500);
+}
+
+.archdocLegendDot--service {
+  border-color: #7c3aed;
+  background: #c4b5fd;
+}
+
+.archdocLegendDot--endpoint {
+  border-color: #0284c7;
+  background: #7dd3fc;
+}
+
+.archdocLegendDot--operation {
+  border-color: #059669;
+  background: #6ee7b7;
+}
+
+.archdocLegendDot--database {
+  border-color: #d97706;
+  background: #fcd34d;
+}
+
+.archdocLegendDot--transaction {
+  border-color: #78716c;
+  background: #d6d3d1;
+}
+
+.archdocLegendDot--permission {
+  border-color: #dc2626;
+  background: #fda4af;
+}
+
+.archdocLegendDot--target {
+  border-color: #9333ea;
+  background: #d8b4fe;
+}
+
+.archdocGraphShell {
+  position: relative;
+  height: min(76vh, 820px);
+  min-height: 560px;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+}
+
+.archdocGraphHeader {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.7rem 0.85rem;
+}
+
+.archdocGraphHeader div {
+  display: grid;
+  gap: 0.12rem;
+}
+
+.archdocGraphHeader strong {
+  font-size: 0.95rem;
+}
+
+.archdocGraphHeader span {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.78rem;
+}
+
+.archdocServiceGraph {
+  height: calc(100% - 58px);
+  background: var(--ifm-background-color);
+}
+
+.react-flow__node-default.archdocGraphNode,
+.archdocGraphNode {
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.react-flow__node-default.archdocGraphNode--service,
+.archdocGraphNode--service {
+  border-color: #7c3aed;
+}
+
+.react-flow__node-default.archdocGraphNode--endpoint,
+.archdocGraphNode--endpoint {
+  border-color: var(--ifm-color-info);
+}
+
+.react-flow__node-default.archdocGraphNode--operation,
+.archdocGraphNode--operation {
+  border-color: var(--ifm-color-success);
+}
+
+.react-flow__node-default.archdocGraphNode--database_action,
+.archdocGraphNode--database_action {
+  border-color: var(--ifm-color-warning);
+  cursor: pointer;
+}
+
+.react-flow__node-default.archdocGraphNode--database_transaction,
+.archdocGraphNode--database_transaction {
+  border-color: #78716c;
+}
+
+.react-flow__node-default.archdocGraphNode--permission_action,
+.archdocGraphNode--permission_action {
+  border-color: var(--ifm-color-danger);
+}
+
+.react-flow__node-default.archdocGraphNode--target,
+.react-flow__node-default.archdocGraphNode--external_action,
+.react-flow__node-default.archdocGraphNode--worker_action,
+.archdocGraphNode--target,
+.archdocGraphNode--external_action,
+.archdocGraphNode--worker_action {
+  border-style: dashed;
+  border-color: var(--ifm-color-primary-dark);
+}
+
+.archdocGraphNodeLabel {
+  display: grid;
+  gap: 0.22rem;
+  min-width: 0;
+  text-align: left;
+}
+
+.archdocGraphNodeLabel strong,
+.archdocGraphNodeLabel span,
+.archdocGraphNodeLabel small {
+  overflow-wrap: anywhere;
+}
+
+.archdocGraphNodeLabel strong {
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.archdocGraphNodeLabel span {
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.67rem;
+  line-height: 1.25;
+}
+
+.archdocGraphNodeLabel small {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.62rem;
+}
+
+[data-theme='dark'] .archdocGraphShell,
+[data-theme='dark'] .archdocServiceGraph {
+  background: #181a1f;
+}
+
+[data-theme='dark'] .react-flow__node-default.archdocGraphNode,
+[data-theme='dark'] .archdocGraphNode {
+  border-color: #4b5563;
+  background: #242832;
+  color: #f8fafc;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.32);
+}
+
+[data-theme='dark'] .react-flow__node-default.archdocGraphNode--service,
+[data-theme='dark'] .archdocGraphNode--service {
+  border-color: #a78bfa;
+}
+
+[data-theme='dark'] .react-flow__node-default.archdocGraphNode--endpoint,
+[data-theme='dark'] .archdocGraphNode--endpoint {
+  border-color: #38bdf8;
+}
+
+[data-theme='dark'] .react-flow__node-default.archdocGraphNode--operation,
+[data-theme='dark'] .archdocGraphNode--operation {
+  border-color: #34d399;
+}
+
+[data-theme='dark'] .react-flow__node-default.archdocGraphNode--database_action,
+[data-theme='dark'] .archdocGraphNode--database_action {
+  border-color: #fbbf24;
+}
+
+[data-theme='dark'] .react-flow__node-default.archdocGraphNode--database_transaction,
+[data-theme='dark'] .archdocGraphNode--database_transaction {
+  border-color: #a8a29e;
+}
+
+[data-theme='dark'] .react-flow__node-default.archdocGraphNode--permission_action,
+[data-theme='dark'] .archdocGraphNode--permission_action {
+  border-color: #fb7185;
+}
+
+[data-theme='dark'] .react-flow__node-default.archdocGraphNode--target,
+[data-theme='dark'] .react-flow__node-default.archdocGraphNode--external_action,
+[data-theme='dark'] .react-flow__node-default.archdocGraphNode--worker_action,
+[data-theme='dark'] .archdocGraphNode--target,
+[data-theme='dark'] .archdocGraphNode--external_action,
+[data-theme='dark'] .archdocGraphNode--worker_action {
+  border-color: #a78bfa;
+}
+
+[data-theme='dark'] .archdocGraphNodeLabel strong {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .archdocGraphNodeLabel span {
+  color: #dbe3ef;
+}
+
+[data-theme='dark'] .archdocGraphNodeLabel small {
+  color: #aeb9c9;
+}
+
+[data-theme='dark'] .react-flow__edge-path {
+  stroke: #4b5563;
+  stroke-width: 1.4;
+}
+
+[data-theme='dark'] .react-flow__controls,
+[data-theme='dark'] .react-flow__minimap {
+  border: 1px solid #374151;
+  background: #20242d;
+}
+
+.react-flow__minimap {
+  width: 190px;
+  height: 140px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+[data-theme='dark'] .react-flow__controls-button {
+  border-bottom-color: #374151;
+  background: #20242d;
+  color: #f8fafc;
+  fill: #f8fafc;
+}
+
+[data-theme='dark'] .react-flow__minimap-mask {
+  fill: rgba(15, 23, 42, 0.65);
+}
+
+[data-theme='dark'] .react-flow__minimap-node {
+  fill: #64748b;
+  stroke: #94a3b8;
+}
+
+[data-theme='dark'] .archdocGraphLegend {
+  border-color: #374151;
+  background: #20242d;
+}
+
+[data-theme='dark'] .archdocGraphLegend span {
+  color: #e5edf8;
+}
+
+.archdocActionDetails {
+  margin-top: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  overflow: hidden;
+}
+
+.archdocNodeInspector {
+  position: absolute;
+  z-index: 12;
+  top: 72px;
+  right: 16px;
+  bottom: 16px;
+  width: min(430px, calc(100% - 32px));
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+}
+
+.archdocNodeInspectorBody {
+  display: grid;
+  gap: 0.75rem;
+  max-height: calc(100% - 58px);
+  overflow: auto;
+  padding: 0.85rem;
+}
+
+.archdocInspectorTokenList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.archdocInspectorTokenList span {
+  display: grid;
+  gap: 0.12rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  padding: 0.32rem 0.45rem;
+  background: var(--ifm-background-surface-color);
+  font-size: 0.72rem;
+}
+
+.archdocInspectorTokenList small {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.66rem;
+}
+
+.archdocInspectorSequence {
+  display: grid;
+  gap: 0.42rem;
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.archdocInspectorSequence li {
+  padding-left: 0.15rem;
+}
+
+.archdocInspectorSequence strong,
+.archdocInspectorSequence span,
+.archdocInspectorSequence small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.archdocInspectorSequence strong {
+  font-size: 0.7rem;
+}
+
+.archdocInspectorSequence span {
+  font-size: 0.74rem;
+}
+
+.archdocInspectorSequence small {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.64rem;
+}
+
+.archdocActionDetailsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.85rem 1rem;
+}
+
+.archdocActionDetailsHeader div {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.archdocActionDetailsHeader strong {
+  overflow-wrap: anywhere;
+  font-size: 0.92rem;
+}
+
+.archdocActionDetailsHeader span {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.76rem;
+}
+
+.archdocActionDetailsHeader button {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 0.36rem 0.65rem;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+}
+
+.archdocActionDetailsGrid,
+.archdocEntityDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.85rem;
+  padding: 0.85rem;
+}
+
+.archdocDetailBlock {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 0.8rem;
+  background: var(--ifm-background-color);
+  min-width: 0;
+}
+
+.archdocDetailBlock h3 {
+  margin: 0 0 0.65rem;
+  font-size: 0.84rem;
+}
+
+.archdocDetailsList {
+  display: grid;
+  grid-template-columns: minmax(86px, max-content) minmax(0, 1fr);
+  gap: 0.32rem 0.7rem;
+  margin: 0;
+  font-size: 0.74rem;
+}
+
+.archdocDetailsList dt {
+  color: var(--ifm-color-emphasis-700);
+  font-weight: 700;
+}
+
+.archdocDetailsList dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.archdocCodeBlock {
+  max-height: 220px;
+  margin: 0.75rem 0 0;
+  overflow: auto;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  padding: 0.65rem;
+  background: var(--ifm-code-background);
+  color: var(--ifm-font-color-base);
+  font-size: 0.72rem;
+  white-space: pre-wrap;
+}
+
+.archdocDocstringBlock {
+  max-height: 240px;
+  margin: 0.75rem 0 0;
+  overflow: auto;
+  border-left: 3px solid var(--ifm-color-primary);
+  border-radius: 4px;
+  padding: 0.65rem 0.75rem;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-font-color-base);
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.76rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.archdocQueryPartList {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 0.74rem;
+}
+
+.archdocQueryPartList li {
+  overflow-wrap: anywhere;
+}
+
+.archdocEntityFieldTableWrap {
+  margin-top: 0.75rem;
+  overflow: auto;
+}
+
+.archdocEntityFieldTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+}
+
+.archdocEntityFieldTable th,
+.archdocEntityFieldTable td {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.34rem 0.42rem;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.archdocEntityFieldTable th {
+  color: var(--ifm-color-emphasis-700);
+  font-weight: 800;
+}
+
+[data-theme='dark'] .archdocActionDetails {
+  border-color: #374151;
+  background: #181a1f;
+}
+
+[data-theme='dark'] .archdocNodeInspector {
+  border-color: #374151;
+  background: #181a1f;
+}
+
+[data-theme='dark'] .archdocActionDetailsHeader,
+[data-theme='dark'] .archdocDetailBlock,
+[data-theme='dark'] .archdocEntityFieldTable th,
+[data-theme='dark'] .archdocEntityFieldTable td {
+  border-color: #374151;
+}
+
+[data-theme='dark'] .archdocDetailBlock,
+[data-theme='dark'] .archdocActionDetailsHeader button {
+  background: #20242d;
+}
+
+[data-theme='dark'] .archdocCodeBlock {
+  border-color: #374151;
+  background: #111827;
+  color: #e5edf8;
+}
+
+.react-flow__node-default {
+  padding: 0.6rem;
+}
+
+.archdocUserStoryLayout {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.archdocUserStoryLayout--collapsed {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.archdocUserStoryList,
+.archdocUserStoryDetail {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+}
+
+.archdocUserStoryControls {
+  grid-template-columns: minmax(180px, 1fr) minmax(180px, 0.7fr) minmax(180px, 0.7fr);
+}
+
+.archdocUserStoryToggle {
+  align-self: end;
+  min-height: 38px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 0.42rem 0.7rem;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.archdocUserStoryToggle:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.archdocUserStoryList {
+  display: grid;
+  gap: 0.4rem;
+  max-height: calc(100vh - 260px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.55rem;
+}
+
+.archdocUserStoryItem {
+  display: grid;
+  gap: 0.25rem;
+  width: 100%;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 0.65rem;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  text-align: left;
+  cursor: pointer;
+}
+
+.archdocUserStoryItem--active {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
+
+.archdocUserStoryItemHeader,
+.archdocUserStoryDetailHeader,
+.archdocStoryLinkCard header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.archdocUserStoryItem span,
+.archdocUserStoryItem small {
+  overflow-wrap: anywhere;
+}
+
+.archdocUserStoryItem small,
+.archdocUserStoryDetailHeader span {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.74rem;
+}
+
+.archdocUserStoryDetail {
+  overflow: hidden;
+}
+
+.archdocUserStoryDetailHeader {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.85rem 1rem;
+}
+
+.archdocUserStoryDetailHeader div {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.archdocUserStoryDetailHeader .archdocUserStoryHeaderActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  min-width: max-content;
+}
+
+.archdocUserStoryMeta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.65rem;
+  padding: 0.85rem;
+}
+
+.archdocUserStoryTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.65rem 0.85rem;
+  background: var(--ifm-background-color);
+}
+
+.archdocUserStoryTabs button {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  padding: 0.26rem 0.7rem;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.74rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.archdocUserStoryTabs button:hover,
+.archdocUserStoryTabs .archdocUserStoryTab--active {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast-background);
+}
+
+.archdocStoryLinks {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0 0.85rem 0.85rem;
+}
+
+.archdocStoryTrace {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0.85rem 0.85rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 0.85rem;
+  background: var(--ifm-background-color);
+}
+
+.archdocStoryTraceHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.archdocStoryTraceHeader div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.archdocStoryTraceHeader span,
+.archdocTraceNode small {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.72rem;
+}
+
+.archdocStoryTraceMetrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 0.45rem;
+}
+
+.archdocTraceFlow {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  overscroll-behavior-x: contain;
+}
+
+.archdocTraceNode {
+  display: grid;
+  align-content: start;
+  gap: 0.25rem;
+  flex: 0 0 220px;
+  min-height: 96px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-left: 4px solid var(--ifm-color-primary);
+  border-radius: 8px;
+  padding: 0.65rem;
+  background: var(--ifm-background-surface-color);
+}
+
+.archdocTraceNode > span {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.archdocTraceNode strong {
+  font-size: 0.82rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.archdocTraceNode--endpoint {
+  border-left-color: #0284c7;
+}
+
+.archdocTraceNode--service,
+.archdocTraceNode--operation {
+  border-left-color: #059669;
+}
+
+.archdocTraceNode--database_action,
+.archdocTraceNode--database_transaction,
+.archdocTraceNode--entity {
+  border-left-color: #d97706;
+}
+
+.archdocTraceNode--permission_action {
+  border-left-color: #dc2626;
+}
+
+.archdocTraceNode--worker_action,
+.archdocTraceNode--audit_action,
+.archdocTraceNode--external_action {
+  border-left-color: #7c3aed;
+}
+
+.archdocTraceArrow {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ifm-color-emphasis-500);
+  font-weight: 800;
+}
+
+.archdocTraceBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border: 1px solid var(--ifm-color-success);
+  border-radius: 999px;
+  padding: 0.12rem 0.5rem;
+  color: var(--ifm-color-success);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.archdocTraceBadge--warning {
+  border-color: var(--ifm-color-warning);
+  color: var(--ifm-color-warning);
+}
+
+.archdocStoryMarkdown {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0 0.85rem 0.85rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 0.85rem;
+  background: var(--ifm-background-color);
+}
+
+.archdocStoryMarkdown h2,
+.archdocStoryMarkdown h3,
+.archdocStoryMarkdown h4,
+.archdocStoryMarkdown p,
+.archdocStoryMarkdown ul,
+.archdocStoryMarkdown ol {
+  margin: 0;
+}
+
+.archdocStoryMarkdown h2 {
+  font-size: 1rem;
+}
+
+.archdocStoryMarkdown h3 {
+  margin-top: 0.35rem;
+  font-size: 0.86rem;
+}
+
+.archdocStoryMarkdown h4 {
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+}
+
+.archdocStoryMarkdown p,
+.archdocStoryMarkdown li,
+.archdocStoryMarkdown td,
+.archdocStoryMarkdown th {
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.archdocStoryMarkdown ul,
+.archdocStoryMarkdown ol {
+  padding-left: 1.15rem;
+}
+
+.archdocStoryMarkdownTableWrap {
+  overflow: auto;
+}
+
+.archdocStoryMarkdownTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.archdocStoryMarkdownTable th,
+.archdocStoryMarkdownTable td {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.38rem 0.45rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.archdocStoryMarkdownTable th {
+  color: var(--ifm-color-emphasis-800);
+  font-weight: 800;
+}
+
+.archdocStoryLinkCard,
+.archdocStoryArchitecture {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 0.75rem;
+  background: var(--ifm-background-color);
+}
+
+.archdocStoryLinkCard {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.archdocStoryEndpointLink {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.archdocStoryEndpointLink:hover {
+  text-decoration: underline;
+}
+
+.archdocStoryCatalogLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.archdocStoryCatalogLinks a {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 0.24rem 0.5rem;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.archdocStoryCatalogLinks a:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.archdocStoryArchitecture {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.archdocActionChipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.archdocActionChip,
+.archdocLinkageBadge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  padding: 0.16rem 0.48rem;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.68rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.archdocLinkageBadge--linked {
+  border-color: var(--ifm-color-success);
+}
+
+.archdocLinkageBadge--partial {
+  border-color: var(--ifm-color-warning);
+}
+
+.archdocLinkageBadge--missing {
+  border-color: var(--ifm-color-danger);
+}
+
+[data-theme='dark'] .archdocUserStoryList,
+[data-theme='dark'] .archdocUserStoryDetail,
+[data-theme='dark'] .archdocUserStoryItem,
+[data-theme='dark'] .archdocStoryMarkdown,
+[data-theme='dark'] .archdocStoryLinkCard,
+[data-theme='dark'] .archdocStoryArchitecture {
+  border-color: #374151;
+  background: #20242d;
+}
+
+[data-theme='dark'] .archdocUserStoryItem--active {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+@media (max-width: 720px) {
+  .archdocGraphControls {
+    grid-template-columns: 1fr;
+  }
+
+  .archdocGraphShell {
+    min-height: 520px;
+  }
+
+  .archdocUserStoryLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.archdocReviewEditor {
+  position: relative;
+  min-width: 128px;
+}
+
+.archdocReviewBadge {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.archdocReviewBadge--needs_review,
+.archdocReviewBadge--needs_refactor {
+  border-color: var(--ifm-color-warning);
+}
+
+.archdocReviewBadge--reviewed,
+.archdocReviewBadge--accepted {
+  border-color: var(--ifm-color-success);
+}
+
+.archdocReviewBadge--false_positive,
+.archdocReviewBadge--deprecated {
+  border-color: var(--ifm-color-danger);
+}
+
+.archdocReviewPanel {
+  position: absolute;
+  z-index: 30;
+  right: 0;
+  width: min(360px, 80vw);
+  margin-top: 0.35rem;
+  padding: 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+}
+
+.archdocReviewPanel label {
+  display: grid;
+  gap: 0.2rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.archdocLabelPresetGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: -0.15rem 0 0.6rem;
+}
+
+.archdocLabelPreset {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 0.18rem 0.42rem;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.68rem;
+  cursor: pointer;
+}
+
+.archdocLabelPreset--active {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast-background);
+}
+
+.archdocLabelPreset:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.archdocReviewPanel input,
+.archdocReviewPanel select,
+.archdocReviewPanel textarea {
+  width: 100%;
+  padding: 0.38rem 0.45rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  font: inherit;
+  font-weight: 400;
+}
+
+.archdocReviewActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.archdocReviewActions button {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 0.28rem 0.55rem;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+}
+
+.archdocReviewActions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.archdocReviewHint,
+.archdocReviewError {
+  margin: 0 0 0.55rem;
+  font-size: 0.72rem;
+}
+
+.archdocReviewError {
+  color: var(--ifm-color-danger);
+}
+
+@media screen and (max-width: 760px) {
+  .archdocToolbarMain {
+    display: grid;
+  }
+
+  .archdocToolbarControls {
+    grid-template-columns: 1fr;
+  }
+
+  .archdocToolbarBadges {
+    justify-content: flex-start;
+  }
+
+  .archdocUserStoryControls,
+  .archdocUserStoryLayout {
+    grid-template-columns: 1fr;
+  }
+}

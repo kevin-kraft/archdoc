@@ -1,0 +1,29 @@
+services:
+  docs-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    image: utilis-archdoc-backend:local
+    restart: unless-stopped
+    volumes:
+      - archdoc-review-data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8010/health', timeout=5).read()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  docs-site:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    image: utilis-archdoc-site:local
+    restart: unless-stopped
+    depends_on:
+      docs-backend:
+        condition: service_started
+    ports:
+      - "8088:8080"
+
+volumes:
+  archdoc-review-data:

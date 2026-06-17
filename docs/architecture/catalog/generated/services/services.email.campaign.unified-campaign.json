@@ -1,0 +1,163 @@
+{
+  "id": "services.email.campaign.unified-campaign",
+  "module": "services.email.campaign",
+  "class_name": "UnifiedCampaignService",
+  "qualified_name": "services.email.campaign.UnifiedCampaignService",
+  "source": {
+    "file": "services/email/campaign.py",
+    "line_start": 30,
+    "line_end": 827
+  },
+  "operations": [
+    {
+      "id": "services.email.campaign.unified-campaign.operation.create_campaign",
+      "method": "create_campaign",
+      "qualified_name": "services.email.campaign.UnifiedCampaignService.create_campaign",
+      "source": {
+        "file": "services/email/campaign.py",
+        "line_start": 231,
+        "line_end": 405
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.campaign.unified-campaign.operation.get_campaign",
+      "method": "get_campaign",
+      "qualified_name": "services.email.campaign.UnifiedCampaignService.get_campaign",
+      "source": {
+        "file": "services/email/campaign.py",
+        "line_start": 408,
+        "line_end": 448
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.campaign.unified-campaign.operation.list_campaigns",
+      "method": "list_campaigns",
+      "qualified_name": "services.email.campaign.UnifiedCampaignService.list_campaigns",
+      "source": {
+        "file": "services/email/campaign.py",
+        "line_start": 451,
+        "line_end": 483
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.campaign.unified-campaign.operation.update_campaign",
+      "method": "update_campaign",
+      "qualified_name": "services.email.campaign.UnifiedCampaignService.update_campaign",
+      "source": {
+        "file": "services/email/campaign.py",
+        "line_start": 486,
+        "line_end": 527
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.campaign.unified-campaign.operation.send_campaign",
+      "method": "send_campaign",
+      "qualified_name": "services.email.campaign.UnifiedCampaignService.send_campaign",
+      "source": {
+        "file": "services/email/campaign.py",
+        "line_start": 530,
+        "line_end": 633
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.campaign.unified-campaign.operation.cancel_campaign",
+      "method": "cancel_campaign",
+      "qualified_name": "services.email.campaign.UnifiedCampaignService.cancel_campaign",
+      "source": {
+        "file": "services/email/campaign.py",
+        "line_start": 636,
+        "line_end": 672
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.campaign.unified-campaign.operation.track_open",
+      "method": "track_open",
+      "qualified_name": "services.email.campaign.UnifiedCampaignService.track_open",
+      "source": {
+        "file": "services/email/campaign.py",
+        "line_start": 679,
+        "line_end": 709
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.campaign.unified-campaign.operation.track_click",
+      "method": "track_click",
+      "qualified_name": "services.email.campaign.UnifiedCampaignService.track_click",
+      "source": {
+        "file": "services/email/campaign.py",
+        "line_start": 712,
+        "line_end": 739
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.campaign.unified-campaign.operation.track_unsubscribe",
+      "method": "track_unsubscribe",
+      "qualified_name": "services.email.campaign.UnifiedCampaignService.track_unsubscribe",
+      "source": {
+        "file": "services/email/campaign.py",
+        "line_start": 742,
+        "line_end": 795
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

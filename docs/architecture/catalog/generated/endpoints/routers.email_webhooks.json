@@ -1,0 +1,163 @@
+{
+  "id": "routers.email_webhooks",
+  "module": "routers.email_webhooks",
+  "source_file": "routers/email_webhooks.py",
+  "endpoints": [
+    {
+      "id": "routers.email_webhooks.post.postmark.handle-postmark-webhook",
+      "module": "routers.email_webhooks",
+      "function_name": "handle_postmark_webhook",
+      "qualified_name": "routers.email_webhooks.handle_postmark_webhook",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/postmark",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "Request",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_NO_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "x_postmark_signature",
+          "annotation": "Optional[str]",
+          "default": "POSTMARK_SIGNATURE_HEADER",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_webhooks.py",
+        "line_start": 483,
+        "line_end": 541
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_webhooks.post.sendgrid.handle-sendgrid-webhook",
+      "module": "routers.email_webhooks",
+      "function_name": "handle_sendgrid_webhook",
+      "qualified_name": "routers.email_webhooks.handle_sendgrid_webhook",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/sendgrid",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "Request",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_NO_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "x_twilio_email_event_webhook_signature",
+          "annotation": "Optional[str]",
+          "default": "SENDGRID_SIGNATURE_HEADER",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "x_twilio_email_event_webhook_timestamp",
+          "annotation": "Optional[str]",
+          "default": "SENDGRID_TIMESTAMP_HEADER",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_webhooks.py",
+        "line_start": 219,
+        "line_end": 268
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_webhooks.post.ses.handle-ses-webhook",
+      "module": "routers.email_webhooks",
+      "function_name": "handle_ses_webhook",
+      "qualified_name": "routers.email_webhooks.handle_ses_webhook",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/ses",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "Request",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_NO_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_webhooks.py",
+        "line_start": 348,
+        "line_end": 385
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

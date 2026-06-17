@@ -1,0 +1,392 @@
+{
+  "id": "routers.admin_orsee_migration",
+  "module": "routers.admin_orsee_migration",
+  "source_file": "routers/admin_orsee_migration.py",
+  "endpoints": [
+    {
+      "id": "routers.admin_orsee_migration.get.jobs.param-job-id.get-orsee-migration-job-status",
+      "module": "routers.admin_orsee_migration",
+      "function_name": "get_orsee_migration_job_status",
+      "qualified_name": "routers.admin_orsee_migration.get_orsee_migration_job_status",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/jobs/{job_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "OrseeMigrationJobStatusResponse"
+      },
+      "parameters": [
+        {
+          "name": "job_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "__",
+          "annotation": "None",
+          "default": "ADMIN_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_orsee_migration.py",
+        "line_start": 263,
+        "line_end": 305
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_orsee_migration.get.mapping-concept.get-mapping-concept",
+      "module": "routers.admin_orsee_migration",
+      "function_name": "get_mapping_concept",
+      "qualified_name": "routers.admin_orsee_migration.get_mapping_concept",
+      "implementation": {
+        "kind": "passthrough",
+        "confidence": "medium",
+        "reason": "Endpoint mostly delegates to a single helper/function call.",
+        "signals": [
+          "single_meaningful_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/mapping-concept",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "_",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "__",
+          "annotation": "None",
+          "default": "ADMIN_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_orsee_migration.py",
+        "line_start": 89,
+        "line_end": 93
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_orsee_migration.post.analyze.analyze-orsee-source",
+      "module": "routers.admin_orsee_migration",
+      "function_name": "analyze_orsee_source",
+      "qualified_name": "routers.admin_orsee_migration.analyze_orsee_source",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/analyze",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "OrseeSourceConnectionRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "ADMIN_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_orsee_migration.py",
+        "line_start": 97,
+        "line_end": 121
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_orsee_migration.post.jobs.start-orsee-migration-job",
+      "module": "routers.admin_orsee_migration",
+      "function_name": "start_orsee_migration_job",
+      "qualified_name": "routers.admin_orsee_migration.start_orsee_migration_job",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/jobs",
+      "router": "router",
+      "kwargs": {
+        "response_model": "OrseeMigrationJobStartResponse"
+      },
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "OrseeMigrationJobStartRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "ADMIN_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_orsee_migration.py",
+        "line_start": 194,
+        "line_end": 259
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_orsee_migration.post.run.run-orsee-migration",
+      "module": "routers.admin_orsee_migration",
+      "function_name": "run_orsee_migration",
+      "qualified_name": "routers.admin_orsee_migration.run_orsee_migration",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/run",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "OrseeMigrationRunRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "ADMIN_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_orsee_migration.py",
+        "line_start": 153,
+        "line_end": 190
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_orsee_migration.post.test-connection.test-orsee-source-connection",
+      "module": "routers.admin_orsee_migration",
+      "function_name": "test_orsee_source_connection",
+      "qualified_name": "routers.admin_orsee_migration.test_orsee_source_connection",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/test-connection",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "OrseeSourceConnectionRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "ADMIN_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_orsee_migration.py",
+        "line_start": 125,
+        "line_end": 149
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

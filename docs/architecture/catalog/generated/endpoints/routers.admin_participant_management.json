@@ -1,0 +1,659 @@
+{
+  "id": "routers.admin_participant_management",
+  "module": "routers.admin_participant_management",
+  "source_file": "routers/admin_participant_management.py",
+  "endpoints": [
+    {
+      "id": "routers.admin_participant_management.get.compensation.list.list-all-compensations",
+      "module": "routers.admin_participant_management",
+      "function_name": "list_all_compensations",
+      "qualified_name": "routers.admin_participant_management.list_all_compensations",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/compensation/list",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "status",
+          "annotation": "Optional[str]",
+          "default": "STATUS_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "Optional[str]",
+          "default": "PARTICIPANT_ID_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "skip",
+          "annotation": "int",
+          "default": "SKIP_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "LIMIT_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PAYMENT_VIEW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "CAN_VIEW_PII_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_participant_management.py",
+        "line_start": 107,
+        "line_end": 163
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_participant_management.get.compensation.summary.get-compensation-summary",
+      "module": "routers.admin_participant_management",
+      "function_name": "get_compensation_summary",
+      "qualified_name": "routers.admin_participant_management.get_compensation_summary",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/compensation/summary",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PAYMENT_VIEW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_participant_management.py",
+        "line_start": 45,
+        "line_end": 103
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_participant_management.get.feedback.list.list-all-feedback",
+      "module": "routers.admin_participant_management",
+      "function_name": "list_all_feedback",
+      "qualified_name": "routers.admin_participant_management.list_all_feedback",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/feedback/list",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "status",
+          "annotation": "Optional[str]",
+          "default": "STATUS_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "category",
+          "annotation": "Optional[str]",
+          "default": "CATEGORY_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "Optional[str]",
+          "default": "PARTICIPANT_ID_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "skip",
+          "annotation": "int",
+          "default": "SKIP_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "LIMIT_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PARTICIPANT_SHOW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "__",
+          "annotation": "None",
+          "default": "PARTICIPANT_VIEW_PII_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_participant_management.py",
+        "line_start": 287,
+        "line_end": 341
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_participant_management.get.feedback.summary.get-feedback-summary",
+      "module": "routers.admin_participant_management",
+      "function_name": "get_feedback_summary",
+      "qualified_name": "routers.admin_participant_management.get_feedback_summary",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/feedback/summary",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PARTICIPANT_SHOW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_participant_management.py",
+        "line_start": 239,
+        "line_end": 283
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_participant_management.get.participants.param-participant-id.compensation.get-participant-compensation-history",
+      "module": "routers.admin_participant_management",
+      "function_name": "get_participant_compensation_history",
+      "qualified_name": "routers.admin_participant_management.get_participant_compensation_history",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/participants/{participant_id}/compensation",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PAYMENT_VIEW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "__",
+          "annotation": "None",
+          "default": "PARTICIPANT_VIEW_PII_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_participant_management.py",
+        "line_start": 382,
+        "line_end": 415
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_participant_management.get.participants.param-participant-id.feedback.get-participant-feedback-history",
+      "module": "routers.admin_participant_management",
+      "function_name": "get_participant_feedback_history",
+      "qualified_name": "routers.admin_participant_management.get_participant_feedback_history",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/participants/{participant_id}/feedback",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PARTICIPANT_SHOW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "__",
+          "annotation": "None",
+          "default": "PARTICIPANT_VIEW_PII_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_participant_management.py",
+        "line_start": 419,
+        "line_end": 451
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_participant_management.put.compensation.param-compensation-id.approve.approve-compensation",
+      "module": "routers.admin_participant_management",
+      "function_name": "approve_compensation",
+      "qualified_name": "routers.admin_participant_management.approve_compensation",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/compensation/{compensation_id}/approve",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "compensation_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "notes",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PAYMENT_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_participant_management.py",
+        "line_start": 167,
+        "line_end": 198
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_participant_management.put.compensation.param-compensation-id.mark-paid.mark-compensation-paid",
+      "module": "routers.admin_participant_management",
+      "function_name": "mark_compensation_paid",
+      "qualified_name": "routers.admin_participant_management.mark_compensation_paid",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/compensation/{compensation_id}/mark-paid",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "compensation_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payment_reference",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PAYMENT_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_participant_management.py",
+        "line_start": 202,
+        "line_end": 233
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_participant_management.put.feedback.param-feedback-id.respond.respond-to-feedback",
+      "module": "routers.admin_participant_management",
+      "function_name": "respond_to_feedback",
+      "qualified_name": "routers.admin_participant_management.respond_to_feedback",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/feedback/{feedback_id}/respond",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "feedback_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "response",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "status",
+          "annotation": "str",
+          "default": "'resolved'",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PARTICIPANT_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_participant_management.py",
+        "line_start": 345,
+        "line_end": 378
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

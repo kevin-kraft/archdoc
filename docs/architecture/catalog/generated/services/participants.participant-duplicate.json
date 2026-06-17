@@ -1,0 +1,35 @@
+{
+  "id": "participants.participant-duplicate",
+  "module": "services.participants.domain.duplicate",
+  "class_name": "ParticipantDuplicateService",
+  "qualified_name": "services.participants.domain.duplicate.ParticipantDuplicateService",
+  "source": {
+    "file": "services/participants/domain/duplicate.py",
+    "line_start": 32,
+    "line_end": 381
+  },
+  "operations": [
+    {
+      "id": "participants.participant-duplicate.operation.detect_duplicates",
+      "method": "detect_duplicates",
+      "qualified_name": "services.participants.domain.duplicate.ParticipantDuplicateService.detect_duplicates",
+      "source": {
+        "file": "services/participants/domain/duplicate.py",
+        "line_start": 43,
+        "line_end": 67
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

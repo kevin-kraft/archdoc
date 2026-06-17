@@ -1,0 +1,842 @@
+{
+  "id": "routers.email_campaigns",
+  "module": "routers.email_campaigns",
+  "source_file": "routers/email_campaigns.py",
+  "endpoints": [
+    {
+      "id": "routers.email_campaigns.delete.param-campaign-id.delete-campaign",
+      "module": "routers.email_campaigns",
+      "function_name": "delete_campaign",
+      "qualified_name": "routers.email_campaigns.delete_campaign",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/{campaign_id}",
+      "router": "router",
+      "kwargs": {
+        "status_code": "204"
+      },
+      "parameters": [
+        {
+          "name": "campaign_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CAMPAIGN_DELETE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_campaigns.py",
+        "line_start": 304,
+        "line_end": 335
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_campaigns.get.list-campaigns",
+      "module": "routers.email_campaigns",
+      "function_name": "list_campaigns",
+      "qualified_name": "routers.email_campaigns.list_campaigns",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[CampaignListItem]"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "experiment_id",
+          "annotation": "Optional[UUID]",
+          "default": "EXPERIMENT_ID_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "session_id",
+          "annotation": "Optional[UUID]",
+          "default": "SESSION_ID_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "status",
+          "annotation": "Optional[CampaignStatus]",
+          "default": "CAMPAIGN_STATUS_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "is_automated",
+          "annotation": "Optional[bool]",
+          "default": "IS_AUTOMATED_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "LIMIT_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "OFFSET_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CAMPAIGN_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_campaigns.py",
+        "line_start": 102,
+        "line_end": 135
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_campaigns.get.param-campaign-id.deliveries.get-campaign-deliveries",
+      "module": "routers.email_campaigns",
+      "function_name": "get_campaign_deliveries",
+      "qualified_name": "routers.email_campaigns.get_campaign_deliveries",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{campaign_id}/deliveries",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[CampaignDeliveryResponse]"
+      },
+      "parameters": [
+        {
+          "name": "campaign_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "status",
+          "annotation": "Optional[str]",
+          "default": "DELIVERY_STATUS_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "DELIVERY_LIMIT_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "DELIVERY_OFFSET_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CAMPAIGN_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_campaigns.py",
+        "line_start": 416,
+        "line_end": 454
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_campaigns.get.param-campaign-id.engagements.get-campaign-engagements",
+      "module": "routers.email_campaigns",
+      "function_name": "get_campaign_engagements",
+      "qualified_name": "routers.email_campaigns.get_campaign_engagements",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{campaign_id}/engagements",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[CampaignEngagementResponse]"
+      },
+      "parameters": [
+        {
+          "name": "campaign_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "engagement_type",
+          "annotation": "Optional[str]",
+          "default": "ENGAGEMENT_TYPE_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "ENGAGEMENT_LIMIT_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "ENGAGEMENT_OFFSET_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CAMPAIGN_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_campaigns.py",
+        "line_start": 458,
+        "line_end": 496
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_campaigns.get.param-campaign-id.get-campaign",
+      "module": "routers.email_campaigns",
+      "function_name": "get_campaign",
+      "qualified_name": "routers.email_campaigns.get_campaign",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{campaign_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "CampaignResponse"
+      },
+      "parameters": [
+        {
+          "name": "campaign_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CAMPAIGN_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_campaigns.py",
+        "line_start": 139,
+        "line_end": 163
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_campaigns.get.param-campaign-id.preview.preview-campaign-targeting",
+      "module": "routers.email_campaigns",
+      "function_name": "preview_campaign_targeting",
+      "qualified_name": "routers.email_campaigns.preview_campaign_targeting",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{campaign_id}/preview",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TargetingPreview"
+      },
+      "parameters": [
+        {
+          "name": "campaign_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CAMPAIGN_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_campaigns.py",
+        "line_start": 380,
+        "line_end": 412
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_campaigns.get.param-campaign-id.stats.get-campaign-stats",
+      "module": "routers.email_campaigns",
+      "function_name": "get_campaign_stats",
+      "qualified_name": "routers.email_campaigns.get_campaign_stats",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{campaign_id}/stats",
+      "router": "router",
+      "kwargs": {
+        "response_model": "CampaignStats"
+      },
+      "parameters": [
+        {
+          "name": "campaign_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CAMPAIGN_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_campaigns.py",
+        "line_start": 339,
+        "line_end": 376
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_campaigns.patch.param-campaign-id.update-campaign",
+      "module": "routers.email_campaigns",
+      "function_name": "update_campaign",
+      "qualified_name": "routers.email_campaigns.update_campaign",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "PATCH",
+      "path": "/{campaign_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "CampaignResponse"
+      },
+      "parameters": [
+        {
+          "name": "campaign_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "updates",
+          "annotation": "CampaignUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CAMPAIGN_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_campaigns.py",
+        "line_start": 167,
+        "line_end": 191
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_campaigns.post.create-campaign",
+      "module": "routers.email_campaigns",
+      "function_name": "create_campaign",
+      "qualified_name": "routers.email_campaigns.create_campaign",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "",
+      "router": "router",
+      "kwargs": {
+        "response_model": "CampaignResponse"
+      },
+      "parameters": [
+        {
+          "name": "campaign",
+          "annotation": "CampaignCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CAMPAIGN_CREATE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_campaigns.py",
+        "line_start": 78,
+        "line_end": 98
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_campaigns.post.param-campaign-id.cancel.cancel-campaign",
+      "module": "routers.email_campaigns",
+      "function_name": "cancel_campaign",
+      "qualified_name": "routers.email_campaigns.cancel_campaign",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{campaign_id}/cancel",
+      "router": "router",
+      "kwargs": {
+        "response_model": "CampaignResponse"
+      },
+      "parameters": [
+        {
+          "name": "campaign_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "reason",
+          "annotation": "Optional[str]",
+          "default": "CANCEL_REASON_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CAMPAIGN_CANCEL_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_campaigns.py",
+        "line_start": 277,
+        "line_end": 300
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_campaigns.post.param-campaign-id.schedule.schedule-campaign",
+      "module": "routers.email_campaigns",
+      "function_name": "schedule_campaign",
+      "qualified_name": "routers.email_campaigns.schedule_campaign",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{campaign_id}/schedule",
+      "router": "router",
+      "kwargs": {
+        "response_model": "CampaignResponse"
+      },
+      "parameters": [
+        {
+          "name": "campaign_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "scheduled_at",
+          "annotation": "str",
+          "default": "SCHEDULED_AT_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CAMPAIGN_SCHEDULE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_campaigns.py",
+        "line_start": 221,
+        "line_end": 273
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_campaigns.post.param-campaign-id.send.send-campaign",
+      "module": "routers.email_campaigns",
+      "function_name": "send_campaign",
+      "qualified_name": "routers.email_campaigns.send_campaign",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{campaign_id}/send",
+      "router": "router",
+      "kwargs": {
+        "response_model": "CampaignResponse"
+      },
+      "parameters": [
+        {
+          "name": "campaign_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CAMPAIGN_SEND_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_campaigns.py",
+        "line_start": 195,
+        "line_end": 217
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

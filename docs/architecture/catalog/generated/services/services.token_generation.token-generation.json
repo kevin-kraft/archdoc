@@ -1,0 +1,179 @@
+{
+  "id": "services.token_generation.token-generation",
+  "module": "services.token_generation",
+  "class_name": "TokenGenerationService",
+  "qualified_name": "services.token_generation.TokenGenerationService",
+  "source": {
+    "file": "services/token_generation.py",
+    "line_start": 27,
+    "line_end": 449
+  },
+  "operations": [
+    {
+      "id": "services.token_generation.token-generation.operation.generate_token_code",
+      "method": "generate_token_code",
+      "qualified_name": "services.token_generation.TokenGenerationService.generate_token_code",
+      "source": {
+        "file": "services/token_generation.py",
+        "line_start": 50,
+        "line_end": 85
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.token_generation.token-generation.operation.ensure_unique_token",
+      "method": "ensure_unique_token",
+      "qualified_name": "services.token_generation.TokenGenerationService.ensure_unique_token",
+      "source": {
+        "file": "services/token_generation.py",
+        "line_start": 87,
+        "line_end": 111
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.token_generation.token-generation.operation.create_qr_payload",
+      "method": "create_qr_payload",
+      "qualified_name": "services.token_generation.TokenGenerationService.create_qr_payload",
+      "source": {
+        "file": "services/token_generation.py",
+        "line_start": 113,
+        "line_end": 171
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.token_generation.token-generation.operation.generate_qr_code",
+      "method": "generate_qr_code",
+      "qualified_name": "services.token_generation.TokenGenerationService.generate_qr_code",
+      "source": {
+        "file": "services/token_generation.py",
+        "line_start": 173,
+        "line_end": 203
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.token_generation.token-generation.operation.create_session_token",
+      "method": "create_session_token",
+      "qualified_name": "services.token_generation.TokenGenerationService.create_session_token",
+      "source": {
+        "file": "services/token_generation.py",
+        "line_start": 205,
+        "line_end": 257
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.token_generation.token-generation.operation.issue_or_refresh_session_token",
+      "method": "issue_or_refresh_session_token",
+      "qualified_name": "services.token_generation.TokenGenerationService.issue_or_refresh_session_token",
+      "source": {
+        "file": "services/token_generation.py",
+        "line_start": 259,
+        "line_end": 320
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.token_generation.token-generation.operation.validate_token",
+      "method": "validate_token",
+      "qualified_name": "services.token_generation.TokenGenerationService.validate_token",
+      "source": {
+        "file": "services/token_generation.py",
+        "line_start": 322,
+        "line_end": 369
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.token_generation.token-generation.operation.format_code",
+      "method": "format_code",
+      "qualified_name": "services.token_generation.TokenGenerationService.format_code",
+      "source": {
+        "file": "services/token_generation.py",
+        "line_start": 372,
+        "line_end": 379
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.token_generation.token-generation.operation.bulk_generate_tokens",
+      "method": "bulk_generate_tokens",
+      "qualified_name": "services.token_generation.TokenGenerationService.bulk_generate_tokens",
+      "source": {
+        "file": "services/token_generation.py",
+        "line_start": 381,
+        "line_end": 427
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.token_generation.token-generation.operation.decode_qr_payload",
+      "method": "decode_qr_payload",
+      "qualified_name": "services.token_generation.TokenGenerationService.decode_qr_payload",
+      "source": {
+        "file": "services/token_generation.py",
+        "line_start": 429,
+        "line_end": 449
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

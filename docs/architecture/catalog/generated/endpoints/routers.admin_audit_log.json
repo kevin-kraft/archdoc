@@ -1,0 +1,365 @@
+{
+  "id": "routers.admin_audit_log",
+  "module": "routers.admin_audit_log",
+  "source_file": "routers/admin_audit_log.py",
+  "endpoints": [
+    {
+      "id": "routers.admin_audit_log.get.audit-log.export.export-audit-log",
+      "module": "routers.admin_audit_log",
+      "function_name": "export_audit_log",
+      "qualified_name": "routers.admin_audit_log.export_audit_log",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/audit-log/export",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "format",
+          "annotation": "str",
+          "default": "Query('csv', regex='^(csv|json)$')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "start_date",
+          "annotation": "Optional[datetime]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "end_date",
+          "annotation": "Optional[datetime]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "action",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "severity",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "AUDIT_EXPORT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "CAN_VIEW_PII_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_audit_log.py",
+        "line_start": 523,
+        "line_end": 690
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_audit_log.get.audit-log.get-audit-log",
+      "module": "routers.admin_audit_log",
+      "function_name": "get_audit_log",
+      "qualified_name": "routers.admin_audit_log.get_audit_log",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/audit-log",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "page",
+          "annotation": "int",
+          "default": "Query(1, ge=1)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "page_size",
+          "annotation": "int",
+          "default": "Query(50, ge=1, le=200)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "action",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "target_type",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "target_id",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "severity",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "start_date",
+          "annotation": "Optional[datetime]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "end_date",
+          "annotation": "Optional[datetime]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "search",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "AUDIT_VIEW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "CAN_VIEW_PII_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_audit_log.py",
+        "line_start": 296,
+        "line_end": 400
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_audit_log.get.audit-log.stats.get-audit-stats",
+      "module": "routers.admin_audit_log",
+      "function_name": "get_audit_stats",
+      "qualified_name": "routers.admin_audit_log.get_audit_stats",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/audit-log/stats",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "days",
+          "annotation": "int",
+          "default": "Query(7, ge=1, le=90)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "AUDIT_VIEW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_audit_log.py",
+        "line_start": 404,
+        "line_end": 501
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_audit_log.get.audit-log.verify.verify-audit-log-chain",
+      "module": "routers.admin_audit_log",
+      "function_name": "verify_audit_log_chain",
+      "qualified_name": "routers.admin_audit_log.verify_audit_log_chain",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/audit-log/verify",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "start_index",
+          "annotation": "Optional[int]",
+          "default": "Query(None, ge=1)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "end_index",
+          "annotation": "Optional[int]",
+          "default": "Query(None, ge=1)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "Query(10000, ge=1, le=50000)",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "AUDIT_VIEW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_audit_log.py",
+        "line_start": 505,
+        "line_end": 519
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

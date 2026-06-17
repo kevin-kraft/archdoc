@@ -1,0 +1,565 @@
+{
+  "id": "routers.email_reminders",
+  "module": "routers.email_reminders",
+  "source_file": "routers/email_reminders.py",
+  "endpoints": [
+    {
+      "id": "routers.email_reminders.delete.param-schedule-id.delete-reminder-schedule",
+      "module": "routers.email_reminders",
+      "function_name": "delete_reminder_schedule",
+      "qualified_name": "routers.email_reminders.delete_reminder_schedule",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/{schedule_id}",
+      "router": "router",
+      "kwargs": {
+        "status_code": "204"
+      },
+      "parameters": [
+        {
+          "name": "schedule_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "REMINDER_DELETE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_reminders.py",
+        "line_start": 230,
+        "line_end": 249
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_reminders.get.list-reminder-schedules",
+      "module": "routers.email_reminders",
+      "function_name": "list_reminder_schedules",
+      "qualified_name": "routers.email_reminders.list_reminder_schedules",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[ReminderScheduleResponse]"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "REMINDER_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "experiment_id",
+          "annotation": "Optional[UUID]",
+          "default": "EXPERIMENT_ID_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "session_id",
+          "annotation": "Optional[UUID]",
+          "default": "SESSION_ID_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "recurring_session_id",
+          "annotation": "Optional[UUID]",
+          "default": "RECURRING_SESSION_ID_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "is_active",
+          "annotation": "Optional[bool]",
+          "default": "IS_ACTIVE_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "reminder_type",
+          "annotation": "Optional[str]",
+          "default": "REMINDER_TYPE_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "LIST_LIMIT_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "LIST_OFFSET_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "response",
+          "annotation": "Response",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_reminders.py",
+        "line_start": 117,
+        "line_end": 161
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_reminders.get.param-schedule-id.generated-campaigns.get-generated-campaigns",
+      "module": "routers.email_reminders",
+      "function_name": "get_generated_campaigns",
+      "qualified_name": "routers.email_reminders.get_generated_campaigns",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{schedule_id}/generated-campaigns",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict]"
+      },
+      "parameters": [
+        {
+          "name": "schedule_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "REMINDER_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "GENERATED_CAMPAIGNS_LIMIT_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "GENERATED_CAMPAIGNS_OFFSET_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_reminders.py",
+        "line_start": 301,
+        "line_end": 341
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_reminders.get.param-schedule-id.get-reminder-schedule",
+      "module": "routers.email_reminders",
+      "function_name": "get_reminder_schedule",
+      "qualified_name": "routers.email_reminders.get_reminder_schedule",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{schedule_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ReminderScheduleResponse"
+      },
+      "parameters": [
+        {
+          "name": "schedule_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "REMINDER_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_reminders.py",
+        "line_start": 165,
+        "line_end": 181
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_reminders.patch.param-schedule-id.update-reminder-schedule",
+      "module": "routers.email_reminders",
+      "function_name": "update_reminder_schedule",
+      "qualified_name": "routers.email_reminders.update_reminder_schedule",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "PATCH",
+      "path": "/{schedule_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ReminderScheduleResponse"
+      },
+      "parameters": [
+        {
+          "name": "schedule_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "updates",
+          "annotation": "ReminderScheduleUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "REMINDER_UPDATE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_reminders.py",
+        "line_start": 185,
+        "line_end": 226
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_reminders.post.create-reminder-schedule",
+      "module": "routers.email_reminders",
+      "function_name": "create_reminder_schedule",
+      "qualified_name": "routers.email_reminders.create_reminder_schedule",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ReminderScheduleResponse"
+      },
+      "parameters": [
+        {
+          "name": "schedule",
+          "annotation": "ReminderScheduleCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "REMINDER_CREATE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_reminders.py",
+        "line_start": 71,
+        "line_end": 113
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_reminders.post.param-schedule-id.activate.activate-reminder-schedule",
+      "module": "routers.email_reminders",
+      "function_name": "activate_reminder_schedule",
+      "qualified_name": "routers.email_reminders.activate_reminder_schedule",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{schedule_id}/activate",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ReminderScheduleResponse"
+      },
+      "parameters": [
+        {
+          "name": "schedule_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "REMINDER_UPDATE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_reminders.py",
+        "line_start": 253,
+        "line_end": 273
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_reminders.post.param-schedule-id.deactivate.deactivate-reminder-schedule",
+      "module": "routers.email_reminders",
+      "function_name": "deactivate_reminder_schedule",
+      "qualified_name": "routers.email_reminders.deactivate_reminder_schedule",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{schedule_id}/deactivate",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ReminderScheduleResponse"
+      },
+      "parameters": [
+        {
+          "name": "schedule_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_FOR_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "REMINDER_UPDATE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_reminders.py",
+        "line_start": 277,
+        "line_end": 297
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "$defs": {
+    "CatalogIdentity": {
+      "properties": {
+        "aliases": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Aliases",
+          "type": "array"
+        },
+        "catalog_id": {
+          "title": "Catalog Id",
+          "type": "string"
+        },
+        "display_name": {
+          "title": "Display Name",
+          "type": "string"
+        },
+        "logical_id": {
+          "title": "Logical Id",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "catalog_id",
+        "logical_id",
+        "source_id",
+        "display_name"
+      ],
+      "title": "CatalogIdentity",
+      "type": "object"
+    },
+    "DetectionConfidence": {
+      "enum": [
+        "exact",
+        "high",
+        "medium",
+        "low",
+        "unknown"
+      ],
+      "title": "DetectionConfidence",
+      "type": "string"
+    },
+    "DetectionInfo": {
+      "properties": {
+        "confidence": {
+          "$ref": "#/$defs/DetectionConfidence",
+          "default": "unknown"
+        },
+        "evidence": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "rule": {
+          "title": "Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "method",
+        "rule"
+      ],
+      "title": "DetectionInfo",
+      "type": "object"
+    },
+    "SourceRef": {
+      "properties": {
+        "file": {
+          "title": "File",
+          "type": "string"
+        },
+        "line_end": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Line End"
+        },
+        "line_start": {
+          "title": "Line Start",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "file",
+        "line_start"
+      ],
+      "title": "SourceRef",
+      "type": "object"
+    }
+  },
+  "$id": "https://utilis.local/archdoc/schemas/endpoint-service-link-item.schema.json",
+  "properties": {
+    "call_name": {
+      "title": "Call Name",
+      "type": "string"
+    },
+    "detection": {
+      "$ref": "#/$defs/DetectionInfo"
+    },
+    "endpoint_id": {
+      "title": "Endpoint Id",
+      "type": "string"
+    },
+    "endpoint_qualified_name": {
+      "title": "Endpoint Qualified Name",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "identity": {
+      "$ref": "#/$defs/CatalogIdentity"
+    },
+    "operation_id": {
+      "title": "Operation Id",
+      "type": "string"
+    },
+    "operation_method": {
+      "title": "Operation Method",
+      "type": "string"
+    },
+    "review_status": {
+      "default": "generated",
+      "title": "Review Status",
+      "type": "string"
+    },
+    "service_class": {
+      "title": "Service Class",
+      "type": "string"
+    },
+    "service_id": {
+      "title": "Service Id",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "#/$defs/SourceRef"
+    }
+  },
+  "required": [
+    "id",
+    "identity",
+    "endpoint_id",
+    "endpoint_qualified_name",
+    "service_id",
+    "service_class",
+    "operation_id",
+    "operation_method",
+    "call_name",
+    "source",
+    "detection"
+  ],
+  "title": "EndpointServiceLinkItem",
+  "type": "object"
+}

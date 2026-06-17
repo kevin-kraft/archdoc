@@ -1,0 +1,18 @@
+{
+  "id": "services.participants.domain.base.base-domain",
+  "module": "services.participants.domain.base",
+  "class_name": "BaseDomainService",
+  "qualified_name": "services.participants.domain.base.BaseDomainService",
+  "source": {
+    "file": "services/participants/domain/base.py",
+    "line_start": 4,
+    "line_end": 8
+  },
+  "operations": [],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

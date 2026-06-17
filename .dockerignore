@@ -1,0 +1,8 @@
+.venv
+site/node_modules
+site/build
+site/.docusaurus
+docs/architecture/archdoc-review.sqlite3
+docs/architecture/overlays/review-overlay.json
+**/__pycache__
+**/*.pyc

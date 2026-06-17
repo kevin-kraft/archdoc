@@ -1,0 +1,241 @@
+{
+  "$defs": {
+    "CatalogOverlayItem": {
+      "properties": {
+        "labels": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Labels",
+          "type": "array"
+        },
+        "links": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Links",
+          "type": "object"
+        },
+        "metadata": {
+          "$ref": "#/$defs/OverlayMetadata"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        },
+        "overrides": {
+          "additionalProperties": true,
+          "title": "Overrides",
+          "type": "object"
+        },
+        "owner": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Owner"
+        },
+        "review_status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/OverlayReviewStatus"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "status_markers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Status Markers",
+          "type": "array"
+        },
+        "target": {
+          "$ref": "#/$defs/OverlayTarget"
+        }
+      },
+      "required": [
+        "target"
+      ],
+      "title": "CatalogOverlayItem",
+      "type": "object"
+    },
+    "OverlayMetadata": {
+      "properties": {
+        "author": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Author"
+        },
+        "rationale": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rationale"
+        },
+        "updated_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Updated At"
+        }
+      },
+      "title": "OverlayMetadata",
+      "type": "object"
+    },
+    "OverlayReviewStatus": {
+      "enum": [
+        "generated",
+        "needs_review",
+        "reviewed",
+        "accepted",
+        "needs_refactor",
+        "false_positive",
+        "deprecated"
+      ],
+      "title": "OverlayReviewStatus",
+      "type": "string"
+    },
+    "OverlayTarget": {
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "line_start": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Line Start"
+        },
+        "parent_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Id"
+        },
+        "source_file": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source File"
+        },
+        "type": {
+          "$ref": "#/$defs/OverlayTargetType"
+        }
+      },
+      "required": [
+        "type",
+        "id"
+      ],
+      "title": "OverlayTarget",
+      "type": "object"
+    },
+    "OverlayTargetType": {
+      "enum": [
+        "service",
+        "operation",
+        "endpoint",
+        "endpoint_service_link",
+        "validation_issue",
+        "user_story",
+        "bpmn_process",
+        "bpmn_task"
+      ],
+      "title": "OverlayTargetType",
+      "type": "string"
+    }
+  },
+  "$id": "https://utilis.local/archdoc/schemas/architecture-overlay.schema.json",
+  "properties": {
+    "catalog_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Catalog Version"
+    },
+    "items": {
+      "items": {
+        "$ref": "#/$defs/CatalogOverlayItem"
+      },
+      "title": "Items",
+      "type": "array"
+    },
+    "project_name": {
+      "title": "Project Name",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "architecture-overlay/v0.1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "project_name"
+  ],
+  "title": "ArchitectureOverlay",
+  "type": "object"
+}

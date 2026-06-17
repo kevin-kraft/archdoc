@@ -1,0 +1,377 @@
+{
+  "id": "routers.experiment_sessions_csv",
+  "module": "routers.experiment_sessions_csv",
+  "source_file": "routers/experiment_sessions_csv.py",
+  "endpoints": [
+    {
+      "id": "routers.experiment_sessions_csv.get.csv.jobs.param-job-id.get-csv-job",
+      "module": "routers.experiment_sessions_csv",
+      "function_name": "get_csv_job",
+      "qualified_name": "routers.experiment_sessions_csv.get_csv_job",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/csv/jobs/{job_id}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "job_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "SESSION_VIEW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_sessions_csv.py",
+        "line_start": 248,
+        "line_end": 257
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_sessions_csv.get.sessions.param-session-id.ledger.get-participation-ledger",
+      "module": "routers.experiment_sessions_csv",
+      "function_name": "get_participation_ledger",
+      "qualified_name": "routers.experiment_sessions_csv.get_participation_ledger",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/sessions/{session_id}/ledger",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[dict]"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "SESSION_VIEW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_sessions_csv.py",
+        "line_start": 137,
+        "line_end": 177
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_sessions_csv.post.csv.jobs.param-job-id.approve.approve-csv-matches",
+      "module": "routers.experiment_sessions_csv",
+      "function_name": "approve_csv_matches",
+      "qualified_name": "routers.experiment_sessions_csv.approve_csv_matches",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/csv/jobs/{job_id}/approve",
+      "router": "router",
+      "kwargs": {
+        "status_code": "status.HTTP_204_NO_CONTENT"
+      },
+      "parameters": [
+        {
+          "name": "job_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "CSVApproveRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "SESSION_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_sessions_csv.py",
+        "line_start": 261,
+        "line_end": 281
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_sessions_csv.post.csv.jobs.param-job-id.reject.reject-csv-matches",
+      "module": "routers.experiment_sessions_csv",
+      "function_name": "reject_csv_matches",
+      "qualified_name": "routers.experiment_sessions_csv.reject_csv_matches",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/csv/jobs/{job_id}/reject",
+      "router": "router",
+      "kwargs": {
+        "status_code": "status.HTTP_204_NO_CONTENT"
+      },
+      "parameters": [
+        {
+          "name": "job_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "CSVRejectRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "SESSION_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_sessions_csv.py",
+        "line_start": 285,
+        "line_end": 350
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_sessions_csv.post.csv.upload.upload-csv-reconciliation",
+      "module": "routers.experiment_sessions_csv",
+      "function_name": "upload_csv_reconciliation",
+      "qualified_name": "routers.experiment_sessions_csv.upload_csv_reconciliation",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/csv/upload",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "file",
+          "annotation": "UploadFile",
+          "default": "UPLOAD_FILE_INPUT",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": "SESSION_ID_FORM",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "integration_id",
+          "annotation": "UUID | None",
+          "default": "INTEGRATION_ID_FORM",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "column_mapping_json",
+          "annotation": "str | None",
+          "default": "COLUMN_MAPPING_JSON_FORM",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "token_column",
+          "annotation": "str | None",
+          "default": "TOKEN_COLUMN_FORM",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "payoff_column",
+          "annotation": "str | None",
+          "default": "PAYOFF_COLUMN_FORM",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "status_column",
+          "annotation": "str | None",
+          "default": "STATUS_COLUMN_FORM",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auto_approve_threshold",
+          "annotation": "int",
+          "default": "AUTO_APPROVE_THRESHOLD_FORM",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "SESSION_EDIT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_sessions_csv.py",
+        "line_start": 181,
+        "line_end": 244
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "id": "services.calendar.service.calendar",
+  "module": "services.calendar.service",
+  "class_name": "CalendarService",
+  "qualified_name": "services.calendar.service.CalendarService",
+  "source": {
+    "file": "services/calendar/service.py",
+    "line_start": 68,
+    "line_end": 698
+  },
+  "operations": [
+    {
+      "id": "services.calendar.service.calendar.operation.detect_lab_conflicts",
+      "method": "detect_lab_conflicts",
+      "qualified_name": "services.calendar.service.CalendarService.detect_lab_conflicts",
+      "source": {
+        "file": "services/calendar/service.py",
+        "line_start": 74,
+        "line_end": 130
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.calendar.service.calendar.operation.suggest_alternative_times",
+      "method": "suggest_alternative_times",
+      "qualified_name": "services.calendar.service.CalendarService.suggest_alternative_times",
+      "source": {
+        "file": "services/calendar/service.py",
+        "line_start": 132,
+        "line_end": 172
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.calendar.service.calendar.operation.validate_session_schedule",
+      "method": "validate_session_schedule",
+      "qualified_name": "services.calendar.service.CalendarService.validate_session_schedule",
+      "source": {
+        "file": "services/calendar/service.py",
+        "line_start": 174,
+        "line_end": 211
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.calendar.service.calendar.operation.create_recurring_session",
+      "method": "create_recurring_session",
+      "qualified_name": "services.calendar.service.CalendarService.create_recurring_session",
+      "source": {
+        "file": "services/calendar/service.py",
+        "line_start": 213,
+        "line_end": 270
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.calendar.service.calendar.operation.handle_session_conflict",
+      "method": "handle_session_conflict",
+      "qualified_name": "services.calendar.service.CalendarService.handle_session_conflict",
+      "source": {
+        "file": "services/calendar/service.py",
+        "line_start": 272,
+        "line_end": 315
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

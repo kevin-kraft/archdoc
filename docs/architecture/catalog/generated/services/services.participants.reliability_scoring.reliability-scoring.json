@@ -1,0 +1,67 @@
+{
+  "id": "services.participants.reliability_scoring.reliability-scoring",
+  "module": "services.participants.reliability_scoring",
+  "class_name": "ReliabilityScoringService",
+  "qualified_name": "services.participants.reliability_scoring.ReliabilityScoringService",
+  "source": {
+    "file": "services/participants/reliability_scoring.py",
+    "line_start": 24,
+    "line_end": 447
+  },
+  "operations": [
+    {
+      "id": "services.participants.reliability_scoring.reliability-scoring.operation.calculate_comprehensive_score",
+      "method": "calculate_comprehensive_score",
+      "qualified_name": "services.participants.reliability_scoring.ReliabilityScoringService.calculate_comprehensive_score",
+      "source": {
+        "file": "services/participants/reliability_scoring.py",
+        "line_start": 45,
+        "line_end": 119
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.participants.reliability_scoring.reliability-scoring.operation.get_participants_by_tier",
+      "method": "get_participants_by_tier",
+      "qualified_name": "services.participants.reliability_scoring.ReliabilityScoringService.get_participants_by_tier",
+      "source": {
+        "file": "services/participants/reliability_scoring.py",
+        "line_start": 363,
+        "line_end": 395
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.participants.reliability_scoring.reliability-scoring.operation.recalculate_all_scores",
+      "method": "recalculate_all_scores",
+      "qualified_name": "services.participants.reliability_scoring.ReliabilityScoringService.recalculate_all_scores",
+      "source": {
+        "file": "services/participants/reliability_scoring.py",
+        "line_start": 397,
+        "line_end": 425
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

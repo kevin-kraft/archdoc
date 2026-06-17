@@ -1,0 +1,339 @@
+{
+  "id": "services.operations.notifications.notification",
+  "module": "services.operations.notifications",
+  "class_name": "NotificationService",
+  "qualified_name": "services.operations.notifications.NotificationService",
+  "source": {
+    "file": "services/operations/notifications.py",
+    "line_start": 26,
+    "line_end": 659
+  },
+  "operations": [
+    {
+      "id": "services.operations.notifications.notification.operation.create_notification_template",
+      "method": "create_notification_template",
+      "qualified_name": "services.operations.notifications.NotificationService.create_notification_template",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 53,
+        "line_end": 76
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.get_notification_template",
+      "method": "get_notification_template",
+      "qualified_name": "services.operations.notifications.NotificationService.get_notification_template",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 78,
+        "line_end": 89
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.list_notification_templates",
+      "method": "list_notification_templates",
+      "qualified_name": "services.operations.notifications.NotificationService.list_notification_templates",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 91,
+        "line_end": 101
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.update_notification_template",
+      "method": "update_notification_template",
+      "qualified_name": "services.operations.notifications.NotificationService.update_notification_template",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 103,
+        "line_end": 122
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.delete_notification_template",
+      "method": "delete_notification_template",
+      "qualified_name": "services.operations.notifications.NotificationService.delete_notification_template",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 124,
+        "line_end": 138
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.send_notification",
+      "method": "send_notification",
+      "qualified_name": "services.operations.notifications.NotificationService.send_notification",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 140,
+        "line_end": 242
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.schedule_notification",
+      "method": "schedule_notification",
+      "qualified_name": "services.operations.notifications.NotificationService.schedule_notification",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 244,
+        "line_end": 316
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.get_sent_notifications",
+      "method": "get_sent_notifications",
+      "qualified_name": "services.operations.notifications.NotificationService.get_sent_notifications",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 318,
+        "line_end": 338
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.get_scheduled_notifications",
+      "method": "get_scheduled_notifications",
+      "qualified_name": "services.operations.notifications.NotificationService.get_scheduled_notifications",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 340,
+        "line_end": 360
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.get_participant_preferences",
+      "method": "get_participant_preferences",
+      "qualified_name": "services.operations.notifications.NotificationService.get_participant_preferences",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 362,
+        "line_end": 373
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.update_participant_preferences",
+      "method": "update_participant_preferences",
+      "qualified_name": "services.operations.notifications.NotificationService.update_participant_preferences",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 375,
+        "line_end": 409
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.get_recipient_contact_info",
+      "method": "get_recipient_contact_info",
+      "qualified_name": "services.operations.notifications.NotificationService.get_recipient_contact_info",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 411,
+        "line_end": 431
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.send_notification_to_participant",
+      "method": "send_notification_to_participant",
+      "qualified_name": "services.operations.notifications.NotificationService.send_notification_to_participant",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 445,
+        "line_end": 482
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.send_notification_to_experiment_participants",
+      "method": "send_notification_to_experiment_participants",
+      "qualified_name": "services.operations.notifications.NotificationService.send_notification_to_experiment_participants",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 484,
+        "line_end": 514
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.subscribe_push_notification",
+      "method": "subscribe_push_notification",
+      "qualified_name": "services.operations.notifications.NotificationService.subscribe_push_notification",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 517,
+        "line_end": 561
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.unsubscribe_push_notification",
+      "method": "unsubscribe_push_notification",
+      "qualified_name": "services.operations.notifications.NotificationService.unsubscribe_push_notification",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 563,
+        "line_end": 586
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.get_push_subscriptions",
+      "method": "get_push_subscriptions",
+      "qualified_name": "services.operations.notifications.NotificationService.get_push_subscriptions",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 588,
+        "line_end": 600
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.send_push_notification",
+      "method": "send_push_notification",
+      "qualified_name": "services.operations.notifications.NotificationService.send_push_notification",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 602,
+        "line_end": 629
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.queue_push_notification_to_participant",
+      "method": "queue_push_notification_to_participant",
+      "qualified_name": "services.operations.notifications.NotificationService.queue_push_notification_to_participant",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 631,
+        "line_end": 638
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.notifications.notification.operation.send_push_notification_to_participant",
+      "method": "send_push_notification_to_participant",
+      "qualified_name": "services.operations.notifications.NotificationService.send_push_notification_to_participant",
+      "source": {
+        "file": "services/operations/notifications.py",
+        "line_start": 640,
+        "line_end": 659
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

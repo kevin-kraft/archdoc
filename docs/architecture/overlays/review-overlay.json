@@ -1,0 +1,106 @@
+{
+  "schema_version": "architecture-overlay/v0.1",
+  "project_name": "utilis",
+  "items": [
+    {
+      "target": {
+        "type": "endpoint",
+        "id": "routers.email_campaigns.get.list-campaigns"
+      },
+      "review_status": "generated",
+      "labels": [],
+      "status_markers": [],
+      "owner": "",
+      "notes": "",
+      "links": {},
+      "overrides": {},
+      "metadata": {
+        "updated_at": "2026-06-12T07:09:51+00:00"
+      }
+    },
+    {
+      "target": {
+        "type": "endpoint_service_link",
+        "id": "routers.admin_audit_log.get.audit-log.verify.verify-audit-log-chain|audit.audit.operation.verify_chain|513"
+      },
+      "review_status": "generated",
+      "labels": [],
+      "status_markers": [],
+      "owner": "",
+      "notes": "",
+      "links": {},
+      "overrides": {},
+      "metadata": {
+        "updated_at": "2026-06-12T06:14:33+00:00"
+      }
+    },
+    {
+      "target": {
+        "type": "operation",
+        "id": "admin.admin-user.operation.inspect_credential_token"
+      },
+      "review_status": "reviewed",
+      "labels": [
+        "user-story-linked"
+      ],
+      "status_markers": [],
+      "owner": "Kevin",
+      "notes": "Alles yut",
+      "links": {},
+      "overrides": {},
+      "metadata": {
+        "updated_at": "2026-06-12T06:16:19+00:00"
+      }
+    },
+    {
+      "target": {
+        "type": "operation",
+        "id": "analytics.analytics.operation.calculate_experiment_analytics"
+      },
+      "review_status": "reviewed",
+      "labels": [],
+      "status_markers": [],
+      "owner": "",
+      "notes": "",
+      "links": {},
+      "overrides": {},
+      "metadata": {
+        "updated_at": "2026-06-14T10:59:45+00:00"
+      }
+    },
+    {
+      "target": {
+        "type": "validation_issue",
+        "id": "duplicate_service_id|calendar.calendar|services/calendar/core.py|26"
+      },
+      "review_status": "needs_refactor",
+      "labels": [],
+      "status_markers": [],
+      "owner": "Kevin",
+      "notes": "There are 2 Calendar files, which have same class names but are saved in diffrent spaces",
+      "links": {},
+      "overrides": {},
+      "metadata": {
+        "updated_at": "2026-06-12T06:44:17+00:00"
+      }
+    },
+    {
+      "target": {
+        "type": "validation_issue",
+        "id": "endpoint_service_candidate_not_linked|routers.participants.get.param-participant-id.profile.completion.get-profile-completion|routers/participants.py|408"
+      },
+      "review_status": "needs_refactor",
+      "labels": [
+        "needs-tests"
+      ],
+      "status_markers": [],
+      "owner": "Kevin",
+      "notes": "This might be a false positive for service canditate open, have to look more into this specific information",
+      "links": {},
+      "overrides": {},
+      "metadata": {
+        "updated_at": "2026-06-14T11:17:37+00:00"
+      }
+    }
+  ]
+}

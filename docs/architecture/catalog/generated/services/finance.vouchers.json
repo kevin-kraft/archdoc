@@ -1,0 +1,67 @@
+{
+  "id": "finance.vouchers",
+  "module": "services.finance.vouchers",
+  "class_name": "VouchersService",
+  "qualified_name": "services.finance.vouchers.VouchersService",
+  "source": {
+    "file": "services/finance/vouchers.py",
+    "line_start": 18,
+    "line_end": 114
+  },
+  "operations": [
+    {
+      "id": "finance.vouchers.operation.create_voucher",
+      "method": "create_voucher",
+      "qualified_name": "services.finance.vouchers.VouchersService.create_voucher",
+      "source": {
+        "file": "services/finance/vouchers.py",
+        "line_start": 19,
+        "line_end": 57
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "finance.vouchers.operation.list_vouchers",
+      "method": "list_vouchers",
+      "qualified_name": "services.finance.vouchers.VouchersService.list_vouchers",
+      "source": {
+        "file": "services/finance/vouchers.py",
+        "line_start": 59,
+        "line_end": 74
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "finance.vouchers.operation.use_voucher",
+      "method": "use_voucher",
+      "qualified_name": "services.finance.vouchers.VouchersService.use_voucher",
+      "source": {
+        "file": "services/finance/vouchers.py",
+        "line_start": 76,
+        "line_end": 114
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

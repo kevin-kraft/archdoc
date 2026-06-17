@@ -1,0 +1,572 @@
+{
+  "id": "routers.participant_auth",
+  "module": "routers.participant_auth",
+  "source_file": "routers/participant_auth.py",
+  "endpoints": [
+    {
+      "id": "routers.participant_auth.get.assets.param-bucket-type.param-object-name-path.get-public-asset",
+      "module": "routers.participant_auth",
+      "function_name": "get_public_asset",
+      "qualified_name": "routers.participant_auth.get_public_asset",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/assets/{bucket_type}/{object_name:path}",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "bucket_type",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "object_name",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_auth.py",
+        "line_start": 199,
+        "line_end": 223
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_auth.get.public.param-org-slug.calendar.ics.public-calendar-ics",
+      "module": "routers.participant_auth",
+      "function_name": "public_calendar_ics",
+      "qualified_name": "routers.participant_auth.public_calendar_ics",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/calendar/ics",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "include_past",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_auth.py",
+        "line_start": 393,
+        "line_end": 410
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_auth.get.public.param-org-slug.captcha.get-captcha",
+      "module": "routers.participant_auth",
+      "function_name": "get_captcha",
+      "qualified_name": "routers.participant_auth.get_captcha",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/captcha",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicCaptchaChallenge"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_no_org_dep)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_auth.py",
+        "line_start": 260,
+        "line_end": 263
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_auth.get.public.param-org-slug.sessions.list-public-sessions",
+      "module": "routers.participant_auth",
+      "function_name": "list_public_sessions",
+      "qualified_name": "routers.participant_auth.list_public_sessions",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/sessions",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[PublicSessionSummary]"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "include_past",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_auth.py",
+        "line_start": 388,
+        "line_end": 389
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_auth.get.public.param-org-slug.sessions.param-session-id.calendar.ics.public-session-calendar-ics",
+      "module": "routers.participant_auth",
+      "function_name": "public_session_calendar_ics",
+      "qualified_name": "routers.participant_auth.public_session_calendar_ics",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/sessions/{session_id}/calendar.ics",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "session_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_auth.py",
+        "line_start": 414,
+        "line_end": 433
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_auth.get.public.param-org-slug.theme.get-public-org-theme",
+      "module": "routers.participant_auth",
+      "function_name": "get_public_org_theme",
+      "qualified_name": "routers.participant_auth.get_public_org_theme",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/theme",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicThemeResponse"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_auth.py",
+        "line_start": 227,
+        "line_end": 256
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_auth.get.registration-info.get-registration-info",
+      "module": "routers.participant_auth",
+      "function_name": "get_registration_info",
+      "qualified_name": "routers.participant_auth.get_registration_info",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/registration-info",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_no_org_dep)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_auth.py",
+        "line_start": 140,
+        "line_end": 195
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_auth.post.public-participant-login-path.login-participant",
+      "module": "routers.participant_auth",
+      "function_name": "login_participant",
+      "qualified_name": "routers.participant_auth.login_participant",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "PUBLIC_PARTICIPANT_LOGIN_PATH",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicTokenResponse"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "PublicParticipantLogin",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_auth.py",
+        "line_start": 325,
+        "line_end": 333
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_auth.post.public-participant-register-path.register-participant",
+      "module": "routers.participant_auth",
+      "function_name": "register_participant",
+      "qualified_name": "routers.participant_auth.register_participant",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "PUBLIC_PARTICIPANT_REGISTER_PATH",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicTokenResponse"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "PublicParticipantRegister",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db_no_org",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_no_org_dep)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_auth.py",
+        "line_start": 267,
+        "line_end": 321
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_auth.post.public.param-org-slug.participants.confirm.confirm-participant",
+      "module": "routers.participant_auth",
+      "function_name": "confirm_participant",
+      "qualified_name": "routers.participant_auth.confirm_participant",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/public/{org_slug}/participants/confirm",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "PublicConfirmRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_auth.py",
+        "line_start": 337,
+        "line_end": 352
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_auth.post.public.param-org-slug.participants.password-reset.confirm.confirm-password-reset",
+      "module": "routers.participant_auth",
+      "function_name": "confirm_password_reset",
+      "qualified_name": "routers.participant_auth.confirm_password_reset",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/public/{org_slug}/participants/password-reset/confirm",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "PublicPasswordResetConfirm",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_auth.py",
+        "line_start": 376,
+        "line_end": 384
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_auth.post.public.param-org-slug.participants.password-reset.request.request-password-reset",
+      "module": "routers.participant_auth",
+      "function_name": "request_password_reset",
+      "qualified_name": "routers.participant_auth.request_password_reset",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/public/{org_slug}/participants/password-reset/request",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "PublicPasswordResetRequest",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db_no_org",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_no_org_dep)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_auth.py",
+        "line_start": 356,
+        "line_end": 372
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

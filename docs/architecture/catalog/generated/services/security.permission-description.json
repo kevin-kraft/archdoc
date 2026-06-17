@@ -1,0 +1,131 @@
+{
+  "id": "security.permission-description",
+  "module": "services.security.permissions",
+  "class_name": "PermissionDescriptionService",
+  "qualified_name": "services.security.permissions.PermissionDescriptionService",
+  "source": {
+    "file": "services/security/permissions.py",
+    "line_start": 75,
+    "line_end": 1190
+  },
+  "operations": [
+    {
+      "id": "security.permission-description.operation.get_permission_description",
+      "method": "get_permission_description",
+      "qualified_name": "services.security.permissions.PermissionDescriptionService.get_permission_description",
+      "source": {
+        "file": "services/security/permissions.py",
+        "line_start": 1118,
+        "line_end": 1122
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "security.permission-description.operation.get_permission_name",
+      "method": "get_permission_name",
+      "qualified_name": "services.security.permissions.PermissionDescriptionService.get_permission_name",
+      "source": {
+        "file": "services/security/permissions.py",
+        "line_start": 1125,
+        "line_end": 1127
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "security.permission-description.operation.get_permission_description_text",
+      "method": "get_permission_description_text",
+      "qualified_name": "services.security.permissions.PermissionDescriptionService.get_permission_description_text",
+      "source": {
+        "file": "services/security/permissions.py",
+        "line_start": 1130,
+        "line_end": 1132
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "security.permission-description.operation.enhance_permission_with_description",
+      "method": "enhance_permission_with_description",
+      "qualified_name": "services.security.permissions.PermissionDescriptionService.enhance_permission_with_description",
+      "source": {
+        "file": "services/security/permissions.py",
+        "line_start": 1135,
+        "line_end": 1143
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "security.permission-description.operation.enhance_permissions_list",
+      "method": "enhance_permissions_list",
+      "qualified_name": "services.security.permissions.PermissionDescriptionService.enhance_permissions_list",
+      "source": {
+        "file": "services/security/permissions.py",
+        "line_start": 1146,
+        "line_end": 1148
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "security.permission-description.operation.search_permissions_by_description",
+      "method": "search_permissions_by_description",
+      "qualified_name": "services.security.permissions.PermissionDescriptionService.search_permissions_by_description",
+      "source": {
+        "file": "services/security/permissions.py",
+        "line_start": 1151,
+        "line_end": 1166
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "security.permission-description.operation.get_permissions_by_category",
+      "method": "get_permissions_by_category",
+      "qualified_name": "services.security.permissions.PermissionDescriptionService.get_permissions_by_category",
+      "source": {
+        "file": "services/security/permissions.py",
+        "line_start": 1169,
+        "line_end": 1190
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

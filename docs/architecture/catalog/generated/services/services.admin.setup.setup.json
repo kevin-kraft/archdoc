@@ -1,0 +1,35 @@
+{
+  "id": "services.admin.setup.setup",
+  "module": "services.admin.setup",
+  "class_name": "SetupService",
+  "qualified_name": "services.admin.setup.SetupService",
+  "source": {
+    "file": "services/admin/setup.py",
+    "line_start": 54,
+    "line_end": 271
+  },
+  "operations": [
+    {
+      "id": "services.admin.setup.setup.operation.create_organization_and_admin",
+      "method": "create_organization_and_admin",
+      "qualified_name": "services.admin.setup.SetupService.create_organization_and_admin",
+      "source": {
+        "file": "services/admin/setup.py",
+        "line_start": 80,
+        "line_end": 206
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

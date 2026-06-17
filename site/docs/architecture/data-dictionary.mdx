@@ -1,0 +1,340 @@
+---
+title: Architecture Data Dictionary
+sidebar_label: Data Dictionary
+sidebar_position: 5
+hide_table_of_contents: true
+---
+
+# Architecture Data Dictionary
+
+This page defines the generated architecture catalog fields used in the UI.
+
+The current documentation is based on deterministic source-code extraction and rule-based mapping. Generated values are not manually edited directly, because they can be overwritten by the next generator run.
+
+## Core Concepts
+
+| Term | Meaning |
+|---|---|
+| **Raw Fact** | A direct code fact extracted from the Python codebase, for example files, classes, methods, decorators, calls, assignments or imports. Raw facts are not business interpretations. |
+| **Catalog Item** | A structured architecture object generated from raw facts, for example a service, endpoint, operation or endpoint-service link. |
+| **Generated** | Automatically created by `archdoc`. Generated files can be overwritten during the next run. |
+| **Manual** | A manually maintained correction, note or enrichment. This should later live separately from generated files. |
+| **Source** | The source-code reference from which a fact or catalog item was derived, usually file plus line numbers. |
+| **Detection** | Metadata describing how an item was detected, for example by rule, signal or mapping. |
+| **Confidence** | A confidence level showing how reliable a detected item or link is. |
+
+## Pipeline Layers
+
+| Layer | Meaning |
+|---|---|
+| **Layer 1 — Raw Fact Extraction** | Deterministic extraction of syntax-level code facts from the Python/FastAPI codebase. No AI and no business interpretation. |
+| **Layer 2 — Catalog Mapping** | Rule-based transformation of raw facts into architecture catalog objects such as services, operations, endpoints and endpoint-service links. |
+| **Layer 3 — Validation & Drift Detection** | Checks the generated catalogs for duplicate IDs, broken links, missing mappings and parse errors. |
+| **Layer 4 — Interpretation & Enrichment** | Planned future layer for descriptions, notes, hints and review information. This layer may enrich documentation fields but must not overwrite deterministic facts. |
+| **Layer 5 — Rendering & Visualization** | Docusaurus/MkDocs pages, tables, graphs and other UI views based on the generated catalog data. |
+
+---
+
+## API Endpoint Catalog
+
+An **Endpoint** describes a detected HTTP route from FastAPI code.
+
+| Field | Meaning |
+|---|---|
+| **id** | Unique generated endpoint ID. Usually built from module, HTTP method, path and function name. |
+| **module** | Python module where the endpoint function is defined. Example: `routers.analytics`. Usually derived from the file path without `.py`. |
+| **function_name** | Name of the Python function implementing the endpoint. Example: `get_dashboard_widgets`. |
+| **qualified_name** | Fully qualified function name including module. Example: `routers.analytics.get_dashboard_widgets`. |
+| **http_method** | HTTP method of the route. Example: `GET`, `POST`, `PATCH`, `DELETE`. |
+| **path** | Route path from the FastAPI decorator. Example: `/dashboard/widgets`. |
+| **full_path** | Planned full route path including router prefix if resolved. Currently may be identical to `path`. |
+| **router** | Name of the router object used in the decorator. Example: `router`. |
+| **kwargs / route_options** | Options passed to the FastAPI decorator, for example `response_model`, `status_code`, `operation_id` or `include_in_schema`. These are route options, not function parameters. |
+| **parameters** | Parameters from the endpoint function signature. Example: `db`, `org_id`, `current_user`, request body objects. |
+| **source** | File and line range where the endpoint function is defined. |
+| **detection.method** | Detection method. Currently usually `rule`. |
+| **detection.rule** | Rule used to detect the endpoint. Example: `function_with_api_route_signal`. |
+| **detection.confidence** | Confidence of the detection. FastAPI route decorator detection is usually `exact`. |
+| **review_status** | Review state of the item. Currently usually `generated`. |
+
+### Important Distinction: Route Options vs Parameters
+
+Decorator keyword arguments are **not** API parameters.
+
+Example:
+
+```python
+@router.get("/dashboard/widgets", response_model=list[DashboardWidgetResponse])
+async def get_dashboard_widgets(...):
+    ...
+```
+
+Here, `response_model` is a **route option**.
+
+Function parameters are taken from the endpoint function signature:
+
+```python
+async def get_dashboard_widgets(
+    db: AsyncSession = Depends(get_db_session),
+    org_id: str = Depends(require_org_context),
+):
+    ...
+```
+
+---
+
+## Endpoint Parameters
+
+An **Endpoint Parameter** describes a parameter from the Python function signature of an endpoint.
+
+| Field | Meaning |
+|---|---|
+| **name** | Parameter name. Example: `org_id`, `db`, `current_user`, `count_data`. |
+| **annotation** | Type annotation from the code. Example: `str`, `AsyncSession`, `ParticipantCountRequest`. |
+| **default** | Default value of the parameter. In FastAPI this is often `Depends(...)`, `Query(...)`, `Path(...)`, `Body(...)`, `Header(...)` or `Cookie(...)`. |
+| **kind** | Python parameter kind. Example: `positional_or_keyword`, `keyword_only`, `vararg`, `kwarg`. |
+| **source / parameter_source** | Optional derived API meaning, for example `dependency`, `query`, `path`, `body`, `header` or `cookie`. |
+
+### Parameter Examples
+
+| Code | Meaning |
+|---|---|
+| `db: AsyncSession = Depends(get_db_session)` | Dependency injection. |
+| `org_id: str = Depends(require_org_context)` | Dependency/context value. |
+| `payout_id: str` | Usually path-related or body-related depending on the route. |
+| `limit: int = Query(50)` | Query parameter. |
+| `payload: PaymentCreate` | Request body / DTO. |
+
+---
+
+## Service Catalog
+
+A **Service** describes a detected service class or service-like class from the codebase.
+
+| Field | Meaning |
+|---|---|
+| **id** | Unique generated service ID. Example: `finance.financial`. |
+| **module** | Python module where the service class is defined. Example: `services.finance.core`. |
+| **class_name** | Name of the service class. Example: `FinancialService`. |
+| **qualified_name** | Fully qualified class name. Example: `services.finance.core.FinancialService`. |
+| **source** | File and line range of the service class. |
+| **operations** | Public methods mapped as operations of the service. |
+| **detection.method** | Detection method. Currently usually `rule`. |
+| **detection.rule** | Rule used to detect the service. Example: `class_suffix_and_service_path`. |
+| **detection.confidence** | Confidence of the service detection. |
+| **review_status** | Review state of the item. Currently usually `generated`. |
+
+### Current Service Detection
+
+A service is currently detected by configurable project rules, for example:
+
+```text
+class name ends with Service
++ file is located in services/
+```
+
+This is a project convention, not a universal truth. Other projects may use names like `UseCase`, `Manager`, `Handler` or different folder structures.
+
+---
+
+## Operation Catalog
+
+An **Operation** describes a detected method of a service.
+
+| Field | Meaning |
+|---|---|
+| **id** | Unique generated operation ID. Example: `finance.financial.operation.cancel_payout_at_provider`. |
+| **method** | Method name in the code. Example: `cancel_payout_at_provider`. |
+| **qualified_name** | Fully qualified method name. May point to a Mixin class if the method is inherited by a service. |
+| **source** | File and line range of the method. |
+| **detection.method** | Detection method. Currently usually `rule`. |
+| **detection.rule** | Rule used to detect the operation. Example: `public_method_in_service_class`. |
+| **detection.confidence** | Confidence of the operation detection. |
+| **review_status** | Review state of the item. Currently usually `generated`. |
+
+### Mixin Note
+
+Some operations are available through a service but are implemented in a Mixin class.
+
+Example:
+
+```python
+class FinancialService(PayoutProviderSyncMixin):
+    pass
+
+class PayoutProviderSyncMixin:
+    async def cancel_payout_at_provider(...):
+        ...
+```
+
+In this case, the operation belongs to `FinancialService` from an architecture point of view, but the source points to the Mixin file where the method is actually implemented.
+
+---
+
+## Schnittstellenkatalog / Endpoint-Service Links
+
+A **Schnittstelle** describes the connection between an external API endpoint and an internal service operation.
+
+```text
+HTTP Endpoint → Router Function → Service Operation
+```
+
+| Field | Meaning |
+|---|---|
+| **endpoint_id** | ID of the API endpoint. |
+| **endpoint_qualified_name** | Fully qualified name of the router function. |
+| **service_id** | ID of the linked service. |
+| **service_class** | Name of the linked service class. Example: `FinancialService`. |
+| **operation_id** | ID of the linked service operation. |
+| **operation_method** | Method name of the linked operation. |
+| **call_name** | Actual detected method call in the endpoint code. Example: `service.cancel_payout_at_provider`. |
+| **source** | File and line where the call was detected. |
+| **detection.rule** | Rule used to detect the link. |
+| **detection.confidence** | Confidence of the link. |
+| **review_status** | Review state of the link. Currently usually `generated`. |
+
+### Example
+
+```text
+POST /payouts/{id}/cancel
+→ routers.financial.cancel_payout
+→ FinancialService.cancel_payout_at_provider
+```
+
+---
+
+## Validation Report
+
+The **Validation Report** checks the generated catalogs for consistency, missing mappings and possible architecture drift.
+
+| Field | Meaning |
+|---|---|
+| **services** | Number of detected services. |
+| **operations** | Number of detected service operations. |
+| **endpoints** | Number of detected API endpoints. |
+| **endpoint_service_links** | Number of detected endpoint-service links. |
+| **linked_endpoints** | Number of endpoints with at least one linked service operation. |
+| **unlinked_endpoints** | Number of endpoints without a detected service operation link. |
+| **unreferenced_operations** | Operations that are currently not referenced by any endpoint-service link. |
+| **errors** | Hard validation problems that should be fixed. |
+| **warnings** | Potential issues, missing mappings or suspicious structures. |
+| **infos** | Informational findings that are not necessarily problems. |
+
+---
+
+## Validation Issue Fields
+
+| Field | Meaning |
+|---|---|
+| **code** | Machine-readable issue code. Example: `duplicate_service_id`. |
+| **severity** | Severity level: `error`, `warning`, `info`. |
+| **message** | Human-readable explanation. |
+| **item_id** | ID of the affected catalog item. |
+| **source_file** | Affected source file if known. |
+| **line_start / line_end** | Affected source line range if known. |
+| **details** | Additional structured data, for example duplicate entries. |
+
+---
+
+## Issue Codes
+
+| Code | Meaning |
+|---|---|
+| **duplicate_service_id** | Two or more services were mapped to the same service ID. |
+| **duplicate_operation_id** | Two or more operations were mapped to the same operation ID. |
+| **duplicate_endpoint_id** | Two or more endpoints were mapped to the same endpoint ID. |
+| **endpoint_id_collision_same_function** | Multiple route decorators on the same function generate colliding IDs. Usually an ID-normalization issue rather than a true duplicate endpoint. |
+| **link_unknown_endpoint** | A link references an endpoint that does not exist in the endpoint catalog. |
+| **link_unknown_service** | A link references a service that does not exist in the service catalog. |
+| **link_unknown_operation** | A link references an operation that does not exist in the operation catalog. |
+| **endpoint_without_service_link** | An endpoint was detected, but no internal service operation could be linked. |
+| **operation_without_endpoint_link** | An operation was detected but is not referenced by any endpoint-service link. |
+| **service_without_operations** | A service was detected, but no operations were mapped. |
+| **raw_file_parse_error** | A Python file could not be parsed by the scanner. |
+
+---
+
+## Confidence Values
+
+| Value | Meaning |
+|---|---|
+| **exact** | Directly detected from unambiguous syntax. Example: FastAPI route decorator. |
+| **high** | Strong rule-based detection. Example: `service = FinancialService(db)` followed by `service.method()`. |
+| **medium** | Plausible but less certain rule. Example: direct class/method call without full type resolution. |
+| **low** | Weak heuristic that should be reviewed. |
+| **manual** | Manually confirmed or maintained entry. |
+| **ai_suggested** | AI-generated suggestion. Must not be treated as deterministic fact. |
+
+---
+
+## Review Status Values
+
+| Value | Meaning |
+|---|---|
+| **generated** | Automatically generated. May be overwritten by the next run. |
+| **reviewed** | Human-reviewed entry. |
+| **manual** | Manually maintained entry. |
+| **ignored** | Intentionally ignored item. |
+| **ai_suggested** | Suggested by AI and not yet confirmed. |
+
+---
+
+## Detection Fields
+
+| Field | Meaning |
+|---|---|
+| **method** | Type of detection. Example: `rule`, later possibly `manual`, `config_override` or `ai`. |
+| **rule** | Name of the applied rule. Example: `function_with_api_route_signal`. |
+| **confidence** | Confidence level of the detection. |
+
+### Detection Examples
+
+```json
+{
+  "method": "rule",
+  "rule": "function_with_api_route_signal",
+  "confidence": "exact"
+}
+```
+
+```json
+{
+  "method": "rule",
+  "rule": "assigned_service_variable_method_call",
+  "confidence": "high"
+}
+```
+
+---
+
+## Current Scope
+
+The current prototype includes:
+
+| Area | Status |
+|---|---|
+| Raw Python/FastAPI fact extraction | Implemented |
+| Service catalog generation | Implemented |
+| Operation catalog generation | Implemented |
+| Endpoint catalog generation | Implemented |
+| Endpoint-service linking | Implemented |
+| Validation report | Implemented |
+| Docusaurus visualization | In progress |
+| Worker extraction | Planned |
+| Entity read/write mapping | Planned |
+| AI descriptions / notes | Planned |
+| Manual review/edit layer | Planned |
+
+## Editing Rules
+
+Generated files should not be edited manually.
+
+Recommended future structure:
+
+```text
+catalog/generated/   → overwritten by archdoc
+catalog/manual/      → manual notes, descriptions and overrides
+catalog/final/       → merged result for rendering
+```
+
+For now, generated files are treated as read-only output from the pipeline.

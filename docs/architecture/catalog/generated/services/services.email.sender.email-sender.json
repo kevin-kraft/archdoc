@@ -1,0 +1,99 @@
+{
+  "id": "services.email.sender.email-sender",
+  "module": "services.email.sender",
+  "class_name": "EmailSenderService",
+  "qualified_name": "services.email.sender.EmailSenderService",
+  "source": {
+    "file": "services/email/sender.py",
+    "line_start": 44,
+    "line_end": 849
+  },
+  "operations": [
+    {
+      "id": "services.email.sender.email-sender.operation.get_rate_limiter",
+      "method": "get_rate_limiter",
+      "qualified_name": "services.email.sender.EmailSenderService.get_rate_limiter",
+      "source": {
+        "file": "services/email/sender.py",
+        "line_start": 54,
+        "line_end": 62
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.sender.email-sender.operation.get_smtp_config",
+      "method": "get_smtp_config",
+      "qualified_name": "services.email.sender.EmailSenderService.get_smtp_config",
+      "source": {
+        "file": "services/email/sender.py",
+        "line_start": 65,
+        "line_end": 78
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.sender.email-sender.operation.get_org_smtp_config",
+      "method": "get_org_smtp_config",
+      "qualified_name": "services.email.sender.EmailSenderService.get_org_smtp_config",
+      "source": {
+        "file": "services/email/sender.py",
+        "line_start": 360,
+        "line_end": 387
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.sender.email-sender.operation.send_campaign_emails",
+      "method": "send_campaign_emails",
+      "qualified_name": "services.email.sender.EmailSenderService.send_campaign_emails",
+      "source": {
+        "file": "services/email/sender.py",
+        "line_start": 390,
+        "line_end": 581
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.sender.email-sender.operation.send_test_email",
+      "method": "send_test_email",
+      "qualified_name": "services.email.sender.EmailSenderService.send_test_email",
+      "source": {
+        "file": "services/email/sender.py",
+        "line_start": 816,
+        "line_end": 849
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

@@ -1,0 +1,2 @@
+[console_scripts]
+archdoc = archdoc.cli:app

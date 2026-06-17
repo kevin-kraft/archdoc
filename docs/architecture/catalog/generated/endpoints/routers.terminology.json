@@ -1,0 +1,557 @@
+{
+  "id": "routers.terminology",
+  "module": "routers.terminology",
+  "source_file": "routers/terminology.py",
+  "endpoints": [
+    {
+      "id": "routers.terminology.delete.custom.param-terminology-id.delete-custom-terminology",
+      "module": "routers.terminology",
+      "function_name": "delete_custom_terminology",
+      "qualified_name": "routers.terminology.delete_custom_terminology",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/custom/{terminology_id}",
+      "router": "router",
+      "kwargs": {
+        "status_code": "204"
+      },
+      "parameters": [
+        {
+          "name": "terminology_id",
+          "annotation": "int",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "Session",
+          "default": "Depends(get_db)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_org",
+          "annotation": null,
+          "default": "Depends(get_current_organization)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ConfigPermissions.TRANSLATION_MANAGE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/terminology.py",
+        "line_start": 175,
+        "line_end": 191
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.terminology.get.custom.get-custom-terminology",
+      "module": "routers.terminology",
+      "function_name": "get_custom_terminology",
+      "qualified_name": "routers.terminology.get_custom_terminology",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/custom",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[CustomTerminologyResponse]"
+      },
+      "parameters": [
+        {
+          "name": "language",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by language')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "namespace",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Filter by namespace')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "Session",
+          "default": "Depends(get_db)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_org",
+          "annotation": null,
+          "default": "Depends(get_current_organization)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ConfigPermissions.VIEW))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/terminology.py",
+        "line_start": 60,
+        "line_end": 77
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.terminology.get.custom.merged.param-language.get-merged-translations",
+      "module": "routers.terminology",
+      "function_name": "get_merged_translations",
+      "qualified_name": "routers.terminology.get_merged_translations",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/custom/merged/{language}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict[str, Any]"
+      },
+      "parameters": [
+        {
+          "name": "language",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "Session",
+          "default": "Depends(get_db)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_org",
+          "annotation": null,
+          "default": "Depends(get_current_organization)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ConfigPermissions.VIEW))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/terminology.py",
+        "line_start": 81,
+        "line_end": 109
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.terminology.get.sets.get-terminology-sets",
+      "module": "routers.terminology",
+      "function_name": "get_terminology_sets",
+      "qualified_name": "routers.terminology.get_terminology_sets",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/sets",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[TerminologySetResponse]"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "Session",
+          "default": "Depends(get_db)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ConfigPermissions.VIEW))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/terminology.py",
+        "line_start": 241,
+        "line_end": 256
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.terminology.get.sets.param-set-id.get-terminology-set",
+      "module": "routers.terminology",
+      "function_name": "get_terminology_set",
+      "qualified_name": "routers.terminology.get_terminology_set",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/sets/{set_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TerminologySetResponse"
+      },
+      "parameters": [
+        {
+          "name": "set_id",
+          "annotation": "int",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "Session",
+          "default": "Depends(get_db)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ConfigPermissions.VIEW))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/terminology.py",
+        "line_start": 260,
+        "line_end": 277
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.terminology.post.custom.bulk.bulk-create-custom-terminology",
+      "module": "routers.terminology",
+      "function_name": "bulk_create_custom_terminology",
+      "qualified_name": "routers.terminology.bulk_create_custom_terminology",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/custom/bulk",
+      "router": "router",
+      "kwargs": {
+        "status_code": "201"
+      },
+      "parameters": [
+        {
+          "name": "terminologies",
+          "annotation": "list[CustomTerminologyCreate]",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "Session",
+          "default": "Depends(get_db)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_org",
+          "annotation": null,
+          "default": "Depends(get_current_organization)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ConfigPermissions.TRANSLATION_MANAGE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/terminology.py",
+        "line_start": 195,
+        "line_end": 236
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.terminology.post.custom.create-custom-terminology",
+      "module": "routers.terminology",
+      "function_name": "create_custom_terminology",
+      "qualified_name": "routers.terminology.create_custom_terminology",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/custom",
+      "router": "router",
+      "kwargs": {
+        "response_model": "CustomTerminologyResponse",
+        "status_code": "201"
+      },
+      "parameters": [
+        {
+          "name": "terminology",
+          "annotation": "CustomTerminologyCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "Session",
+          "default": "Depends(get_db)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_org",
+          "annotation": null,
+          "default": "Depends(get_current_organization)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": null,
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ConfigPermissions.TRANSLATION_MANAGE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/terminology.py",
+        "line_start": 113,
+        "line_end": 147
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.terminology.post.sets.param-set-id.apply.apply-terminology-set",
+      "module": "routers.terminology",
+      "function_name": "apply_terminology_set",
+      "qualified_name": "routers.terminology.apply_terminology_set",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/sets/{set_id}/apply",
+      "router": "router",
+      "kwargs": {
+        "status_code": "201"
+      },
+      "parameters": [
+        {
+          "name": "set_id",
+          "annotation": "int",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "Session",
+          "default": "Depends(get_db)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_org",
+          "annotation": null,
+          "default": "Depends(get_current_organization)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ConfigPermissions.TRANSLATION_MANAGE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/terminology.py",
+        "line_start": 281,
+        "line_end": 334
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.terminology.put.custom.param-terminology-id.update-custom-terminology",
+      "module": "routers.terminology",
+      "function_name": "update_custom_terminology",
+      "qualified_name": "routers.terminology.update_custom_terminology",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/custom/{terminology_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "CustomTerminologyResponse"
+      },
+      "parameters": [
+        {
+          "name": "terminology_id",
+          "annotation": "int",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "terminology",
+          "annotation": "CustomTerminologyUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "Session",
+          "default": "Depends(get_db)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_org",
+          "annotation": null,
+          "default": "Depends(get_current_organization)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(ConfigPermissions.TRANSLATION_MANAGE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/terminology.py",
+        "line_start": 151,
+        "line_end": 171
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

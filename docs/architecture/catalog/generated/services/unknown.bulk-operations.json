@@ -1,0 +1,83 @@
+{
+  "id": "unknown.bulk-operations",
+  "module": "services.bulk_operations",
+  "class_name": "BulkOperationsService",
+  "qualified_name": "services.bulk_operations.BulkOperationsService",
+  "source": {
+    "file": "services/bulk_operations.py",
+    "line_start": 24,
+    "line_end": 469
+  },
+  "operations": [
+    {
+      "id": "unknown.bulk-operations.operation.bulk_update_status_with_notification",
+      "method": "bulk_update_status_with_notification",
+      "qualified_name": "services.bulk_operations.BulkOperationsService.bulk_update_status_with_notification",
+      "source": {
+        "file": "services/bulk_operations.py",
+        "line_start": 31,
+        "line_end": 147
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "unknown.bulk-operations.operation.bulk_assign_to_subpool",
+      "method": "bulk_assign_to_subpool",
+      "qualified_name": "services.bulk_operations.BulkOperationsService.bulk_assign_to_subpool",
+      "source": {
+        "file": "services/bulk_operations.py",
+        "line_start": 149,
+        "line_end": 199
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "unknown.bulk-operations.operation.bulk_add_to_experiment_type_subscription",
+      "method": "bulk_add_to_experiment_type_subscription",
+      "qualified_name": "services.bulk_operations.BulkOperationsService.bulk_add_to_experiment_type_subscription",
+      "source": {
+        "file": "services/bulk_operations.py",
+        "line_start": 201,
+        "line_end": 259
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "unknown.bulk-operations.operation.bulk_send_custom_message",
+      "method": "bulk_send_custom_message",
+      "qualified_name": "services.bulk_operations.BulkOperationsService.bulk_send_custom_message",
+      "source": {
+        "file": "services/bulk_operations.py",
+        "line_start": 261,
+        "line_end": 341
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

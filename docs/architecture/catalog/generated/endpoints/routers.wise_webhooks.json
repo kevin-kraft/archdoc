@@ -1,0 +1,55 @@
+{
+  "id": "routers.wise_webhooks",
+  "module": "routers.wise_webhooks",
+  "source_file": "routers/wise_webhooks.py",
+  "endpoints": [
+    {
+      "id": "routers.wise_webhooks.post.handle-wise-webhook",
+      "module": "routers.wise_webhooks",
+      "function_name": "handle_wise_webhook",
+      "qualified_name": "routers.wise_webhooks.handle_wise_webhook",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "db_or_sqlalchemy_call",
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "request",
+          "annotation": "Request",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_no_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/wise_webhooks.py",
+        "line_start": 75,
+        "line_end": 157
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

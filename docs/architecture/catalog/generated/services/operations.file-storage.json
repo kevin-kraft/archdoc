@@ -1,0 +1,115 @@
+{
+  "id": "operations.file-storage",
+  "module": "services.operations.files",
+  "class_name": "FileStorageService",
+  "qualified_name": "services.operations.files.FileStorageService",
+  "source": {
+    "file": "services/operations/files.py",
+    "line_start": 58,
+    "line_end": 468
+  },
+  "operations": [
+    {
+      "id": "operations.file-storage.operation.upload_file",
+      "method": "upload_file",
+      "qualified_name": "services.operations.files.FileStorageService.upload_file",
+      "source": {
+        "file": "services/operations/files.py",
+        "line_start": 207,
+        "line_end": 323
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "operations.file-storage.operation.get_file_url",
+      "method": "get_file_url",
+      "qualified_name": "services.operations.files.FileStorageService.get_file_url",
+      "source": {
+        "file": "services/operations/files.py",
+        "line_start": 325,
+        "line_end": 347
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "operations.file-storage.operation.get_file_object",
+      "method": "get_file_object",
+      "qualified_name": "services.operations.files.FileStorageService.get_file_object",
+      "source": {
+        "file": "services/operations/files.py",
+        "line_start": 349,
+        "line_end": 362
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "operations.file-storage.operation.delete_file",
+      "method": "delete_file",
+      "qualified_name": "services.operations.files.FileStorageService.delete_file",
+      "source": {
+        "file": "services/operations/files.py",
+        "line_start": 364,
+        "line_end": 378
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "operations.file-storage.operation.list_files",
+      "method": "list_files",
+      "qualified_name": "services.operations.files.FileStorageService.list_files",
+      "source": {
+        "file": "services/operations/files.py",
+        "line_start": 380,
+        "line_end": 416
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "operations.file-storage.operation.get_file_info",
+      "method": "get_file_info",
+      "qualified_name": "services.operations.files.FileStorageService.get_file_info",
+      "source": {
+        "file": "services/operations/files.py",
+        "line_start": 418,
+        "line_end": 442
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

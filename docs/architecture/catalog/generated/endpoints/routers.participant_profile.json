@@ -1,0 +1,849 @@
+{
+  "id": "routers.participant_profile",
+  "module": "routers.participant_profile",
+  "source_file": "routers/participant_profile.py",
+  "endpoints": [
+    {
+      "id": "routers.participant_profile.delete.public.param-org-slug.participants.me.delete-participant-profile",
+      "module": "routers.participant_profile",
+      "function_name": "delete_participant_profile",
+      "qualified_name": "routers.participant_profile.delete_participant_profile",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/public/{org_slug}/participants/me",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 131,
+        "line_end": 156
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.get.public.param-org-slug.content.param-key.get-public-content",
+      "module": "routers.participant_profile",
+      "function_name": "get_public_content",
+      "qualified_name": "routers.participant_profile.get_public_content",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/content/{key}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicContentResponse"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "key",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 160,
+        "line_end": 172
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.get.public.param-org-slug.participants.bank-details.get-participant-bank-details",
+      "module": "routers.participant_profile",
+      "function_name": "get_participant_bank_details",
+      "qualified_name": "routers.participant_profile.get_participant_bank_details",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/participants/bank-details",
+      "router": "router",
+      "kwargs": {
+        "response_model": "Optional[PublicParticipantBankDetailsResponse]"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 401,
+        "line_end": 419
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.get.public.param-org-slug.participants.dashboard.stats.get-participant-dashboard-stats",
+      "module": "routers.participant_profile",
+      "function_name": "get_participant_dashboard_stats",
+      "qualified_name": "routers.participant_profile.get_participant_dashboard_stats",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/participants/dashboard/stats",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicParticipantDashboardStats"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 176,
+        "line_end": 192
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.get.public.param-org-slug.participants.data-export.download.download-participant-data-export",
+      "module": "routers.participant_profile",
+      "function_name": "download_participant_data_export",
+      "qualified_name": "routers.participant_profile.download_participant_data_export",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/participants/data-export/download",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict[str, Any]"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 359,
+        "line_end": 397
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.get.public.param-org-slug.participants.data-export.get-participant-data-export-status",
+      "module": "routers.participant_profile",
+      "function_name": "get_participant_data_export_status",
+      "qualified_name": "routers.participant_profile.get_participant_data_export_status",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/participants/data-export",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicParticipantDataExportStatusResponse"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 333,
+        "line_end": 342
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.get.public.param-org-slug.participants.feedback.get-participant-feedback-history",
+      "module": "routers.participant_profile",
+      "function_name": "get_participant_feedback_history",
+      "qualified_name": "routers.participant_profile.get_participant_feedback_history",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/participants/feedback",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[PublicParticipantFeedbackResponse]"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 279,
+        "line_end": 302
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.get.public.param-org-slug.participants.me.get-participant-profile",
+      "module": "routers.participant_profile",
+      "function_name": "get_participant_profile",
+      "qualified_name": "routers.participant_profile.get_participant_profile",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/participants/me",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicParticipantProfile"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 87,
+        "line_end": 104
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.get.public.param-org-slug.participants.payments.get-participant-payments",
+      "module": "routers.participant_profile",
+      "function_name": "get_participant_payments",
+      "qualified_name": "routers.participant_profile.get_participant_payments",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/participants/payments",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[PublicParticipantPayment]"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 196,
+        "line_end": 226
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.get.public.param-org-slug.participants.payout-status.get-participant-payout-status",
+      "module": "routers.participant_profile",
+      "function_name": "get_participant_payout_status",
+      "qualified_name": "routers.participant_profile.get_participant_payout_status",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/participants/payout-status",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicPayoutStatus"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 230,
+        "line_end": 252
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.get.public.param-org-slug.participants.policies.get-participant-policies",
+      "module": "routers.participant_profile",
+      "function_name": "get_participant_policies",
+      "qualified_name": "routers.participant_profile.get_participant_policies",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/participants/policies",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicParticipantPoliciesResponse"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 423,
+        "line_end": 445
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.get.public.param-org-slug.participants.settings.get-participant-settings",
+      "module": "routers.participant_profile",
+      "function_name": "get_participant_settings",
+      "qualified_name": "routers.participant_profile.get_participant_settings",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/participants/settings",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicParticipantSettingsResponse"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 306,
+        "line_end": 315
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.get.public.param-org-slug.participants.vouchers.get-participant-vouchers",
+      "module": "routers.participant_profile",
+      "function_name": "get_participant_vouchers",
+      "qualified_name": "routers.participant_profile.get_participant_vouchers",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/public/{org_slug}/participants/vouchers",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[SecureVoucherResponse]"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 449,
+        "line_end": 461
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.patch.public.param-org-slug.participants.me.update-participant-profile",
+      "module": "routers.participant_profile",
+      "function_name": "update_participant_profile",
+      "qualified_name": "routers.participant_profile.update_participant_profile",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PATCH",
+      "path": "/public/{org_slug}/participants/me",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicParticipantProfile"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "PublicParticipantUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 108,
+        "line_end": 127
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.post.public.param-org-slug.participants.data-export.request-participant-data-export",
+      "module": "routers.participant_profile",
+      "function_name": "request_participant_data_export",
+      "qualified_name": "routers.participant_profile.request_participant_data_export",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/public/{org_slug}/participants/data-export",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicParticipantDataExportStatusResponse",
+        "status_code": "202"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 346,
+        "line_end": 355
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.post.public.param-org-slug.participants.feedback.submit-participant-feedback",
+      "module": "routers.participant_profile",
+      "function_name": "submit_participant_feedback",
+      "qualified_name": "routers.participant_profile.submit_participant_feedback",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/public/{org_slug}/participants/feedback",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "PublicParticipantFeedbackCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 256,
+        "line_end": 275
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_profile.put.public.param-org-slug.participants.settings.update-participant-settings",
+      "module": "routers.participant_profile",
+      "function_name": "update_participant_settings",
+      "qualified_name": "routers.participant_profile.update_participant_settings",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/public/{org_slug}/participants/settings",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PublicParticipantSettingsResponse"
+      },
+      "parameters": [
+        {
+          "name": "org_slug",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "settings",
+          "annotation": "PublicParticipantSettingsUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": "Depends(require_participant_bearer)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_profile.py",
+        "line_start": 319,
+        "line_end": 329
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

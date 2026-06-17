@@ -1,0 +1,233 @@
+{
+  "id": "routers.subpools",
+  "module": "routers.subpools",
+  "source_file": "routers/subpools.py",
+  "endpoints": [
+    {
+      "id": "routers.subpools.delete.param-subpool-id.delete-subpool",
+      "module": "routers.subpools",
+      "function_name": "delete_subpool",
+      "qualified_name": "routers.subpools.delete_subpool",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/{subpool_id}",
+      "router": "router",
+      "kwargs": {
+        "status_code": "status.HTTP_204_NO_CONTENT",
+        "dependencies": "[Depends(require_permission(MiscPermissions.SUBJECTPOOL_DELETE))]"
+      },
+      "parameters": [
+        {
+          "name": "subpool_id",
+          "annotation": "uuid.UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(get_org_id)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/subpools.py",
+        "line_start": 88,
+        "line_end": 99
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.subpools.get.root.list-subpools",
+      "module": "routers.subpools",
+      "function_name": "list_subpools",
+      "qualified_name": "routers.subpools.list_subpools",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[SubpoolResponse]",
+        "dependencies": "[Depends(require_permission(MiscPermissions.SUBJECTPOOL_EDIT))]"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(get_org_id)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/subpools.py",
+        "line_start": 30,
+        "line_end": 51
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.subpools.post.root.create-subpool",
+      "module": "routers.subpools",
+      "function_name": "create_subpool",
+      "qualified_name": "routers.subpools.create_subpool",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SubpoolResponse",
+        "dependencies": "[Depends(require_permission(MiscPermissions.SUBJECTPOOL_ADD))]"
+      },
+      "parameters": [
+        {
+          "name": "subpool_in",
+          "annotation": "SubpoolCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(get_org_id)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/subpools.py",
+        "line_start": 54,
+        "line_end": 67
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.subpools.put.param-subpool-id.update-subpool",
+      "module": "routers.subpools",
+      "function_name": "update_subpool",
+      "qualified_name": "routers.subpools.update_subpool",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/{subpool_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "SubpoolResponse",
+        "dependencies": "[Depends(require_permission(MiscPermissions.SUBJECTPOOL_EDIT))]"
+      },
+      "parameters": [
+        {
+          "name": "subpool_id",
+          "annotation": "uuid.UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "subpool_in",
+          "annotation": "SubpoolUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(get_org_id)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/subpools.py",
+        "line_start": 70,
+        "line_end": 85
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

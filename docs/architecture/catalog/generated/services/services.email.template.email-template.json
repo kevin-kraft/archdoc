@@ -1,0 +1,163 @@
+{
+  "id": "services.email.template.email-template",
+  "module": "services.email.template",
+  "class_name": "EmailTemplateService",
+  "qualified_name": "services.email.template.EmailTemplateService",
+  "source": {
+    "file": "services/email/template.py",
+    "line_start": 16,
+    "line_end": 367
+  },
+  "operations": [
+    {
+      "id": "services.email.template.email-template.operation.create_template",
+      "method": "create_template",
+      "qualified_name": "services.email.template.EmailTemplateService.create_template",
+      "source": {
+        "file": "services/email/template.py",
+        "line_start": 78,
+        "line_end": 138
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.template.email-template.operation.get_template",
+      "method": "get_template",
+      "qualified_name": "services.email.template.EmailTemplateService.get_template",
+      "source": {
+        "file": "services/email/template.py",
+        "line_start": 141,
+        "line_end": 159
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.template.email-template.operation.list_templates",
+      "method": "list_templates",
+      "qualified_name": "services.email.template.EmailTemplateService.list_templates",
+      "source": {
+        "file": "services/email/template.py",
+        "line_start": 162,
+        "line_end": 207
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.template.email-template.operation.update_template",
+      "method": "update_template",
+      "qualified_name": "services.email.template.EmailTemplateService.update_template",
+      "source": {
+        "file": "services/email/template.py",
+        "line_start": 210,
+        "line_end": 247
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.template.email-template.operation.delete_template",
+      "method": "delete_template",
+      "qualified_name": "services.email.template.EmailTemplateService.delete_template",
+      "source": {
+        "file": "services/email/template.py",
+        "line_start": 250,
+        "line_end": 258
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.template.email-template.operation.duplicate_template",
+      "method": "duplicate_template",
+      "qualified_name": "services.email.template.EmailTemplateService.duplicate_template",
+      "source": {
+        "file": "services/email/template.py",
+        "line_start": 261,
+        "line_end": 294
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.template.email-template.operation.get_template_categories",
+      "method": "get_template_categories",
+      "qualified_name": "services.email.template.EmailTemplateService.get_template_categories",
+      "source": {
+        "file": "services/email/template.py",
+        "line_start": 297,
+        "line_end": 310
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.template.email-template.operation.render_template",
+      "method": "render_template",
+      "qualified_name": "services.email.template.EmailTemplateService.render_template",
+      "source": {
+        "file": "services/email/template.py",
+        "line_start": 322,
+        "line_end": 349
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.email.template.email-template.operation.render_template_for_org",
+      "method": "render_template_for_org",
+      "qualified_name": "services.email.template.EmailTemplateService.render_template_for_org",
+      "source": {
+        "file": "services/email/template.py",
+        "line_start": 352,
+        "line_end": 367
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

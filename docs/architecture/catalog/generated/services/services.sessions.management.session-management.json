@@ -1,0 +1,259 @@
+{
+  "id": "services.sessions.management.session-management",
+  "module": "services.sessions.management",
+  "class_name": "SessionManagementService",
+  "qualified_name": "services.sessions.management.SessionManagementService",
+  "source": {
+    "file": "services/sessions/management.py",
+    "line_start": 44,
+    "line_end": 1226
+  },
+  "operations": [
+    {
+      "id": "services.sessions.management.session-management.operation.create_session",
+      "method": "create_session",
+      "qualified_name": "services.sessions.management.SessionManagementService.create_session",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 75,
+        "line_end": 240
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.update_session",
+      "method": "update_session",
+      "qualified_name": "services.sessions.management.SessionManagementService.update_session",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 242,
+        "line_end": 337
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.update_session_state",
+      "method": "update_session_state",
+      "qualified_name": "services.sessions.management.SessionManagementService.update_session_state",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 358,
+        "line_end": 435
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.get_session_with_enhanced_details",
+      "method": "get_session_with_enhanced_details",
+      "qualified_name": "services.sessions.management.SessionManagementService.get_session_with_enhanced_details",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 437,
+        "line_end": 482
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.lock_session",
+      "method": "lock_session",
+      "qualified_name": "services.sessions.management.SessionManagementService.lock_session",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 484,
+        "line_end": 524
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.unlock_session",
+      "method": "unlock_session",
+      "qualified_name": "services.sessions.management.SessionManagementService.unlock_session",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 526,
+        "line_end": 540
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.get_session_state_history",
+      "method": "get_session_state_history",
+      "qualified_name": "services.sessions.management.SessionManagementService.get_session_state_history",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 542,
+        "line_end": 570
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.get_session_versions",
+      "method": "get_session_versions",
+      "qualified_name": "services.sessions.management.SessionManagementService.get_session_versions",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 572,
+        "line_end": 600
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.rollback_session_version",
+      "method": "rollback_session_version",
+      "qualified_name": "services.sessions.management.SessionManagementService.rollback_session_version",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 602,
+        "line_end": 661
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.get_session_audit_log",
+      "method": "get_session_audit_log",
+      "qualified_name": "services.sessions.management.SessionManagementService.get_session_audit_log",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 671,
+        "line_end": 722
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.get_session_security_audit",
+      "method": "get_session_security_audit",
+      "qualified_name": "services.sessions.management.SessionManagementService.get_session_security_audit",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 724,
+        "line_end": 751
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.get_session_performance_stats",
+      "method": "get_session_performance_stats",
+      "qualified_name": "services.sessions.management.SessionManagementService.get_session_performance_stats",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 753,
+        "line_end": 812
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.get_session_lock_status",
+      "method": "get_session_lock_status",
+      "qualified_name": "services.sessions.management.SessionManagementService.get_session_lock_status",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 814,
+        "line_end": 838
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.cleanup_expired_locks",
+      "method": "cleanup_expired_locks",
+      "qualified_name": "services.sessions.management.SessionManagementService.cleanup_expired_locks",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 840,
+        "line_end": 846
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.sessions.management.session-management.operation.process_session_completion_financials",
+      "method": "process_session_completion_financials",
+      "qualified_name": "services.sessions.management.SessionManagementService.process_session_completion_financials",
+      "source": {
+        "file": "services/sessions/management.py",
+        "line_start": 1120,
+        "line_end": 1126
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

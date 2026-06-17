@@ -1,0 +1,131 @@
+{
+  "id": "support.support-ticket",
+  "module": "services.support.tickets",
+  "class_name": "SupportTicketService",
+  "qualified_name": "services.support.tickets.SupportTicketService",
+  "source": {
+    "file": "services/support/tickets.py",
+    "line_start": 35,
+    "line_end": 425
+  },
+  "operations": [
+    {
+      "id": "support.support-ticket.operation.create_ticket",
+      "method": "create_ticket",
+      "qualified_name": "services.support.tickets.SupportTicketService.create_ticket",
+      "source": {
+        "file": "services/support/tickets.py",
+        "line_start": 78,
+        "line_end": 138
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "support.support-ticket.operation.list_tickets",
+      "method": "list_tickets",
+      "qualified_name": "services.support.tickets.SupportTicketService.list_tickets",
+      "source": {
+        "file": "services/support/tickets.py",
+        "line_start": 140,
+        "line_end": 179
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "support.support-ticket.operation.get_ticket",
+      "method": "get_ticket",
+      "qualified_name": "services.support.tickets.SupportTicketService.get_ticket",
+      "source": {
+        "file": "services/support/tickets.py",
+        "line_start": 181,
+        "line_end": 207
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "support.support-ticket.operation.add_participant_entry",
+      "method": "add_participant_entry",
+      "qualified_name": "services.support.tickets.SupportTicketService.add_participant_entry",
+      "source": {
+        "file": "services/support/tickets.py",
+        "line_start": 209,
+        "line_end": 260
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "support.support-ticket.operation.add_staff_entry",
+      "method": "add_staff_entry",
+      "qualified_name": "services.support.tickets.SupportTicketService.add_staff_entry",
+      "source": {
+        "file": "services/support/tickets.py",
+        "line_start": 262,
+        "line_end": 298
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "support.support-ticket.operation.update_status",
+      "method": "update_status",
+      "qualified_name": "services.support.tickets.SupportTicketService.update_status",
+      "source": {
+        "file": "services/support/tickets.py",
+        "line_start": 300,
+        "line_end": 318
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "support.support-ticket.operation.update_participant_status",
+      "method": "update_participant_status",
+      "qualified_name": "services.support.tickets.SupportTicketService.update_participant_status",
+      "source": {
+        "file": "services/support/tickets.py",
+        "line_start": 320,
+        "line_end": 340
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

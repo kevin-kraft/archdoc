@@ -1,0 +1,51 @@
+{
+  "id": "audit.audit",
+  "module": "services.audit.service",
+  "class_name": "AuditService",
+  "qualified_name": "services.audit.service.AuditService",
+  "source": {
+    "file": "services/audit/service.py",
+    "line_start": 19,
+    "line_end": 639
+  },
+  "operations": [
+    {
+      "id": "audit.audit.operation.log_event",
+      "method": "log_event",
+      "qualified_name": "services.audit.service.AuditService.log_event",
+      "source": {
+        "file": "services/audit/service.py",
+        "line_start": 334,
+        "line_end": 438
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "audit.audit.operation.verify_chain",
+      "method": "verify_chain",
+      "qualified_name": "services.audit.service.AuditService.verify_chain",
+      "source": {
+        "file": "services/audit/service.py",
+        "line_start": 440,
+        "line_end": 639
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

@@ -1,0 +1,61 @@
+{
+  "id": "routers.admin_health",
+  "module": "routers.admin_health",
+  "source_file": "routers/admin_health.py",
+  "endpoints": [
+    {
+      "id": "routers.admin_health.get.admin.health.admin-health",
+      "module": "routers.admin_health",
+      "function_name": "admin_health",
+      "qualified_name": "routers.admin_health.admin_health",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/admin/health",
+      "router": "router",
+      "kwargs": {
+        "response_model": "dict[str, Any]"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_NO_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "worker",
+          "annotation": "Any",
+          "default": "WORKER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "STATUS_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_health.py",
+        "line_start": 486,
+        "line_end": 548
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

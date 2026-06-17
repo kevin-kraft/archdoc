@@ -1,0 +1,469 @@
+{
+  "id": "routers.email_templates",
+  "module": "routers.email_templates",
+  "source_file": "routers/email_templates.py",
+  "endpoints": [
+    {
+      "id": "routers.email_templates.delete.param-template-id.delete-template",
+      "module": "routers.email_templates",
+      "function_name": "delete_template",
+      "qualified_name": "routers.email_templates.delete_template",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/{template_id}",
+      "router": "router",
+      "kwargs": {
+        "status_code": "204"
+      },
+      "parameters": [
+        {
+          "name": "template_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "TEMPLATE_DELETE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_templates.py",
+        "line_start": 135,
+        "line_end": 151
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_templates.get.categories.list.list-template-categories",
+      "module": "routers.email_templates",
+      "function_name": "list_template_categories",
+      "qualified_name": "routers.email_templates.list_template_categories",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/categories/list",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[str]"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "TEMPLATE_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_templates.py",
+        "line_start": 155,
+        "line_end": 169
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_templates.get.list-templates",
+      "module": "routers.email_templates",
+      "function_name": "list_templates",
+      "qualified_name": "routers.email_templates.list_templates",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TemplateListResponse"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "TEMPLATE_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "category",
+          "annotation": "Optional[str]",
+          "default": "CATEGORY_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "is_active",
+          "annotation": "Optional[bool]",
+          "default": "IS_ACTIVE_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "search",
+          "annotation": "Optional[str]",
+          "default": "SEARCH_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "LIMIT_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "OFFSET_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_templates.py",
+        "line_start": 60,
+        "line_end": 89
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_templates.get.param-template-id.get-template",
+      "module": "routers.email_templates",
+      "function_name": "get_template",
+      "qualified_name": "routers.email_templates.get_template",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{template_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TemplateResponse"
+      },
+      "parameters": [
+        {
+          "name": "template_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "TEMPLATE_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_templates.py",
+        "line_start": 93,
+        "line_end": 109
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_templates.patch.param-template-id.update-template",
+      "module": "routers.email_templates",
+      "function_name": "update_template",
+      "qualified_name": "routers.email_templates.update_template",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "PATCH",
+      "path": "/{template_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TemplateResponse"
+      },
+      "parameters": [
+        {
+          "name": "template_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "updates",
+          "annotation": "TemplateUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "TEMPLATE_UPDATE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_templates.py",
+        "line_start": 113,
+        "line_end": 131
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_templates.post.create-template",
+      "module": "routers.email_templates",
+      "function_name": "create_template",
+      "qualified_name": "routers.email_templates.create_template",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TemplateResponse"
+      },
+      "parameters": [
+        {
+          "name": "template",
+          "annotation": "TemplateCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "TEMPLATE_CREATE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_templates.py",
+        "line_start": 40,
+        "line_end": 56
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_templates.post.param-template-id.duplicate.duplicate-template",
+      "module": "routers.email_templates",
+      "function_name": "duplicate_template",
+      "qualified_name": "routers.email_templates.duplicate_template",
+      "implementation": {
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "signals": [
+          "direct_service_class_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/{template_id}/duplicate",
+      "router": "router",
+      "kwargs": {
+        "response_model": "TemplateResponse"
+      },
+      "parameters": [
+        {
+          "name": "template_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "new_name",
+          "annotation": "str",
+          "default": "NEW_NAME_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "TEMPLATE_CREATE_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_templates.py",
+        "line_start": 173,
+        "line_end": 191
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

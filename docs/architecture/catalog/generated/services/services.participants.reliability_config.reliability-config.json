@@ -1,0 +1,99 @@
+{
+  "id": "services.participants.reliability_config.reliability-config",
+  "module": "services.participants.reliability_config",
+  "class_name": "ReliabilityConfigService",
+  "qualified_name": "services.participants.reliability_config.ReliabilityConfigService",
+  "source": {
+    "file": "services/participants/reliability_config.py",
+    "line_start": 18,
+    "line_end": 465
+  },
+  "operations": [
+    {
+      "id": "services.participants.reliability_config.reliability-config.operation.get_active_config",
+      "method": "get_active_config",
+      "qualified_name": "services.participants.reliability_config.ReliabilityConfigService.get_active_config",
+      "source": {
+        "file": "services/participants/reliability_config.py",
+        "line_start": 175,
+        "line_end": 184
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.participants.reliability_config.reliability-config.operation.create_config",
+      "method": "create_config",
+      "qualified_name": "services.participants.reliability_config.ReliabilityConfigService.create_config",
+      "source": {
+        "file": "services/participants/reliability_config.py",
+        "line_start": 186,
+        "line_end": 221
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.participants.reliability_config.reliability-config.operation.get_presets",
+      "method": "get_presets",
+      "qualified_name": "services.participants.reliability_config.ReliabilityConfigService.get_presets",
+      "source": {
+        "file": "services/participants/reliability_config.py",
+        "line_start": 223,
+        "line_end": 231
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.participants.reliability_config.reliability-config.operation.calculate_reliability_score",
+      "method": "calculate_reliability_score",
+      "qualified_name": "services.participants.reliability_config.ReliabilityConfigService.calculate_reliability_score",
+      "source": {
+        "file": "services/participants/reliability_config.py",
+        "line_start": 233,
+        "line_end": 294
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.participants.reliability_config.reliability-config.operation.update_participant_score",
+      "method": "update_participant_score",
+      "qualified_name": "services.participants.reliability_config.ReliabilityConfigService.update_participant_score",
+      "source": {
+        "file": "services/participants/reliability_config.py",
+        "line_start": 388,
+        "line_end": 465
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

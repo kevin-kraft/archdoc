@@ -1,0 +1,131 @@
+{
+  "id": "services.operations.email.email",
+  "module": "services.operations.email",
+  "class_name": "EmailService",
+  "qualified_name": "services.operations.email.EmailService",
+  "source": {
+    "file": "services/operations/email.py",
+    "line_start": 27,
+    "line_end": 675
+  },
+  "operations": [
+    {
+      "id": "services.operations.email.email.operation.send_email",
+      "method": "send_email",
+      "qualified_name": "services.operations.email.EmailService.send_email",
+      "source": {
+        "file": "services/operations/email.py",
+        "line_start": 100,
+        "line_end": 215
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.email.email.operation.test_connection",
+      "method": "test_connection",
+      "qualified_name": "services.operations.email.EmailService.test_connection",
+      "source": {
+        "file": "services/operations/email.py",
+        "line_start": 217,
+        "line_end": 313
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.email.email.operation.send_test_email",
+      "method": "send_test_email",
+      "qualified_name": "services.operations.email.EmailService.send_test_email",
+      "source": {
+        "file": "services/operations/email.py",
+        "line_start": 315,
+        "line_end": 419
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.email.email.operation.render_invitation_email",
+      "method": "render_invitation_email",
+      "qualified_name": "services.operations.email.EmailService.render_invitation_email",
+      "source": {
+        "file": "services/operations/email.py",
+        "line_start": 421,
+        "line_end": 522
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.email.email.operation.send_invitation_email",
+      "method": "send_invitation_email",
+      "qualified_name": "services.operations.email.EmailService.send_invitation_email",
+      "source": {
+        "file": "services/operations/email.py",
+        "line_start": 524,
+        "line_end": 552
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.email.email.operation.render_session_reminder_email",
+      "method": "render_session_reminder_email",
+      "qualified_name": "services.operations.email.EmailService.render_session_reminder_email",
+      "source": {
+        "file": "services/operations/email.py",
+        "line_start": 554,
+        "line_end": 647
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "services.operations.email.email.operation.send_session_reminder",
+      "method": "send_session_reminder",
+      "qualified_name": "services.operations.email.EmailService.send_session_reminder",
+      "source": {
+        "file": "services/operations/email.py",
+        "line_start": 649,
+        "line_end": 675
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}

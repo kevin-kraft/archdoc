@@ -1,0 +1,322 @@
+{
+  "id": "routers.admin_recruitment_metrics",
+  "module": "routers.admin_recruitment_metrics",
+  "source_file": "routers/admin_recruitment_metrics.py",
+  "endpoints": [
+    {
+      "id": "routers.admin_recruitment_metrics.get.campaigns.export.export-campaign-metrics",
+      "module": "routers.admin_recruitment_metrics",
+      "function_name": "export_campaign_metrics",
+      "qualified_name": "routers.admin_recruitment_metrics.export_campaign_metrics",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/campaigns/export",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "days",
+          "annotation": "int",
+          "default": "CAMPAIGN_DAYS_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "RECRUITMENT_ANALYTICS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_recruitment_metrics.py",
+        "line_start": 548,
+        "line_end": 596
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_recruitment_metrics.get.campaigns.get-campaign-metrics",
+      "module": "routers.admin_recruitment_metrics",
+      "function_name": "get_campaign_metrics",
+      "qualified_name": "routers.admin_recruitment_metrics.get_campaign_metrics",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/campaigns",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[CampaignMetrics]"
+      },
+      "parameters": [
+        {
+          "name": "days",
+          "annotation": "int",
+          "default": "CAMPAIGN_DAYS_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "RECRUITMENT_ANALYTICS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_recruitment_metrics.py",
+        "line_start": 309,
+        "line_end": 420
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_recruitment_metrics.get.funnel.export.export-recruitment-funnel",
+      "module": "routers.admin_recruitment_metrics",
+      "function_name": "export_recruitment_funnel",
+      "qualified_name": "routers.admin_recruitment_metrics.export_recruitment_funnel",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/funnel/export",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "days",
+          "annotation": "int",
+          "default": "ANALYTICS_DAYS_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "experiment_id",
+          "annotation": "Optional[uuid.UUID]",
+          "default": "EXPERIMENT_ID_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "RECRUITMENT_ANALYTICS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_recruitment_metrics.py",
+        "line_start": 487,
+        "line_end": 544
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_recruitment_metrics.get.funnel.get-recruitment-funnel",
+      "module": "routers.admin_recruitment_metrics",
+      "function_name": "get_recruitment_funnel",
+      "qualified_name": "routers.admin_recruitment_metrics.get_recruitment_funnel",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/funnel",
+      "router": "router",
+      "kwargs": {
+        "response_model": "FunnelMetrics"
+      },
+      "parameters": [
+        {
+          "name": "days",
+          "annotation": "int",
+          "default": "ANALYTICS_DAYS_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "experiment_id",
+          "annotation": "Optional[uuid.UUID]",
+          "default": "EXPERIMENT_ID_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "RECRUITMENT_ANALYTICS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_recruitment_metrics.py",
+        "line_start": 131,
+        "line_end": 305
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_recruitment_metrics.get.trends.get-recruitment-trends",
+      "module": "routers.admin_recruitment_metrics",
+      "function_name": "get_recruitment_trends",
+      "qualified_name": "routers.admin_recruitment_metrics.get_recruitment_trends",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/trends",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[TimeSeriesPoint]"
+      },
+      "parameters": [
+        {
+          "name": "days",
+          "annotation": "int",
+          "default": "TREND_DAYS_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "RECRUITMENT_ANALYTICS_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_recruitment_metrics.py",
+        "line_start": 424,
+        "line_end": 483
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

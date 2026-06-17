@@ -1,0 +1,204 @@
+{
+  "id": "routers.pool_monitoring",
+  "module": "routers.pool_monitoring",
+  "source_file": "routers/pool_monitoring.py",
+  "endpoints": [
+    {
+      "id": "routers.pool_monitoring.get.diagnostics.pool-diagnostics",
+      "module": "routers.pool_monitoring",
+      "function_name": "pool_diagnostics",
+      "qualified_name": "routers.pool_monitoring.pool_diagnostics",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/diagnostics",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SystemPermissions.DIAGNOSTICS_RUN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/pool_monitoring.py",
+        "line_start": 92,
+        "line_end": 106
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.pool_monitoring.get.health.pool-health",
+      "module": "routers.pool_monitoring",
+      "function_name": "pool_health",
+      "qualified_name": "routers.pool_monitoring.pool_health",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/health",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SystemPermissions.STATUS_READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/pool_monitoring.py",
+        "line_start": 65,
+        "line_end": 88
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.pool_monitoring.get.stats.pool-lifetime-stats",
+      "module": "routers.pool_monitoring",
+      "function_name": "pool_lifetime_stats",
+      "qualified_name": "routers.pool_monitoring.pool_lifetime_stats",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/stats",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SystemPermissions.STATUS_READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/pool_monitoring.py",
+        "line_start": 42,
+        "line_end": 61
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.pool_monitoring.get.status.pool-status",
+      "module": "routers.pool_monitoring",
+      "function_name": "pool_status",
+      "qualified_name": "routers.pool_monitoring.pool_status",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/status",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SystemPermissions.STATUS_READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/pool_monitoring.py",
+        "line_start": 24,
+        "line_end": 38
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.pool_monitoring.post.alert-check.check-pool-alerts",
+      "module": "routers.pool_monitoring",
+      "function_name": "check_pool_alerts",
+      "qualified_name": "routers.pool_monitoring.check_pool_alerts",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/alert-check",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "threshold",
+          "annotation": "float",
+          "default": "0.85",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SystemPermissions.DIAGNOSTICS_RUN))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/pool_monitoring.py",
+        "line_start": 110,
+        "line_end": 138
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact"
+      },
+      "review_status": "generated"
+    }
+  ]
+}

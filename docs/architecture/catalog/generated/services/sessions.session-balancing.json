@@ -1,0 +1,51 @@
+{
+  "id": "sessions.session-balancing",
+  "module": "services.sessions.balancing",
+  "class_name": "SessionBalancingService",
+  "qualified_name": "services.sessions.balancing.SessionBalancingService",
+  "source": {
+    "file": "services/sessions/balancing.py",
+    "line_start": 25,
+    "line_end": 501
+  },
+  "operations": [
+    {
+      "id": "sessions.session-balancing.operation.balance_session_enrollments",
+      "method": "balance_session_enrollments",
+      "qualified_name": "services.sessions.balancing.SessionBalancingService.balance_session_enrollments",
+      "source": {
+        "file": "services/sessions/balancing.py",
+        "line_start": 31,
+        "line_end": 71
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "sessions.session-balancing.operation.balance_treatment_arms",
+      "method": "balance_treatment_arms",
+      "qualified_name": "services.sessions.balancing.SessionBalancingService.balance_treatment_arms",
+      "source": {
+        "file": "services/sessions/balancing.py",
+        "line_start": 73,
+        "line_end": 125
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high"
+      },
+      "review_status": "generated"
+    }
+  ],
+  "detection": {
+    "method": "rule",
+    "rule": "class_suffix_and_service_path",
+    "confidence": "high"
+  },
+  "review_status": "generated"
+}
