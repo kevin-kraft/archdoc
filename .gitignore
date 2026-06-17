@@ -1,3 +1,28 @@
-.venv
-venv
-node_modules
+.venv/
+venv/
+node_modules/
+__pycache__/
+**/__pycache__/
+**/*.pyc
+
+# Docusaurus / Node outputs
+site/node_modules/
+site/build/
+site/.docusaurus/
+site/.cache-loader/
+
+# Generated Archdoc data
+docs/architecture/generated_raw/
+docs/architecture/catalog/generated/
+docs/architecture/schemas/
+site/static/archdoc/*.json
+
+# Local review state
+docs/architecture/archdoc-review.sqlite3
+docs/architecture/overlays/review-overlay.json
+
+# Python package/build outputs
+archdoc/src/archdoc.egg-info/
+.pytest_cache/
+dist/
+build/

@@ -74,11 +74,27 @@ This contains:
 - `archdoc-review.sqlite3`
 - `review-overlay.json`
 
-Generated JSON and user-story Markdown are baked into the image. Regenerate
-Archdoc data before rebuilding the images when the source architecture changes:
+Generated JSON files are intentionally not committed to the standalone docs
+repository because they are large. Before building production images, CI/CD must
+either regenerate or restore the generated Archdoc artifacts into:
+
+```text
+site/static/archdoc
+```
+
+The UI backend imports generated data from that directory. If it contains no
+generated JSON files, the site still starts but catalog/review tables will be
+empty.
+
+When building from a checkout that also has access to the Utilis backend source,
+regenerate Archdoc data before rebuilding the images:
 
 ```bash
 archdoc scan -c archdoc.yml
 archdoc map -c archdoc.yml
 docker compose up -d --build
 ```
+
+When building from a docs-only GitHub repository, restore the generated JSON
+directory from a CI artifact, release asset, or server-side sync step before
+running Docker build.
