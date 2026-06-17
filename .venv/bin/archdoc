@@ -1,8 +1,0 @@
-#!/home/kevin/KIT_IBU/utilis_new/utilis/docs-site-docasaurus/.venv/bin/python3
-# -*- coding: utf-8 -*-
-import re
-import sys
-from archdoc.cli import app
-if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(app())
