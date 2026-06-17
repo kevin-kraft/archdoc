@@ -1,4 +1,4 @@
-name: Deploy Teamprojekt Docs
+name: Deploy Teamprojekt Doc
 
 on:
   push:
