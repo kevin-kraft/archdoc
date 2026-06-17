@@ -64,6 +64,20 @@ export function getArchdocApiBaseUrl() {
   return '';
 }
 
+function buildArchdocUrl(path: string) {
+  const baseUrl = getArchdocApiBaseUrl();
+
+  if (baseUrl) {
+    return new URL(path, baseUrl);
+  }
+
+  if (typeof window !== 'undefined') {
+    return new URL(path, window.location.origin);
+  }
+
+  return new URL(path, 'http://localhost');
+}
+
 export async function loadArchdocData(): Promise<ArchdocData> {
   try {
     const response = await fetch(`${getArchdocApiBaseUrl()}/api/catalog/effective`);
@@ -261,7 +275,7 @@ export async function fetchServiceActionGraph(params: {
   actionKind?: string;
   search?: string;
 }) {
-  const url = new URL(`${getArchdocApiBaseUrl()}/api/graph/services`);
+  const url = buildArchdocUrl('/api/graph/services');
 
   if (params.serviceId) {
     url.searchParams.set('service_id', params.serviceId);
@@ -280,7 +294,7 @@ export async function fetchServiceActionGraph(params: {
 }
 
 async function fetchTableRows(path: string, params: Record<string, string>) {
-  const url = new URL(`${getArchdocApiBaseUrl()}${path}`);
+  const url = buildArchdocUrl(path);
 
   for (const [key, value] of Object.entries(params)) {
     url.searchParams.set(key, value);

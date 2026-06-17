@@ -24,6 +24,10 @@ The frontend API client now defaults to same-origin API calls in production,
 while keeping `http://localhost:8010` as the local development fallback for
 `localhost` and `127.0.0.1`.
 
+Follow-up: table and graph API URLs now resolve relative same-origin paths
+against `window.location.origin` before adding query parameters, so production
+calls such as `/api/table/interfaces` work behind the Apache reverse proxy.
+
 Persistent review state is stored in the named Docker volume
 `archdoc-review-data`.
 
