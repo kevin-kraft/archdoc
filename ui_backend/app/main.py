@@ -112,6 +112,7 @@ def get_endpoint_table(
 def get_operation_table(
     search: str = "",
     coverage: str = "all",
+    relation: str = "all",
     review_status: str = "all",
     sort: str = "service",
     direction: str = "asc",
@@ -121,6 +122,7 @@ def get_operation_table(
     return query_operations(
         search=search,
         coverage=coverage,
+        relation=relation,
         review_status=review_status,
         sort=sort,
         direction=direction,

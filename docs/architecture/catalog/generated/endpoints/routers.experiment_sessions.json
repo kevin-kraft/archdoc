@@ -4,7 +4,20 @@
   "source_file": "routers/experiment_sessions.py",
   "endpoints": [
     {
-      "id": "routers.experiment_sessions.delete.integrations.param-integration-id.delete-integration",
+      "id": "routers.experiment_sessions.delete.experiment-sessions.integrations.param-integration-id.delete-integration",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions.delete.experiment-sessions.integrations.param-integration-id.delete-integration",
+        "logical_id": "routers.experiment_sessions.delete.experiment-sessions.integrations.param-integration-id.delete-integration",
+        "source_id": "endpoint:345e1baf2e25bb2e",
+        "display_name": "DELETE /experiment-sessions/integrations/{integration_id}",
+        "aliases": [
+          "routers.experiment_sessions.delete.experiment-sessions.integrations.param-integration-id.delete-integration",
+          "routers.experiment_sessions.delete_integration",
+          "/integrations/{integration_id}",
+          "/experiment-sessions",
+          "/experiment-sessions/integrations/{integration_id}"
+        ]
+      },
       "module": "routers.experiment_sessions",
       "function_name": "delete_integration",
       "qualified_name": "routers.experiment_sessions.delete_integration",
@@ -18,6 +31,9 @@
       },
       "http_method": "DELETE",
       "path": "/integrations/{integration_id}",
+      "include_prefix": "/experiment-sessions",
+      "router_prefix": null,
+      "full_path": "/experiment-sessions/integrations/{integration_id}",
       "router": "router",
       "kwargs": {
         "status_code": "status.HTTP_204_NO_CONTENT"
@@ -54,18 +70,39 @@
       ],
       "source": {
         "file": "routers/experiment_sessions.py",
-        "line_start": 548,
-        "line_end": 566
+        "line_start": 602,
+        "line_end": 620
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/integrations/{integration_id}",
+          "include_prefix=/experiment-sessions",
+          "router_prefix=None",
+          "full_path=/experiment-sessions/integrations/{integration_id}",
+          "function=routers.experiment_sessions.delete_integration"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.experiment_sessions.get.integrations.coverage.get-integration-coverage",
+      "id": "routers.experiment_sessions.get.experiment-sessions.integrations.coverage.get-integration-coverage",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions.get.experiment-sessions.integrations.coverage.get-integration-coverage",
+        "logical_id": "routers.experiment_sessions.get.experiment-sessions.integrations.coverage.get-integration-coverage",
+        "source_id": "endpoint:c79e3d869606cfaa",
+        "display_name": "GET /experiment-sessions/integrations/coverage",
+        "aliases": [
+          "routers.experiment_sessions.get.experiment-sessions.integrations.coverage.get-integration-coverage",
+          "routers.experiment_sessions.get_integration_coverage",
+          "/integrations/coverage",
+          "/experiment-sessions",
+          "/experiment-sessions/integrations/coverage"
+        ]
+      },
       "module": "routers.experiment_sessions",
       "function_name": "get_integration_coverage",
       "qualified_name": "routers.experiment_sessions.get_integration_coverage",
@@ -79,6 +116,9 @@
       },
       "http_method": "GET",
       "path": "/integrations/coverage",
+      "include_prefix": "/experiment-sessions",
+      "router_prefix": null,
+      "full_path": "/experiment-sessions/integrations/coverage",
       "router": "router",
       "kwargs": {
         "response_model": "IntegrationCoverageResponse"
@@ -115,18 +155,39 @@
       ],
       "source": {
         "file": "routers/experiment_sessions.py",
-        "line_start": 357,
-        "line_end": 418
+        "line_start": 411,
+        "line_end": 472
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/integrations/coverage",
+          "include_prefix=/experiment-sessions",
+          "router_prefix=None",
+          "full_path=/experiment-sessions/integrations/coverage",
+          "function=routers.experiment_sessions.get_integration_coverage"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.experiment_sessions.get.integrations.list-integrations",
+      "id": "routers.experiment_sessions.get.experiment-sessions.integrations.list-integrations",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions.get.experiment-sessions.integrations.list-integrations",
+        "logical_id": "routers.experiment_sessions.get.experiment-sessions.integrations.list-integrations",
+        "source_id": "endpoint:2256e32599584fb6",
+        "display_name": "GET /experiment-sessions/integrations",
+        "aliases": [
+          "routers.experiment_sessions.get.experiment-sessions.integrations.list-integrations",
+          "routers.experiment_sessions.list_integrations",
+          "/integrations",
+          "/experiment-sessions",
+          "/experiment-sessions/integrations"
+        ]
+      },
       "module": "routers.experiment_sessions",
       "function_name": "list_integrations",
       "qualified_name": "routers.experiment_sessions.list_integrations",
@@ -140,6 +201,9 @@
       },
       "http_method": "GET",
       "path": "/integrations",
+      "include_prefix": "/experiment-sessions",
+      "router_prefix": null,
+      "full_path": "/experiment-sessions/integrations",
       "router": "router",
       "kwargs": {
         "response_model": "list[IntegrationResponse]"
@@ -183,18 +247,39 @@
       ],
       "source": {
         "file": "routers/experiment_sessions.py",
-        "line_start": 330,
-        "line_end": 353
+        "line_start": 384,
+        "line_end": 407
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/integrations",
+          "include_prefix=/experiment-sessions",
+          "router_prefix=None",
+          "full_path=/experiment-sessions/integrations",
+          "function=routers.experiment_sessions.list_integrations"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.experiment_sessions.get.integrations.param-integration-id.get-integration",
+      "id": "routers.experiment_sessions.get.experiment-sessions.integrations.param-integration-id.get-integration",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions.get.experiment-sessions.integrations.param-integration-id.get-integration",
+        "logical_id": "routers.experiment_sessions.get.experiment-sessions.integrations.param-integration-id.get-integration",
+        "source_id": "endpoint:73f1ff1e961dfe3a",
+        "display_name": "GET /experiment-sessions/integrations/{integration_id}",
+        "aliases": [
+          "routers.experiment_sessions.get.experiment-sessions.integrations.param-integration-id.get-integration",
+          "routers.experiment_sessions.get_integration",
+          "/integrations/{integration_id}",
+          "/experiment-sessions",
+          "/experiment-sessions/integrations/{integration_id}"
+        ]
+      },
       "module": "routers.experiment_sessions",
       "function_name": "get_integration",
       "qualified_name": "routers.experiment_sessions.get_integration",
@@ -208,6 +293,9 @@
       },
       "http_method": "GET",
       "path": "/integrations/{integration_id}",
+      "include_prefix": "/experiment-sessions",
+      "router_prefix": null,
+      "full_path": "/experiment-sessions/integrations/{integration_id}",
       "router": "router",
       "kwargs": {
         "response_model": "IntegrationResponse"
@@ -251,18 +339,39 @@
       ],
       "source": {
         "file": "routers/experiment_sessions.py",
-        "line_start": 422,
-        "line_end": 445
+        "line_start": 476,
+        "line_end": 499
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/integrations/{integration_id}",
+          "include_prefix=/experiment-sessions",
+          "router_prefix=None",
+          "full_path=/experiment-sessions/integrations/{integration_id}",
+          "function=routers.experiment_sessions.get_integration"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.experiment_sessions.get.integrations.param-integration-id.setup-pack.download-setup-pack",
+      "id": "routers.experiment_sessions.get.experiment-sessions.integrations.param-integration-id.setup-pack.download-setup-pack",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions.get.experiment-sessions.integrations.param-integration-id.setup-pack.download-setup-pack",
+        "logical_id": "routers.experiment_sessions.get.experiment-sessions.integrations.param-integration-id.setup-pack.download-setup-pack",
+        "source_id": "endpoint:27a435c5ad46bfb5",
+        "display_name": "GET /experiment-sessions/integrations/{integration_id}/setup-pack",
+        "aliases": [
+          "routers.experiment_sessions.get.experiment-sessions.integrations.param-integration-id.setup-pack.download-setup-pack",
+          "routers.experiment_sessions.download_setup_pack",
+          "/integrations/{integration_id}/setup-pack",
+          "/experiment-sessions",
+          "/experiment-sessions/integrations/{integration_id}/setup-pack"
+        ]
+      },
       "module": "routers.experiment_sessions",
       "function_name": "download_setup_pack",
       "qualified_name": "routers.experiment_sessions.download_setup_pack",
@@ -276,6 +385,9 @@
       },
       "http_method": "GET",
       "path": "/integrations/{integration_id}/setup-pack",
+      "include_prefix": "/experiment-sessions",
+      "router_prefix": null,
+      "full_path": "/experiment-sessions/integrations/{integration_id}/setup-pack",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -324,18 +436,39 @@
       ],
       "source": {
         "file": "routers/experiment_sessions.py",
-        "line_start": 449,
-        "line_end": 498
+        "line_start": 503,
+        "line_end": 552
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/integrations/{integration_id}/setup-pack",
+          "include_prefix=/experiment-sessions",
+          "router_prefix=None",
+          "full_path=/experiment-sessions/integrations/{integration_id}/setup-pack",
+          "function=routers.experiment_sessions.download_setup_pack"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.experiment_sessions.get.sessions.param-session-id.monitor.monitor-session",
+      "id": "routers.experiment_sessions.get.experiment-sessions.sessions.param-session-id.monitor.monitor-session",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions.get.experiment-sessions.sessions.param-session-id.monitor.monitor-session",
+        "logical_id": "routers.experiment_sessions.get.experiment-sessions.sessions.param-session-id.monitor.monitor-session",
+        "source_id": "endpoint:7eace4a8c3cb6252",
+        "display_name": "GET /experiment-sessions/sessions/{session_id}/monitor",
+        "aliases": [
+          "routers.experiment_sessions.get.experiment-sessions.sessions.param-session-id.monitor.monitor-session",
+          "routers.experiment_sessions.monitor_session",
+          "/sessions/{session_id}/monitor",
+          "/experiment-sessions",
+          "/experiment-sessions/sessions/{session_id}/monitor"
+        ]
+      },
       "module": "routers.experiment_sessions",
       "function_name": "monitor_session",
       "qualified_name": "routers.experiment_sessions.monitor_session",
@@ -349,6 +482,9 @@
       },
       "http_method": "GET",
       "path": "/sessions/{session_id}/monitor",
+      "include_prefix": "/experiment-sessions",
+      "router_prefix": null,
+      "full_path": "/experiment-sessions/sessions/{session_id}/monitor",
       "router": "router",
       "kwargs": {
         "response_model": "SessionMonitorResponse"
@@ -385,18 +521,133 @@
       ],
       "source": {
         "file": "routers/experiment_sessions.py",
-        "line_start": 141,
-        "line_end": 266
+        "line_start": 144,
+        "line_end": 273
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/sessions/{session_id}/monitor",
+          "include_prefix=/experiment-sessions",
+          "router_prefix=None",
+          "full_path=/experiment-sessions/sessions/{session_id}/monitor",
+          "function=routers.experiment_sessions.monitor_session"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.experiment_sessions.post.integrations.create-integration",
+      "id": "routers.experiment_sessions.get.experiment-sessions.sessions.param-session-id.workflow-summary.get-session-workflow-summary",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions.get.experiment-sessions.sessions.param-session-id.workflow-summary.get-session-workflow-summary",
+        "logical_id": "routers.experiment_sessions.get.experiment-sessions.sessions.param-session-id.workflow-summary.get-session-workflow-summary",
+        "source_id": "endpoint:98562292d9ff47e7",
+        "display_name": "GET /experiment-sessions/sessions/{session_id}/workflow-summary",
+        "aliases": [
+          "routers.experiment_sessions.get.experiment-sessions.sessions.param-session-id.workflow-summary.get-session-workflow-summary",
+          "routers.experiment_sessions.get_session_workflow_summary",
+          "/sessions/{session_id}/workflow-summary",
+          "/experiment-sessions",
+          "/experiment-sessions/sessions/{session_id}/workflow-summary"
+        ]
+      },
+      "module": "routers.experiment_sessions",
+      "function_name": "get_session_workflow_summary",
+      "qualified_name": "routers.experiment_sessions.get_session_workflow_summary",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/sessions/{session_id}/workflow-summary",
+      "include_prefix": "/experiment-sessions",
+      "router_prefix": null,
+      "full_path": "/experiment-sessions/sessions/{session_id}/workflow-summary",
+      "router": "router",
+      "kwargs": {
+        "response_model": "BridgeWorkflowSummaryResponse"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "integration_id",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(SessionPermissions.VIEW))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_sessions.py",
+        "line_start": 277,
+        "line_end": 293
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/sessions/{session_id}/workflow-summary",
+          "include_prefix=/experiment-sessions",
+          "router_prefix=None",
+          "full_path=/experiment-sessions/sessions/{session_id}/workflow-summary",
+          "function=routers.experiment_sessions.get_session_workflow_summary"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_sessions.post.experiment-sessions.integrations.create-integration",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions.post.experiment-sessions.integrations.create-integration",
+        "logical_id": "routers.experiment_sessions.post.experiment-sessions.integrations.create-integration",
+        "source_id": "endpoint:84a0ff8f2e2b4ce7",
+        "display_name": "POST /experiment-sessions/integrations",
+        "aliases": [
+          "routers.experiment_sessions.post.experiment-sessions.integrations.create-integration",
+          "routers.experiment_sessions.create_integration",
+          "/integrations",
+          "/experiment-sessions",
+          "/experiment-sessions/integrations"
+        ]
+      },
       "module": "routers.experiment_sessions",
       "function_name": "create_integration",
       "qualified_name": "routers.experiment_sessions.create_integration",
@@ -410,6 +661,9 @@
       },
       "http_method": "POST",
       "path": "/integrations",
+      "include_prefix": "/experiment-sessions",
+      "router_prefix": null,
+      "full_path": "/experiment-sessions/integrations",
       "router": "router",
       "kwargs": {
         "response_model": "IntegrationResponse",
@@ -447,18 +701,39 @@
       ],
       "source": {
         "file": "routers/experiment_sessions.py",
-        "line_start": 274,
-        "line_end": 322
+        "line_start": 328,
+        "line_end": 376
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/integrations",
+          "include_prefix=/experiment-sessions",
+          "router_prefix=None",
+          "full_path=/experiment-sessions/integrations",
+          "function=routers.experiment_sessions.create_integration"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.experiment_sessions.post.integrations.param-integration-id.regenerate-key.regenerate-api-key",
+      "id": "routers.experiment_sessions.post.experiment-sessions.integrations.param-integration-id.regenerate-key.regenerate-api-key",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions.post.experiment-sessions.integrations.param-integration-id.regenerate-key.regenerate-api-key",
+        "logical_id": "routers.experiment_sessions.post.experiment-sessions.integrations.param-integration-id.regenerate-key.regenerate-api-key",
+        "source_id": "endpoint:0f81210cb7976e9c",
+        "display_name": "POST /experiment-sessions/integrations/{integration_id}/regenerate-key",
+        "aliases": [
+          "routers.experiment_sessions.post.experiment-sessions.integrations.param-integration-id.regenerate-key.regenerate-api-key",
+          "routers.experiment_sessions.regenerate_api_key",
+          "/integrations/{integration_id}/regenerate-key",
+          "/experiment-sessions",
+          "/experiment-sessions/integrations/{integration_id}/regenerate-key"
+        ]
+      },
       "module": "routers.experiment_sessions",
       "function_name": "regenerate_api_key",
       "qualified_name": "routers.experiment_sessions.regenerate_api_key",
@@ -472,6 +747,9 @@
       },
       "http_method": "POST",
       "path": "/integrations/{integration_id}/regenerate-key",
+      "include_prefix": "/experiment-sessions",
+      "router_prefix": null,
+      "full_path": "/experiment-sessions/integrations/{integration_id}/regenerate-key",
       "router": "router",
       "kwargs": {
         "response_model": "dict"
@@ -508,18 +786,39 @@
       ],
       "source": {
         "file": "routers/experiment_sessions.py",
-        "line_start": 570,
-        "line_end": 595
+        "line_start": 624,
+        "line_end": 649
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/integrations/{integration_id}/regenerate-key",
+          "include_prefix=/experiment-sessions",
+          "router_prefix=None",
+          "full_path=/experiment-sessions/integrations/{integration_id}/regenerate-key",
+          "function=routers.experiment_sessions.regenerate_api_key"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.experiment_sessions.post.integrations.param-integration-id.regenerate-webhook-secret.regenerate-webhook-secret",
+      "id": "routers.experiment_sessions.post.experiment-sessions.integrations.param-integration-id.regenerate-webhook-secret.regenerate-webhook-secret",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions.post.experiment-sessions.integrations.param-integration-id.regenerate-webhook-secret.regenerate-webhook-secret",
+        "logical_id": "routers.experiment_sessions.post.experiment-sessions.integrations.param-integration-id.regenerate-webhook-secret.regenerate-webhook-secret",
+        "source_id": "endpoint:8ca2446d662a8fe4",
+        "display_name": "POST /experiment-sessions/integrations/{integration_id}/regenerate-webhook-secret",
+        "aliases": [
+          "routers.experiment_sessions.post.experiment-sessions.integrations.param-integration-id.regenerate-webhook-secret.regenerate-webhook-secret",
+          "routers.experiment_sessions.regenerate_webhook_secret",
+          "/integrations/{integration_id}/regenerate-webhook-secret",
+          "/experiment-sessions",
+          "/experiment-sessions/integrations/{integration_id}/regenerate-webhook-secret"
+        ]
+      },
       "module": "routers.experiment_sessions",
       "function_name": "regenerate_webhook_secret",
       "qualified_name": "routers.experiment_sessions.regenerate_webhook_secret",
@@ -533,6 +832,9 @@
       },
       "http_method": "POST",
       "path": "/integrations/{integration_id}/regenerate-webhook-secret",
+      "include_prefix": "/experiment-sessions",
+      "router_prefix": null,
+      "full_path": "/experiment-sessions/integrations/{integration_id}/regenerate-webhook-secret",
       "router": "router",
       "kwargs": {
         "response_model": "dict"
@@ -569,18 +871,39 @@
       ],
       "source": {
         "file": "routers/experiment_sessions.py",
-        "line_start": 599,
-        "line_end": 619
+        "line_start": 653,
+        "line_end": 673
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/integrations/{integration_id}/regenerate-webhook-secret",
+          "include_prefix=/experiment-sessions",
+          "router_prefix=None",
+          "full_path=/experiment-sessions/integrations/{integration_id}/regenerate-webhook-secret",
+          "function=routers.experiment_sessions.regenerate_webhook_secret"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.experiment_sessions.post.integrations.param-integration-id.test.test-integration-connection",
+      "id": "routers.experiment_sessions.post.experiment-sessions.integrations.param-integration-id.test.test-integration-connection",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions.post.experiment-sessions.integrations.param-integration-id.test.test-integration-connection",
+        "logical_id": "routers.experiment_sessions.post.experiment-sessions.integrations.param-integration-id.test.test-integration-connection",
+        "source_id": "endpoint:246d3efd771ad323",
+        "display_name": "POST /experiment-sessions/integrations/{integration_id}/test",
+        "aliases": [
+          "routers.experiment_sessions.post.experiment-sessions.integrations.param-integration-id.test.test-integration-connection",
+          "routers.experiment_sessions.test_integration_connection",
+          "/integrations/{integration_id}/test",
+          "/experiment-sessions",
+          "/experiment-sessions/integrations/{integration_id}/test"
+        ]
+      },
       "module": "routers.experiment_sessions",
       "function_name": "test_integration_connection",
       "qualified_name": "routers.experiment_sessions.test_integration_connection",
@@ -594,6 +917,9 @@
       },
       "http_method": "POST",
       "path": "/integrations/{integration_id}/test",
+      "include_prefix": "/experiment-sessions",
+      "router_prefix": null,
+      "full_path": "/experiment-sessions/integrations/{integration_id}/test",
       "router": "router",
       "kwargs": {
         "response_model": "TestConnectionResponse"
@@ -637,18 +963,133 @@
       ],
       "source": {
         "file": "routers/experiment_sessions.py",
-        "line_start": 623,
-        "line_end": 720
+        "line_start": 677,
+        "line_end": 774
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/integrations/{integration_id}/test",
+          "include_prefix=/experiment-sessions",
+          "router_prefix=None",
+          "full_path=/experiment-sessions/integrations/{integration_id}/test",
+          "function=routers.experiment_sessions.test_integration_connection"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.experiment_sessions.put.integrations.param-integration-id.update-integration",
+      "id": "routers.experiment_sessions.post.experiment-sessions.sessions.param-session-id.finance-handoff.approve.approve-session-finance-handoff",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions.post.experiment-sessions.sessions.param-session-id.finance-handoff.approve.approve-session-finance-handoff",
+        "logical_id": "routers.experiment_sessions.post.experiment-sessions.sessions.param-session-id.finance-handoff.approve.approve-session-finance-handoff",
+        "source_id": "endpoint:ab4485b325edbc7d",
+        "display_name": "POST /experiment-sessions/sessions/{session_id}/finance-handoff/approve",
+        "aliases": [
+          "routers.experiment_sessions.post.experiment-sessions.sessions.param-session-id.finance-handoff.approve.approve-session-finance-handoff",
+          "routers.experiment_sessions.approve_session_finance_handoff",
+          "/sessions/{session_id}/finance-handoff/approve",
+          "/experiment-sessions",
+          "/experiment-sessions/sessions/{session_id}/finance-handoff/approve"
+        ]
+      },
+      "module": "routers.experiment_sessions",
+      "function_name": "approve_session_finance_handoff",
+      "qualified_name": "routers.experiment_sessions.approve_session_finance_handoff",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/sessions/{session_id}/finance-handoff/approve",
+      "include_prefix": "/experiment-sessions",
+      "router_prefix": null,
+      "full_path": "/experiment-sessions/sessions/{session_id}/finance-handoff/approve",
+      "router": "router",
+      "kwargs": {
+        "response_model": "BridgeWorkflowSummaryResponse"
+      },
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "integration_id",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(PaymentPermissions.APPROVE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/experiment_sessions.py",
+        "line_start": 297,
+        "line_end": 320
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/sessions/{session_id}/finance-handoff/approve",
+          "include_prefix=/experiment-sessions",
+          "router_prefix=None",
+          "full_path=/experiment-sessions/sessions/{session_id}/finance-handoff/approve",
+          "function=routers.experiment_sessions.approve_session_finance_handoff"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.experiment_sessions.put.experiment-sessions.integrations.param-integration-id.update-integration",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions.put.experiment-sessions.integrations.param-integration-id.update-integration",
+        "logical_id": "routers.experiment_sessions.put.experiment-sessions.integrations.param-integration-id.update-integration",
+        "source_id": "endpoint:8139e0a05959e617",
+        "display_name": "PUT /experiment-sessions/integrations/{integration_id}",
+        "aliases": [
+          "routers.experiment_sessions.put.experiment-sessions.integrations.param-integration-id.update-integration",
+          "routers.experiment_sessions.update_integration",
+          "/integrations/{integration_id}",
+          "/experiment-sessions",
+          "/experiment-sessions/integrations/{integration_id}"
+        ]
+      },
       "module": "routers.experiment_sessions",
       "function_name": "update_integration",
       "qualified_name": "routers.experiment_sessions.update_integration",
@@ -662,6 +1103,9 @@
       },
       "http_method": "PUT",
       "path": "/integrations/{integration_id}",
+      "include_prefix": "/experiment-sessions",
+      "router_prefix": null,
+      "full_path": "/experiment-sessions/integrations/{integration_id}",
       "router": "router",
       "kwargs": {
         "response_model": "IntegrationResponse"
@@ -705,13 +1149,21 @@
       ],
       "source": {
         "file": "routers/experiment_sessions.py",
-        "line_start": 502,
-        "line_end": 544
+        "line_start": 556,
+        "line_end": 598
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/integrations/{integration_id}",
+          "include_prefix=/experiment-sessions",
+          "router_prefix=None",
+          "full_path=/experiment-sessions/integrations/{integration_id}",
+          "function=routers.experiment_sessions.update_integration"
+        ]
       },
       "review_status": "generated"
     }

@@ -1,8 +1,20 @@
 {
   "id": "recruitment.negative-list",
+  "identity": {
+    "catalog_id": "recruitment.negative-list",
+    "logical_id": "recruitment.negative-list",
+    "source_id": "service:be17eeb5b035e272",
+    "display_name": "NegativeListService",
+    "aliases": [
+      "recruitment.negative-list",
+      "services.recruitment.negative_list.NegativeListService"
+    ]
+  },
   "module": "services.recruitment.negative_list",
   "class_name": "NegativeListService",
   "qualified_name": "services.recruitment.negative_list.NegativeListService",
+  "description": null,
+  "docstring": null,
   "source": {
     "file": "services/recruitment/negative_list.py",
     "line_start": 15,
@@ -11,8 +23,53 @@
   "operations": [
     {
       "id": "recruitment.negative-list.operation.add_to_negative_list",
+      "identity": {
+        "catalog_id": "recruitment.negative-list.operation.add_to_negative_list",
+        "logical_id": "recruitment.negative-list.operation.add_to_negative_list",
+        "source_id": "operation:d0a2b217c41a5bfb",
+        "display_name": "NegativeListService.add_to_negative_list",
+        "aliases": [
+          "recruitment.negative-list.operation.add_to_negative_list",
+          "services.recruitment.negative_list.NegativeListService.add_to_negative_list"
+        ]
+      },
       "method": "add_to_negative_list",
       "qualified_name": "services.recruitment.negative_list.NegativeListService.add_to_negative_list",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "reason",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "until_at",
+          "annotation": "Optional[datetime]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "NegativeListModel",
+      "description": "Add a participant to the negative list with RBAC enforcement",
+      "docstring": "Add a participant to the negative list with RBAC enforcement",
       "source": {
         "file": "services/recruitment/negative_list.py",
         "line_start": 29,
@@ -21,14 +78,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=add_to_negative_list",
+          "qualified_name=services.recruitment.negative_list.NegativeListService.add_to_negative_list"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.negative-list.operation.remove_from_negative_list",
+      "identity": {
+        "catalog_id": "recruitment.negative-list.operation.remove_from_negative_list",
+        "logical_id": "recruitment.negative-list.operation.remove_from_negative_list",
+        "source_id": "operation:b2ad0d8a085bcf08",
+        "display_name": "NegativeListService.remove_from_negative_list",
+        "aliases": [
+          "recruitment.negative-list.operation.remove_from_negative_list",
+          "services.recruitment.negative_list.NegativeListService.remove_from_negative_list"
+        ]
+      },
       "method": "remove_from_negative_list",
       "qualified_name": "services.recruitment.negative_list.NegativeListService.remove_from_negative_list",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": "Remove a participant from the negative list with RBAC enforcement",
+      "docstring": "Remove a participant from the negative list with RBAC enforcement",
       "source": {
         "file": "services/recruitment/negative_list.py",
         "line_start": 68,
@@ -37,7 +131,11 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=remove_from_negative_list",
+          "qualified_name=services.recruitment.negative_list.NegativeListService.remove_from_negative_list"
+        ]
       },
       "review_status": "generated"
     }
@@ -45,7 +143,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=NegativeListService",
+      "source_path=services/recruitment/negative_list.py"
+    ]
   },
   "review_status": "generated"
 }

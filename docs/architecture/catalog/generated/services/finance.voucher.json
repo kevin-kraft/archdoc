@@ -1,123 +1,430 @@
 {
   "id": "finance.voucher",
+  "identity": {
+    "catalog_id": "finance.voucher",
+    "logical_id": "finance.voucher",
+    "source_id": "service:2c2e8385d7764ed0",
+    "display_name": "VoucherService",
+    "aliases": [
+      "finance.voucher",
+      "services.finance.voucher.VoucherService"
+    ]
+  },
   "module": "services.finance.voucher",
   "class_name": "VoucherService",
   "qualified_name": "services.finance.voucher.VoucherService",
+  "description": "Manages the full voucher lifecycle: issuance, validation, redemption, and revocation.",
+  "docstring": "Manages the full voucher lifecycle: issuance, validation, redemption, and revocation.",
   "source": {
     "file": "services/finance/voucher.py",
-    "line_start": 21,
-    "line_end": 391
+    "line_start": 22,
+    "line_end": 402
   },
   "operations": [
     {
       "id": "finance.voucher.operation.issue_voucher",
+      "identity": {
+        "catalog_id": "finance.voucher.operation.issue_voucher",
+        "logical_id": "finance.voucher.operation.issue_voucher",
+        "source_id": "operation:f08453a0375926f5",
+        "display_name": "VoucherService.issue_voucher",
+        "aliases": [
+          "finance.voucher.operation.issue_voucher",
+          "services.finance.voucher.VoucherService.issue_voucher"
+        ]
+      },
       "method": "issue_voucher",
       "qualified_name": "services.finance.voucher.VoucherService.issue_voucher",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "amount",
+          "annotation": "Decimal",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "currency",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "expires_hours",
+          "annotation": "int",
+          "default": "720",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "max_redemptions",
+          "annotation": "int",
+          "default": "1",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Voucher",
+      "description": "Create a new voucher with a short typeable code, QR seed, and encrypted redemption token.",
+      "docstring": "Create a new voucher with a short typeable code, QR seed, and encrypted redemption token.",
       "source": {
         "file": "services/finance/voucher.py",
-        "line_start": 48,
-        "line_end": 121
+        "line_start": 58,
+        "line_end": 132
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=issue_voucher",
+          "qualified_name=services.finance.voucher.VoucherService.issue_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.voucher.operation.batch_issue",
+      "identity": {
+        "catalog_id": "finance.voucher.operation.batch_issue",
+        "logical_id": "finance.voucher.operation.batch_issue",
+        "source_id": "operation:bfccb127028182fe",
+        "display_name": "VoucherService.batch_issue",
+        "aliases": [
+          "finance.voucher.operation.batch_issue",
+          "services.finance.voucher.VoucherService.batch_issue"
+        ]
+      },
       "method": "batch_issue",
       "qualified_name": "services.finance.voucher.VoucherService.batch_issue",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "participant_ids",
+          "annotation": "list[str]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "amount",
+          "annotation": "Decimal",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "currency",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_ids",
+          "annotation": "list[str] | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "expires_hours",
+          "annotation": "int",
+          "default": "720",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[Voucher]",
+      "description": "Issue one voucher per participant, optionally linking each to a payout.",
+      "docstring": "Issue one voucher per participant, optionally linking each to a payout.",
       "source": {
         "file": "services/finance/voucher.py",
-        "line_start": 127,
-        "line_end": 150
+        "line_start": 138,
+        "line_end": 161
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=batch_issue",
+          "qualified_name=services.finance.voucher.VoucherService.batch_issue"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.voucher.operation.validate_voucher",
+      "identity": {
+        "catalog_id": "finance.voucher.operation.validate_voucher",
+        "logical_id": "finance.voucher.operation.validate_voucher",
+        "source_id": "operation:1bc0316a8ba2eca2",
+        "display_name": "VoucherService.validate_voucher",
+        "aliases": [
+          "finance.voucher.operation.validate_voucher",
+          "services.finance.voucher.VoucherService.validate_voucher"
+        ]
+      },
       "method": "validate_voucher",
       "qualified_name": "services.finance.voucher.VoucherService.validate_voucher",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "code",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict",
+      "description": "Non-mutating validation of a voucher code.",
+      "docstring": "Non-mutating validation of a voucher code.\n\nReturns a dict with:\n  valid, reason, voucher_id, amount, currency, status, expires_at",
       "source": {
         "file": "services/finance/voucher.py",
-        "line_start": 156,
-        "line_end": 200
+        "line_start": 167,
+        "line_end": 211
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=validate_voucher",
+          "qualified_name=services.finance.voucher.VoucherService.validate_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.voucher.operation.redeem_voucher",
+      "identity": {
+        "catalog_id": "finance.voucher.operation.redeem_voucher",
+        "logical_id": "finance.voucher.operation.redeem_voucher",
+        "source_id": "operation:824e50de7a2aff7c",
+        "display_name": "VoucherService.redeem_voucher",
+        "aliases": [
+          "finance.voucher.operation.redeem_voucher",
+          "services.finance.voucher.VoucherService.redeem_voucher"
+        ]
+      },
       "method": "redeem_voucher",
       "qualified_name": "services.finance.voucher.VoucherService.redeem_voucher",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "code",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "redeemed_by_user_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "redemption_ip",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Voucher",
+      "description": "Redeem a voucher — SELECT FOR UPDATE to prevent race conditions.",
+      "docstring": "Redeem a voucher — SELECT FOR UPDATE to prevent race conditions.",
       "source": {
         "file": "services/finance/voucher.py",
-        "line_start": 206,
-        "line_end": 284
+        "line_start": 217,
+        "line_end": 295
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=redeem_voucher",
+          "qualified_name=services.finance.voucher.VoucherService.redeem_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.voucher.operation.revoke_voucher",
+      "identity": {
+        "catalog_id": "finance.voucher.operation.revoke_voucher",
+        "logical_id": "finance.voucher.operation.revoke_voucher",
+        "source_id": "operation:2651dbb6e9f0db7e",
+        "display_name": "VoucherService.revoke_voucher",
+        "aliases": [
+          "finance.voucher.operation.revoke_voucher",
+          "services.finance.voucher.VoucherService.revoke_voucher"
+        ]
+      },
       "method": "revoke_voucher",
       "qualified_name": "services.finance.voucher.VoucherService.revoke_voucher",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "voucher_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "revoked_by",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Voucher",
+      "description": "Mark a voucher as revoked so it can no longer be redeemed.",
+      "docstring": "Mark a voucher as revoked so it can no longer be redeemed.",
       "source": {
         "file": "services/finance/voucher.py",
-        "line_start": 290,
-        "line_end": 330
+        "line_start": 301,
+        "line_end": 341
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=revoke_voucher",
+          "qualified_name=services.finance.voucher.VoucherService.revoke_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.voucher.operation.get_qr_data",
+      "identity": {
+        "catalog_id": "finance.voucher.operation.get_qr_data",
+        "logical_id": "finance.voucher.operation.get_qr_data",
+        "source_id": "operation:0295b5283588ff06",
+        "display_name": "VoucherService.get_qr_data",
+        "aliases": [
+          "finance.voucher.operation.get_qr_data",
+          "services.finance.voucher.VoucherService.get_qr_data"
+        ]
+      },
       "method": "get_qr_data",
       "qualified_name": "services.finance.voucher.VoucherService.get_qr_data",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "voucher_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict",
+      "description": "Generate time-limited dynamic QR payload for a voucher.",
+      "docstring": "Generate time-limited dynamic QR payload for a voucher.\n\nReturns dict: qr_data, expires_in_seconds, voucher_id, code, amount, currency",
       "source": {
         "file": "services/finance/voucher.py",
-        "line_start": 336,
-        "line_end": 368
+        "line_start": 347,
+        "line_end": 379
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_qr_data",
+          "qualified_name=services.finance.voucher.VoucherService.get_qr_data"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.voucher.operation.list_participant_vouchers",
+      "identity": {
+        "catalog_id": "finance.voucher.operation.list_participant_vouchers",
+        "logical_id": "finance.voucher.operation.list_participant_vouchers",
+        "source_id": "operation:1bb93151611e13e0",
+        "display_name": "VoucherService.list_participant_vouchers",
+        "aliases": [
+          "finance.voucher.operation.list_participant_vouchers",
+          "services.finance.voucher.VoucherService.list_participant_vouchers"
+        ]
+      },
       "method": "list_participant_vouchers",
       "qualified_name": "services.finance.voucher.VoucherService.list_participant_vouchers",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[Voucher]",
+      "description": "Return all vouchers issued to a given participant, newest first.",
+      "docstring": "Return all vouchers issued to a given participant, newest first.",
       "source": {
         "file": "services/finance/voucher.py",
-        "line_start": 374,
-        "line_end": 391
+        "line_start": 385,
+        "line_end": 402
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=list_participant_vouchers",
+          "qualified_name=services.finance.voucher.VoucherService.list_participant_vouchers"
+        ]
       },
       "review_status": "generated"
     }
@@ -125,7 +432,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=VoucherService",
+      "source_path=services/finance/voucher.py"
+    ]
   },
   "review_status": "generated"
 }

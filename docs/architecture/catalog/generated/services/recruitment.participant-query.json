@@ -1,203 +1,628 @@
 {
   "id": "recruitment.participant-query",
+  "identity": {
+    "catalog_id": "recruitment.participant-query",
+    "logical_id": "recruitment.participant-query",
+    "source_id": "service:7a0e5739756814b6",
+    "display_name": "ParticipantQueryService",
+    "aliases": [
+      "recruitment.participant-query",
+      "services.recruitment.participant_query.ParticipantQueryService"
+    ]
+  },
   "module": "services.recruitment.participant_query",
   "class_name": "ParticipantQueryService",
   "qualified_name": "services.recruitment.participant_query.ParticipantQueryService",
+  "description": "Service for building and executing participant queries",
+  "docstring": "Service for building and executing participant queries",
   "source": {
     "file": "services/recruitment/participant_query.py",
-    "line_start": 29,
-    "line_end": 580
+    "line_start": 32,
+    "line_end": 600
   },
   "operations": [
     {
       "id": "recruitment.participant-query.operation.is_platform_template",
+      "identity": {
+        "catalog_id": "recruitment.participant-query.operation.is_platform_template",
+        "logical_id": "recruitment.participant-query.operation.is_platform_template",
+        "source_id": "operation:1447f77ce266735c",
+        "display_name": "ParticipantQueryService.is_platform_template",
+        "aliases": [
+          "recruitment.participant-query.operation.is_platform_template",
+          "services.recruitment.participant_query.ParticipantQueryService.is_platform_template"
+        ]
+      },
       "method": "is_platform_template",
       "qualified_name": "services.recruitment.participant_query.ParticipantQueryService.is_platform_template",
+      "parameters": [
+        {
+          "name": "query",
+          "annotation": "ParticipantQuery",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/recruitment/participant_query.py",
-        "line_start": 40,
-        "line_end": 41
+        "line_start": 43,
+        "line_end": 44
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=is_platform_template",
+          "qualified_name=services.recruitment.participant_query.ParticipantQueryService.is_platform_template"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.participant-query.operation.serialize_query",
+      "identity": {
+        "catalog_id": "recruitment.participant-query.operation.serialize_query",
+        "logical_id": "recruitment.participant-query.operation.serialize_query",
+        "source_id": "operation:50fb6a0cf0ed5b3c",
+        "display_name": "ParticipantQueryService.serialize_query",
+        "aliases": [
+          "recruitment.participant-query.operation.serialize_query",
+          "services.recruitment.participant_query.ParticipantQueryService.serialize_query"
+        ]
+      },
       "method": "serialize_query",
       "qualified_name": "services.recruitment.participant_query.ParticipantQueryService.serialize_query",
+      "parameters": [
+        {
+          "name": "query",
+          "annotation": "ParticipantQuery",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "ParticipantQueryResponse",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/recruitment/participant_query.py",
-        "line_start": 44,
-        "line_end": 55
+        "line_start": 47,
+        "line_end": 58
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=serialize_query",
+          "qualified_name=services.recruitment.participant_query.ParticipantQueryService.serialize_query"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.participant-query.operation.get_platform_template",
+      "identity": {
+        "catalog_id": "recruitment.participant-query.operation.get_platform_template",
+        "logical_id": "recruitment.participant-query.operation.get_platform_template",
+        "source_id": "operation:724ece06f008f730",
+        "display_name": "ParticipantQueryService.get_platform_template",
+        "aliases": [
+          "recruitment.participant-query.operation.get_platform_template",
+          "services.recruitment.participant_query.ParticipantQueryService.get_platform_template"
+        ]
+      },
       "method": "get_platform_template",
       "qualified_name": "services.recruitment.participant_query.ParticipantQueryService.get_platform_template",
+      "parameters": [
+        {
+          "name": "cls",
+          "annotation": null,
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "query_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Optional[ParticipantQuery]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/recruitment/participant_query.py",
-        "line_start": 167,
-        "line_end": 171
+        "line_start": 152,
+        "line_end": 156
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_platform_template",
+          "qualified_name=services.recruitment.participant_query.ParticipantQueryService.get_platform_template"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.participant-query.operation.get_saved_query",
+      "identity": {
+        "catalog_id": "recruitment.participant-query.operation.get_saved_query",
+        "logical_id": "recruitment.participant-query.operation.get_saved_query",
+        "source_id": "operation:b0d01cc9070472d1",
+        "display_name": "ParticipantQueryService.get_saved_query",
+        "aliases": [
+          "recruitment.participant-query.operation.get_saved_query",
+          "services.recruitment.participant_query.ParticipantQueryService.get_saved_query"
+        ]
+      },
       "method": "get_saved_query",
       "qualified_name": "services.recruitment.participant_query.ParticipantQueryService.get_saved_query",
+      "parameters": [
+        {
+          "name": "query_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "ParticipantQuery",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/recruitment/participant_query.py",
-        "line_start": 173,
-        "line_end": 191
+        "line_start": 158,
+        "line_end": 176
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_saved_query",
+          "qualified_name=services.recruitment.participant_query.ParticipantQueryService.get_saved_query"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.participant-query.operation.build_query_filters",
+      "identity": {
+        "catalog_id": "recruitment.participant-query.operation.build_query_filters",
+        "logical_id": "recruitment.participant-query.operation.build_query_filters",
+        "source_id": "operation:866d1a31045c6b14",
+        "display_name": "ParticipantQueryService.build_query_filters",
+        "aliases": [
+          "recruitment.participant-query.operation.build_query_filters",
+          "services.recruitment.participant_query.ParticipantQueryService.build_query_filters"
+        ]
+      },
       "method": "build_query_filters",
       "qualified_name": "services.recruitment.participant_query.ParticipantQueryService.build_query_filters",
+      "parameters": [
+        {
+          "name": "filters",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list",
+      "description": "Build SQLAlchemy filters from query criteria dictionary.",
+      "docstring": "Build SQLAlchemy filters from query criteria dictionary.\n\nSupported filters:\n- age_min, age_max: Age range\n- no_show_score_min, no_show_score_max: Participant reliability range\n- gender: Gender filter\n- student_status: Student status\n- field_of_study: Legacy broad study search (contains)\n- participated_in_experiment_ids: Has participated in these experiments\n- not_participated_in_experiment_ids: Has NOT participated in these experiments\n- profile_fields: Custom profile field filters (JSON)\n- created_after, created_before: Account creation date range\n- email_domain: Email domain filter\n- tags: Participant tags (JSON array contains)",
       "source": {
         "file": "services/recruitment/participant_query.py",
-        "line_start": 240,
-        "line_end": 342
+        "line_start": 223,
+        "line_end": 345
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=build_query_filters",
+          "qualified_name=services.recruitment.participant_query.ParticipantQueryService.build_query_filters"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.participant-query.operation.execute_query",
+      "identity": {
+        "catalog_id": "recruitment.participant-query.operation.execute_query",
+        "logical_id": "recruitment.participant-query.operation.execute_query",
+        "source_id": "operation:8241081fc858419d",
+        "display_name": "ParticipantQueryService.execute_query",
+        "aliases": [
+          "recruitment.participant-query.operation.execute_query",
+          "services.recruitment.participant_query.ParticipantQueryService.execute_query"
+        ]
+      },
       "method": "execute_query",
       "qualified_name": "services.recruitment.participant_query.ParticipantQueryService.execute_query",
+      "parameters": [
+        {
+          "name": "filters",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "1000",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "0",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[Participant]",
+      "description": "Execute a participant query and return matching participants",
+      "docstring": "Execute a participant query and return matching participants",
       "source": {
         "file": "services/recruitment/participant_query.py",
-        "line_start": 344,
-        "line_end": 396
+        "line_start": 347,
+        "line_end": 415
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=execute_query",
+          "qualified_name=services.recruitment.participant_query.ParticipantQueryService.execute_query"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.participant-query.operation.count_query_results",
+      "identity": {
+        "catalog_id": "recruitment.participant-query.operation.count_query_results",
+        "logical_id": "recruitment.participant-query.operation.count_query_results",
+        "source_id": "operation:c8412fbd4228158f",
+        "display_name": "ParticipantQueryService.count_query_results",
+        "aliases": [
+          "recruitment.participant-query.operation.count_query_results",
+          "services.recruitment.participant_query.ParticipantQueryService.count_query_results"
+        ]
+      },
       "method": "count_query_results",
       "qualified_name": "services.recruitment.participant_query.ParticipantQueryService.count_query_results",
+      "parameters": [
+        {
+          "name": "filters",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "int",
+      "description": "Count participants matching the query without returning them",
+      "docstring": "Count participants matching the query without returning them",
       "source": {
         "file": "services/recruitment/participant_query.py",
-        "line_start": 398,
-        "line_end": 443
+        "line_start": 417,
+        "line_end": 462
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=count_query_results",
+          "qualified_name=services.recruitment.participant_query.ParticipantQueryService.count_query_results"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.participant-query.operation.save_query",
+      "identity": {
+        "catalog_id": "recruitment.participant-query.operation.save_query",
+        "logical_id": "recruitment.participant-query.operation.save_query",
+        "source_id": "operation:0b90a202dd74ca1d",
+        "display_name": "ParticipantQueryService.save_query",
+        "aliases": [
+          "recruitment.participant-query.operation.save_query",
+          "services.recruitment.participant_query.ParticipantQueryService.save_query"
+        ]
+      },
       "method": "save_query",
       "qualified_name": "services.recruitment.participant_query.ParticipantQueryService.save_query",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "created_by",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "name",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "filters",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "description",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "is_permanent",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "is_shared",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "ParticipantQuery",
+      "description": "Save a participant query for reuse",
+      "docstring": "Save a participant query for reuse",
       "source": {
         "file": "services/recruitment/participant_query.py",
-        "line_start": 445,
-        "line_end": 476
+        "line_start": 464,
+        "line_end": 494
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=save_query",
+          "qualified_name=services.recruitment.participant_query.ParticipantQueryService.save_query"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.participant-query.operation.get_saved_queries",
+      "identity": {
+        "catalog_id": "recruitment.participant-query.operation.get_saved_queries",
+        "logical_id": "recruitment.participant-query.operation.get_saved_queries",
+        "source_id": "operation:dbee8f934d1c27fb",
+        "display_name": "ParticipantQueryService.get_saved_queries",
+        "aliases": [
+          "recruitment.participant-query.operation.get_saved_queries",
+          "services.recruitment.participant_query.ParticipantQueryService.get_saved_queries"
+        ]
+      },
       "method": "get_saved_queries",
       "qualified_name": "services.recruitment.participant_query.ParticipantQueryService.get_saved_queries",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "created_by",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "include_shared",
+          "annotation": "bool",
+          "default": "True",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[ParticipantQuery]",
+      "description": "Get saved participant queries",
+      "docstring": "Get saved participant queries",
       "source": {
         "file": "services/recruitment/participant_query.py",
-        "line_start": 478,
-        "line_end": 510
+        "line_start": 496,
+        "line_end": 528
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_saved_queries",
+          "qualified_name=services.recruitment.participant_query.ParticipantQueryService.get_saved_queries"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.participant-query.operation.execute_saved_query",
+      "identity": {
+        "catalog_id": "recruitment.participant-query.operation.execute_saved_query",
+        "logical_id": "recruitment.participant-query.operation.execute_saved_query",
+        "source_id": "operation:57c29ca82074cec0",
+        "display_name": "ParticipantQueryService.execute_saved_query",
+        "aliases": [
+          "recruitment.participant-query.operation.execute_saved_query",
+          "services.recruitment.participant_query.ParticipantQueryService.execute_saved_query"
+        ]
+      },
       "method": "execute_saved_query",
       "qualified_name": "services.recruitment.participant_query.ParticipantQueryService.execute_saved_query",
+      "parameters": [
+        {
+          "name": "query_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "1000",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "0",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "tuple[list[Participant], ParticipantQuery]",
+      "description": "Execute a saved query and update execution stats",
+      "docstring": "Execute a saved query and update execution stats",
       "source": {
         "file": "services/recruitment/participant_query.py",
-        "line_start": 512,
-        "line_end": 540
+        "line_start": 530,
+        "line_end": 558
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=execute_saved_query",
+          "qualified_name=services.recruitment.participant_query.ParticipantQueryService.execute_saved_query"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.participant-query.operation.delete_query",
+      "identity": {
+        "catalog_id": "recruitment.participant-query.operation.delete_query",
+        "logical_id": "recruitment.participant-query.operation.delete_query",
+        "source_id": "operation:e969ae7f540f3f58",
+        "display_name": "ParticipantQueryService.delete_query",
+        "aliases": [
+          "recruitment.participant-query.operation.delete_query",
+          "services.recruitment.participant_query.ParticipantQueryService.delete_query"
+        ]
+      },
       "method": "delete_query",
       "qualified_name": "services.recruitment.participant_query.ParticipantQueryService.delete_query",
+      "parameters": [
+        {
+          "name": "query_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": "Delete a saved query (only by creator)",
+      "docstring": "Delete a saved query (only by creator)",
       "source": {
         "file": "services/recruitment/participant_query.py",
-        "line_start": 542,
-        "line_end": 555
+        "line_start": 560,
+        "line_end": 573
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=delete_query",
+          "qualified_name=services.recruitment.participant_query.ParticipantQueryService.delete_query"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.participant-query.operation.get_available_filters",
+      "identity": {
+        "catalog_id": "recruitment.participant-query.operation.get_available_filters",
+        "logical_id": "recruitment.participant-query.operation.get_available_filters",
+        "source_id": "operation:0655a791e668fa53",
+        "display_name": "ParticipantQueryService.get_available_filters",
+        "aliases": [
+          "recruitment.participant-query.operation.get_available_filters",
+          "services.recruitment.participant_query.ParticipantQueryService.get_available_filters"
+        ]
+      },
       "method": "get_available_filters",
       "qualified_name": "services.recruitment.participant_query.ParticipantQueryService.get_available_filters",
+      "parameters": [],
+      "returns": "dict[str, Any]",
+      "description": "Return metadata about available query filters",
+      "docstring": "Return metadata about available query filters",
       "source": {
         "file": "services/recruitment/participant_query.py",
-        "line_start": 557,
-        "line_end": 580
+        "line_start": 575,
+        "line_end": 600
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_available_filters",
+          "qualified_name=services.recruitment.participant_query.ParticipantQueryService.get_available_filters"
+        ]
       },
       "review_status": "generated"
     }
@@ -205,7 +630,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=ParticipantQueryService",
+      "source_path=services/recruitment/participant_query.py"
+    ]
   },
   "review_status": "generated"
 }

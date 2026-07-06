@@ -4,7 +4,20 @@
   "source_file": "routers/participant_exclusions.py",
   "endpoints": [
     {
-      "id": "routers.participant_exclusions.get.exclusion-reinclusion.check-auto-reinclusion",
+      "id": "routers.participant_exclusions.get.participants.exclusion-reinclusion.check-auto-reinclusion",
+      "identity": {
+        "catalog_id": "routers.participant_exclusions.get.participants.exclusion-reinclusion.check-auto-reinclusion",
+        "logical_id": "routers.participant_exclusions.get.participants.exclusion-reinclusion.check-auto-reinclusion",
+        "source_id": "endpoint:82e99389e3ac44a1",
+        "display_name": "GET /participants/exclusion-reinclusion",
+        "aliases": [
+          "routers.participant_exclusions.get.participants.exclusion-reinclusion.check-auto-reinclusion",
+          "routers.participant_exclusions.check_auto_reinclusion",
+          "/exclusion-reinclusion",
+          "/participants",
+          "/participants/exclusion-reinclusion"
+        ]
+      },
       "module": "routers.participant_exclusions",
       "function_name": "check_auto_reinclusion",
       "qualified_name": "routers.participant_exclusions.check_auto_reinclusion",
@@ -19,6 +32,9 @@
       },
       "http_method": "GET",
       "path": "/exclusion-reinclusion",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/exclusion-reinclusion",
       "router": "router",
       "kwargs": {
         "response_model": "dict",
@@ -49,7 +65,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_edit'))",
+          "default": "Depends(require_permission('participants:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -62,12 +78,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/exclusion-reinclusion",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/exclusion-reinclusion",
+          "function=routers.participant_exclusions.check_auto_reinclusion"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_exclusions.get.param-participant-id.exclusion-status.get-participant-exclusion-status",
+      "id": "routers.participant_exclusions.get.participants.param-participant-id.exclusion-status.get-participant-exclusion-status",
+      "identity": {
+        "catalog_id": "routers.participant_exclusions.get.participants.param-participant-id.exclusion-status.get-participant-exclusion-status",
+        "logical_id": "routers.participant_exclusions.get.participants.param-participant-id.exclusion-status.get-participant-exclusion-status",
+        "source_id": "endpoint:079d94f5892251ac",
+        "display_name": "GET /participants/{participant_id}/exclusion-status",
+        "aliases": [
+          "routers.participant_exclusions.get.participants.param-participant-id.exclusion-status.get-participant-exclusion-status",
+          "routers.participant_exclusions.get_participant_exclusion_status",
+          "/{participant_id}/exclusion-status",
+          "/participants",
+          "/participants/{participant_id}/exclusion-status"
+        ]
+      },
       "module": "routers.participant_exclusions",
       "function_name": "get_participant_exclusion_status",
       "qualified_name": "routers.participant_exclusions.get_participant_exclusion_status",
@@ -82,6 +119,9 @@
       },
       "http_method": "GET",
       "path": "/{participant_id}/exclusion-status",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/{participant_id}/exclusion-status",
       "router": "router",
       "kwargs": {
         "response_model": "dict",
@@ -112,7 +152,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_show'))",
+          "default": "Depends(require_permission('participants:show'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         },
@@ -132,12 +172,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{participant_id}/exclusion-status",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/{participant_id}/exclusion-status",
+          "function=routers.participant_exclusions.get_participant_exclusion_status"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_exclusions.get.participants.exclusion-reinclusion.check-auto-reinclusion",
+      "id": "routers.participant_exclusions.get.participants.participants.exclusion-reinclusion.check-auto-reinclusion",
+      "identity": {
+        "catalog_id": "routers.participant_exclusions.get.participants.participants.exclusion-reinclusion.check-auto-reinclusion",
+        "logical_id": "routers.participant_exclusions.get.participants.participants.exclusion-reinclusion.check-auto-reinclusion",
+        "source_id": "endpoint:8828d2d69ad477c3",
+        "display_name": "GET /participants/participants/exclusion-reinclusion",
+        "aliases": [
+          "routers.participant_exclusions.get.participants.participants.exclusion-reinclusion.check-auto-reinclusion",
+          "routers.participant_exclusions.check_auto_reinclusion",
+          "/participants/exclusion-reinclusion",
+          "/participants",
+          "/participants/participants/exclusion-reinclusion"
+        ]
+      },
       "module": "routers.participant_exclusions",
       "function_name": "check_auto_reinclusion",
       "qualified_name": "routers.participant_exclusions.check_auto_reinclusion",
@@ -153,6 +214,9 @@
       },
       "http_method": "GET",
       "path": "/participants/exclusion-reinclusion",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/participants/exclusion-reinclusion",
       "router": "router",
       "kwargs": {
         "response_model": "dict",
@@ -183,7 +247,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_edit'))",
+          "default": "Depends(require_permission('participants:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -196,12 +260,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/participants/exclusion-reinclusion",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/participants/exclusion-reinclusion",
+          "function=routers.participant_exclusions.check_auto_reinclusion"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_exclusions.get.participants.param-participant-id.exclusion-status.get-participant-exclusion-status",
+      "id": "routers.participant_exclusions.get.participants.participants.param-participant-id.exclusion-status.get-participant-exclusion-status",
+      "identity": {
+        "catalog_id": "routers.participant_exclusions.get.participants.participants.param-participant-id.exclusion-status.get-participant-exclusion-status",
+        "logical_id": "routers.participant_exclusions.get.participants.participants.param-participant-id.exclusion-status.get-participant-exclusion-status",
+        "source_id": "endpoint:f7649bd1a566418b",
+        "display_name": "GET /participants/participants/{participant_id}/exclusion-status",
+        "aliases": [
+          "routers.participant_exclusions.get.participants.participants.param-participant-id.exclusion-status.get-participant-exclusion-status",
+          "routers.participant_exclusions.get_participant_exclusion_status",
+          "/participants/{participant_id}/exclusion-status",
+          "/participants",
+          "/participants/participants/{participant_id}/exclusion-status"
+        ]
+      },
       "module": "routers.participant_exclusions",
       "function_name": "get_participant_exclusion_status",
       "qualified_name": "routers.participant_exclusions.get_participant_exclusion_status",
@@ -217,6 +302,9 @@
       },
       "http_method": "GET",
       "path": "/participants/{participant_id}/exclusion-status",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/participants/{participant_id}/exclusion-status",
       "router": "router",
       "kwargs": {
         "response_model": "dict",
@@ -247,7 +335,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_show'))",
+          "default": "Depends(require_permission('participants:show'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         },
@@ -267,12 +355,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/participants/{participant_id}/exclusion-status",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/participants/{participant_id}/exclusion-status",
+          "function=routers.participant_exclusions.get_participant_exclusion_status"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_exclusions.post.bulk-exclusion-evaluation.bulk-exclusion-evaluation",
+      "id": "routers.participant_exclusions.post.participants.bulk-exclusion-evaluation.bulk-exclusion-evaluation",
+      "identity": {
+        "catalog_id": "routers.participant_exclusions.post.participants.bulk-exclusion-evaluation.bulk-exclusion-evaluation",
+        "logical_id": "routers.participant_exclusions.post.participants.bulk-exclusion-evaluation.bulk-exclusion-evaluation",
+        "source_id": "endpoint:3d0cd0867531afdc",
+        "display_name": "POST /participants/bulk-exclusion-evaluation",
+        "aliases": [
+          "routers.participant_exclusions.post.participants.bulk-exclusion-evaluation.bulk-exclusion-evaluation",
+          "routers.participant_exclusions.bulk_exclusion_evaluation",
+          "/bulk-exclusion-evaluation",
+          "/participants",
+          "/participants/bulk-exclusion-evaluation"
+        ]
+      },
       "module": "routers.participant_exclusions",
       "function_name": "bulk_exclusion_evaluation",
       "qualified_name": "routers.participant_exclusions.bulk_exclusion_evaluation",
@@ -287,6 +396,9 @@
       },
       "http_method": "POST",
       "path": "/bulk-exclusion-evaluation",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/bulk-exclusion-evaluation",
       "router": "router",
       "kwargs": {
         "response_model": "dict",
@@ -317,7 +429,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_edit'))",
+          "default": "Depends(require_permission('participants:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -330,12 +442,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/bulk-exclusion-evaluation",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/bulk-exclusion-evaluation",
+          "function=routers.participant_exclusions.bulk_exclusion_evaluation"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_exclusions.post.exclusion-evaluation.evaluate-and-apply-exclusions",
+      "id": "routers.participant_exclusions.post.participants.exclusion-evaluation.evaluate-and-apply-exclusions",
+      "identity": {
+        "catalog_id": "routers.participant_exclusions.post.participants.exclusion-evaluation.evaluate-and-apply-exclusions",
+        "logical_id": "routers.participant_exclusions.post.participants.exclusion-evaluation.evaluate-and-apply-exclusions",
+        "source_id": "endpoint:c90ac7b6a018f19b",
+        "display_name": "POST /participants/exclusion-evaluation",
+        "aliases": [
+          "routers.participant_exclusions.post.participants.exclusion-evaluation.evaluate-and-apply-exclusions",
+          "routers.participant_exclusions.evaluate_and_apply_exclusions",
+          "/exclusion-evaluation",
+          "/participants",
+          "/participants/exclusion-evaluation"
+        ]
+      },
       "module": "routers.participant_exclusions",
       "function_name": "evaluate_and_apply_exclusions",
       "qualified_name": "routers.participant_exclusions.evaluate_and_apply_exclusions",
@@ -350,6 +483,9 @@
       },
       "http_method": "POST",
       "path": "/exclusion-evaluation",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/exclusion-evaluation",
       "router": "router",
       "kwargs": {
         "response_model": "dict",
@@ -380,7 +516,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_edit'))",
+          "default": "Depends(require_permission('participants:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -393,12 +529,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/exclusion-evaluation",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/exclusion-evaluation",
+          "function=routers.participant_exclusions.evaluate_and_apply_exclusions"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_exclusions.post.param-participant-id.apply-exclusion.apply-participant-exclusion",
+      "id": "routers.participant_exclusions.post.participants.param-participant-id.apply-exclusion.apply-participant-exclusion",
+      "identity": {
+        "catalog_id": "routers.participant_exclusions.post.participants.param-participant-id.apply-exclusion.apply-participant-exclusion",
+        "logical_id": "routers.participant_exclusions.post.participants.param-participant-id.apply-exclusion.apply-participant-exclusion",
+        "source_id": "endpoint:cb940a4580560fc6",
+        "display_name": "POST /participants/{participant_id}/apply-exclusion",
+        "aliases": [
+          "routers.participant_exclusions.post.participants.param-participant-id.apply-exclusion.apply-participant-exclusion",
+          "routers.participant_exclusions.apply_participant_exclusion",
+          "/{participant_id}/apply-exclusion",
+          "/participants",
+          "/participants/{participant_id}/apply-exclusion"
+        ]
+      },
       "module": "routers.participant_exclusions",
       "function_name": "apply_participant_exclusion",
       "qualified_name": "routers.participant_exclusions.apply_participant_exclusion",
@@ -413,6 +570,9 @@
       },
       "http_method": "POST",
       "path": "/{participant_id}/apply-exclusion",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/{participant_id}/apply-exclusion",
       "router": "router",
       "kwargs": {
         "response_model": "dict",
@@ -457,7 +617,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_edit'))",
+          "default": "Depends(require_permission('participants:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -470,12 +630,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{participant_id}/apply-exclusion",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/{participant_id}/apply-exclusion",
+          "function=routers.participant_exclusions.apply_participant_exclusion"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_exclusions.post.participants.bulk-exclusion-evaluation.bulk-exclusion-evaluation",
+      "id": "routers.participant_exclusions.post.participants.participants.bulk-exclusion-evaluation.bulk-exclusion-evaluation",
+      "identity": {
+        "catalog_id": "routers.participant_exclusions.post.participants.participants.bulk-exclusion-evaluation.bulk-exclusion-evaluation",
+        "logical_id": "routers.participant_exclusions.post.participants.participants.bulk-exclusion-evaluation.bulk-exclusion-evaluation",
+        "source_id": "endpoint:ace6cec6abe53bdc",
+        "display_name": "POST /participants/participants/bulk-exclusion-evaluation",
+        "aliases": [
+          "routers.participant_exclusions.post.participants.participants.bulk-exclusion-evaluation.bulk-exclusion-evaluation",
+          "routers.participant_exclusions.bulk_exclusion_evaluation",
+          "/participants/bulk-exclusion-evaluation",
+          "/participants",
+          "/participants/participants/bulk-exclusion-evaluation"
+        ]
+      },
       "module": "routers.participant_exclusions",
       "function_name": "bulk_exclusion_evaluation",
       "qualified_name": "routers.participant_exclusions.bulk_exclusion_evaluation",
@@ -491,6 +672,9 @@
       },
       "http_method": "POST",
       "path": "/participants/bulk-exclusion-evaluation",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/participants/bulk-exclusion-evaluation",
       "router": "router",
       "kwargs": {
         "response_model": "dict",
@@ -521,7 +705,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_edit'))",
+          "default": "Depends(require_permission('participants:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -534,12 +718,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/participants/bulk-exclusion-evaluation",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/participants/bulk-exclusion-evaluation",
+          "function=routers.participant_exclusions.bulk_exclusion_evaluation"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_exclusions.post.participants.exclusion-evaluation.evaluate-and-apply-exclusions",
+      "id": "routers.participant_exclusions.post.participants.participants.exclusion-evaluation.evaluate-and-apply-exclusions",
+      "identity": {
+        "catalog_id": "routers.participant_exclusions.post.participants.participants.exclusion-evaluation.evaluate-and-apply-exclusions",
+        "logical_id": "routers.participant_exclusions.post.participants.participants.exclusion-evaluation.evaluate-and-apply-exclusions",
+        "source_id": "endpoint:a45863f2beba6f4f",
+        "display_name": "POST /participants/participants/exclusion-evaluation",
+        "aliases": [
+          "routers.participant_exclusions.post.participants.participants.exclusion-evaluation.evaluate-and-apply-exclusions",
+          "routers.participant_exclusions.evaluate_and_apply_exclusions",
+          "/participants/exclusion-evaluation",
+          "/participants",
+          "/participants/participants/exclusion-evaluation"
+        ]
+      },
       "module": "routers.participant_exclusions",
       "function_name": "evaluate_and_apply_exclusions",
       "qualified_name": "routers.participant_exclusions.evaluate_and_apply_exclusions",
@@ -555,6 +760,9 @@
       },
       "http_method": "POST",
       "path": "/participants/exclusion-evaluation",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/participants/exclusion-evaluation",
       "router": "router",
       "kwargs": {
         "response_model": "dict",
@@ -585,7 +793,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_edit'))",
+          "default": "Depends(require_permission('participants:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -598,12 +806,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/participants/exclusion-evaluation",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/participants/exclusion-evaluation",
+          "function=routers.participant_exclusions.evaluate_and_apply_exclusions"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_exclusions.post.participants.param-participant-id.apply-exclusion.apply-participant-exclusion",
+      "id": "routers.participant_exclusions.post.participants.participants.param-participant-id.apply-exclusion.apply-participant-exclusion",
+      "identity": {
+        "catalog_id": "routers.participant_exclusions.post.participants.participants.param-participant-id.apply-exclusion.apply-participant-exclusion",
+        "logical_id": "routers.participant_exclusions.post.participants.participants.param-participant-id.apply-exclusion.apply-participant-exclusion",
+        "source_id": "endpoint:ae85db5021a1140c",
+        "display_name": "POST /participants/participants/{participant_id}/apply-exclusion",
+        "aliases": [
+          "routers.participant_exclusions.post.participants.participants.param-participant-id.apply-exclusion.apply-participant-exclusion",
+          "routers.participant_exclusions.apply_participant_exclusion",
+          "/participants/{participant_id}/apply-exclusion",
+          "/participants",
+          "/participants/participants/{participant_id}/apply-exclusion"
+        ]
+      },
       "module": "routers.participant_exclusions",
       "function_name": "apply_participant_exclusion",
       "qualified_name": "routers.participant_exclusions.apply_participant_exclusion",
@@ -619,6 +848,9 @@
       },
       "http_method": "POST",
       "path": "/participants/{participant_id}/apply-exclusion",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/participants/{participant_id}/apply-exclusion",
       "router": "router",
       "kwargs": {
         "response_model": "dict",
@@ -663,7 +895,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_edit'))",
+          "default": "Depends(require_permission('participants:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -676,7 +908,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/participants/{participant_id}/apply-exclusion",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/participants/{participant_id}/apply-exclusion",
+          "function=routers.participant_exclusions.apply_participant_exclusion"
+        ]
       },
       "review_status": "generated"
     }

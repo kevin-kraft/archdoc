@@ -4,7 +4,20 @@
   "source_file": "routers/participant_queries.py",
   "endpoints": [
     {
-      "id": "routers.participant_queries.delete.param-query-id.delete-query",
+      "id": "routers.participant_queries.delete.participant-queries.param-query-id.delete-query",
+      "identity": {
+        "catalog_id": "routers.participant_queries.delete.participant-queries.param-query-id.delete-query",
+        "logical_id": "routers.participant_queries.delete.participant-queries.param-query-id.delete-query",
+        "source_id": "endpoint:fb7eea5bc4380384",
+        "display_name": "DELETE /participant-queries/{query_id}",
+        "aliases": [
+          "routers.participant_queries.delete.participant-queries.param-query-id.delete-query",
+          "routers.participant_queries.delete_query",
+          "/{query_id}",
+          "/participant-queries",
+          "/participant-queries/{query_id}"
+        ]
+      },
       "module": "routers.participant_queries",
       "function_name": "delete_query",
       "qualified_name": "routers.participant_queries.delete_query",
@@ -20,6 +33,9 @@
       },
       "http_method": "DELETE",
       "path": "/{query_id}",
+      "include_prefix": null,
+      "router_prefix": "/participant-queries",
+      "full_path": "/participant-queries/{query_id}",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -54,135 +70,38 @@
       ],
       "source": {
         "file": "routers/participant_queries.py",
-        "line_start": 228,
-        "line_end": 239
+        "line_start": 226,
+        "line_end": 237
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.participant_queries.get.metadata.available-filters.get-available-filters",
-      "module": "routers.participant_queries",
-      "function_name": "get_available_filters",
-      "qualified_name": "routers.participant_queries.get_available_filters",
-      "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
-        "signals": [
-          "service_variable_detected",
-          "service_method_call_detected",
-          "endpoint_service_link_resolved"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/{query_id}",
+          "include_prefix=None",
+          "router_prefix=/participant-queries",
+          "full_path=/participant-queries/{query_id}",
+          "function=routers.participant_queries.delete_query"
         ]
       },
-      "http_method": "GET",
-      "path": "/metadata/available-filters",
-      "router": "router",
-      "kwargs": {},
-      "parameters": [
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "Depends(get_db_session_for_org)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "current_user",
-          "annotation": "CurrentUserContext",
-          "default": "Depends(get_current_user)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "Depends(require_permission(TargetingPermissions.READ))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        }
-      ],
-      "source": {
-        "file": "routers/participant_queries.py",
-        "line_start": 247,
-        "line_end": 257
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_queries.get.param-query-id.get-query",
-      "module": "routers.participant_queries",
-      "function_name": "get_query",
-      "qualified_name": "routers.participant_queries.get_query",
-      "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
-        "signals": [
-          "service_variable_detected",
-          "service_method_call_detected",
-          "endpoint_service_link_resolved"
+      "id": "routers.participant_queries.get.participant-queries.get-saved-queries",
+      "identity": {
+        "catalog_id": "routers.participant_queries.get.participant-queries.get-saved-queries",
+        "logical_id": "routers.participant_queries.get.participant-queries.get-saved-queries",
+        "source_id": "endpoint:c5f1f206a2c366ce",
+        "display_name": "GET /participant-queries",
+        "aliases": [
+          "routers.participant_queries.get.participant-queries.get-saved-queries",
+          "routers.participant_queries.get_saved_queries",
+          "/",
+          "/participant-queries"
         ]
       },
-      "http_method": "GET",
-      "path": "/{query_id}",
-      "router": "router",
-      "kwargs": {
-        "response_model": "ParticipantQueryResponse"
-      },
-      "parameters": [
-        {
-          "name": "query_id",
-          "annotation": "UUID",
-          "default": null,
-          "kind": "positional_or_keyword",
-          "source": "body_or_positional"
-        },
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "Depends(get_db_session_for_org)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "current_user",
-          "annotation": "CurrentUserContext",
-          "default": "Depends(get_current_user)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "Depends(require_permission(TargetingPermissions.READ))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        }
-      ],
-      "source": {
-        "file": "routers/participant_queries.py",
-        "line_start": 178,
-        "line_end": 189
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.participant_queries.get.root.get-saved-queries",
       "module": "routers.participant_queries",
       "function_name": "get_saved_queries",
       "qualified_name": "routers.participant_queries.get_saved_queries",
@@ -198,6 +117,9 @@
       },
       "http_method": "GET",
       "path": "/",
+      "include_prefix": null,
+      "router_prefix": "/participant-queries",
+      "full_path": "/participant-queries",
       "router": "router",
       "kwargs": {
         "response_model": "list[ParticipantQueryResponse]"
@@ -234,18 +156,204 @@
       ],
       "source": {
         "file": "routers/participant_queries.py",
-        "line_start": 155,
-        "line_end": 174
+        "line_start": 153,
+        "line_end": 172
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/",
+          "include_prefix=None",
+          "router_prefix=/participant-queries",
+          "full_path=/participant-queries",
+          "function=routers.participant_queries.get_saved_queries"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_queries.post.count.count-query-results",
+      "id": "routers.participant_queries.get.participant-queries.metadata.available-filters.get-available-filters",
+      "identity": {
+        "catalog_id": "routers.participant_queries.get.participant-queries.metadata.available-filters.get-available-filters",
+        "logical_id": "routers.participant_queries.get.participant-queries.metadata.available-filters.get-available-filters",
+        "source_id": "endpoint:9eb159a624fdb469",
+        "display_name": "GET /participant-queries/metadata/available-filters",
+        "aliases": [
+          "routers.participant_queries.get.participant-queries.metadata.available-filters.get-available-filters",
+          "routers.participant_queries.get_available_filters",
+          "/metadata/available-filters",
+          "/participant-queries",
+          "/participant-queries/metadata/available-filters"
+        ]
+      },
+      "module": "routers.participant_queries",
+      "function_name": "get_available_filters",
+      "qualified_name": "routers.participant_queries.get_available_filters",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/metadata/available-filters",
+      "include_prefix": null,
+      "router_prefix": "/participant-queries",
+      "full_path": "/participant-queries/metadata/available-filters",
+      "router": "router",
+      "kwargs": {},
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(TargetingPermissions.READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_queries.py",
+        "line_start": 245,
+        "line_end": 255
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/metadata/available-filters",
+          "include_prefix=None",
+          "router_prefix=/participant-queries",
+          "full_path=/participant-queries/metadata/available-filters",
+          "function=routers.participant_queries.get_available_filters"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_queries.get.participant-queries.param-query-id.get-query",
+      "identity": {
+        "catalog_id": "routers.participant_queries.get.participant-queries.param-query-id.get-query",
+        "logical_id": "routers.participant_queries.get.participant-queries.param-query-id.get-query",
+        "source_id": "endpoint:0a14b3809bb9fef7",
+        "display_name": "GET /participant-queries/{query_id}",
+        "aliases": [
+          "routers.participant_queries.get.participant-queries.param-query-id.get-query",
+          "routers.participant_queries.get_query",
+          "/{query_id}",
+          "/participant-queries",
+          "/participant-queries/{query_id}"
+        ]
+      },
+      "module": "routers.participant_queries",
+      "function_name": "get_query",
+      "qualified_name": "routers.participant_queries.get_query",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{query_id}",
+      "include_prefix": null,
+      "router_prefix": "/participant-queries",
+      "full_path": "/participant-queries/{query_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "ParticipantQueryResponse"
+      },
+      "parameters": [
+        {
+          "name": "query_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(TargetingPermissions.READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/participant_queries.py",
+        "line_start": 176,
+        "line_end": 187
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{query_id}",
+          "include_prefix=None",
+          "router_prefix=/participant-queries",
+          "full_path=/participant-queries/{query_id}",
+          "function=routers.participant_queries.get_query"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.participant_queries.post.participant-queries.count.count-query-results",
+      "identity": {
+        "catalog_id": "routers.participant_queries.post.participant-queries.count.count-query-results",
+        "logical_id": "routers.participant_queries.post.participant-queries.count.count-query-results",
+        "source_id": "endpoint:1f3d5d0897adea01",
+        "display_name": "POST /participant-queries/count",
+        "aliases": [
+          "routers.participant_queries.post.participant-queries.count.count-query-results",
+          "routers.participant_queries.count_query_results",
+          "/count",
+          "/participant-queries",
+          "/participant-queries/count"
+        ]
+      },
       "module": "routers.participant_queries",
       "function_name": "count_query_results",
       "qualified_name": "routers.participant_queries.count_query_results",
@@ -261,6 +369,9 @@
       },
       "http_method": "POST",
       "path": "/count",
+      "include_prefix": null,
+      "router_prefix": "/participant-queries",
+      "full_path": "/participant-queries/count",
       "router": "router",
       "kwargs": {
         "response_model": "dict[str, int]"
@@ -297,18 +408,39 @@
       ],
       "source": {
         "file": "routers/participant_queries.py",
-        "line_start": 101,
-        "line_end": 119
+        "line_start": 100,
+        "line_end": 118
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/count",
+          "include_prefix=None",
+          "router_prefix=/participant-queries",
+          "full_path=/participant-queries/count",
+          "function=routers.participant_queries.count_query_results"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_queries.post.execute.execute-query",
+      "id": "routers.participant_queries.post.participant-queries.execute.execute-query",
+      "identity": {
+        "catalog_id": "routers.participant_queries.post.participant-queries.execute.execute-query",
+        "logical_id": "routers.participant_queries.post.participant-queries.execute.execute-query",
+        "source_id": "endpoint:c2d272c1288d6ba3",
+        "display_name": "POST /participant-queries/execute",
+        "aliases": [
+          "routers.participant_queries.post.participant-queries.execute.execute-query",
+          "routers.participant_queries.execute_query",
+          "/execute",
+          "/participant-queries",
+          "/participant-queries/execute"
+        ]
+      },
       "module": "routers.participant_queries",
       "function_name": "execute_query",
       "qualified_name": "routers.participant_queries.execute_query",
@@ -324,6 +456,9 @@
       },
       "http_method": "POST",
       "path": "/execute",
+      "include_prefix": null,
+      "router_prefix": "/participant-queries",
+      "full_path": "/participant-queries/execute",
       "router": "router",
       "kwargs": {
         "response_model": "QueryExecuteResponse"
@@ -360,18 +495,39 @@
       ],
       "source": {
         "file": "routers/participant_queries.py",
-        "line_start": 68,
-        "line_end": 97
+        "line_start": 67,
+        "line_end": 96
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/execute",
+          "include_prefix=None",
+          "router_prefix=/participant-queries",
+          "full_path=/participant-queries/execute",
+          "function=routers.participant_queries.execute_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_queries.post.param-query-id.execute.execute-saved-query",
+      "id": "routers.participant_queries.post.participant-queries.param-query-id.execute.execute-saved-query",
+      "identity": {
+        "catalog_id": "routers.participant_queries.post.participant-queries.param-query-id.execute.execute-saved-query",
+        "logical_id": "routers.participant_queries.post.participant-queries.param-query-id.execute.execute-saved-query",
+        "source_id": "endpoint:0b7ef4ee1c57e246",
+        "display_name": "POST /participant-queries/{query_id}/execute",
+        "aliases": [
+          "routers.participant_queries.post.participant-queries.param-query-id.execute.execute-saved-query",
+          "routers.participant_queries.execute_saved_query",
+          "/{query_id}/execute",
+          "/participant-queries",
+          "/participant-queries/{query_id}/execute"
+        ]
+      },
       "module": "routers.participant_queries",
       "function_name": "execute_saved_query",
       "qualified_name": "routers.participant_queries.execute_saved_query",
@@ -387,6 +543,9 @@
       },
       "http_method": "POST",
       "path": "/{query_id}/execute",
+      "include_prefix": null,
+      "router_prefix": "/participant-queries",
+      "full_path": "/participant-queries/{query_id}/execute",
       "router": "router",
       "kwargs": {
         "response_model": "QueryExecuteResponse"
@@ -437,18 +596,39 @@
       ],
       "source": {
         "file": "routers/participant_queries.py",
-        "line_start": 193,
-        "line_end": 224
+        "line_start": 191,
+        "line_end": 222
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{query_id}/execute",
+          "include_prefix=None",
+          "router_prefix=/participant-queries",
+          "full_path=/participant-queries/{query_id}/execute",
+          "function=routers.participant_queries.execute_saved_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_queries.post.save.save-query",
+      "id": "routers.participant_queries.post.participant-queries.save.save-query",
+      "identity": {
+        "catalog_id": "routers.participant_queries.post.participant-queries.save.save-query",
+        "logical_id": "routers.participant_queries.post.participant-queries.save.save-query",
+        "source_id": "endpoint:21de2911da767e1c",
+        "display_name": "POST /participant-queries/save",
+        "aliases": [
+          "routers.participant_queries.post.participant-queries.save.save-query",
+          "routers.participant_queries.save_query",
+          "/save",
+          "/participant-queries",
+          "/participant-queries/save"
+        ]
+      },
       "module": "routers.participant_queries",
       "function_name": "save_query",
       "qualified_name": "routers.participant_queries.save_query",
@@ -464,6 +644,9 @@
       },
       "http_method": "POST",
       "path": "/save",
+      "include_prefix": null,
+      "router_prefix": "/participant-queries",
+      "full_path": "/participant-queries/save",
       "router": "router",
       "kwargs": {
         "response_model": "ParticipantQueryResponse",
@@ -501,13 +684,21 @@
       ],
       "source": {
         "file": "routers/participant_queries.py",
-        "line_start": 127,
-        "line_end": 151
+        "line_start": 126,
+        "line_end": 149
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/save",
+          "include_prefix=None",
+          "router_prefix=/participant-queries",
+          "full_path=/participant-queries/save",
+          "function=routers.participant_queries.save_query"
+        ]
       },
       "review_status": "generated"
     }

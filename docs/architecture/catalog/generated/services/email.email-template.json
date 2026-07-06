@@ -1,8 +1,20 @@
 {
   "id": "email.email-template",
+  "identity": {
+    "catalog_id": "email.email-template",
+    "logical_id": "email.email-template",
+    "source_id": "service:57670fc077672d40",
+    "display_name": "EmailTemplateService",
+    "aliases": [
+      "email.email-template",
+      "services.email.template.EmailTemplateService"
+    ]
+  },
   "module": "services.email.template",
   "class_name": "EmailTemplateService",
   "qualified_name": "services.email.template.EmailTemplateService",
+  "description": "Service for email template management",
+  "docstring": "Service for email template management",
   "source": {
     "file": "services/email/template.py",
     "line_start": 16,
@@ -11,8 +23,107 @@
   "operations": [
     {
       "id": "email.email-template.operation.create_template",
+      "identity": {
+        "catalog_id": "email.email-template.operation.create_template",
+        "logical_id": "email.email-template.operation.create_template",
+        "source_id": "operation:327fe5253bfaf09e",
+        "display_name": "EmailTemplateService.create_template",
+        "aliases": [
+          "email.email-template.operation.create_template",
+          "services.email.template.EmailTemplateService.create_template"
+        ]
+      },
       "method": "create_template",
       "qualified_name": "services.email.template.EmailTemplateService.create_template",
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "name",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "template_type",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "subject_template",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "body_html_template",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "body_text_template",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "channel",
+          "annotation": "str",
+          "default": "'email'",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "locale",
+          "annotation": "str",
+          "default": "'en'",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "experiment_id",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "available_variables",
+          "annotation": "Optional[dict[str, Any]]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "default_values",
+          "annotation": "Optional[dict[str, Any]]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "description",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "is_active",
+          "annotation": "bool",
+          "default": "True",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "MessageTemplate",
+      "description": "Create a new email template",
+      "docstring": "Create a new email template\n\nArgs:\n    db: Database session\n    org_id: Organization ID\n    name: Template name\n    template_type: Template category (invitation, reminder, notification, etc.)\n    subject_template: Email subject line template\n    body_html_template: HTML email body template\n    body_text_template: Plain text email body template\n    description: Template description\n    is_active: Whether template is active\n\nReturns:\n    Created MessageTemplate",
       "source": {
         "file": "services/email/template.py",
         "line_start": 78,
@@ -21,14 +132,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_template",
+          "qualified_name=services.email.template.EmailTemplateService.create_template"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "email.email-template.operation.get_template",
+      "identity": {
+        "catalog_id": "email.email-template.operation.get_template",
+        "logical_id": "email.email-template.operation.get_template",
+        "source_id": "operation:93f661e98885af1f",
+        "display_name": "EmailTemplateService.get_template",
+        "aliases": [
+          "email.email-template.operation.get_template",
+          "services.email.template.EmailTemplateService.get_template"
+        ]
+      },
       "method": "get_template",
       "qualified_name": "services.email.template.EmailTemplateService.get_template",
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "template_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "MessageTemplate",
+      "description": "Get template by ID",
+      "docstring": "Get template by ID",
       "source": {
         "file": "services/email/template.py",
         "line_start": 141,
@@ -37,14 +185,75 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_template",
+          "qualified_name=services.email.template.EmailTemplateService.get_template"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "email.email-template.operation.list_templates",
+      "identity": {
+        "catalog_id": "email.email-template.operation.list_templates",
+        "logical_id": "email.email-template.operation.list_templates",
+        "source_id": "operation:6ba40ed7e2b227a3",
+        "display_name": "EmailTemplateService.list_templates",
+        "aliases": [
+          "email.email-template.operation.list_templates",
+          "services.email.template.EmailTemplateService.list_templates"
+        ]
+      },
       "method": "list_templates",
       "qualified_name": "services.email.template.EmailTemplateService.list_templates",
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "category",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "is_active",
+          "annotation": "Optional[bool]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "search",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "100",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "0",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "tuple[list[MessageTemplate], int]",
+      "description": "List templates with filtering",
+      "docstring": "List templates with filtering\n\nReturns:\n    Tuple of (templates, total_count)",
       "source": {
         "file": "services/email/template.py",
         "line_start": 162,
@@ -53,14 +262,57 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=list_templates",
+          "qualified_name=services.email.template.EmailTemplateService.list_templates"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "email.email-template.operation.update_template",
+      "identity": {
+        "catalog_id": "email.email-template.operation.update_template",
+        "logical_id": "email.email-template.operation.update_template",
+        "source_id": "operation:ef0faff2b0912e29",
+        "display_name": "EmailTemplateService.update_template",
+        "aliases": [
+          "email.email-template.operation.update_template",
+          "services.email.template.EmailTemplateService.update_template"
+        ]
+      },
       "method": "update_template",
       "qualified_name": "services.email.template.EmailTemplateService.update_template",
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "template_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "updates",
+          "annotation": null,
+          "default": null,
+          "kind": "kwarg"
+        }
+      ],
+      "returns": "MessageTemplate",
+      "description": "Update template",
+      "docstring": "Update template\n\nCreates a new version if content changes.",
       "source": {
         "file": "services/email/template.py",
         "line_start": 210,
@@ -69,14 +321,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_template",
+          "qualified_name=services.email.template.EmailTemplateService.update_template"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "email.email-template.operation.delete_template",
+      "identity": {
+        "catalog_id": "email.email-template.operation.delete_template",
+        "logical_id": "email.email-template.operation.delete_template",
+        "source_id": "operation:37f18277b4ff5d1c",
+        "display_name": "EmailTemplateService.delete_template",
+        "aliases": [
+          "email.email-template.operation.delete_template",
+          "services.email.template.EmailTemplateService.delete_template"
+        ]
+      },
       "method": "delete_template",
       "qualified_name": "services.email.template.EmailTemplateService.delete_template",
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "template_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "None",
+      "description": "Soft delete template",
+      "docstring": "Soft delete template",
       "source": {
         "file": "services/email/template.py",
         "line_start": 250,
@@ -85,14 +374,57 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=delete_template",
+          "qualified_name=services.email.template.EmailTemplateService.delete_template"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "email.email-template.operation.duplicate_template",
+      "identity": {
+        "catalog_id": "email.email-template.operation.duplicate_template",
+        "logical_id": "email.email-template.operation.duplicate_template",
+        "source_id": "operation:12baa37336d0fb63",
+        "display_name": "EmailTemplateService.duplicate_template",
+        "aliases": [
+          "email.email-template.operation.duplicate_template",
+          "services.email.template.EmailTemplateService.duplicate_template"
+        ]
+      },
       "method": "duplicate_template",
       "qualified_name": "services.email.template.EmailTemplateService.duplicate_template",
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "template_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "new_name",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "MessageTemplate",
+      "description": "Duplicate an existing template",
+      "docstring": "Duplicate an existing template\n\nCreates a copy with a new name and resets version to 1.",
       "source": {
         "file": "services/email/template.py",
         "line_start": 261,
@@ -101,14 +433,45 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=duplicate_template",
+          "qualified_name=services.email.template.EmailTemplateService.duplicate_template"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "email.email-template.operation.get_template_categories",
+      "identity": {
+        "catalog_id": "email.email-template.operation.get_template_categories",
+        "logical_id": "email.email-template.operation.get_template_categories",
+        "source_id": "operation:7e9073b72963727f",
+        "display_name": "EmailTemplateService.get_template_categories",
+        "aliases": [
+          "email.email-template.operation.get_template_categories",
+          "services.email.template.EmailTemplateService.get_template_categories"
+        ]
+      },
       "method": "get_template_categories",
       "qualified_name": "services.email.template.EmailTemplateService.get_template_categories",
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[str]",
+      "description": "Get list of template categories in use",
+      "docstring": "Get list of template categories in use",
       "source": {
         "file": "services/email/template.py",
         "line_start": 297,
@@ -117,14 +480,45 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_template_categories",
+          "qualified_name=services.email.template.EmailTemplateService.get_template_categories"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "email.email-template.operation.render_template",
+      "identity": {
+        "catalog_id": "email.email-template.operation.render_template",
+        "logical_id": "email.email-template.operation.render_template",
+        "source_id": "operation:255c0c0c5e351dcb",
+        "display_name": "EmailTemplateService.render_template",
+        "aliases": [
+          "email.email-template.operation.render_template",
+          "services.email.template.EmailTemplateService.render_template"
+        ]
+      },
       "method": "render_template",
       "qualified_name": "services.email.template.EmailTemplateService.render_template",
+      "parameters": [
+        {
+          "name": "template",
+          "annotation": "MessageTemplate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "variables",
+          "annotation": "dict",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "tuple[str, str, str]",
+      "description": "Render template with variables using Jinja2 sandbox",
+      "docstring": "Render template with variables using Jinja2 sandbox\n\nArgs:\n    template: Template to render\n    variables: Dictionary of variables to substitute\n\nReturns:\n    Tuple of (rendered_subject, rendered_html, rendered_text)\n    \nSecurity:\n    - Uses Jinja2 SandboxedEnvironment to prevent template injection attacks\n    - HTML autoescaping enabled for XSS prevention\n    - StrictUndefined raises errors for missing variables (fail-fast)",
       "source": {
         "file": "services/email/template.py",
         "line_start": 322,
@@ -133,14 +527,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=render_template",
+          "qualified_name=services.email.template.EmailTemplateService.render_template"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "email.email-template.operation.render_template_for_org",
+      "identity": {
+        "catalog_id": "email.email-template.operation.render_template_for_org",
+        "logical_id": "email.email-template.operation.render_template_for_org",
+        "source_id": "operation:658c63a828437975",
+        "display_name": "EmailTemplateService.render_template_for_org",
+        "aliases": [
+          "email.email-template.operation.render_template_for_org",
+          "services.email.template.EmailTemplateService.render_template_for_org"
+        ]
+      },
       "method": "render_template_for_org",
       "qualified_name": "services.email.template.EmailTemplateService.render_template_for_org",
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "template",
+          "annotation": "MessageTemplate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "variables",
+          "annotation": "Optional[dict[str, Any]]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "tuple[str, str, str]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/email/template.py",
         "line_start": 352,
@@ -149,7 +580,11 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=render_template_for_org",
+          "qualified_name=services.email.template.EmailTemplateService.render_template_for_org"
+        ]
       },
       "review_status": "generated"
     }
@@ -157,7 +592,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=EmailTemplateService",
+      "source_path=services/email/template.py"
+    ]
   },
   "review_status": "generated"
 }

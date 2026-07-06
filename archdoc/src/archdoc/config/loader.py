@@ -10,7 +10,6 @@ from archdoc.config.models import ArchdocConfig
 
 
 def load_config(path: Path) -> ArchdocConfig:
-    print("PATH: " , path)
     raw = yaml.safe_load(path.read_text(encoding="utf-8"))
 
     cfg = ArchdocConfig.model_validate(raw)
@@ -21,6 +20,11 @@ def load_config(path: Path) -> ArchdocConfig:
     cfg.project.root = project_root
     cfg.project.source_root = (project_root / cfg.project.source_root).resolve()
     cfg.output.raw_facts = (project_root / cfg.output.raw_facts).resolve()
+
+    if cfg.output.catalog_dir is not None:
+        cfg.output.catalog_dir = (
+            project_root / cfg.output.catalog_dir
+        ).resolve()
 
     if cfg.output.docusaurus_static_dir is not None:
         cfg.output.docusaurus_static_dir = (
@@ -38,3 +42,4 @@ def load_config(path: Path) -> ArchdocConfig:
         ).resolve()
 
     return cfg
+

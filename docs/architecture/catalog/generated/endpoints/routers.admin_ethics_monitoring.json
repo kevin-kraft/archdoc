@@ -4,7 +4,20 @@
   "source_file": "routers/admin_ethics_monitoring.py",
   "endpoints": [
     {
-      "id": "routers.admin_ethics_monitoring.get.eligibility.param-experiment-id.check-recruitment-eligibility",
+      "id": "routers.admin_ethics_monitoring.get.admin.ethics.eligibility.param-experiment-id.check-recruitment-eligibility",
+      "identity": {
+        "catalog_id": "routers.admin_ethics_monitoring.get.admin.ethics.eligibility.param-experiment-id.check-recruitment-eligibility",
+        "logical_id": "routers.admin_ethics_monitoring.get.admin.ethics.eligibility.param-experiment-id.check-recruitment-eligibility",
+        "source_id": "endpoint:7ee317a339b31bea",
+        "display_name": "GET /admin/ethics/eligibility/{experiment_id}",
+        "aliases": [
+          "routers.admin_ethics_monitoring.get.admin.ethics.eligibility.param-experiment-id.check-recruitment-eligibility",
+          "routers.admin_ethics_monitoring.check_recruitment_eligibility",
+          "/eligibility/{experiment_id}",
+          "/admin/ethics",
+          "/admin/ethics/eligibility/{experiment_id}"
+        ]
+      },
       "module": "routers.admin_ethics_monitoring",
       "function_name": "check_recruitment_eligibility",
       "qualified_name": "routers.admin_ethics_monitoring.check_recruitment_eligibility",
@@ -18,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "/eligibility/{experiment_id}",
+      "include_prefix": "/admin/ethics",
+      "router_prefix": null,
+      "full_path": "/admin/ethics/eligibility/{experiment_id}",
       "router": "router",
       "kwargs": {
         "response_model": "RecruitmentEligibilityResponse"
@@ -67,12 +83,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/eligibility/{experiment_id}",
+          "include_prefix=/admin/ethics",
+          "router_prefix=None",
+          "full_path=/admin/ethics/eligibility/{experiment_id}",
+          "function=routers.admin_ethics_monitoring.check_recruitment_eligibility"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_ethics_monitoring.get.expiring.get-expiring-ethics-approvals",
+      "id": "routers.admin_ethics_monitoring.get.admin.ethics.expiring.get-expiring-ethics-approvals",
+      "identity": {
+        "catalog_id": "routers.admin_ethics_monitoring.get.admin.ethics.expiring.get-expiring-ethics-approvals",
+        "logical_id": "routers.admin_ethics_monitoring.get.admin.ethics.expiring.get-expiring-ethics-approvals",
+        "source_id": "endpoint:9b73f917efbf9087",
+        "display_name": "GET /admin/ethics/expiring",
+        "aliases": [
+          "routers.admin_ethics_monitoring.get.admin.ethics.expiring.get-expiring-ethics-approvals",
+          "routers.admin_ethics_monitoring.get_expiring_ethics_approvals",
+          "/expiring",
+          "/admin/ethics",
+          "/admin/ethics/expiring"
+        ]
+      },
       "module": "routers.admin_ethics_monitoring",
       "function_name": "get_expiring_ethics_approvals",
       "qualified_name": "routers.admin_ethics_monitoring.get_expiring_ethics_approvals",
@@ -86,6 +123,9 @@
       },
       "http_method": "GET",
       "path": "/expiring",
+      "include_prefix": "/admin/ethics",
+      "router_prefix": null,
+      "full_path": "/admin/ethics/expiring",
       "router": "router",
       "kwargs": {
         "response_model": "list[ExpiringApproval]"
@@ -128,12 +168,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/expiring",
+          "include_prefix=/admin/ethics",
+          "router_prefix=None",
+          "full_path=/admin/ethics/expiring",
+          "function=routers.admin_ethics_monitoring.get_expiring_ethics_approvals"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_ethics_monitoring.get.summary.get-ethics-monitoring-summary",
+      "id": "routers.admin_ethics_monitoring.get.admin.ethics.summary.get-ethics-monitoring-summary",
+      "identity": {
+        "catalog_id": "routers.admin_ethics_monitoring.get.admin.ethics.summary.get-ethics-monitoring-summary",
+        "logical_id": "routers.admin_ethics_monitoring.get.admin.ethics.summary.get-ethics-monitoring-summary",
+        "source_id": "endpoint:da643dd46a23817a",
+        "display_name": "GET /admin/ethics/summary",
+        "aliases": [
+          "routers.admin_ethics_monitoring.get.admin.ethics.summary.get-ethics-monitoring-summary",
+          "routers.admin_ethics_monitoring.get_ethics_monitoring_summary",
+          "/summary",
+          "/admin/ethics",
+          "/admin/ethics/summary"
+        ]
+      },
       "module": "routers.admin_ethics_monitoring",
       "function_name": "get_ethics_monitoring_summary",
       "qualified_name": "routers.admin_ethics_monitoring.get_ethics_monitoring_summary",
@@ -147,6 +208,9 @@
       },
       "http_method": "GET",
       "path": "/summary",
+      "include_prefix": "/admin/ethics",
+      "router_prefix": null,
+      "full_path": "/admin/ethics/summary",
       "router": "router",
       "kwargs": {
         "response_model": "EthicsMonitoringSummary"
@@ -182,7 +246,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/summary",
+          "include_prefix=/admin/ethics",
+          "router_prefix=None",
+          "full_path=/admin/ethics/summary",
+          "function=routers.admin_ethics_monitoring.get_ethics_monitoring_summary"
+        ]
       },
       "review_status": "generated"
     }

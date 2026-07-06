@@ -4,7 +4,20 @@
   "source_file": "routers/financial.py",
   "endpoints": [
     {
-      "id": "routers.financial.delete.budgets.param-budget-id.delete-budget",
+      "id": "routers.financial.delete.financial.budgets.param-budget-id.delete-budget",
+      "identity": {
+        "catalog_id": "routers.financial.delete.financial.budgets.param-budget-id.delete-budget",
+        "logical_id": "routers.financial.delete.financial.budgets.param-budget-id.delete-budget",
+        "source_id": "endpoint:ff199341297bf0db",
+        "display_name": "DELETE /financial/budgets/{budget_id}",
+        "aliases": [
+          "routers.financial.delete.financial.budgets.param-budget-id.delete-budget",
+          "routers.financial.delete_budget",
+          "/budgets/{budget_id}",
+          "/financial",
+          "/financial/budgets/{budget_id}"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "delete_budget",
       "qualified_name": "routers.financial.delete_budget",
@@ -20,6 +33,9 @@
       },
       "http_method": "DELETE",
       "path": "/budgets/{budget_id}",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/budgets/{budget_id}",
       "router": "router",
       "kwargs": {
         "response_model": "ProcessPaymentBatchResponse"
@@ -63,18 +79,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 400,
-        "line_end": 425
+        "line_start": 475,
+        "line_end": 500
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/budgets/{budget_id}",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/budgets/{budget_id}",
+          "function=routers.financial.delete_budget"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.backoffice-exports.candidates.list-backoffice-export-candidates",
+      "id": "routers.financial.get.financial.backoffice-exports.candidates.list-backoffice-export-candidates",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.backoffice-exports.candidates.list-backoffice-export-candidates",
+        "logical_id": "routers.financial.get.financial.backoffice-exports.candidates.list-backoffice-export-candidates",
+        "source_id": "endpoint:7e834ebc37ef0725",
+        "display_name": "GET /financial/backoffice-exports/candidates",
+        "aliases": [
+          "routers.financial.get.financial.backoffice-exports.candidates.list-backoffice-export-candidates",
+          "routers.financial.list_backoffice_export_candidates",
+          "/backoffice-exports/candidates",
+          "/financial",
+          "/financial/backoffice-exports/candidates"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "list_backoffice_export_candidates",
       "qualified_name": "routers.financial.list_backoffice_export_candidates",
@@ -90,6 +127,9 @@
       },
       "http_method": "GET",
       "path": "/backoffice-exports/candidates",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/backoffice-exports/candidates",
       "router": "router",
       "kwargs": {
         "response_model": "list[BackofficeExportCandidateResponse]"
@@ -133,18 +173,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 1298,
-        "line_end": 1309
+        "line_start": 1511,
+        "line_end": 1522
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/backoffice-exports/candidates",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/backoffice-exports/candidates",
+          "function=routers.financial.list_backoffice_export_candidates"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.backoffice-exports.list-backoffice-exports",
+      "id": "routers.financial.get.financial.backoffice-exports.list-backoffice-exports",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.backoffice-exports.list-backoffice-exports",
+        "logical_id": "routers.financial.get.financial.backoffice-exports.list-backoffice-exports",
+        "source_id": "endpoint:2a8647e0c087ef8e",
+        "display_name": "GET /financial/backoffice-exports",
+        "aliases": [
+          "routers.financial.get.financial.backoffice-exports.list-backoffice-exports",
+          "routers.financial.list_backoffice_exports",
+          "/backoffice-exports",
+          "/financial",
+          "/financial/backoffice-exports"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "list_backoffice_exports",
       "qualified_name": "routers.financial.list_backoffice_exports",
@@ -160,6 +221,9 @@
       },
       "http_method": "GET",
       "path": "/backoffice-exports",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/backoffice-exports",
       "router": "router",
       "kwargs": {
         "response_model": "list[BackofficeExportResponse]"
@@ -210,18 +274,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 1281,
-        "line_end": 1294
+        "line_start": 1494,
+        "line_end": 1507
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/backoffice-exports",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/backoffice-exports",
+          "function=routers.financial.list_backoffice_exports"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.backoffice-exports.param-export-id.download.download-backoffice-export",
+      "id": "routers.financial.get.financial.backoffice-exports.param-export-id.download.download-backoffice-export",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.backoffice-exports.param-export-id.download.download-backoffice-export",
+        "logical_id": "routers.financial.get.financial.backoffice-exports.param-export-id.download.download-backoffice-export",
+        "source_id": "endpoint:a28ec52d286f3b3a",
+        "display_name": "GET /financial/backoffice-exports/{export_id}/download",
+        "aliases": [
+          "routers.financial.get.financial.backoffice-exports.param-export-id.download.download-backoffice-export",
+          "routers.financial.download_backoffice_export",
+          "/backoffice-exports/{export_id}/download",
+          "/financial",
+          "/financial/backoffice-exports/{export_id}/download"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "download_backoffice_export",
       "qualified_name": "routers.financial.download_backoffice_export",
@@ -237,6 +322,9 @@
       },
       "http_method": "GET",
       "path": "/backoffice-exports/{export_id}/download",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/backoffice-exports/{export_id}/download",
       "router": "router",
       "kwargs": {
         "response_model": "BackofficeExportDownloadResponse"
@@ -280,18 +368,234 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 1313,
-        "line_end": 1327
+        "line_start": 1526,
+        "line_end": 1540
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/backoffice-exports/{export_id}/download",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/backoffice-exports/{export_id}/download",
+          "function=routers.financial.download_backoffice_export"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.budgets.list-budgets",
+      "id": "routers.financial.get.financial.backoffice-exports.param-export-id.file.stream-backoffice-export-file",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.backoffice-exports.param-export-id.file.stream-backoffice-export-file",
+        "logical_id": "routers.financial.get.financial.backoffice-exports.param-export-id.file.stream-backoffice-export-file",
+        "source_id": "endpoint:35d87151cbd453aa",
+        "display_name": "GET /financial/backoffice-exports/{export_id}/file",
+        "aliases": [
+          "routers.financial.get.financial.backoffice-exports.param-export-id.file.stream-backoffice-export-file",
+          "routers.financial.stream_backoffice_export_file",
+          "/backoffice-exports/{export_id}/file",
+          "/financial",
+          "/financial/backoffice-exports/{export_id}/file"
+        ]
+      },
+      "module": "routers.financial",
+      "function_name": "stream_backoffice_export_file",
+      "qualified_name": "routers.financial.stream_backoffice_export_file",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/backoffice-exports/{export_id}/file",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/backoffice-exports/{export_id}/file",
+      "router": "router",
+      "kwargs": {
+        "response_class": "StreamingResponse"
+      },
+      "parameters": [
+        {
+          "name": "export_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(PaymentPermissions.EXPORT_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/financial.py",
+        "line_start": 1544,
+        "line_end": 1580
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/backoffice-exports/{export_id}/file",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/backoffice-exports/{export_id}/file",
+          "function=routers.financial.stream_backoffice_export_file"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.financial.get.financial.budget-operational-summaries.list-budget-operational-summaries",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.budget-operational-summaries.list-budget-operational-summaries",
+        "logical_id": "routers.financial.get.financial.budget-operational-summaries.list-budget-operational-summaries",
+        "source_id": "endpoint:94c477a420182ed2",
+        "display_name": "GET /financial/budget-operational-summaries",
+        "aliases": [
+          "routers.financial.get.financial.budget-operational-summaries.list-budget-operational-summaries",
+          "routers.financial.list_budget_operational_summaries",
+          "/budget-operational-summaries",
+          "/financial",
+          "/financial/budget-operational-summaries"
+        ]
+      },
+      "module": "routers.financial",
+      "function_name": "list_budget_operational_summaries",
+      "qualified_name": "routers.financial.list_budget_operational_summaries",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/budget-operational-summaries",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/budget-operational-summaries",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[BudgetOperationalSummaryResponse]"
+      },
+      "parameters": [
+        {
+          "name": "budget_ids",
+          "annotation": "list[str] | None",
+          "default": "Query(None, description='Optional budget IDs to summarize')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_all_budgets",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.BUDGET_VIEW_ALL))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_any_permission([PaymentPermissions.BUDGET_VIEW_ALL, PaymentPermissions.BUDGET_VIEW_MY]))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/financial.py",
+        "line_start": 523,
+        "line_end": 541
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/budget-operational-summaries",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/budget-operational-summaries",
+          "function=routers.financial.list_budget_operational_summaries"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.financial.get.financial.budgets.list-budgets",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.budgets.list-budgets",
+        "logical_id": "routers.financial.get.financial.budgets.list-budgets",
+        "source_id": "endpoint:c9864b20cb712524",
+        "display_name": "GET /financial/budgets",
+        "aliases": [
+          "routers.financial.get.financial.budgets.list-budgets",
+          "routers.financial.list_budgets",
+          "/budgets",
+          "/financial",
+          "/financial/budgets"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "list_budgets",
       "qualified_name": "routers.financial.list_budgets",
@@ -307,6 +611,9 @@
       },
       "http_method": "GET",
       "path": "/budgets",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/budgets",
       "router": "router",
       "kwargs": {
         "response_model": "list[BudgetResponse]"
@@ -334,27 +641,62 @@
           "source": "dependency"
         },
         {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_all_budgets",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.BUDGET_VIEW_ALL))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission(PaymentPermissions.BUDGET_VIEW_ALL))",
+          "default": "Depends(require_any_permission([PaymentPermissions.BUDGET_VIEW_ALL, PaymentPermissions.BUDGET_VIEW_MY]))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 303,
-        "line_end": 327
+        "line_start": 368,
+        "line_end": 398
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/budgets",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/budgets",
+          "function=routers.financial.list_budgets"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.budgets.param-budget-id.get-budget",
+      "id": "routers.financial.get.financial.budgets.param-budget-id.get-budget",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.budgets.param-budget-id.get-budget",
+        "logical_id": "routers.financial.get.financial.budgets.param-budget-id.get-budget",
+        "source_id": "endpoint:03cdad63e4b20b61",
+        "display_name": "GET /financial/budgets/{budget_id}",
+        "aliases": [
+          "routers.financial.get.financial.budgets.param-budget-id.get-budget",
+          "routers.financial.get_budget",
+          "/budgets/{budget_id}",
+          "/financial",
+          "/financial/budgets/{budget_id}"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "get_budget",
       "qualified_name": "routers.financial.get_budget",
@@ -370,6 +712,9 @@
       },
       "http_method": "GET",
       "path": "/budgets/{budget_id}",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/budgets/{budget_id}",
       "router": "router",
       "kwargs": {
         "response_model": "BudgetResponse"
@@ -397,27 +742,62 @@
           "source": "dependency"
         },
         {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_all_budgets",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.BUDGET_VIEW_ALL))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission(PaymentPermissions.BUDGET_VIEW_ALL))",
+          "default": "Depends(require_any_permission([PaymentPermissions.BUDGET_VIEW_ALL, PaymentPermissions.BUDGET_VIEW_MY]))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 330,
-        "line_end": 359
+        "line_start": 401,
+        "line_end": 434
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/budgets/{budget_id}",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/budgets/{budget_id}",
+          "function=routers.financial.get_budget"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.budgets.param-budget-id.utilization.get-budget-utilization",
+      "id": "routers.financial.get.financial.budgets.param-budget-id.utilization.get-budget-utilization",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.budgets.param-budget-id.utilization.get-budget-utilization",
+        "logical_id": "routers.financial.get.financial.budgets.param-budget-id.utilization.get-budget-utilization",
+        "source_id": "endpoint:522eeab50802db10",
+        "display_name": "GET /financial/budgets/{budget_id}/utilization",
+        "aliases": [
+          "routers.financial.get.financial.budgets.param-budget-id.utilization.get-budget-utilization",
+          "routers.financial.get_budget_utilization",
+          "/budgets/{budget_id}/utilization",
+          "/financial",
+          "/financial/budgets/{budget_id}/utilization"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "get_budget_utilization",
       "qualified_name": "routers.financial.get_budget_utilization",
@@ -433,6 +813,9 @@
       },
       "http_method": "GET",
       "path": "/budgets/{budget_id}/utilization",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/budgets/{budget_id}/utilization",
       "router": "router",
       "kwargs": {
         "response_model": "BudgetUtilizationResponse"
@@ -460,27 +843,62 @@
           "source": "dependency"
         },
         {
+          "name": "current_user",
+          "annotation": "dict",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_all_budgets",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.BUDGET_VIEW_ALL))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission(PaymentPermissions.BUDGET_VIEW_ALL))",
+          "default": "Depends(require_any_permission([PaymentPermissions.BUDGET_VIEW_ALL, PaymentPermissions.BUDGET_VIEW_MY]))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 428,
-        "line_end": 440
+        "line_start": 503,
+        "line_end": 519
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/budgets/{budget_id}/utilization",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/budgets/{budget_id}/utilization",
+          "function=routers.financial.get_budget_utilization"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.currencies.list-currencies",
+      "id": "routers.financial.get.financial.currencies.list-currencies",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.currencies.list-currencies",
+        "logical_id": "routers.financial.get.financial.currencies.list-currencies",
+        "source_id": "endpoint:1825049f44498a37",
+        "display_name": "GET /financial/currencies",
+        "aliases": [
+          "routers.financial.get.financial.currencies.list-currencies",
+          "routers.financial.list_currencies",
+          "/currencies",
+          "/financial",
+          "/financial/currencies"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "list_currencies",
       "qualified_name": "routers.financial.list_currencies",
@@ -494,6 +912,9 @@
       },
       "http_method": "GET",
       "path": "/currencies",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/currencies",
       "router": "router",
       "kwargs": {
         "response_model": "list[CurrencyResponse]"
@@ -501,31 +922,56 @@
       "parameters": [],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 243,
-        "line_end": 246
+        "line_start": 308,
+        "line_end": 311
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/currencies",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/currencies",
+          "function=routers.financial.list_currencies"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.ledger.summary.get-ledger-summary",
+      "id": "routers.financial.get.financial.ledger.summary.get-ledger-summary",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.ledger.summary.get-ledger-summary",
+        "logical_id": "routers.financial.get.financial.ledger.summary.get-ledger-summary",
+        "source_id": "endpoint:8d133505098ae045",
+        "display_name": "GET /financial/ledger/summary",
+        "aliases": [
+          "routers.financial.get.financial.ledger.summary.get-ledger-summary",
+          "routers.financial.get_ledger_summary",
+          "/ledger/summary",
+          "/financial",
+          "/financial/ledger/summary"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "get_ledger_summary",
       "qualified_name": "routers.financial.get_ledger_summary",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/ledger/summary",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/ledger/summary",
       "router": "router",
       "kwargs": {
         "response_model": "LedgerSummaryResponse"
@@ -569,18 +1015,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 1237,
-        "line_end": 1250
+        "line_start": 1450,
+        "line_end": 1463
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/ledger/summary",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/ledger/summary",
+          "function=routers.financial.get_ledger_summary"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.payment-methods.list-payment-methods",
+      "id": "routers.financial.get.financial.payment-methods.list-payment-methods",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.payment-methods.list-payment-methods",
+        "logical_id": "routers.financial.get.financial.payment-methods.list-payment-methods",
+        "source_id": "endpoint:d597760882b45600",
+        "display_name": "GET /financial/payment-methods",
+        "aliases": [
+          "routers.financial.get.financial.payment-methods.list-payment-methods",
+          "routers.financial.list_payment_methods",
+          "/payment-methods",
+          "/financial",
+          "/financial/payment-methods"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "list_payment_methods",
       "qualified_name": "routers.financial.list_payment_methods",
@@ -594,6 +1061,9 @@
       },
       "http_method": "GET",
       "path": "/payment-methods",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payment-methods",
       "router": "router",
       "kwargs": {
         "response_model": "list[PaymentMethodResponse]",
@@ -631,18 +1101,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 516,
-        "line_end": 548
+        "line_start": 617,
+        "line_end": 649
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/payment-methods",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payment-methods",
+          "function=routers.financial.list_payment_methods"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.payout-routes.list-payout-routes",
+      "id": "routers.financial.get.financial.payout-routes.list-payout-routes",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.payout-routes.list-payout-routes",
+        "logical_id": "routers.financial.get.financial.payout-routes.list-payout-routes",
+        "source_id": "endpoint:9cfd1dd069e54d25",
+        "display_name": "GET /financial/payout-routes",
+        "aliases": [
+          "routers.financial.get.financial.payout-routes.list-payout-routes",
+          "routers.financial.list_payout_routes",
+          "/payout-routes",
+          "/financial",
+          "/financial/payout-routes"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "list_payout_routes",
       "qualified_name": "routers.financial.list_payout_routes",
@@ -656,6 +1147,9 @@
       },
       "http_method": "GET",
       "path": "/payout-routes",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payout-routes",
       "router": "router",
       "kwargs": {
         "response_model": "list[PayoutRouteOptionResponse]"
@@ -685,18 +1179,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 250,
-        "line_end": 272
+        "line_start": 315,
+        "line_end": 337
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/payout-routes",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payout-routes",
+          "function=routers.financial.list_payout_routes"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.payouts.list-payouts",
+      "id": "routers.financial.get.financial.payouts.list-payouts",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.payouts.list-payouts",
+        "logical_id": "routers.financial.get.financial.payouts.list-payouts",
+        "source_id": "endpoint:1d26cae42a9a73de",
+        "display_name": "GET /financial/payouts",
+        "aliases": [
+          "routers.financial.get.financial.payouts.list-payouts",
+          "routers.financial.list_payouts",
+          "/payouts",
+          "/financial",
+          "/financial/payouts"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "list_payouts",
       "qualified_name": "routers.financial.list_payouts",
@@ -710,6 +1225,9 @@
       },
       "http_method": "GET",
       "path": "/payouts",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payouts",
       "router": "router",
       "kwargs": {
         "response_model": "list[PayoutResponse]"
@@ -786,27 +1304,90 @@
           "source": "dependency"
         },
         {
+          "name": "can_view_payment_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.EXPORT_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_participant_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
           "name": "can_view_provider_fields",
           "annotation": "bool",
           "default": "Depends(has_permission(PaymentPermissions.PROVIDER_MANAGE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_mark_paid",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.MARK_PAID))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_approve",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.APPROVE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_edit",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_override_status",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.OVERRIDE_STATUS))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 603,
-        "line_end": 651
+        "line_start": 734,
+        "line_end": 834
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/payouts",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payouts",
+          "function=routers.financial.list_payouts"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.payouts.param-payout-id.get-payout-detail",
+      "id": "routers.financial.get.financial.payouts.param-payout-id.get-payout-detail",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.payouts.param-payout-id.get-payout-detail",
+        "logical_id": "routers.financial.get.financial.payouts.param-payout-id.get-payout-detail",
+        "source_id": "endpoint:e646442f0a830470",
+        "display_name": "GET /financial/payouts/{payout_id}",
+        "aliases": [
+          "routers.financial.get.financial.payouts.param-payout-id.get-payout-detail",
+          "routers.financial.get_payout_detail",
+          "/payouts/{payout_id}",
+          "/financial",
+          "/financial/payouts/{payout_id}"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "get_payout_detail",
       "qualified_name": "routers.financial.get_payout_detail",
@@ -815,6 +1396,7 @@
         "confidence": "high",
         "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
+          "db_or_sqlalchemy_call",
           "service_variable_detected",
           "service_method_call_detected",
           "endpoint_service_link_resolved"
@@ -822,6 +1404,9 @@
       },
       "http_method": "GET",
       "path": "/payouts/{payout_id}",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payouts/{payout_id}",
       "router": "router",
       "kwargs": {
         "response_model": "PayoutDetailResponse"
@@ -856,9 +1441,16 @@
           "source": "dependency"
         },
         {
-          "name": "can_view_pii",
+          "name": "can_view_payment_pii",
           "annotation": "bool",
           "default": "Depends(has_permission(PaymentPermissions.EXPORT_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_participant_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(ParticipantPermissions.VIEW_PII))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         },
@@ -868,22 +1460,71 @@
           "default": "Depends(has_permission(PaymentPermissions.PROVIDER_MANAGE))",
           "kind": "positional_or_keyword",
           "source": "dependency"
+        },
+        {
+          "name": "can_mark_paid",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.MARK_PAID))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_approve",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.APPROVE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_edit",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_override_status",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.OVERRIDE_STATUS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 655,
-        "line_end": 680
+        "line_start": 838,
+        "line_end": 889
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/payouts/{payout_id}",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payouts/{payout_id}",
+          "function=routers.financial.get_payout_detail"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.transactions.list-transactions",
+      "id": "routers.financial.get.financial.transactions.list-transactions",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.transactions.list-transactions",
+        "logical_id": "routers.financial.get.financial.transactions.list-transactions",
+        "source_id": "endpoint:4da23a8fbab3bdb8",
+        "display_name": "GET /financial/transactions",
+        "aliases": [
+          "routers.financial.get.financial.transactions.list-transactions",
+          "routers.financial.list_transactions",
+          "/transactions",
+          "/financial",
+          "/financial/transactions"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "list_transactions",
       "qualified_name": "routers.financial.list_transactions",
@@ -897,6 +1538,9 @@
       },
       "http_method": "GET",
       "path": "/transactions",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/transactions",
       "router": "router",
       "kwargs": {
         "response_model": "list[FinancialTransactionResponse]"
@@ -968,18 +1612,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 1184,
-        "line_end": 1233
+        "line_start": 1397,
+        "line_end": 1446
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/transactions",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/transactions",
+          "function=routers.financial.list_transactions"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.get.vouchers.list-vouchers",
+      "id": "routers.financial.get.financial.vouchers.list-vouchers",
+      "identity": {
+        "catalog_id": "routers.financial.get.financial.vouchers.list-vouchers",
+        "logical_id": "routers.financial.get.financial.vouchers.list-vouchers",
+        "source_id": "endpoint:895bdd2d9339512a",
+        "display_name": "GET /financial/vouchers",
+        "aliases": [
+          "routers.financial.get.financial.vouchers.list-vouchers",
+          "routers.financial.list_vouchers",
+          "/vouchers",
+          "/financial",
+          "/financial/vouchers"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "list_vouchers",
       "qualified_name": "routers.financial.list_vouchers",
@@ -995,6 +1660,9 @@
       },
       "http_method": "GET",
       "path": "/vouchers",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/vouchers",
       "router": "router",
       "kwargs": {
         "response_model": "list[VoucherResponse]"
@@ -1031,18 +1699,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 896,
-        "line_end": 920
+        "line_start": 1109,
+        "line_end": 1133
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/vouchers",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/vouchers",
+          "function=routers.financial.list_vouchers"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.backoffice-exports.create-backoffice-export",
+      "id": "routers.financial.post.financial.backoffice-exports.create-backoffice-export",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.backoffice-exports.create-backoffice-export",
+        "logical_id": "routers.financial.post.financial.backoffice-exports.create-backoffice-export",
+        "source_id": "endpoint:f7fe692bc48e8964",
+        "display_name": "POST /financial/backoffice-exports",
+        "aliases": [
+          "routers.financial.post.financial.backoffice-exports.create-backoffice-export",
+          "routers.financial.create_backoffice_export",
+          "/backoffice-exports",
+          "/financial",
+          "/financial/backoffice-exports"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "create_backoffice_export",
       "qualified_name": "routers.financial.create_backoffice_export",
@@ -1058,6 +1747,9 @@
       },
       "http_method": "POST",
       "path": "/backoffice-exports",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/backoffice-exports",
       "router": "router",
       "kwargs": {
         "response_model": "BackofficeExportResponse"
@@ -1101,18 +1793,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 1255,
-        "line_end": 1277
+        "line_start": 1468,
+        "line_end": 1490
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/backoffice-exports",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/backoffice-exports",
+          "function=routers.financial.create_backoffice_export"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.backoffice-exports.param-export-id.confirm-paid.confirm-backoffice-export-paid",
+      "id": "routers.financial.post.financial.backoffice-exports.param-export-id.confirm-paid.confirm-backoffice-export-paid",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.backoffice-exports.param-export-id.confirm-paid.confirm-backoffice-export-paid",
+        "logical_id": "routers.financial.post.financial.backoffice-exports.param-export-id.confirm-paid.confirm-backoffice-export-paid",
+        "source_id": "endpoint:1569f8a1fc1dbf82",
+        "display_name": "POST /financial/backoffice-exports/{export_id}/confirm-paid",
+        "aliases": [
+          "routers.financial.post.financial.backoffice-exports.param-export-id.confirm-paid.confirm-backoffice-export-paid",
+          "routers.financial.confirm_backoffice_export_paid",
+          "/backoffice-exports/{export_id}/confirm-paid",
+          "/financial",
+          "/financial/backoffice-exports/{export_id}/confirm-paid"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "confirm_backoffice_export_paid",
       "qualified_name": "routers.financial.confirm_backoffice_export_paid",
@@ -1128,6 +1841,9 @@
       },
       "http_method": "POST",
       "path": "/backoffice-exports/{export_id}/confirm-paid",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/backoffice-exports/{export_id}/confirm-paid",
       "router": "router",
       "kwargs": {
         "response_model": "BackofficeExportResponse"
@@ -1178,18 +1894,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 1331,
-        "line_end": 1356
+        "line_start": 1584,
+        "line_end": 1609
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/backoffice-exports/{export_id}/confirm-paid",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/backoffice-exports/{export_id}/confirm-paid",
+          "function=routers.financial.confirm_backoffice_export_paid"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.budget-allocations.create-budget-allocation",
+      "id": "routers.financial.post.financial.budget-allocations.create-budget-allocation",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.budget-allocations.create-budget-allocation",
+        "logical_id": "routers.financial.post.financial.budget-allocations.create-budget-allocation",
+        "source_id": "endpoint:517a8146d620dee6",
+        "display_name": "POST /financial/budget-allocations",
+        "aliases": [
+          "routers.financial.post.financial.budget-allocations.create-budget-allocation",
+          "routers.financial.create_budget_allocation",
+          "/budget-allocations",
+          "/financial",
+          "/financial/budget-allocations"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "create_budget_allocation",
       "qualified_name": "routers.financial.create_budget_allocation",
@@ -1205,6 +1942,9 @@
       },
       "http_method": "POST",
       "path": "/budget-allocations",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/budget-allocations",
       "router": "router",
       "kwargs": {
         "response_model": "BudgetAllocationResponse"
@@ -1248,18 +1988,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 444,
-        "line_end": 473
+        "line_start": 545,
+        "line_end": 574
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/budget-allocations",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/budget-allocations",
+          "function=routers.financial.create_budget_allocation"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.budgets.create-budget",
+      "id": "routers.financial.post.financial.budgets.create-budget",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.budgets.create-budget",
+        "logical_id": "routers.financial.post.financial.budgets.create-budget",
+        "source_id": "endpoint:d4477cb5f0bc5a94",
+        "display_name": "POST /financial/budgets",
+        "aliases": [
+          "routers.financial.post.financial.budgets.create-budget",
+          "routers.financial.create_budget",
+          "/budgets",
+          "/financial",
+          "/financial/budgets"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "create_budget",
       "qualified_name": "routers.financial.create_budget",
@@ -1275,6 +2036,9 @@
       },
       "http_method": "POST",
       "path": "/budgets",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/budgets",
       "router": "router",
       "kwargs": {
         "response_model": "BudgetResponse"
@@ -1318,18 +2082,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 277,
-        "line_end": 300
+        "line_start": 342,
+        "line_end": 365
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/budgets",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/budgets",
+          "function=routers.financial.create_budget"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.payment-batches.create-payment-batch",
+      "id": "routers.financial.post.financial.payment-batches.create-payment-batch",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.payment-batches.create-payment-batch",
+        "logical_id": "routers.financial.post.financial.payment-batches.create-payment-batch",
+        "source_id": "endpoint:eaf49ea6c7ba61af",
+        "display_name": "POST /financial/payment-batches",
+        "aliases": [
+          "routers.financial.post.financial.payment-batches.create-payment-batch",
+          "routers.financial.create_payment_batch",
+          "/payment-batches",
+          "/financial",
+          "/financial/payment-batches"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "create_payment_batch",
       "qualified_name": "routers.financial.create_payment_batch",
@@ -1345,6 +2130,9 @@
       },
       "http_method": "POST",
       "path": "/payment-batches",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payment-batches",
       "router": "router",
       "kwargs": {
         "response_model": "PaymentBatchResponse"
@@ -1388,18 +2176,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 947,
-        "line_end": 973
+        "line_start": 1160,
+        "line_end": 1186
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/payment-batches",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payment-batches",
+          "function=routers.financial.create_payment_batch"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.payment-batches.param-batch-id.items.add-payout-to-batch",
+      "id": "routers.financial.post.financial.payment-batches.param-batch-id.items.add-payout-to-batch",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.payment-batches.param-batch-id.items.add-payout-to-batch",
+        "logical_id": "routers.financial.post.financial.payment-batches.param-batch-id.items.add-payout-to-batch",
+        "source_id": "endpoint:7cdf7eae3cdb3514",
+        "display_name": "POST /financial/payment-batches/{batch_id}/items",
+        "aliases": [
+          "routers.financial.post.financial.payment-batches.param-batch-id.items.add-payout-to-batch",
+          "routers.financial.add_payout_to_batch",
+          "/payment-batches/{batch_id}/items",
+          "/financial",
+          "/financial/payment-batches/{batch_id}/items"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "add_payout_to_batch",
       "qualified_name": "routers.financial.add_payout_to_batch",
@@ -1415,6 +2224,9 @@
       },
       "http_method": "POST",
       "path": "/payment-batches/{batch_id}/items",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payment-batches/{batch_id}/items",
       "router": "router",
       "kwargs": {
         "response_model": "PaymentBatchItemResponse"
@@ -1465,18 +2277,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 976,
-        "line_end": 1001
+        "line_start": 1189,
+        "line_end": 1214
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/payment-batches/{batch_id}/items",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payment-batches/{batch_id}/items",
+          "function=routers.financial.add_payout_to_batch"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.payment-batches.param-batch-id.process.process-payment-batch",
+      "id": "routers.financial.post.financial.payment-batches.param-batch-id.process.process-payment-batch",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.payment-batches.param-batch-id.process.process-payment-batch",
+        "logical_id": "routers.financial.post.financial.payment-batches.param-batch-id.process.process-payment-batch",
+        "source_id": "endpoint:7025c594af8d21ed",
+        "display_name": "POST /financial/payment-batches/{batch_id}/process",
+        "aliases": [
+          "routers.financial.post.financial.payment-batches.param-batch-id.process.process-payment-batch",
+          "routers.financial.process_payment_batch",
+          "/payment-batches/{batch_id}/process",
+          "/financial",
+          "/financial/payment-batches/{batch_id}/process"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "process_payment_batch",
       "qualified_name": "routers.financial.process_payment_batch",
@@ -1492,6 +2325,9 @@
       },
       "http_method": "POST",
       "path": "/payment-batches/{batch_id}/process",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payment-batches/{batch_id}/process",
       "router": "router",
       "kwargs": {
         "response_model": "ProcessPaymentBatchResponse"
@@ -1535,18 +2371,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 1004,
-        "line_end": 1020
+        "line_start": 1217,
+        "line_end": 1233
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/payment-batches/{batch_id}/process",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payment-batches/{batch_id}/process",
+          "function=routers.financial.process_payment_batch"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.payment-methods.create-payment-method",
+      "id": "routers.financial.post.financial.payment-methods.create-payment-method",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.payment-methods.create-payment-method",
+        "logical_id": "routers.financial.post.financial.payment-methods.create-payment-method",
+        "source_id": "endpoint:707a59a6a2ce3874",
+        "display_name": "POST /financial/payment-methods",
+        "aliases": [
+          "routers.financial.post.financial.payment-methods.create-payment-method",
+          "routers.financial.create_payment_method",
+          "/payment-methods",
+          "/financial",
+          "/financial/payment-methods"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "create_payment_method",
       "qualified_name": "routers.financial.create_payment_method",
@@ -1562,6 +2419,9 @@
       },
       "http_method": "POST",
       "path": "/payment-methods",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payment-methods",
       "router": "router",
       "kwargs": {
         "response_model": "PaymentMethodResponse",
@@ -1606,18 +2466,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 477,
-        "line_end": 513
+        "line_start": 578,
+        "line_end": 614
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/payment-methods",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payment-methods",
+          "function=routers.financial.create_payment_method"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.payouts.create-payout",
+      "id": "routers.financial.post.financial.payouts.create-payout",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.payouts.create-payout",
+        "logical_id": "routers.financial.post.financial.payouts.create-payout",
+        "source_id": "endpoint:ba09ffbf87a050f9",
+        "display_name": "POST /financial/payouts",
+        "aliases": [
+          "routers.financial.post.financial.payouts.create-payout",
+          "routers.financial.create_payout",
+          "/payouts",
+          "/financial",
+          "/financial/payouts"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "create_payout",
       "qualified_name": "routers.financial.create_payout",
@@ -1626,6 +2507,7 @@
         "confidence": "high",
         "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
+          "db_or_sqlalchemy_call",
           "service_variable_detected",
           "service_method_call_detected",
           "endpoint_service_link_resolved"
@@ -1633,6 +2515,9 @@
       },
       "http_method": "POST",
       "path": "/payouts",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payouts",
       "router": "router",
       "kwargs": {
         "response_model": "PayoutResponse"
@@ -1672,22 +2557,85 @@
           "default": "Depends(require_permission(PaymentPermissions.CREATE_PAYOUT))",
           "kind": "positional_or_keyword",
           "source": "dependency"
+        },
+        {
+          "name": "can_view_payment_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.EXPORT_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_view_participant_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_mark_paid",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.MARK_PAID))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_approve",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.APPROVE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_edit",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_override_status",
+          "annotation": "bool",
+          "default": "Depends(has_permission(PaymentPermissions.OVERRIDE_STATUS))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 586,
-        "line_end": 600
+        "line_start": 687,
+        "line_end": 731
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/payouts",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payouts",
+          "function=routers.financial.create_payout"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.payouts.param-payout-id.cancel-at-provider.cancel-payout-at-provider",
+      "id": "routers.financial.post.financial.payouts.param-payout-id.cancel-at-provider.cancel-payout-at-provider",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.payouts.param-payout-id.cancel-at-provider.cancel-payout-at-provider",
+        "logical_id": "routers.financial.post.financial.payouts.param-payout-id.cancel-at-provider.cancel-payout-at-provider",
+        "source_id": "endpoint:fc528f3886ba42aa",
+        "display_name": "POST /financial/payouts/{payout_id}/cancel-at-provider",
+        "aliases": [
+          "routers.financial.post.financial.payouts.param-payout-id.cancel-at-provider.cancel-payout-at-provider",
+          "routers.financial.cancel_payout_at_provider",
+          "/payouts/{payout_id}/cancel-at-provider",
+          "/financial",
+          "/financial/payouts/{payout_id}/cancel-at-provider"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "cancel_payout_at_provider",
       "qualified_name": "routers.financial.cancel_payout_at_provider",
@@ -1703,6 +2651,9 @@
       },
       "http_method": "POST",
       "path": "/payouts/{payout_id}/cancel-at-provider",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payouts/{payout_id}/cancel-at-provider",
       "router": "router",
       "kwargs": {
         "response_model": "ProviderPayoutStatusResponse"
@@ -1753,18 +2704,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 748,
-        "line_end": 771
+        "line_start": 957,
+        "line_end": 980
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/payouts/{payout_id}/cancel-at-provider",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payouts/{payout_id}/cancel-at-provider",
+          "function=routers.financial.cancel_payout_at_provider"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.payouts.param-payout-id.check-provider-status.check-payout-provider-status",
+      "id": "routers.financial.post.financial.payouts.param-payout-id.check-provider-status.check-payout-provider-status",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.payouts.param-payout-id.check-provider-status.check-payout-provider-status",
+        "logical_id": "routers.financial.post.financial.payouts.param-payout-id.check-provider-status.check-payout-provider-status",
+        "source_id": "endpoint:2db7e8b8138c1cd1",
+        "display_name": "POST /financial/payouts/{payout_id}/check-provider-status",
+        "aliases": [
+          "routers.financial.post.financial.payouts.param-payout-id.check-provider-status.check-payout-provider-status",
+          "routers.financial.check_payout_provider_status",
+          "/payouts/{payout_id}/check-provider-status",
+          "/financial",
+          "/financial/payouts/{payout_id}/check-provider-status"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "check_payout_provider_status",
       "qualified_name": "routers.financial.check_payout_provider_status",
@@ -1780,6 +2752,9 @@
       },
       "http_method": "POST",
       "path": "/payouts/{payout_id}/check-provider-status",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payouts/{payout_id}/check-provider-status",
       "router": "router",
       "kwargs": {
         "response_model": "ProviderPayoutStatusResponse"
@@ -1823,18 +2798,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 723,
-        "line_end": 744
+        "line_start": 932,
+        "line_end": 953
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/payouts/{payout_id}/check-provider-status",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payouts/{payout_id}/check-provider-status",
+          "function=routers.financial.check_payout_provider_status"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.payouts.param-payout-id.retry.retry-payout",
+      "id": "routers.financial.post.financial.payouts.param-payout-id.retry.retry-payout",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.payouts.param-payout-id.retry.retry-payout",
+        "logical_id": "routers.financial.post.financial.payouts.param-payout-id.retry.retry-payout",
+        "source_id": "endpoint:0a6561c0649655b1",
+        "display_name": "POST /financial/payouts/{payout_id}/retry",
+        "aliases": [
+          "routers.financial.post.financial.payouts.param-payout-id.retry.retry-payout",
+          "routers.financial.retry_payout",
+          "/payouts/{payout_id}/retry",
+          "/financial",
+          "/financial/payouts/{payout_id}/retry"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "retry_payout",
       "qualified_name": "routers.financial.retry_payout",
@@ -1850,6 +2846,9 @@
       },
       "http_method": "POST",
       "path": "/payouts/{payout_id}/retry",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payouts/{payout_id}/retry",
       "router": "router",
       "kwargs": {
         "response_model": "RetryPayoutResponse"
@@ -1900,18 +2899,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 775,
-        "line_end": 805
+        "line_start": 984,
+        "line_end": 1014
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/payouts/{payout_id}/retry",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payouts/{payout_id}/retry",
+          "function=routers.financial.retry_payout"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.providers.param-provider-id.approve-dispatch.approve-dispatch",
+      "id": "routers.financial.post.financial.providers.param-provider-id.approve-dispatch.approve-dispatch",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.providers.param-provider-id.approve-dispatch.approve-dispatch",
+        "logical_id": "routers.financial.post.financial.providers.param-provider-id.approve-dispatch.approve-dispatch",
+        "source_id": "endpoint:d2ef6faf7bd18436",
+        "display_name": "POST /financial/providers/{provider_id}/approve-dispatch",
+        "aliases": [
+          "routers.financial.post.financial.providers.param-provider-id.approve-dispatch.approve-dispatch",
+          "routers.financial.approve_dispatch",
+          "/providers/{provider_id}/approve-dispatch",
+          "/financial",
+          "/financial/providers/{provider_id}/approve-dispatch"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "approve_dispatch",
       "qualified_name": "routers.financial.approve_dispatch",
@@ -1928,6 +2948,9 @@
       },
       "http_method": "POST",
       "path": "/providers/{provider_id}/approve-dispatch",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/providers/{provider_id}/approve-dispatch",
       "router": "router",
       "kwargs": {
         "response_model": "DispatchApprovalResponse"
@@ -1985,33 +3008,56 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 813,
-        "line_end": 865
+        "line_start": 1022,
+        "line_end": 1078
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/providers/{provider_id}/approve-dispatch",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/providers/{provider_id}/approve-dispatch",
+          "function=routers.financial.approve_dispatch"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.reports.budget-summary.get-budget-summary",
+      "id": "routers.financial.post.financial.reports.budget-summary.get-budget-summary",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.reports.budget-summary.get-budget-summary",
+        "logical_id": "routers.financial.post.financial.reports.budget-summary.get-budget-summary",
+        "source_id": "endpoint:5ff28722b4af46f0",
+        "display_name": "POST /financial/reports/budget-summary",
+        "aliases": [
+          "routers.financial.post.financial.reports.budget-summary.get-budget-summary",
+          "routers.financial.get_budget_summary",
+          "/reports/budget-summary",
+          "/financial",
+          "/financial/reports/budget-summary"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "get_budget_summary",
       "qualified_name": "routers.financial.get_budget_summary",
       "implementation": {
-        "kind": "service_operation",
+        "kind": "service_candidate",
         "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
+        "reason": "Endpoint contains a typed or assigned service variable and calls a method on it.",
         "signals": [
           "service_variable_detected",
-          "service_method_call_detected",
-          "endpoint_service_link_resolved"
+          "service_method_call_detected"
         ]
       },
       "http_method": "POST",
       "path": "/reports/budget-summary",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/reports/budget-summary",
       "router": "router",
       "kwargs": {
         "response_model": "BudgetSummaryResponse"
@@ -2055,18 +3101,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 1024,
-        "line_end": 1050
+        "line_start": 1237,
+        "line_end": 1263
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/reports/budget-summary",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/reports/budget-summary",
+          "function=routers.financial.get_budget_summary"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.reports.experiment-costs.get-experiment-costs",
+      "id": "routers.financial.post.financial.reports.experiment-costs.get-experiment-costs",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.reports.experiment-costs.get-experiment-costs",
+        "logical_id": "routers.financial.post.financial.reports.experiment-costs.get-experiment-costs",
+        "source_id": "endpoint:8075b211c24b7726",
+        "display_name": "POST /financial/reports/experiment-costs",
+        "aliases": [
+          "routers.financial.post.financial.reports.experiment-costs.get-experiment-costs",
+          "routers.financial.get_experiment_costs",
+          "/reports/experiment-costs",
+          "/financial",
+          "/financial/reports/experiment-costs"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "get_experiment_costs",
       "qualified_name": "routers.financial.get_experiment_costs",
@@ -2082,6 +3149,9 @@
       },
       "http_method": "POST",
       "path": "/reports/experiment-costs",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/reports/experiment-costs",
       "router": "router",
       "kwargs": {
         "response_model": "ExperimentCostsResponse"
@@ -2125,18 +3195,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 1053,
-        "line_end": 1080
+        "line_start": 1266,
+        "line_end": 1293
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/reports/experiment-costs",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/reports/experiment-costs",
+          "function=routers.financial.get_experiment_costs"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.reports.financial-stats.get-financial-stats",
+      "id": "routers.financial.post.financial.reports.financial-stats.get-financial-stats",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.reports.financial-stats.get-financial-stats",
+        "logical_id": "routers.financial.post.financial.reports.financial-stats.get-financial-stats",
+        "source_id": "endpoint:9a47f47ef591c776",
+        "display_name": "POST /financial/reports/financial-stats",
+        "aliases": [
+          "routers.financial.post.financial.reports.financial-stats.get-financial-stats",
+          "routers.financial.get_financial_stats",
+          "/reports/financial-stats",
+          "/financial",
+          "/financial/reports/financial-stats"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "get_financial_stats",
       "qualified_name": "routers.financial.get_financial_stats",
@@ -2152,6 +3243,9 @@
       },
       "http_method": "POST",
       "path": "/reports/financial-stats",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/reports/financial-stats",
       "router": "router",
       "kwargs": {
         "response_model": "FinancialStatsResponse"
@@ -2195,18 +3289,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 1117,
-        "line_end": 1146
+        "line_start": 1330,
+        "line_end": 1359
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/reports/financial-stats",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/reports/financial-stats",
+          "function=routers.financial.get_financial_stats"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.reports.participant-payouts.get-participant-payouts",
+      "id": "routers.financial.post.financial.reports.participant-payouts.get-participant-payouts",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.reports.participant-payouts.get-participant-payouts",
+        "logical_id": "routers.financial.post.financial.reports.participant-payouts.get-participant-payouts",
+        "source_id": "endpoint:877bbcfb5a9b8e93",
+        "display_name": "POST /financial/reports/participant-payouts",
+        "aliases": [
+          "routers.financial.post.financial.reports.participant-payouts.get-participant-payouts",
+          "routers.financial.get_participant_payouts",
+          "/reports/participant-payouts",
+          "/financial",
+          "/financial/reports/participant-payouts"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "get_participant_payouts",
       "qualified_name": "routers.financial.get_participant_payouts",
@@ -2222,6 +3337,9 @@
       },
       "http_method": "POST",
       "path": "/reports/participant-payouts",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/reports/participant-payouts",
       "router": "router",
       "kwargs": {
         "response_model": "ParticipantPayoutsResponse"
@@ -2265,32 +3383,55 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 1083,
-        "line_end": 1114
+        "line_start": 1296,
+        "line_end": 1327
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/reports/participant-payouts",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/reports/participant-payouts",
+          "function=routers.financial.get_participant_payouts"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.transactions.create-financial-transaction",
+      "id": "routers.financial.post.financial.transactions.create-financial-transaction",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.transactions.create-financial-transaction",
+        "logical_id": "routers.financial.post.financial.transactions.create-financial-transaction",
+        "source_id": "endpoint:4a1e194440c1aaa7",
+        "display_name": "POST /financial/transactions",
+        "aliases": [
+          "routers.financial.post.financial.transactions.create-financial-transaction",
+          "routers.financial.create_financial_transaction",
+          "/transactions",
+          "/financial",
+          "/financial/transactions"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "create_financial_transaction",
       "qualified_name": "routers.financial.create_financial_transaction",
       "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
         "signals": [
-          "direct_service_class_call",
-          "endpoint_service_link_resolved"
+          "direct_service_class_call"
         ]
       },
       "http_method": "POST",
       "path": "/transactions",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/transactions",
       "router": "router",
       "kwargs": {
         "response_model": "FinancialTransactionResponse"
@@ -2334,18 +3475,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 1150,
-        "line_end": 1181
+        "line_start": 1363,
+        "line_end": 1394
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/transactions",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/transactions",
+          "function=routers.financial.create_financial_transaction"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.vouchers.create-voucher",
+      "id": "routers.financial.post.financial.vouchers.create-voucher",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.vouchers.create-voucher",
+        "logical_id": "routers.financial.post.financial.vouchers.create-voucher",
+        "source_id": "endpoint:eb25a2d7ff98edcd",
+        "display_name": "POST /financial/vouchers",
+        "aliases": [
+          "routers.financial.post.financial.vouchers.create-voucher",
+          "routers.financial.create_voucher",
+          "/vouchers",
+          "/financial",
+          "/financial/vouchers"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "create_voucher",
       "qualified_name": "routers.financial.create_voucher",
@@ -2361,6 +3523,9 @@
       },
       "http_method": "POST",
       "path": "/vouchers",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/vouchers",
       "router": "router",
       "kwargs": {
         "response_model": "VoucherResponse"
@@ -2404,18 +3569,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 870,
-        "line_end": 892
+        "line_start": 1083,
+        "line_end": 1105
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/vouchers",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/vouchers",
+          "function=routers.financial.create_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.post.vouchers.param-voucher-code.use.use-voucher",
+      "id": "routers.financial.post.financial.vouchers.param-voucher-code.use.use-voucher",
+      "identity": {
+        "catalog_id": "routers.financial.post.financial.vouchers.param-voucher-code.use.use-voucher",
+        "logical_id": "routers.financial.post.financial.vouchers.param-voucher-code.use.use-voucher",
+        "source_id": "endpoint:043fa6f0bfd4ed7c",
+        "display_name": "POST /financial/vouchers/{voucher_code}/use",
+        "aliases": [
+          "routers.financial.post.financial.vouchers.param-voucher-code.use.use-voucher",
+          "routers.financial.use_voucher",
+          "/vouchers/{voucher_code}/use",
+          "/financial",
+          "/financial/vouchers/{voucher_code}/use"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "use_voucher",
       "qualified_name": "routers.financial.use_voucher",
@@ -2431,6 +3617,9 @@
       },
       "http_method": "POST",
       "path": "/vouchers/{voucher_code}/use",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/vouchers/{voucher_code}/use",
       "router": "router",
       "kwargs": {
         "response_model": "VoucherUseResponse"
@@ -2481,18 +3670,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 923,
-        "line_end": 943
+        "line_start": 1136,
+        "line_end": 1156
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/vouchers/{voucher_code}/use",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/vouchers/{voucher_code}/use",
+          "function=routers.financial.use_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.put.budgets.param-budget-id.update-budget",
+      "id": "routers.financial.put.financial.budgets.param-budget-id.update-budget",
+      "identity": {
+        "catalog_id": "routers.financial.put.financial.budgets.param-budget-id.update-budget",
+        "logical_id": "routers.financial.put.financial.budgets.param-budget-id.update-budget",
+        "source_id": "endpoint:877d9201a17f4221",
+        "display_name": "PUT /financial/budgets/{budget_id}",
+        "aliases": [
+          "routers.financial.put.financial.budgets.param-budget-id.update-budget",
+          "routers.financial.update_budget",
+          "/budgets/{budget_id}",
+          "/financial",
+          "/financial/budgets/{budget_id}"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "update_budget",
       "qualified_name": "routers.financial.update_budget",
@@ -2508,6 +3718,9 @@
       },
       "http_method": "PUT",
       "path": "/budgets/{budget_id}",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/budgets/{budget_id}",
       "router": "router",
       "kwargs": {
         "response_model": "BudgetResponse"
@@ -2558,18 +3771,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 362,
-        "line_end": 397
+        "line_start": 437,
+        "line_end": 472
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/budgets/{budget_id}",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/budgets/{budget_id}",
+          "function=routers.financial.update_budget"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.put.payment-methods.param-method-id.update-payment-method",
+      "id": "routers.financial.put.financial.payment-methods.param-method-id.update-payment-method",
+      "identity": {
+        "catalog_id": "routers.financial.put.financial.payment-methods.param-method-id.update-payment-method",
+        "logical_id": "routers.financial.put.financial.payment-methods.param-method-id.update-payment-method",
+        "source_id": "endpoint:e9744e78ab8ef1d3",
+        "display_name": "PUT /financial/payment-methods/{method_id}",
+        "aliases": [
+          "routers.financial.put.financial.payment-methods.param-method-id.update-payment-method",
+          "routers.financial.update_payment_method",
+          "/payment-methods/{method_id}",
+          "/financial",
+          "/financial/payment-methods/{method_id}"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "update_payment_method",
       "qualified_name": "routers.financial.update_payment_method",
@@ -2585,6 +3819,9 @@
       },
       "http_method": "PUT",
       "path": "/payment-methods/{method_id}",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payment-methods/{method_id}",
       "router": "router",
       "kwargs": {
         "response_model": "PaymentMethodResponse",
@@ -2636,18 +3873,39 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 551,
-        "line_end": 582
+        "line_start": 652,
+        "line_end": 683
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/payment-methods/{method_id}",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payment-methods/{method_id}",
+          "function=routers.financial.update_payment_method"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.financial.put.payouts.param-payout-id.status.update-payout-status",
+      "id": "routers.financial.put.financial.payouts.param-payout-id.status.update-payout-status",
+      "identity": {
+        "catalog_id": "routers.financial.put.financial.payouts.param-payout-id.status.update-payout-status",
+        "logical_id": "routers.financial.put.financial.payouts.param-payout-id.status.update-payout-status",
+        "source_id": "endpoint:5d3204c1c8d0d5f6",
+        "display_name": "PUT /financial/payouts/{payout_id}/status",
+        "aliases": [
+          "routers.financial.put.financial.payouts.param-payout-id.status.update-payout-status",
+          "routers.financial.update_payout_status",
+          "/payouts/{payout_id}/status",
+          "/financial",
+          "/financial/payouts/{payout_id}/status"
+        ]
+      },
       "module": "routers.financial",
       "function_name": "update_payout_status",
       "qualified_name": "routers.financial.update_payout_status",
@@ -2663,6 +3921,9 @@
       },
       "http_method": "PUT",
       "path": "/payouts/{payout_id}/status",
+      "include_prefix": "/financial",
+      "router_prefix": null,
+      "full_path": "/financial/payouts/{payout_id}/status",
       "router": "router",
       "kwargs": {
         "response_model": "PayoutStatusUpdateResponse"
@@ -2713,13 +3974,21 @@
       ],
       "source": {
         "file": "routers/financial.py",
-        "line_start": 683,
-        "line_end": 715
+        "line_start": 892,
+        "line_end": 924
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/payouts/{payout_id}/status",
+          "include_prefix=/financial",
+          "router_prefix=None",
+          "full_path=/financial/payouts/{payout_id}/status",
+          "function=routers.financial.update_payout_status"
+        ]
       },
       "review_status": "generated"
     }

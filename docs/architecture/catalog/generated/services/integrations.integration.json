@@ -1,8 +1,20 @@
 {
   "id": "integrations.integration",
+  "identity": {
+    "catalog_id": "integrations.integration",
+    "logical_id": "integrations.integration",
+    "source_id": "service:75f413c682a2c3a0",
+    "display_name": "IntegrationService",
+    "aliases": [
+      "integrations.integration",
+      "services.integrations.core.IntegrationService"
+    ]
+  },
   "module": "services.integrations.core",
   "class_name": "IntegrationService",
   "qualified_name": "services.integrations.core.IntegrationService",
+  "description": null,
+  "docstring": null,
   "source": {
     "file": "services/integrations/core.py",
     "line_start": 34,
@@ -11,8 +23,59 @@
   "operations": [
     {
       "id": "integrations.integration.operation.create_integration",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.create_integration",
+        "logical_id": "integrations.integration.operation.create_integration",
+        "source_id": "operation:b219c1768f95c043",
+        "display_name": "IntegrationService.create_integration",
+        "aliases": [
+          "integrations.integration.operation.create_integration",
+          "services.integrations.core.IntegrationService.create_integration"
+        ]
+      },
       "method": "create_integration",
       "qualified_name": "services.integrations.core.IntegrationService.create_integration",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "name",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "integration_type",
+          "annotation": "IntegrationType",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "auth_type",
+          "annotation": "IntegrationAuthType",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "credentials",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "settings",
+          "annotation": "dict[str, Any]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Integration",
+      "description": "Create a new integration",
+      "docstring": "Create a new integration",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 107,
@@ -21,14 +84,45 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_integration",
+          "qualified_name=services.integrations.core.IntegrationService.create_integration"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.get_integration",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.get_integration",
+        "logical_id": "integrations.integration.operation.get_integration",
+        "source_id": "operation:5e8d6d126683c45a",
+        "display_name": "IntegrationService.get_integration",
+        "aliases": [
+          "integrations.integration.operation.get_integration",
+          "services.integrations.core.IntegrationService.get_integration"
+        ]
+      },
       "method": "get_integration",
       "qualified_name": "services.integrations.core.IntegrationService.get_integration",
+      "parameters": [
+        {
+          "name": "integration_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Optional[Integration]",
+      "description": "Get integration by ID and org ID",
+      "docstring": "Get integration by ID and org ID",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 135,
@@ -37,14 +131,39 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_integration",
+          "qualified_name=services.integrations.core.IntegrationService.get_integration"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.list_integrations",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.list_integrations",
+        "logical_id": "integrations.integration.operation.list_integrations",
+        "source_id": "operation:27400a9ede593d9d",
+        "display_name": "IntegrationService.list_integrations",
+        "aliases": [
+          "integrations.integration.operation.list_integrations",
+          "services.integrations.core.IntegrationService.list_integrations"
+        ]
+      },
       "method": "list_integrations",
       "qualified_name": "services.integrations.core.IntegrationService.list_integrations",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[Integration]",
+      "description": "List all integrations for an organization",
+      "docstring": "List all integrations for an organization",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 149,
@@ -53,14 +172,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=list_integrations",
+          "qualified_name=services.integrations.core.IntegrationService.list_integrations"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.update_integration",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.update_integration",
+        "logical_id": "integrations.integration.operation.update_integration",
+        "source_id": "operation:bebaedc7880a170a",
+        "display_name": "IntegrationService.update_integration",
+        "aliases": [
+          "integrations.integration.operation.update_integration",
+          "services.integrations.core.IntegrationService.update_integration"
+        ]
+      },
       "method": "update_integration",
       "qualified_name": "services.integrations.core.IntegrationService.update_integration",
+      "parameters": [
+        {
+          "name": "integration_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "Optional[UUID]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "updates",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Optional[Integration]",
+      "description": "Update integration properties",
+      "docstring": "Update integration properties",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 164,
@@ -69,14 +225,45 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_integration",
+          "qualified_name=services.integrations.core.IntegrationService.update_integration"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.delete_integration",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.delete_integration",
+        "logical_id": "integrations.integration.operation.delete_integration",
+        "source_id": "operation:f21ded921e7161ea",
+        "display_name": "IntegrationService.delete_integration",
+        "aliases": [
+          "integrations.integration.operation.delete_integration",
+          "services.integrations.core.IntegrationService.delete_integration"
+        ]
+      },
       "method": "delete_integration",
       "qualified_name": "services.integrations.core.IntegrationService.delete_integration",
+      "parameters": [
+        {
+          "name": "integration_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": "Delete an integration",
+      "docstring": "Delete an integration",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 191,
@@ -85,14 +272,63 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=delete_integration",
+          "qualified_name=services.integrations.core.IntegrationService.delete_integration"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.create_webhook",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.create_webhook",
+        "logical_id": "integrations.integration.operation.create_webhook",
+        "source_id": "operation:c681b17a500d3dc0",
+        "display_name": "IntegrationService.create_webhook",
+        "aliases": [
+          "integrations.integration.operation.create_webhook",
+          "services.integrations.core.IntegrationService.create_webhook"
+        ]
+      },
       "method": "create_webhook",
       "qualified_name": "services.integrations.core.IntegrationService.create_webhook",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "integration_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "name",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "url",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "events",
+          "annotation": "list[str]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "IntegrationWebhook",
+      "description": "Create a webhook for an integration",
+      "docstring": "Create a webhook for an integration",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 213,
@@ -101,14 +337,45 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_webhook",
+          "qualified_name=services.integrations.core.IntegrationService.create_webhook"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.get_webhook",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.get_webhook",
+        "logical_id": "integrations.integration.operation.get_webhook",
+        "source_id": "operation:d83ac6e839bfc24e",
+        "display_name": "IntegrationService.get_webhook",
+        "aliases": [
+          "integrations.integration.operation.get_webhook",
+          "services.integrations.core.IntegrationService.get_webhook"
+        ]
+      },
       "method": "get_webhook",
       "qualified_name": "services.integrations.core.IntegrationService.get_webhook",
+      "parameters": [
+        {
+          "name": "webhook_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Optional[IntegrationWebhook]",
+      "description": "Get webhook by ID and org ID",
+      "docstring": "Get webhook by ID and org ID",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 239,
@@ -117,14 +384,45 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_webhook",
+          "qualified_name=services.integrations.core.IntegrationService.get_webhook"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.list_webhooks",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.list_webhooks",
+        "logical_id": "integrations.integration.operation.list_webhooks",
+        "source_id": "operation:d3883fe755022091",
+        "display_name": "IntegrationService.list_webhooks",
+        "aliases": [
+          "integrations.integration.operation.list_webhooks",
+          "services.integrations.core.IntegrationService.list_webhooks"
+        ]
+      },
       "method": "list_webhooks",
       "qualified_name": "services.integrations.core.IntegrationService.list_webhooks",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "integration_id",
+          "annotation": "UUID",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[IntegrationWebhook]",
+      "description": "List all webhooks for an organization (optionally filtered by integration)",
+      "docstring": "List all webhooks for an organization (optionally filtered by integration)",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 254,
@@ -133,14 +431,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=list_webhooks",
+          "qualified_name=services.integrations.core.IntegrationService.list_webhooks"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.update_webhook",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.update_webhook",
+        "logical_id": "integrations.integration.operation.update_webhook",
+        "source_id": "operation:32e46b56c8534609",
+        "display_name": "IntegrationService.update_webhook",
+        "aliases": [
+          "integrations.integration.operation.update_webhook",
+          "services.integrations.core.IntegrationService.update_webhook"
+        ]
+      },
       "method": "update_webhook",
       "qualified_name": "services.integrations.core.IntegrationService.update_webhook",
+      "parameters": [
+        {
+          "name": "webhook_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "updates",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Optional[IntegrationWebhook]",
+      "description": "Update webhook properties",
+      "docstring": "Update webhook properties",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 269,
@@ -149,14 +484,45 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_webhook",
+          "qualified_name=services.integrations.core.IntegrationService.update_webhook"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.delete_webhook",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.delete_webhook",
+        "logical_id": "integrations.integration.operation.delete_webhook",
+        "source_id": "operation:f814c2766f76d18a",
+        "display_name": "IntegrationService.delete_webhook",
+        "aliases": [
+          "integrations.integration.operation.delete_webhook",
+          "services.integrations.core.IntegrationService.delete_webhook"
+        ]
+      },
       "method": "delete_webhook",
       "qualified_name": "services.integrations.core.IntegrationService.delete_webhook",
+      "parameters": [
+        {
+          "name": "webhook_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": "Delete a webhook",
+      "docstring": "Delete a webhook",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 292,
@@ -165,14 +531,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=delete_webhook",
+          "qualified_name=services.integrations.core.IntegrationService.delete_webhook"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.create_connection",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.create_connection",
+        "logical_id": "integrations.integration.operation.create_connection",
+        "source_id": "operation:3200932ef58e7186",
+        "display_name": "IntegrationService.create_connection",
+        "aliases": [
+          "integrations.integration.operation.create_connection",
+          "services.integrations.core.IntegrationService.create_connection"
+        ]
+      },
       "method": "create_connection",
       "qualified_name": "services.integrations.core.IntegrationService.create_connection",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "integration_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "connection_data",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "IntegrationConnection",
+      "description": "Create a connection for an integration",
+      "docstring": "Create a connection for an integration",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 314,
@@ -181,14 +584,45 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_connection",
+          "qualified_name=services.integrations.core.IntegrationService.create_connection"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.get_connection",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.get_connection",
+        "logical_id": "integrations.integration.operation.get_connection",
+        "source_id": "operation:aa0b62fa47e3b198",
+        "display_name": "IntegrationService.get_connection",
+        "aliases": [
+          "integrations.integration.operation.get_connection",
+          "services.integrations.core.IntegrationService.get_connection"
+        ]
+      },
       "method": "get_connection",
       "qualified_name": "services.integrations.core.IntegrationService.get_connection",
+      "parameters": [
+        {
+          "name": "connection_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Optional[IntegrationConnection]",
+      "description": "Get connection by ID and org ID",
+      "docstring": "Get connection by ID and org ID",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 338,
@@ -197,14 +631,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_connection",
+          "qualified_name=services.integrations.core.IntegrationService.get_connection"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.update_connection",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.update_connection",
+        "logical_id": "integrations.integration.operation.update_connection",
+        "source_id": "operation:3ad2aad5cc0133b6",
+        "display_name": "IntegrationService.update_connection",
+        "aliases": [
+          "integrations.integration.operation.update_connection",
+          "services.integrations.core.IntegrationService.update_connection"
+        ]
+      },
       "method": "update_connection",
       "qualified_name": "services.integrations.core.IntegrationService.update_connection",
+      "parameters": [
+        {
+          "name": "connection_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "updates",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Optional[IntegrationConnection]",
+      "description": "Update connection properties",
+      "docstring": "Update connection properties",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 353,
@@ -213,14 +684,45 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_connection",
+          "qualified_name=services.integrations.core.IntegrationService.update_connection"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.validate_integration_connection",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.validate_integration_connection",
+        "logical_id": "integrations.integration.operation.validate_integration_connection",
+        "source_id": "operation:015722de84e490d7",
+        "display_name": "IntegrationService.validate_integration_connection",
+        "aliases": [
+          "integrations.integration.operation.validate_integration_connection",
+          "services.integrations.core.IntegrationService.validate_integration_connection"
+        ]
+      },
       "method": "validate_integration_connection",
       "qualified_name": "services.integrations.core.IntegrationService.validate_integration_connection",
+      "parameters": [
+        {
+          "name": "integration_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": "Validate that an integration connection is still valid",
+      "docstring": "Validate that an integration connection is still valid",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 376,
@@ -229,14 +731,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=validate_integration_connection",
+          "qualified_name=services.integrations.core.IntegrationService.validate_integration_connection"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.update_integration_status",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.update_integration_status",
+        "logical_id": "integrations.integration.operation.update_integration_status",
+        "source_id": "operation:e5469c6f5ed6743e",
+        "display_name": "IntegrationService.update_integration_status",
+        "aliases": [
+          "integrations.integration.operation.update_integration_status",
+          "services.integrations.core.IntegrationService.update_integration_status"
+        ]
+      },
       "method": "update_integration_status",
       "qualified_name": "services.integrations.core.IntegrationService.update_integration_status",
+      "parameters": [
+        {
+          "name": "integration_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "status",
+          "annotation": "IntegrationStatus",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": "Update integration status",
+      "docstring": "Update integration status",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 391,
@@ -245,14 +784,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_integration_status",
+          "qualified_name=services.integrations.core.IntegrationService.update_integration_status"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.get_google_oauth_url",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.get_google_oauth_url",
+        "logical_id": "integrations.integration.operation.get_google_oauth_url",
+        "source_id": "operation:c0cd15fdf9372e80",
+        "display_name": "IntegrationService.get_google_oauth_url",
+        "aliases": [
+          "integrations.integration.operation.get_google_oauth_url",
+          "services.integrations.core.IntegrationService.get_google_oauth_url"
+        ]
+      },
       "method": "get_google_oauth_url",
       "qualified_name": "services.integrations.core.IntegrationService.get_google_oauth_url",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "redirect_uri",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "state",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": "Generate Google OAuth2 authorization URL for calendar access",
+      "docstring": "Generate Google OAuth2 authorization URL for calendar access",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 418,
@@ -261,14 +837,45 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_google_oauth_url",
+          "qualified_name=services.integrations.core.IntegrationService.get_google_oauth_url"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.exchange_google_code",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.exchange_google_code",
+        "logical_id": "integrations.integration.operation.exchange_google_code",
+        "source_id": "operation:ee30cd7421722d2e",
+        "display_name": "IntegrationService.exchange_google_code",
+        "aliases": [
+          "integrations.integration.operation.exchange_google_code",
+          "services.integrations.core.IntegrationService.exchange_google_code"
+        ]
+      },
       "method": "exchange_google_code",
       "qualified_name": "services.integrations.core.IntegrationService.exchange_google_code",
+      "parameters": [
+        {
+          "name": "code",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "redirect_uri",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": "Exchange authorization code for access tokens",
+      "docstring": "Exchange authorization code for access tokens",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 452,
@@ -277,14 +884,45 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=exchange_google_code",
+          "qualified_name=services.integrations.core.IntegrationService.exchange_google_code"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.create_google_calendar_event",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.create_google_calendar_event",
+        "logical_id": "integrations.integration.operation.create_google_calendar_event",
+        "source_id": "operation:31ccba5204f396ee",
+        "display_name": "IntegrationService.create_google_calendar_event",
+        "aliases": [
+          "integrations.integration.operation.create_google_calendar_event",
+          "services.integrations.core.IntegrationService.create_google_calendar_event"
+        ]
+      },
       "method": "create_google_calendar_event",
       "qualified_name": "services.integrations.core.IntegrationService.create_google_calendar_event",
+      "parameters": [
+        {
+          "name": "integration_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "event_data",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": "Create an event in Google Calendar",
+      "docstring": "Create an event in Google Calendar",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 488,
@@ -293,14 +931,39 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_google_calendar_event",
+          "qualified_name=services.integrations.core.IntegrationService.create_google_calendar_event"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.integration.operation.refresh_google_token",
+      "identity": {
+        "catalog_id": "integrations.integration.operation.refresh_google_token",
+        "logical_id": "integrations.integration.operation.refresh_google_token",
+        "source_id": "operation:055b274d5a33c26e",
+        "display_name": "IntegrationService.refresh_google_token",
+        "aliases": [
+          "integrations.integration.operation.refresh_google_token",
+          "services.integrations.core.IntegrationService.refresh_google_token"
+        ]
+      },
       "method": "refresh_google_token",
       "qualified_name": "services.integrations.core.IntegrationService.refresh_google_token",
+      "parameters": [
+        {
+          "name": "integration_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": "Refresh Google OAuth2 access token",
+      "docstring": "Refresh Google OAuth2 access token",
       "source": {
         "file": "services/integrations/core.py",
         "line_start": 540,
@@ -309,7 +972,11 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=refresh_google_token",
+          "qualified_name=services.integrations.core.IntegrationService.refresh_google_token"
+        ]
       },
       "review_status": "generated"
     }
@@ -317,7 +984,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=IntegrationService",
+      "source_path=services/integrations/core.py"
+    ]
   },
   "review_status": "generated"
 }

@@ -305,7 +305,7 @@ def _extract_assignments(
 ) -> list[AssignmentFact]:
     assignments: list[AssignmentFact] = []
 
-    for child in ast.walk(node):
+    for child in _walk_scoped_nodes(node):
         if isinstance(child, ast.Assign):
             assignments.extend(_assignment_facts_from_assign(child, file_path))
 
@@ -514,13 +514,13 @@ def _extract_calls(
 
     awaited_call_nodes: set[int] = set()
 
-    for child in ast.walk(node):
+    for child in _walk_scoped_nodes(node):
         if isinstance(child, ast.Await) and isinstance(child.value, ast.Call):
             awaited_call_nodes.add(id(child.value))
 
     seen: set[tuple[str, int, int, bool]] = set()
 
-    for child in ast.walk(node):
+    for child in _walk_scoped_nodes(node):
         if not isinstance(child, ast.Call):
             continue
 
@@ -564,6 +564,27 @@ def _extract_calls(
 
     return calls
 
+def _walk_scoped_nodes(root: ast.AST):
+    """
+    Walk nodes that belong to the current function/class scope.
+
+    ast.walk() descends into nested function and class definitions. For
+    architecture mapping that causes false positives: calls inside a local
+    helper function can be attributed to the endpoint or service method that
+    merely defines it. Decorators are still extracted separately, so nested
+    scopes are intentionally treated as their own future facts, not as part of
+    the outer implementation body.
+    """
+    stack = list(reversed(list(ast.iter_child_nodes(root))))
+
+    while stack:
+        node = stack.pop()
+        yield node
+
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef, ast.Lambda)):
+            continue
+
+        stack.extend(reversed(list(ast.iter_child_nodes(node))))
 def classify_call(name: str, nested: bool) -> str:
     db_calls = {
         "self.db.add",
@@ -818,3 +839,5 @@ def _route_signal_from_decorator(decorator: DecoratorFact) -> dict | None:
         "path": path,
         "kwargs": decorator.kwargs,
     }
+
+

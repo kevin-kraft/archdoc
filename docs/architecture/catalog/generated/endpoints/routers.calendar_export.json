@@ -4,7 +4,20 @@
   "source_file": "routers/calendar_export.py",
   "endpoints": [
     {
-      "id": "routers.calendar_export.get.experiments.param-experiment-id.sessions.calendar.ics.download-experiment-calendar",
+      "id": "routers.calendar_export.get.calendar-export.experiments.param-experiment-id.sessions.calendar.ics.download-experiment-calendar",
+      "identity": {
+        "catalog_id": "routers.calendar_export.get.calendar-export.experiments.param-experiment-id.sessions.calendar.ics.download-experiment-calendar",
+        "logical_id": "routers.calendar_export.get.calendar-export.experiments.param-experiment-id.sessions.calendar.ics.download-experiment-calendar",
+        "source_id": "endpoint:0f1d1bc8af9b9ecf",
+        "display_name": "GET /calendar-export/experiments/{experiment_id}/sessions/calendar.ics",
+        "aliases": [
+          "routers.calendar_export.get.calendar-export.experiments.param-experiment-id.sessions.calendar.ics.download-experiment-calendar",
+          "routers.calendar_export.download_experiment_calendar",
+          "/experiments/{experiment_id}/sessions/calendar.ics",
+          "/calendar-export",
+          "/calendar-export/experiments/{experiment_id}/sessions/calendar.ics"
+        ]
+      },
       "module": "routers.calendar_export",
       "function_name": "download_experiment_calendar",
       "qualified_name": "routers.calendar_export.download_experiment_calendar",
@@ -18,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "/experiments/{experiment_id}/sessions/calendar.ics",
+      "include_prefix": "/calendar-export",
+      "router_prefix": null,
+      "full_path": "/calendar-export/experiments/{experiment_id}/sessions/calendar.ics",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -51,12 +67,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/experiments/{experiment_id}/sessions/calendar.ics",
+          "include_prefix=/calendar-export",
+          "router_prefix=None",
+          "full_path=/calendar-export/experiments/{experiment_id}/sessions/calendar.ics",
+          "function=routers.calendar_export.download_experiment_calendar"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.calendar_export.get.sessions.param-session-id.calendar.ics.download-session-calendar",
+      "id": "routers.calendar_export.get.calendar-export.sessions.param-session-id.calendar.ics.download-session-calendar",
+      "identity": {
+        "catalog_id": "routers.calendar_export.get.calendar-export.sessions.param-session-id.calendar.ics.download-session-calendar",
+        "logical_id": "routers.calendar_export.get.calendar-export.sessions.param-session-id.calendar.ics.download-session-calendar",
+        "source_id": "endpoint:e726a185bd628685",
+        "display_name": "GET /calendar-export/sessions/{session_id}/calendar.ics",
+        "aliases": [
+          "routers.calendar_export.get.calendar-export.sessions.param-session-id.calendar.ics.download-session-calendar",
+          "routers.calendar_export.download_session_calendar",
+          "/sessions/{session_id}/calendar.ics",
+          "/calendar-export",
+          "/calendar-export/sessions/{session_id}/calendar.ics"
+        ]
+      },
       "module": "routers.calendar_export",
       "function_name": "download_session_calendar",
       "qualified_name": "routers.calendar_export.download_session_calendar",
@@ -70,6 +107,9 @@
       },
       "http_method": "GET",
       "path": "/sessions/{session_id}/calendar.ics",
+      "include_prefix": "/calendar-export",
+      "router_prefix": null,
+      "full_path": "/calendar-export/sessions/{session_id}/calendar.ics",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -103,7 +143,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/sessions/{session_id}/calendar.ics",
+          "include_prefix=/calendar-export",
+          "router_prefix=None",
+          "full_path=/calendar-export/sessions/{session_id}/calendar.ics",
+          "function=routers.calendar_export.download_session_calendar"
+        ]
       },
       "review_status": "generated"
     }

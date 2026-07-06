@@ -1,6 +1,23 @@
 import React, {useEffect, useMemo, useState} from 'react';
+import {
+  Background,
+  Controls,
+  MiniMap,
+  ReactFlow,
+  ReactFlowProvider,
+  type Edge,
+  type Node,
+} from '@xyflow/react';
+import ELK from 'elkjs/lib/elk.bundled.js';
+import '@xyflow/react/dist/style.css';
 
 import {fetchUserStoryDetail, fetchUserStoryRows, fetchUserStoryTrace} from '../api/archdocApi';
+import {
+  DetailItem,
+  OperationActionSequence,
+  OperationTypeUsageList,
+  sourceLabel,
+} from '../components/OperationActionDetails';
 import {CatalogToolbar, MethodBadge, PrimarySecondary, SourceRef} from '../components/TablePrimitives';
 
 type StoryDetailPayload = {
@@ -25,6 +42,30 @@ const statusOptions = ['all', 'draft', 'ready', 'in-progress', 'done', 'deprecat
 const linkageOptions = ['all', 'linked', 'partial', 'missing', 'unmapped'];
 const detailTabs = ['story', 'trace', 'endpoints'] as const;
 type DetailTab = (typeof detailTabs)[number];
+
+type TraceGraphState = {
+  nodes: Node[];
+  edges: Edge[];
+};
+
+type SelectedTraceNode = {
+  id: string;
+  nodeKind: string;
+  traceNode: any;
+  actionNodes?: any[];
+};
+
+const traceElk = new ELK();
+const compactTraceDetailKinds = new Set(['database_transaction', 'type_usage']);
+const traceActionDetailKinds = new Set([
+  'database_action',
+  'database_transaction',
+  'permission_action',
+  'audit_action',
+  'worker_action',
+  'external_action',
+  'type_usage',
+]);
 
 export default function UserStoriesView() {
   const [stories, setStories] = useState<any[]>([]);
@@ -257,19 +298,44 @@ function tabLabel(tab: DetailTab) {
 }
 
 function UserStoryTrace({trace}: {trace: StoryTracePayload | null}) {
+  const [graph, setGraph] = useState<TraceGraphState>({nodes: [], edges: []});
+  const [selectedNode, setSelectedNode] = useState<SelectedTraceNode | null>(null);
+  const baseGraph = useMemo(() => buildTraceGraph(trace), [trace]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function layout() {
+      const next = await layoutTraceGraph(baseGraph);
+
+      if (!cancelled) {
+        setGraph(next);
+      }
+    }
+
+    layout();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [baseGraph]);
+
+  useEffect(() => {
+    setSelectedNode(null);
+  }, [trace?.story?.id]);
+
   if (!trace) {
     return <p className="archdocMuted">Loading architecture trace...</p>;
   }
 
   const byKind = trace.summary?.by_kind ?? {};
-  const visibleNodes = orderTraceNodes(trace.nodes).slice(0, 80);
 
   return (
     <section className="archdocStoryTrace" aria-label="User story architecture trace">
       <header className="archdocStoryTraceHeader">
         <div>
           <strong>Architecture Trace</strong>
-          <span>{trace.summary.nodes} nodes · {trace.summary.edges} edges</span>
+          <span>{trace.summary.nodes} nodes Â· {trace.summary.edges} edges</span>
         </div>
         {trace.summary.unresolved_refs ? (
           <span className="archdocTraceBadge archdocTraceBadge--warning">
@@ -286,26 +352,333 @@ function UserStoryTrace({trace}: {trace: StoryTracePayload | null}) {
         ))}
       </div>
 
-      <div className="archdocTraceFlow" role="list" aria-label="Trace nodes">
-        {visibleNodes.map((node, index) => (
-          <React.Fragment key={node.id}>
-            <TraceNode node={node} />
-            {index < visibleNodes.length - 1 ? <span className="archdocTraceArrow" aria-hidden="true">→</span> : null}
-          </React.Fragment>
-        ))}
-      </div>
+      <section className="archdocTraceGraphShell" aria-label="Trace graph">
+        <ReactFlowProvider>
+          <ReactFlow
+            nodes={graph.nodes}
+            edges={graph.edges}
+            fitView
+            minZoom={0.2}
+            maxZoom={1.6}
+            nodesDraggable
+            className="archdocTraceGraph"
+            onNodeClick={(_, node) => {
+              setSelectedNode({id: node.id, ...(node.data as any)});
+            }}
+          >
+            <MiniMap
+              pannable
+              zoomable
+              position="bottom-right"
+              nodeColor={traceMiniMapNodeColor}
+              nodeStrokeColor={traceMiniMapNodeStrokeColor}
+              nodeStrokeWidth={2}
+              maskColor="rgba(15, 23, 42, 0.5)"
+            />
+            <Controls />
+            <Background />
+          </ReactFlow>
+        </ReactFlowProvider>
+        {selectedNode ? <TraceNodeInspector selected={selectedNode} onClose={() => setSelectedNode(null)} /> : null}
+      </section>
     </section>
   );
 }
 
-function TraceNode({node}: {node: any}) {
+function buildTraceGraph(trace: StoryTracePayload | null): TraceGraphState {
+  if (!trace?.nodes?.length) {
+    return {nodes: [], edges: []};
+  }
+
+  const includedIds = selectTraceNodeIds(trace.nodes, trace.edges);
+  const actionNodesByOwner = collectTraceActionNodes(trace.nodes, trace.edges);
+  const nodes: Node[] = trace.nodes
+    .filter((node) => includedIds.has(node.id))
+    .map((node) => ({
+      id: node.id,
+      position: {x: 0, y: 0},
+      className: `archdocGraphNode archdocGraphNode--${traceGraphKind(node.kind)} archdocTraceGraphNode`,
+      data: {
+        nodeKind: node.kind,
+        traceNode: node,
+        actionNodes: actionNodesByOwner.get(node.id) ?? [],
+        label: (
+          <TraceGraphNodeLabel
+            title={traceNodeTitle(node)}
+            subtitle={traceNodeSubtitle(node)}
+            meta={traceNodeMeta(node)}
+          />
+        ),
+      },
+    }));
+
+  const edges: Edge[] = trace.edges
+    .filter((edge) => includedIds.has(edge.source) && includedIds.has(edge.target))
+    .map((edge) => ({
+      id: edge.id,
+      source: edge.source,
+      target: edge.target,
+      label: edge.label,
+      animated: edge.label === 'calls_service' || edge.label === 'does',
+      className: `archdocTraceGraphEdge archdocTraceGraphEdge--${cssKind(edge.label)}`,
+    }));
+
+  return {nodes, edges};
+}
+
+function selectTraceNodeIds(nodes: any[], edges: any[]) {
+  const essentialKinds = new Set(['user_story', 'endpoint', 'service', 'operation']);
+  const selected = new Set<string>();
+  const nodesById = new Map(nodes.map((node) => [node.id, node]));
+  const visibleEdges = edges.filter((edge) => {
+    const sourceNode = nodesById.get(edge.source);
+    const targetNode = nodesById.get(edge.target);
+    return !compactTraceDetailKinds.has(sourceNode?.kind) && !compactTraceDetailKinds.has(targetNode?.kind);
+  });
+
+  for (const node of orderTraceNodes(nodes)) {
+    if (essentialKinds.has(node.kind)) {
+      selected.add(node.id);
+    }
+  }
+
+  if (!selected.size) {
+    for (const node of orderTraceNodes(nodes)) {
+      if (!compactTraceDetailKinds.has(node.kind)) {
+        selected.add(node.id);
+        break;
+      }
+    }
+  }
+
+  let changed = true;
+  while (changed && selected.size < 120) {
+    changed = false;
+    for (const edge of visibleEdges) {
+      if (selected.has(edge.source) && !selected.has(edge.target) && selected.size < 120) {
+        selected.add(edge.target);
+        changed = true;
+      }
+      if (selected.has(edge.target) && !selected.has(edge.source) && selected.size < 120) {
+        selected.add(edge.source);
+        changed = true;
+      }
+    }
+  }
+
+  pruneDisconnectedTraceNodes(selected, visibleEdges);
+
+  return selected;
+}
+
+function pruneDisconnectedTraceNodes(selected: Set<string>, edges: any[]) {
+  const connected = new Set<string>();
+  for (const edge of edges) {
+    if (selected.has(edge.source) && selected.has(edge.target)) {
+      connected.add(edge.source);
+      connected.add(edge.target);
+    }
+  }
+
+  for (const id of Array.from(selected)) {
+    if (!connected.has(id) && !id.startsWith('story:')) {
+      selected.delete(id);
+    }
+  }
+}
+
+function collectTraceActionNodes(nodes: any[], edges: any[]) {
+  const nodesById = new Map(nodes.map((node) => [node.id, node]));
+  const actionsByOwner = new Map<string, any[]>();
+
+  for (const edge of edges) {
+    const actionNode = nodesById.get(edge.target);
+    if (!actionNode || !traceActionDetailKinds.has(actionNode.kind)) {
+      continue;
+    }
+
+    const ownerActions = actionsByOwner.get(edge.source) ?? [];
+    ownerActions.push(normalizeTraceAction(actionNode));
+    actionsByOwner.set(edge.source, ownerActions);
+  }
+
+  for (const [ownerId, actions] of actionsByOwner) {
+    actionsByOwner.set(ownerId, actions.sort((left, right) => (left.source?.line_start ?? 0) - (right.source?.line_start ?? 0)));
+  }
+
+  return actionsByOwner;
+}
+
+function normalizeTraceAction(node: any) {
+  const payload = node?.payload ?? {};
+  return {
+    ...payload,
+    id: payload.id ?? node.id,
+    kind: node.kind ?? payload.kind,
+    resource: payload.resource ?? payload.entity ?? node.label ?? node.target_id,
+    entity: payload.entity ?? node.target_id,
+    call_name: payload.call_name,
+    action: payload.action,
+    query: payload.query,
+    source: payload.source,
+  };
+}
+
+function TraceGraphNodeLabel({title, subtitle, meta}: {title: string; subtitle?: string; meta?: string}) {
   return (
-    <article className={`archdocTraceNode archdocTraceNode--${cssKind(node.kind)}`} role="listitem">
-      <span>{formatTraceKind(node.kind)}</span>
-      <strong>{node.label}</strong>
-      <small>{traceNodeMeta(node)}</small>
-    </article>
+    <div className="archdocGraphNodeLabel archdocTraceGraphNodeLabel">
+      <strong>{title}</strong>
+      {subtitle ? <span>{subtitle}</span> : null}
+      {meta ? <small>{meta}</small> : null}
+    </div>
   );
+}
+
+function TraceNodeInspector({selected, onClose}: {selected: SelectedTraceNode; onClose: () => void}) {
+  const node = selected.traceNode;
+  const payload = node?.payload ?? {};
+
+  return (
+    <aside className="archdocNodeInspector archdocTraceNodeInspector" aria-label="Selected trace node details">
+      <header className="archdocActionDetailsHeader">
+        <div>
+          <strong>{traceNodeTitle(node)}</strong>
+          <span>{formatTraceKind(node?.kind)}</span>
+        </div>
+        <button type="button" onClick={onClose}>Close</button>
+      </header>
+      <div className="archdocNodeInspectorBody">
+        <dl className="archdocDetailsList">
+          <DetailItem label="ID" value={node?.target_id ?? node?.id} />
+          <DetailItem label="Label" value={node?.label} />
+          <DetailItem label="Path" value={payload.full_path ?? payload.path} />
+          <DetailItem label="Function" value={payload.function_name} />
+          <DetailItem label="Service" value={payload.service_id ?? payload.id} />
+          <DetailItem label="Operation" value={payload.method ?? payload.operation_id} />
+          <DetailItem label="Source" value={sourceLabel(payload.source)} />
+        </dl>
+        <TraceOperationActionDetails nodeKind={selected.nodeKind} actions={selected.actionNodes ?? []} />
+      </div>
+    </aside>
+  );
+}
+
+function TraceOperationActionDetails({nodeKind, actions}: {nodeKind: string; actions: any[]}) {
+  if (!actions.length) {
+    return null;
+  }
+
+  const title = nodeKind === 'endpoint' ? 'Endpoint Gates' : 'Detected Method Flow';
+
+  return (
+    <>
+      <OperationTypeUsageList actions={actions} />
+      <OperationActionSequence actions={actions} title={title} />
+    </>
+  );
+}
+
+function traceMiniMapNodeColor(node: Node) {
+  if (hasNodeClass(node, 'archdocGraphNode--user_story')) return '#0f766e';
+  if (hasNodeClass(node, 'archdocGraphNode--endpoint')) return '#0284c7';
+  if (hasNodeClass(node, 'archdocGraphNode--service')) return '#7c3aed';
+  if (hasNodeClass(node, 'archdocGraphNode--operation')) return '#059669';
+  if (hasNodeClass(node, 'archdocGraphNode--database_action')) return '#d97706';
+  if (hasNodeClass(node, 'archdocGraphNode--database_transaction')) return '#78716c';
+  if (hasNodeClass(node, 'archdocGraphNode--permission_action')) return '#dc2626';
+  if (hasNodeClass(node, 'archdocGraphNode--entity')) return '#ca8a04';
+  return '#9333ea';
+}
+
+function traceMiniMapNodeStrokeColor(node: Node) {
+  if (hasNodeClass(node, 'archdocGraphNode--user_story')) return '#5eead4';
+  if (hasNodeClass(node, 'archdocGraphNode--endpoint')) return '#7dd3fc';
+  if (hasNodeClass(node, 'archdocGraphNode--service')) return '#c4b5fd';
+  if (hasNodeClass(node, 'archdocGraphNode--operation')) return '#6ee7b7';
+  if (hasNodeClass(node, 'archdocGraphNode--database_action')) return '#fcd34d';
+  if (hasNodeClass(node, 'archdocGraphNode--database_transaction')) return '#d6d3d1';
+  if (hasNodeClass(node, 'archdocGraphNode--permission_action')) return '#fda4af';
+  if (hasNodeClass(node, 'archdocGraphNode--entity')) return '#fde68a';
+  return '#d8b4fe';
+}
+
+function hasNodeClass(node: Node, className: string) {
+  return String(node.className ?? '').split(/\s+/).includes(className);
+}
+
+function traceGraphKind(kind: string) {
+  if (kind === 'user_story') return 'user_story';
+  if (kind === 'entity') return 'entity';
+  return cssKind(kind);
+}
+
+async function layoutTraceGraph(graph: TraceGraphState): Promise<TraceGraphState> {
+  if (!graph.nodes.length) {
+    return graph;
+  }
+
+  const elkGraph = {
+    id: 'trace-root',
+    layoutOptions: {
+      'elk.algorithm': 'layered',
+      'elk.direction': 'RIGHT',
+      'elk.spacing.nodeNode': '32',
+      'elk.layered.spacing.nodeNodeBetweenLayers': '56',
+    },
+    children: graph.nodes.map((node) => ({
+      id: node.id,
+      width: traceNodeWidth(node),
+      height: node.id.startsWith('story:') ? 98 : 82,
+    })),
+    edges: graph.edges.map((edge) => ({
+      id: edge.id,
+      sources: [edge.source],
+      targets: [edge.target],
+    })),
+  };
+
+  const layout = await traceElk.layout(elkGraph);
+  const positions = new Map<string, {x?: number; y?: number}>(
+    (layout.children ?? []).map((node: any) => [node.id, node]),
+  );
+
+  return {
+    nodes: graph.nodes.map((node) => {
+      const next = positions.get(node.id);
+      return {
+        ...node,
+        position: {
+          x: next?.x ?? 0,
+          y: next?.y ?? 0,
+        },
+      };
+    }),
+    edges: graph.edges,
+  };
+}
+
+function traceNodeWidth(node: Node) {
+  if (node.id.startsWith('story:')) return 260;
+  if (node.id.startsWith('endpoint:')) return 300;
+  if (node.id.startsWith('operation:')) return 280;
+  return 240;
+}
+
+function traceNodeTitle(node: any) {
+  const payload = node?.payload ?? {};
+  if (node?.kind === 'endpoint') return `${payload.http_method ?? ''} ${payload.full_path ?? payload.path ?? node.label}`.trim();
+  if (node?.kind === 'service') return payload.class_name ?? node.label;
+  if (node?.kind === 'operation') return payload.method ?? node.label;
+  return node?.label ?? node?.target_id ?? node?.id ?? 'Trace node';
+}
+
+function traceNodeSubtitle(node: any) {
+  const payload = node?.payload ?? {};
+  if (node?.kind === 'user_story') return node.target_id;
+  if (node?.kind === 'endpoint') return payload.function_name;
+  if (node?.kind === 'service') return payload.id ?? node.target_id;
+  if (node?.kind === 'operation') return payload.id ?? node.target_id;
+  return formatTraceKind(node?.kind);
 }
 
 function orderTraceNodes(nodes: any[]) {
@@ -332,12 +705,12 @@ function orderTraceNodes(nodes: any[]) {
 }
 
 function traceNodeMeta(node: any) {
-  const payload = node.payload ?? {};
-  if (node.kind === 'endpoint') return `${payload.http_method ?? ''} ${payload.full_path ?? payload.path ?? ''}`.trim();
-  if (node.kind === 'service') return payload.module ?? payload.qualified_name ?? node.target_id;
-  if (node.kind === 'operation') return payload.qualified_name ?? node.target_id;
-  if (node.kind === 'entity') return node.target_id;
-  return payload.source?.file ? `${payload.source.file}:${payload.source.line_start ?? ''}` : node.target_id;
+  const payload = node?.payload ?? {};
+  if (node?.kind === 'endpoint') return payload.source?.file ? sourceLabel(payload.source) : payload.module;
+  if (node?.kind === 'service') return payload.module ?? payload.qualified_name ?? node.target_id;
+  if (node?.kind === 'operation') return payload.qualified_name ?? sourceLabel(payload.source) ?? node.target_id;
+  if (node?.kind === 'entity') return node.target_id;
+  return payload.source?.file ? sourceLabel(payload.source) : node?.target_id;
 }
 
 function formatTraceKind(kind: string) {
@@ -347,7 +720,6 @@ function formatTraceKind(kind: string) {
 function cssKind(kind: string) {
   return String(kind ?? 'node').replace(/[^a-z0-9_-]/gi, '-');
 }
-
 function StoryMarkdown({markdown}: {markdown: string}) {
   const blocks = parseMarkdownBlocks(markdown);
 

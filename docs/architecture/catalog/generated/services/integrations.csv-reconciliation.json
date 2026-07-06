@@ -1,107 +1,335 @@
 {
   "id": "integrations.csv-reconciliation",
+  "identity": {
+    "catalog_id": "integrations.csv-reconciliation",
+    "logical_id": "integrations.csv-reconciliation",
+    "source_id": "service:23ff85955c4bc8b0",
+    "display_name": "CSVReconciliationService",
+    "aliases": [
+      "integrations.csv-reconciliation",
+      "services.integrations.csv_reconciliation.CSVReconciliationService"
+    ]
+  },
   "module": "services.integrations.csv_reconciliation",
   "class_name": "CSVReconciliationService",
   "qualified_name": "services.integrations.csv_reconciliation.CSVReconciliationService",
+  "description": "Intelligently match CSV data from external experiments to participant tokens.",
+  "docstring": "Intelligently match CSV data from external experiments to participant tokens.\n\nMatching Strategy:\n1. Exact Match: Token code matches exactly (case/dash insensitive)\n2. Fuzzy Match: Levenshtein distance ≤ 1 (single typo correction)\n3. Manual Review: Distance = 2-3 (flag for human verification)\n4. No Match: Distance > 3 (require admin intervention)",
   "source": {
     "file": "services/integrations/csv_reconciliation.py",
-    "line_start": 32,
-    "line_end": 662
+    "line_start": 33,
+    "line_end": 670
   },
   "operations": [
     {
       "id": "integrations.csv-reconciliation.operation.normalize_token",
+      "identity": {
+        "catalog_id": "integrations.csv-reconciliation.operation.normalize_token",
+        "logical_id": "integrations.csv-reconciliation.operation.normalize_token",
+        "source_id": "operation:38e050c369426393",
+        "display_name": "CSVReconciliationService.normalize_token",
+        "aliases": [
+          "integrations.csv-reconciliation.operation.normalize_token",
+          "services.integrations.csv_reconciliation.CSVReconciliationService.normalize_token"
+        ]
+      },
       "method": "normalize_token",
       "qualified_name": "services.integrations.csv_reconciliation.CSVReconciliationService.normalize_token",
+      "parameters": [
+        {
+          "name": "token",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "str",
+      "description": "Normalize token for comparison.",
+      "docstring": "Normalize token for comparison.\n\nRemoves: dashes, spaces\nConverts: to uppercase\n\nExamples:\n- \"x9-k4-m2\" -> \"X9K4M2\"\n- \"X9 K4 M2\" -> \"X9K4M2\"\n- \"x9k4m2\" -> \"X9K4M2\"",
       "source": {
         "file": "services/integrations/csv_reconciliation.py",
-        "line_start": 75,
-        "line_end": 87
+        "line_start": 76,
+        "line_end": 88
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=normalize_token",
+          "qualified_name=services.integrations.csv_reconciliation.CSVReconciliationService.normalize_token"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.csv-reconciliation.operation.calculate_similarity",
+      "identity": {
+        "catalog_id": "integrations.csv-reconciliation.operation.calculate_similarity",
+        "logical_id": "integrations.csv-reconciliation.operation.calculate_similarity",
+        "source_id": "operation:d8f75cf7c5a1c626",
+        "display_name": "CSVReconciliationService.calculate_similarity",
+        "aliases": [
+          "integrations.csv-reconciliation.operation.calculate_similarity",
+          "services.integrations.csv_reconciliation.CSVReconciliationService.calculate_similarity"
+        ]
+      },
       "method": "calculate_similarity",
       "qualified_name": "services.integrations.csv_reconciliation.CSVReconciliationService.calculate_similarity",
+      "parameters": [
+        {
+          "name": "str1",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "str2",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "float",
+      "description": "Calculate similarity score between two strings (0-100).",
+      "docstring": "Calculate similarity score between two strings (0-100).\n\nAlgorithm: Levenshtein Distance\n- Measures minimum number of single-character edits needed\n- Edit operations: insertion, deletion, substitution\n- Normalized by string length for percentage score\n\nExamples:\n    calculate_similarity(\"X9K4M2\", \"X9K4M2\") → 100.0 (exact)\n    calculate_similarity(\"X9K4M2\", \"x9k4m2\") → 100.0 (case normalized)\n    calculate_similarity(\"X9K4M2\", \"X9K4N2\") → 83.3 (1 char typo)\n    calculate_similarity(\"X9K4M2\", \"X9K4\")   → 66.7 (2 chars missing)\n\nReturns:\n    Similarity score: 100 = exact match, 0 = completely different\n    \nMatching Thresholds:\n    100%: Exact match → Auto-approve\n    ≥90%: Fuzzy match (1 char typo) → Auto-approve\n    70-89%: Review needed → Flag for manual verification\n    <70%: No match → Reject",
       "source": {
         "file": "services/integrations/csv_reconciliation.py",
-        "line_start": 90,
-        "line_end": 130
+        "line_start": 91,
+        "line_end": 131
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=calculate_similarity",
+          "qualified_name=services.integrations.csv_reconciliation.CSVReconciliationService.calculate_similarity"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.csv-reconciliation.operation.find_matching_token",
+      "identity": {
+        "catalog_id": "integrations.csv-reconciliation.operation.find_matching_token",
+        "logical_id": "integrations.csv-reconciliation.operation.find_matching_token",
+        "source_id": "operation:21c168722b39bed3",
+        "display_name": "CSVReconciliationService.find_matching_token",
+        "aliases": [
+          "integrations.csv-reconciliation.operation.find_matching_token",
+          "services.integrations.csv_reconciliation.CSVReconciliationService.find_matching_token"
+        ]
+      },
       "method": "find_matching_token",
       "qualified_name": "services.integrations.csv_reconciliation.CSVReconciliationService.find_matching_token",
+      "parameters": [
+        {
+          "name": "csv_token",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "tuple[Optional[SessionToken], float, str]",
+      "description": "Find the best matching token for a CSV entry.",
+      "docstring": "Find the best matching token for a CSV entry.\n\nArgs:\n    csv_token: Token string from CSV file\n    session_id: Session to search within\n\nReturns:\n    Tuple of (matched_token, confidence_score, match_type)\n    match_type: \"exact\", \"fuzzy\", \"review_needed\", \"no_match\"",
       "source": {
         "file": "services/integrations/csv_reconciliation.py",
-        "line_start": 132,
-        "line_end": 180
+        "line_start": 133,
+        "line_end": 181
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=find_matching_token",
+          "qualified_name=services.integrations.csv_reconciliation.CSVReconciliationService.find_matching_token"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.csv-reconciliation.operation.parse_csv",
+      "identity": {
+        "catalog_id": "integrations.csv-reconciliation.operation.parse_csv",
+        "logical_id": "integrations.csv-reconciliation.operation.parse_csv",
+        "source_id": "operation:0c03e1d819ef4c55",
+        "display_name": "CSVReconciliationService.parse_csv",
+        "aliases": [
+          "integrations.csv-reconciliation.operation.parse_csv",
+          "services.integrations.csv_reconciliation.CSVReconciliationService.parse_csv"
+        ]
+      },
       "method": "parse_csv",
       "qualified_name": "services.integrations.csv_reconciliation.CSVReconciliationService.parse_csv",
+      "parameters": [
+        {
+          "name": "csv_content",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "column_mapping",
+          "annotation": "dict[str, str]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[dict[str, str]]",
+      "description": "Parse CSV file and extract relevant columns.",
+      "docstring": "Parse CSV file and extract relevant columns.\n\nArgs:\n    csv_content: Raw CSV file content\n    column_mapping: Dictionary mapping our fields to CSV columns\n        Example: {\n            \"token_column\": \"SessionCode\",\n            \"payoff_column\": \"EarnedPoints\",\n            \"status_column\": \"Completed\"\n        }\n\nReturns:\n    List of row dictionaries with normalized keys",
       "source": {
         "file": "services/integrations/csv_reconciliation.py",
-        "line_start": 182,
-        "line_end": 237
+        "line_start": 183,
+        "line_end": 238
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=parse_csv",
+          "qualified_name=services.integrations.csv_reconciliation.CSVReconciliationService.parse_csv"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.csv-reconciliation.operation.reconcile_csv",
+      "identity": {
+        "catalog_id": "integrations.csv-reconciliation.operation.reconcile_csv",
+        "logical_id": "integrations.csv-reconciliation.operation.reconcile_csv",
+        "source_id": "operation:aa8457c12188c54f",
+        "display_name": "CSVReconciliationService.reconcile_csv",
+        "aliases": [
+          "integrations.csv-reconciliation.operation.reconcile_csv",
+          "services.integrations.csv_reconciliation.CSVReconciliationService.reconcile_csv"
+        ]
+      },
       "method": "reconcile_csv",
       "qualified_name": "services.integrations.csv_reconciliation.CSVReconciliationService.reconcile_csv",
+      "parameters": [
+        {
+          "name": "csv_content",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "column_mapping",
+          "annotation": "dict[str, str]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "integration_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "job_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict",
+      "description": "Main reconciliation workflow for CSV uploads.",
+      "docstring": "Main reconciliation workflow for CSV uploads.\n\nWorkflow:\n1. Parse CSV with user-defined column mapping\n2. For each row, find best matching token using fuzzy matching\n3. Categorize matches by confidence:\n   - Exact (100%): Auto-create ledger entry\n   - Fuzzy (≥90%): Auto-create ledger entry\n   - Review (70-89%): Flag for manual approval\n   - No match (<70%): Report as error\n4. Update job status and generate report\n\nUse Case:\nThis handles z-Tree and Qualtrics experiments where participants\nmanually entered their tokens into the experimental software.\nManual entry introduces typos which this service auto-corrects.\n\nArgs:\n    csv_content: Raw CSV file content\n    column_mapping: Maps our fields to CSV columns\n        Example: {\"token_column\": \"SessionCode\", \"payoff_column\": \"Points\"}\n    session_id: Session UUID to match tokens against\n    integration_id: Integration configuration\n    org_id: Organization for ledger entries\n    job_id: Reconciliation job ID\n\nReturns:\n    Reconciliation report with statistics:\n    {\n        \"total_rows\": 50,\n        \"exact_matches\": 45,        # Auto-approved\n        \"fuzzy_matches\": 3,         # Auto-approved (high confidence)\n        \"review_needed\": 1,         # Requires manual check\n        \"no_matches\": 1,            # Error - no match found\n        \"ledger_entries_created\": 48\n    }",
       "source": {
         "file": "services/integrations/csv_reconciliation.py",
-        "line_start": 239,
-        "line_end": 448
+        "line_start": 240,
+        "line_end": 451
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=reconcile_csv",
+          "qualified_name=services.integrations.csv_reconciliation.CSVReconciliationService.reconcile_csv"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "integrations.csv-reconciliation.operation.approve_review_match",
+      "identity": {
+        "catalog_id": "integrations.csv-reconciliation.operation.approve_review_match",
+        "logical_id": "integrations.csv-reconciliation.operation.approve_review_match",
+        "source_id": "operation:d3cb46dc9bb17c6e",
+        "display_name": "CSVReconciliationService.approve_review_match",
+        "aliases": [
+          "integrations.csv-reconciliation.operation.approve_review_match",
+          "services.integrations.csv_reconciliation.CSVReconciliationService.approve_review_match"
+        ]
+      },
       "method": "approve_review_match",
       "qualified_name": "services.integrations.csv_reconciliation.CSVReconciliationService.approve_review_match",
+      "parameters": [
+        {
+          "name": "row_number",
+          "annotation": "int",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "token_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "job_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "verification_notes",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": null,
+      "description": "Manually approve a fuzzy match that required review.",
+      "docstring": "Manually approve a fuzzy match that required review.\n\nCalled by admin when reviewing flagged matches in the UI.",
       "source": {
         "file": "services/integrations/csv_reconciliation.py",
-        "line_start": 523,
-        "line_end": 662
+        "line_start": 528,
+        "line_end": 670
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=approve_review_match",
+          "qualified_name=services.integrations.csv_reconciliation.CSVReconciliationService.approve_review_match"
+        ]
       },
       "review_status": "generated"
     }
@@ -109,7 +337,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=CSVReconciliationService",
+      "source_path=services/integrations/csv_reconciliation.py"
+    ]
   },
   "review_status": "generated"
 }

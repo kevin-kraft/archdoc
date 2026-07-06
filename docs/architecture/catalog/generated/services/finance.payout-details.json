@@ -1,8 +1,20 @@
 {
   "id": "finance.payout-details",
+  "identity": {
+    "catalog_id": "finance.payout-details",
+    "logical_id": "finance.payout-details",
+    "source_id": "service:b3a251c9d74740c2",
+    "display_name": "PayoutDetailsService",
+    "aliases": [
+      "finance.payout-details",
+      "services.finance.payout_details.PayoutDetailsService"
+    ]
+  },
   "module": "services.finance.payout_details",
   "class_name": "PayoutDetailsService",
   "qualified_name": "services.finance.payout_details.PayoutDetailsService",
+  "description": null,
+  "docstring": null,
   "source": {
     "file": "services/finance/payout_details.py",
     "line_start": 29,
@@ -11,8 +23,41 @@
   "operations": [
     {
       "id": "finance.payout-details.operation.get_payout_detail",
+      "identity": {
+        "catalog_id": "finance.payout-details.operation.get_payout_detail",
+        "logical_id": "finance.payout-details.operation.get_payout_detail",
+        "source_id": "operation:62dc57023428d186",
+        "display_name": "PayoutDetailsService.get_payout_detail",
+        "aliases": [
+          "finance.payout-details.operation.get_payout_detail",
+          "services.finance.payout_details.PayoutDetailsService.get_payout_detail"
+        ]
+      },
       "method": "get_payout_detail",
       "qualified_name": "services.finance.payout_details.PayoutDetailsService.get_payout_detail",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str | UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_id",
+          "annotation": "str | UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": null,
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "dict[str, Any] | None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_details.py",
         "line_start": 483,
@@ -21,7 +66,11 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_payout_detail",
+          "qualified_name=services.finance.payout_details.PayoutDetailsService.get_payout_detail"
+        ]
       },
       "review_status": "generated"
     }
@@ -29,7 +78,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=PayoutDetailsService",
+      "source_path=services/finance/payout_details.py"
+    ]
   },
   "review_status": "generated"
 }

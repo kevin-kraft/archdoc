@@ -1,18 +1,57 @@
 {
   "id": "finance.payments",
+  "identity": {
+    "catalog_id": "finance.payments",
+    "logical_id": "finance.payments",
+    "source_id": "service:c855a87777fd7a4d",
+    "display_name": "PaymentsService",
+    "aliases": [
+      "finance.payments",
+      "services.finance.payments.PaymentsService"
+    ]
+  },
   "module": "services.finance.payments",
   "class_name": "PaymentsService",
   "qualified_name": "services.finance.payments.PaymentsService",
+  "description": null,
+  "docstring": null,
   "source": {
     "file": "services/finance/payments.py",
     "line_start": 9,
-    "line_end": 22
+    "line_end": 15
   },
   "operations": [
     {
       "id": "finance.payments.operation.create_payment_method",
+      "identity": {
+        "catalog_id": "finance.payments.operation.create_payment_method",
+        "logical_id": "finance.payments.operation.create_payment_method",
+        "source_id": "operation:37022aad72e348b8",
+        "display_name": "PaymentsService.create_payment_method",
+        "aliases": [
+          "finance.payments.operation.create_payment_method",
+          "services.finance.payment_methods.PaymentMethodsMixin.create_payment_method"
+        ]
+      },
       "method": "create_payment_method",
       "qualified_name": "services.finance.payment_methods.PaymentMethodsMixin.create_payment_method",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "method_data",
+          "annotation": "PaymentMethodCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payment_methods.py",
         "line_start": 13,
@@ -21,14 +60,51 @@
       "detection": {
         "method": "inherited_public_method_from_PaymentMethodsMixin",
         "rule": "inherited_public_method_from_PaymentMethodsMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_payment_method",
+          "qualified_name=services.finance.payment_methods.PaymentMethodsMixin.create_payment_method"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.payments.operation.update_payment_method",
+      "identity": {
+        "catalog_id": "finance.payments.operation.update_payment_method",
+        "logical_id": "finance.payments.operation.update_payment_method",
+        "source_id": "operation:ff44be39fbaa3fe0",
+        "display_name": "PaymentsService.update_payment_method",
+        "aliases": [
+          "finance.payments.operation.update_payment_method",
+          "services.finance.payment_methods.PaymentMethodsMixin.update_payment_method"
+        ]
+      },
       "method": "update_payment_method",
       "qualified_name": "services.finance.payment_methods.PaymentMethodsMixin.update_payment_method",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "method_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "update_data",
+          "annotation": "Any",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any | None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payment_methods.py",
         "line_start": 46,
@@ -37,62 +113,264 @@
       "detection": {
         "method": "inherited_public_method_from_PaymentMethodsMixin",
         "rule": "inherited_public_method_from_PaymentMethodsMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_payment_method",
+          "qualified_name=services.finance.payment_methods.PaymentMethodsMixin.update_payment_method"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.payments.operation.create_payout",
+      "identity": {
+        "catalog_id": "finance.payments.operation.create_payout",
+        "logical_id": "finance.payments.operation.create_payout",
+        "source_id": "operation:b424da1fbdeea195",
+        "display_name": "PaymentsService.create_payout",
+        "aliases": [
+          "finance.payments.operation.create_payout",
+          "services.finance.payout_creation.PayoutCreationMixin.create_payout"
+        ]
+      },
       "method": "create_payout",
       "qualified_name": "services.finance.payout_creation.PayoutCreationMixin.create_payout",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_data",
+          "annotation": "PayoutCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "Any",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_creation.py",
-        "line_start": 338,
-        "line_end": 369
+        "line_start": 362,
+        "line_end": 393
       },
       "detection": {
         "method": "inherited_public_method_from_PayoutCreationMixin",
         "rule": "inherited_public_method_from_PayoutCreationMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_payout",
+          "qualified_name=services.finance.payout_creation.PayoutCreationMixin.create_payout"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.payments.operation.update_payout_status",
+      "identity": {
+        "catalog_id": "finance.payments.operation.update_payout_status",
+        "logical_id": "finance.payments.operation.update_payout_status",
+        "source_id": "operation:3adbb483472ff3c2",
+        "display_name": "PaymentsService.update_payout_status",
+        "aliases": [
+          "finance.payments.operation.update_payout_status",
+          "services.finance.payout_creation.PayoutCreationMixin.update_payout_status"
+        ]
+      },
       "method": "update_payout_status",
       "qualified_name": "services.finance.payout_creation.PayoutCreationMixin.update_payout_status",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "status",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "transaction_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "failure_reason",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "override_reason",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "Any | None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_creation.py",
-        "line_start": 371,
-        "line_end": 413
+        "line_start": 395,
+        "line_end": 437
       },
       "detection": {
         "method": "inherited_public_method_from_PayoutCreationMixin",
         "rule": "inherited_public_method_from_PayoutCreationMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_payout_status",
+          "qualified_name=services.finance.payout_creation.PayoutCreationMixin.update_payout_status"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.payments.operation.approve_dispatch",
+      "identity": {
+        "catalog_id": "finance.payments.operation.approve_dispatch",
+        "logical_id": "finance.payments.operation.approve_dispatch",
+        "source_id": "operation:553cdfb189727120",
+        "display_name": "PaymentsService.approve_dispatch",
+        "aliases": [
+          "finance.payments.operation.approve_dispatch",
+          "services.finance.payout_creation.PayoutCreationMixin.approve_dispatch"
+        ]
+      },
       "method": "approve_dispatch",
       "qualified_name": "services.finance.payout_creation.PayoutCreationMixin.approve_dispatch",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "provider_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "payout_ids",
+          "annotation": "list[str]",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "payment_settings",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_creation.py",
-        "line_start": 415,
-        "line_end": 492
+        "line_start": 439,
+        "line_end": 525
       },
       "detection": {
         "method": "inherited_public_method_from_PayoutCreationMixin",
         "rule": "inherited_public_method_from_PayoutCreationMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=approve_dispatch",
+          "qualified_name=services.finance.payout_creation.PayoutCreationMixin.approve_dispatch"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.payments.operation.update_payout_from_provider",
+      "identity": {
+        "catalog_id": "finance.payments.operation.update_payout_from_provider",
+        "logical_id": "finance.payments.operation.update_payout_from_provider",
+        "source_id": "operation:9a7919ac15425fd9",
+        "display_name": "PaymentsService.update_payout_from_provider",
+        "aliases": [
+          "finance.payments.operation.update_payout_from_provider",
+          "services.finance.payout_provider_sync.PayoutProviderSyncMixin.update_payout_from_provider"
+        ]
+      },
       "method": "update_payout_from_provider",
       "qualified_name": "services.finance.payout_provider_sync.PayoutProviderSyncMixin.update_payout_from_provider",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "transaction_status",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "provider_status_raw",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "error_message",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "refresh_from_provider",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "Any | None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_provider_sync.py",
         "line_start": 249,
@@ -101,14 +379,51 @@
       "detection": {
         "method": "inherited_public_method_from_PayoutProviderSyncMixin",
         "rule": "inherited_public_method_from_PayoutProviderSyncMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_payout_from_provider",
+          "qualified_name=services.finance.payout_provider_sync.PayoutProviderSyncMixin.update_payout_from_provider"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.payments.operation.check_payout_provider_status",
+      "identity": {
+        "catalog_id": "finance.payments.operation.check_payout_provider_status",
+        "logical_id": "finance.payments.operation.check_payout_provider_status",
+        "source_id": "operation:8a0cbcbb3d31f296",
+        "display_name": "PaymentsService.check_payout_provider_status",
+        "aliases": [
+          "finance.payments.operation.check_payout_provider_status",
+          "services.finance.payout_provider_sync.PayoutProviderSyncMixin.check_payout_provider_status"
+        ]
+      },
       "method": "check_payout_provider_status",
       "qualified_name": "services.finance.payout_provider_sync.PayoutProviderSyncMixin.check_payout_provider_status",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_provider_sync.py",
         "line_start": 299,
@@ -117,14 +432,57 @@
       "detection": {
         "method": "inherited_public_method_from_PayoutProviderSyncMixin",
         "rule": "inherited_public_method_from_PayoutProviderSyncMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=check_payout_provider_status",
+          "qualified_name=services.finance.payout_provider_sync.PayoutProviderSyncMixin.check_payout_provider_status"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.payments.operation.cancel_payout_at_provider",
+      "identity": {
+        "catalog_id": "finance.payments.operation.cancel_payout_at_provider",
+        "logical_id": "finance.payments.operation.cancel_payout_at_provider",
+        "source_id": "operation:3ebcfbae2283d052",
+        "display_name": "PaymentsService.cancel_payout_at_provider",
+        "aliases": [
+          "finance.payments.operation.cancel_payout_at_provider",
+          "services.finance.payout_provider_sync.PayoutProviderSyncMixin.cancel_payout_at_provider"
+        ]
+      },
       "method": "cancel_payout_at_provider",
       "qualified_name": "services.finance.payout_provider_sync.PayoutProviderSyncMixin.cancel_payout_at_provider",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "override_reason",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_provider_sync.py",
         "line_start": 406,
@@ -133,7 +491,11 @@
       "detection": {
         "method": "inherited_public_method_from_PayoutProviderSyncMixin",
         "rule": "inherited_public_method_from_PayoutProviderSyncMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=cancel_payout_at_provider",
+          "qualified_name=services.finance.payout_provider_sync.PayoutProviderSyncMixin.cancel_payout_at_provider"
+        ]
       },
       "review_status": "generated"
     }
@@ -141,7 +503,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=PaymentsService",
+      "source_path=services/finance/payments.py"
+    ]
   },
   "review_status": "generated"
 }

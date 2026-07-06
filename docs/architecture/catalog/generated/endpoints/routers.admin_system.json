@@ -4,7 +4,20 @@
   "source_file": "routers/admin_system.py",
   "endpoints": [
     {
-      "id": "routers.admin_system.get.logs.get-system-logs",
+      "id": "routers.admin_system.get.admin.system.logs.get-system-logs",
+      "identity": {
+        "catalog_id": "routers.admin_system.get.admin.system.logs.get-system-logs",
+        "logical_id": "routers.admin_system.get.admin.system.logs.get-system-logs",
+        "source_id": "endpoint:20045a0b08503c33",
+        "display_name": "GET /admin/system/logs",
+        "aliases": [
+          "routers.admin_system.get.admin.system.logs.get-system-logs",
+          "routers.admin_system.get_system_logs",
+          "/logs",
+          "/admin/system",
+          "/admin/system/logs"
+        ]
+      },
       "module": "routers.admin_system",
       "function_name": "get_system_logs",
       "qualified_name": "routers.admin_system.get_system_logs",
@@ -18,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "/logs",
+      "include_prefix": null,
+      "router_prefix": "/admin/system",
+      "full_path": "/admin/system/logs",
       "router": "router",
       "kwargs": {
         "response_model": "SystemLogsResponse"
@@ -53,12 +69,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/logs",
+          "include_prefix=None",
+          "router_prefix=/admin/system",
+          "full_path=/admin/system/logs",
+          "function=routers.admin_system.get_system_logs"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_system.get.settings.get-system-settings",
+      "id": "routers.admin_system.get.admin.system.settings.get-system-settings",
+      "identity": {
+        "catalog_id": "routers.admin_system.get.admin.system.settings.get-system-settings",
+        "logical_id": "routers.admin_system.get.admin.system.settings.get-system-settings",
+        "source_id": "endpoint:297a674c519ca827",
+        "display_name": "GET /admin/system/settings",
+        "aliases": [
+          "routers.admin_system.get.admin.system.settings.get-system-settings",
+          "routers.admin_system.get_system_settings",
+          "/settings",
+          "/admin/system",
+          "/admin/system/settings"
+        ]
+      },
       "module": "routers.admin_system",
       "function_name": "get_system_settings",
       "qualified_name": "routers.admin_system.get_system_settings",
@@ -74,6 +111,9 @@
       },
       "http_method": "GET",
       "path": "/settings",
+      "include_prefix": null,
+      "router_prefix": "/admin/system",
+      "full_path": "/admin/system/settings",
       "router": "router",
       "kwargs": {
         "response_model": "SystemSettings"
@@ -102,12 +142,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/settings",
+          "include_prefix=None",
+          "router_prefix=/admin/system",
+          "full_path=/admin/system/settings",
+          "function=routers.admin_system.get_system_settings"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_system.get.status.get-system-status",
+      "id": "routers.admin_system.get.admin.system.status.get-system-status",
+      "identity": {
+        "catalog_id": "routers.admin_system.get.admin.system.status.get-system-status",
+        "logical_id": "routers.admin_system.get.admin.system.status.get-system-status",
+        "source_id": "endpoint:f5dad546d821d80f",
+        "display_name": "GET /admin/system/status",
+        "aliases": [
+          "routers.admin_system.get.admin.system.status.get-system-status",
+          "routers.admin_system.get_system_status",
+          "/status",
+          "/admin/system",
+          "/admin/system/status"
+        ]
+      },
       "module": "routers.admin_system",
       "function_name": "get_system_status",
       "qualified_name": "routers.admin_system.get_system_status",
@@ -121,6 +182,9 @@
       },
       "http_method": "GET",
       "path": "/status",
+      "include_prefix": null,
+      "router_prefix": "/admin/system",
+      "full_path": "/admin/system/status",
       "router": "router",
       "kwargs": {
         "response_model": "SystemStatusResponse"
@@ -149,12 +213,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/status",
+          "include_prefix=None",
+          "router_prefix=/admin/system",
+          "full_path=/admin/system/status",
+          "function=routers.admin_system.get_system_status"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_system.put.settings.update-system-settings",
+      "id": "routers.admin_system.put.admin.system.settings.update-system-settings",
+      "identity": {
+        "catalog_id": "routers.admin_system.put.admin.system.settings.update-system-settings",
+        "logical_id": "routers.admin_system.put.admin.system.settings.update-system-settings",
+        "source_id": "endpoint:4151efdd72ae0e1f",
+        "display_name": "PUT /admin/system/settings",
+        "aliases": [
+          "routers.admin_system.put.admin.system.settings.update-system-settings",
+          "routers.admin_system.update_system_settings",
+          "/settings",
+          "/admin/system",
+          "/admin/system/settings"
+        ]
+      },
       "module": "routers.admin_system",
       "function_name": "update_system_settings",
       "qualified_name": "routers.admin_system.update_system_settings",
@@ -170,6 +255,9 @@
       },
       "http_method": "PUT",
       "path": "/settings",
+      "include_prefix": null,
+      "router_prefix": "/admin/system",
+      "full_path": "/admin/system/settings",
       "router": "router",
       "kwargs": {
         "response_model": "SystemSettings"
@@ -212,7 +300,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/settings",
+          "include_prefix=None",
+          "router_prefix=/admin/system",
+          "full_path=/admin/system/settings",
+          "function=routers.admin_system.update_system_settings"
+        ]
       },
       "review_status": "generated"
     }

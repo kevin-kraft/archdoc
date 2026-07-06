@@ -1,8 +1,20 @@
 {
   "id": "common.translation",
+  "identity": {
+    "catalog_id": "common.translation",
+    "logical_id": "common.translation",
+    "source_id": "service:e30d5911a78bb2a1",
+    "display_name": "TranslationService",
+    "aliases": [
+      "common.translation",
+      "services.common.translation.TranslationService"
+    ]
+  },
   "module": "services.common.translation",
   "class_name": "TranslationService",
   "qualified_name": "services.common.translation.TranslationService",
+  "description": "Service for managing multi-language translations",
+  "docstring": "Service for managing multi-language translations",
   "source": {
     "file": "services/common/translation.py",
     "line_start": 24,
@@ -11,8 +23,22 @@
   "operations": [
     {
       "id": "common.translation.operation.get_available_languages",
+      "identity": {
+        "catalog_id": "common.translation.operation.get_available_languages",
+        "logical_id": "common.translation.operation.get_available_languages",
+        "source_id": "operation:7ebe980766a44f81",
+        "display_name": "TranslationService.get_available_languages",
+        "aliases": [
+          "common.translation.operation.get_available_languages",
+          "services.common.translation.TranslationService.get_available_languages"
+        ]
+      },
       "method": "get_available_languages",
       "qualified_name": "services.common.translation.TranslationService.get_available_languages",
+      "parameters": [],
+      "returns": "list[Language]",
+      "description": "Get all available languages in the system",
+      "docstring": "Get all available languages in the system",
       "source": {
         "file": "services/common/translation.py",
         "line_start": 190,
@@ -21,14 +47,39 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_available_languages",
+          "qualified_name=services.common.translation.TranslationService.get_available_languages"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "common.translation.operation.get_org_languages",
+      "identity": {
+        "catalog_id": "common.translation.operation.get_org_languages",
+        "logical_id": "common.translation.operation.get_org_languages",
+        "source_id": "operation:d1d1f7d796bd1135",
+        "display_name": "TranslationService.get_org_languages",
+        "aliases": [
+          "common.translation.operation.get_org_languages",
+          "services.common.translation.TranslationService.get_org_languages"
+        ]
+      },
       "method": "get_org_languages",
       "qualified_name": "services.common.translation.TranslationService.get_org_languages",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[dict[str, Any]]",
+      "description": "Get languages enabled for an organization",
+      "docstring": "Get languages enabled for an organization",
       "source": {
         "file": "services/common/translation.py",
         "line_start": 197,
@@ -37,14 +88,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_org_languages",
+          "qualified_name=services.common.translation.TranslationService.get_org_languages"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "common.translation.operation.enable_language",
+      "identity": {
+        "catalog_id": "common.translation.operation.enable_language",
+        "logical_id": "common.translation.operation.enable_language",
+        "source_id": "operation:5b36614a15ec22e2",
+        "display_name": "TranslationService.enable_language",
+        "aliases": [
+          "common.translation.operation.enable_language",
+          "services.common.translation.TranslationService.enable_language"
+        ]
+      },
       "method": "enable_language",
       "qualified_name": "services.common.translation.TranslationService.enable_language",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "language_code",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "is_default",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "OrgLanguage",
+      "description": "Enable a language for an organization",
+      "docstring": "Enable a language for an organization",
       "source": {
         "file": "services/common/translation.py",
         "line_start": 224,
@@ -53,14 +141,57 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=enable_language",
+          "qualified_name=services.common.translation.TranslationService.enable_language"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "common.translation.operation.get_translation",
+      "identity": {
+        "catalog_id": "common.translation.operation.get_translation",
+        "logical_id": "common.translation.operation.get_translation",
+        "source_id": "operation:e2f1fe6cad2cdfc0",
+        "display_name": "TranslationService.get_translation",
+        "aliases": [
+          "common.translation.operation.get_translation",
+          "services.common.translation.TranslationService.get_translation"
+        ]
+      },
       "method": "get_translation",
       "qualified_name": "services.common.translation.TranslationService.get_translation",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "Optional[UUID]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "namespace_key",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "translation_key",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "language_code",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Optional[str]",
+      "description": "Get a specific translation",
+      "docstring": "Get a specific translation",
       "source": {
         "file": "services/common/translation.py",
         "line_start": 277,
@@ -69,14 +200,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_translation",
+          "qualified_name=services.common.translation.TranslationService.get_translation"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "common.translation.operation.get_translations_bulk",
+      "identity": {
+        "catalog_id": "common.translation.operation.get_translations_bulk",
+        "logical_id": "common.translation.operation.get_translations_bulk",
+        "source_id": "operation:23af3a2cfe77c5b2",
+        "display_name": "TranslationService.get_translations_bulk",
+        "aliases": [
+          "common.translation.operation.get_translations_bulk",
+          "services.common.translation.TranslationService.get_translations_bulk"
+        ]
+      },
       "method": "get_translations_bulk",
       "qualified_name": "services.common.translation.TranslationService.get_translations_bulk",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "Optional[UUID]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "language_code",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "namespace_keys",
+          "annotation": "Optional[list[str]]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, dict[str, str]]",
+      "description": "Get all translations for a language, optionally filtered by namespaces",
+      "docstring": "Get all translations for a language, optionally filtered by namespaces",
       "source": {
         "file": "services/common/translation.py",
         "line_start": 336,
@@ -85,14 +253,69 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_translations_bulk",
+          "qualified_name=services.common.translation.TranslationService.get_translations_bulk"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "common.translation.operation.update_translation",
+      "identity": {
+        "catalog_id": "common.translation.operation.update_translation",
+        "logical_id": "common.translation.operation.update_translation",
+        "source_id": "operation:a908929c0fce773c",
+        "display_name": "TranslationService.update_translation",
+        "aliases": [
+          "common.translation.operation.update_translation",
+          "services.common.translation.TranslationService.update_translation"
+        ]
+      },
       "method": "update_translation",
       "qualified_name": "services.common.translation.TranslationService.update_translation",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "Optional[UUID]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "namespace_key",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "translation_key",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "language_code",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "text",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Translation",
+      "description": "Update or create a translation",
+      "docstring": "Update or create a translation",
       "source": {
         "file": "services/common/translation.py",
         "line_start": 392,
@@ -101,14 +324,57 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_translation",
+          "qualified_name=services.common.translation.TranslationService.update_translation"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "common.translation.operation.export_translations",
+      "identity": {
+        "catalog_id": "common.translation.operation.export_translations",
+        "logical_id": "common.translation.operation.export_translations",
+        "source_id": "operation:c207abe6e6d9124d",
+        "display_name": "TranslationService.export_translations",
+        "aliases": [
+          "common.translation.operation.export_translations",
+          "services.common.translation.TranslationService.export_translations"
+        ]
+      },
       "method": "export_translations",
       "qualified_name": "services.common.translation.TranslationService.export_translations",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "language_codes",
+          "annotation": "list[str]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "file_format",
+          "annotation": "str",
+          "default": "'json'",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "namespace_keys",
+          "annotation": "Optional[list[str]]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bytes",
+      "description": "Export translations in various formats",
+      "docstring": "Export translations in various formats",
       "source": {
         "file": "services/common/translation.py",
         "line_start": 483,
@@ -117,14 +383,45 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=export_translations",
+          "qualified_name=services.common.translation.TranslationService.export_translations"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "common.translation.operation.calculate_completion",
+      "identity": {
+        "catalog_id": "common.translation.operation.calculate_completion",
+        "logical_id": "common.translation.operation.calculate_completion",
+        "source_id": "operation:9eb47d1caae6ca69",
+        "display_name": "TranslationService.calculate_completion",
+        "aliases": [
+          "common.translation.operation.calculate_completion",
+          "services.common.translation.TranslationService.calculate_completion"
+        ]
+      },
       "method": "calculate_completion",
       "qualified_name": "services.common.translation.TranslationService.calculate_completion",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "language_code",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "float",
+      "description": "Calculate translation completion percentage for a language",
+      "docstring": "Calculate translation completion percentage for a language",
       "source": {
         "file": "services/common/translation.py",
         "line_start": 546,
@@ -133,7 +430,11 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=calculate_completion",
+          "qualified_name=services.common.translation.TranslationService.calculate_completion"
+        ]
       },
       "review_status": "generated"
     }
@@ -141,7 +442,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=TranslationService",
+      "source_path=services/common/translation.py"
+    ]
   },
   "review_status": "generated"
 }

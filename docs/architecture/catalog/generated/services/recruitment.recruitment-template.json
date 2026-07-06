@@ -1,8 +1,20 @@
 {
   "id": "recruitment.recruitment-template",
+  "identity": {
+    "catalog_id": "recruitment.recruitment-template",
+    "logical_id": "recruitment.recruitment-template",
+    "source_id": "service:db475498b63eadeb",
+    "display_name": "RecruitmentTemplateService",
+    "aliases": [
+      "recruitment.recruitment-template",
+      "services.recruitment.template.RecruitmentTemplateService"
+    ]
+  },
   "module": "services.recruitment.template",
   "class_name": "RecruitmentTemplateService",
   "qualified_name": "services.recruitment.template.RecruitmentTemplateService",
+  "description": null,
+  "docstring": null,
   "source": {
     "file": "services/recruitment/template.py",
     "line_start": 17,
@@ -11,8 +23,41 @@
   "operations": [
     {
       "id": "recruitment.recruitment-template.operation.create_template",
+      "identity": {
+        "catalog_id": "recruitment.recruitment-template.operation.create_template",
+        "logical_id": "recruitment.recruitment-template.operation.create_template",
+        "source_id": "operation:015931ede091d5d9",
+        "display_name": "RecruitmentTemplateService.create_template",
+        "aliases": [
+          "recruitment.recruitment-template.operation.create_template",
+          "services.recruitment.template.RecruitmentTemplateService.create_template"
+        ]
+      },
       "method": "create_template",
       "qualified_name": "services.recruitment.template.RecruitmentTemplateService.create_template",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "template_data",
+          "annotation": "TemplateCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "TemplateResponse",
+      "description": "Create a new recruitment template with RBAC enforcement",
+      "docstring": "Create a new recruitment template with RBAC enforcement",
       "source": {
         "file": "services/recruitment/template.py",
         "line_start": 33,
@@ -21,14 +66,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_template",
+          "qualified_name=services.recruitment.template.RecruitmentTemplateService.create_template"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.recruitment-template.operation.get_template",
+      "identity": {
+        "catalog_id": "recruitment.recruitment-template.operation.get_template",
+        "logical_id": "recruitment.recruitment-template.operation.get_template",
+        "source_id": "operation:2f8a993d7d726043",
+        "display_name": "RecruitmentTemplateService.get_template",
+        "aliases": [
+          "recruitment.recruitment-template.operation.get_template",
+          "services.recruitment.template.RecruitmentTemplateService.get_template"
+        ]
+      },
       "method": "get_template",
       "qualified_name": "services.recruitment.template.RecruitmentTemplateService.get_template",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "template_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Optional[TemplateResponse]",
+      "description": "Get a specific recruitment template with RBAC enforcement",
+      "docstring": "Get a specific recruitment template with RBAC enforcement",
       "source": {
         "file": "services/recruitment/template.py",
         "line_start": 68,
@@ -37,14 +119,57 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_template",
+          "qualified_name=services.recruitment.template.RecruitmentTemplateService.get_template"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.recruitment-template.operation.list_templates",
+      "identity": {
+        "catalog_id": "recruitment.recruitment-template.operation.list_templates",
+        "logical_id": "recruitment.recruitment-template.operation.list_templates",
+        "source_id": "operation:c6ebeb6f8bb4d641",
+        "display_name": "RecruitmentTemplateService.list_templates",
+        "aliases": [
+          "recruitment.recruitment-template.operation.list_templates",
+          "services.recruitment.template.RecruitmentTemplateService.list_templates"
+        ]
+      },
       "method": "list_templates",
       "qualified_name": "services.recruitment.template.RecruitmentTemplateService.list_templates",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "skip",
+          "annotation": "int",
+          "default": "0",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "100",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[TemplateResponse]",
+      "description": "List recruitment templates with RBAC enforcement",
+      "docstring": "List recruitment templates with RBAC enforcement",
       "source": {
         "file": "services/recruitment/template.py",
         "line_start": 92,
@@ -53,14 +178,57 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=list_templates",
+          "qualified_name=services.recruitment.template.RecruitmentTemplateService.list_templates"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.recruitment-template.operation.update_template",
+      "identity": {
+        "catalog_id": "recruitment.recruitment-template.operation.update_template",
+        "logical_id": "recruitment.recruitment-template.operation.update_template",
+        "source_id": "operation:a7694b392a24a55d",
+        "display_name": "RecruitmentTemplateService.update_template",
+        "aliases": [
+          "recruitment.recruitment-template.operation.update_template",
+          "services.recruitment.template.RecruitmentTemplateService.update_template"
+        ]
+      },
       "method": "update_template",
       "qualified_name": "services.recruitment.template.RecruitmentTemplateService.update_template",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "template_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "template_data",
+          "annotation": "TemplateUpdate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Optional[TemplateResponse]",
+      "description": "Update a recruitment template with RBAC enforcement",
+      "docstring": "Update a recruitment template with RBAC enforcement",
       "source": {
         "file": "services/recruitment/template.py",
         "line_start": 114,
@@ -69,14 +237,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_template",
+          "qualified_name=services.recruitment.template.RecruitmentTemplateService.update_template"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.recruitment-template.operation.delete_template",
+      "identity": {
+        "catalog_id": "recruitment.recruitment-template.operation.delete_template",
+        "logical_id": "recruitment.recruitment-template.operation.delete_template",
+        "source_id": "operation:f7235ba8f8198f2e",
+        "display_name": "RecruitmentTemplateService.delete_template",
+        "aliases": [
+          "recruitment.recruitment-template.operation.delete_template",
+          "services.recruitment.template.RecruitmentTemplateService.delete_template"
+        ]
+      },
       "method": "delete_template",
       "qualified_name": "services.recruitment.template.RecruitmentTemplateService.delete_template",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "template_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": "Delete a recruitment template with RBAC enforcement",
+      "docstring": "Delete a recruitment template with RBAC enforcement",
       "source": {
         "file": "services/recruitment/template.py",
         "line_start": 150,
@@ -85,7 +290,11 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=delete_template",
+          "qualified_name=services.recruitment.template.RecruitmentTemplateService.delete_template"
+        ]
       },
       "review_status": "generated"
     }
@@ -93,7 +302,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=RecruitmentTemplateService",
+      "source_path=services/recruitment/template.py"
+    ]
   },
   "review_status": "generated"
 }

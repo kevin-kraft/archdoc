@@ -57,7 +57,10 @@ export function getArchdocApiBaseUrl() {
     return window.ARCHDOC_API_BASE_URL;
   }
 
-  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+  const isLoopbackHost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const isDocusaurusDevServer = isLoopbackHost && window.location.port === '3000';
+
+  if (isDocusaurusDevServer) {
     return 'http://localhost:8010';
   }
 
@@ -194,6 +197,7 @@ export async function fetchOperationRows(params: TableQueryParams) {
     sort: params.sortKey,
     direction: params.sortDirection,
     coverage: params.filters.coverage ?? 'all',
+    relation: params.filters.relations ?? 'all',
     review_status: params.filters.review_status ?? 'all',
   });
 }

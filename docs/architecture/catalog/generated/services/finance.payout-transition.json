@@ -1,18 +1,51 @@
 {
   "id": "finance.payout-transition",
+  "identity": {
+    "catalog_id": "finance.payout-transition",
+    "logical_id": "finance.payout-transition",
+    "source_id": "service:371f29f40e003f89",
+    "display_name": "PayoutTransitionService",
+    "aliases": [
+      "finance.payout-transition",
+      "services.finance.payout_transitions.PayoutTransitionService"
+    ]
+  },
   "module": "services.finance.payout_transitions",
   "class_name": "PayoutTransitionService",
   "qualified_name": "services.finance.payout_transitions.PayoutTransitionService",
+  "description": "Single authority for payout status transitions and their side effects.",
+  "docstring": "Single authority for payout status transitions and their side effects.",
   "source": {
     "file": "services/finance/payout_transitions.py",
     "line_start": 34,
-    "line_end": 567
+    "line_end": 570
   },
   "operations": [
     {
       "id": "finance.payout-transition.operation.status_value",
+      "identity": {
+        "catalog_id": "finance.payout-transition.operation.status_value",
+        "logical_id": "finance.payout-transition.operation.status_value",
+        "source_id": "operation:812dbd43ecc9669c",
+        "display_name": "PayoutTransitionService.status_value",
+        "aliases": [
+          "finance.payout-transition.operation.status_value",
+          "services.finance.payout_transitions.PayoutTransitionService.status_value"
+        ]
+      },
       "method": "status_value",
       "qualified_name": "services.finance.payout_transitions.PayoutTransitionService.status_value",
+      "parameters": [
+        {
+          "name": "status",
+          "annotation": "Any",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "str",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_transitions.py",
         "line_start": 52,
@@ -21,23 +54,136 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=status_value",
+          "qualified_name=services.finance.payout_transitions.PayoutTransitionService.status_value"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.payout-transition.operation.transition",
+      "identity": {
+        "catalog_id": "finance.payout-transition.operation.transition",
+        "logical_id": "finance.payout-transition.operation.transition",
+        "source_id": "operation:65dc5156992cb3e6",
+        "display_name": "PayoutTransitionService.transition",
+        "aliases": [
+          "finance.payout-transition.operation.transition",
+          "services.finance.payout_transitions.PayoutTransitionService.transition"
+        ]
+      },
       "method": "transition",
       "qualified_name": "services.finance.payout_transitions.PayoutTransitionService.transition",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str | uuid.UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "payout",
+          "annotation": "Payout",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "target_status",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "str | uuid.UUID | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "transaction_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "failure_reason",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "override_reason",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "effective_at",
+          "annotation": "datetime | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "require_approval_gate",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "sync_compensation",
+          "annotation": "bool",
+          "default": "True",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "queue_dispatch_notification",
+          "annotation": "bool",
+          "default": "True",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "audit_action",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "audit_changes",
+          "annotation": "dict[str, Any] | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "payment_settings",
+          "annotation": "dict[str, Any] | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "commit",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "Payout",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_transitions.py",
-        "line_start": 495,
-        "line_end": 567
+        "line_start": 498,
+        "line_end": 570
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=transition",
+          "qualified_name=services.finance.payout_transitions.PayoutTransitionService.transition"
+        ]
       },
       "review_status": "generated"
     }
@@ -45,7 +191,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=PayoutTransitionService",
+      "source_path=services/finance/payout_transitions.py"
+    ]
   },
   "review_status": "generated"
 }

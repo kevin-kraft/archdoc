@@ -1444,6 +1444,74 @@
   color: var(--ifm-color-warning);
 }
 
+.archdocTraceGraphShell {
+  position: relative;
+  height: min(58vh, 560px);
+  min-height: 420px;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-color);
+}
+
+.archdocTraceGraph {
+  height: 100%;
+  background: var(--ifm-background-color);
+}
+
+.react-flow__node-default.archdocTraceGraphNode,
+.archdocTraceGraphNode {
+  max-width: 300px;
+  padding: 0.52rem;
+}
+
+.react-flow__node-default.archdocGraphNode--user_story,
+.archdocGraphNode--user_story {
+  border-color: #0f766e;
+}
+
+.react-flow__node-default.archdocGraphNode--entity,
+.archdocGraphNode--entity {
+  border-color: #ca8a04;
+  border-style: dashed;
+}
+
+.archdocTraceGraphNodeLabel strong {
+  font-size: 0.74rem;
+}
+
+.archdocTraceGraphNodeLabel span {
+  font-size: 0.64rem;
+}
+
+.archdocTraceGraphNodeLabel small {
+  font-size: 0.59rem;
+}
+
+.archdocTraceGraphEdge .react-flow__edge-text {
+  font-size: 0.58rem;
+  fill: var(--ifm-color-emphasis-700);
+}
+
+.archdocTraceNodeInspector {
+  top: 14px;
+  max-height: calc(100% - 28px);
+}
+
+[data-theme='dark'] .archdocTraceGraphShell,
+[data-theme='dark'] .archdocTraceGraph {
+  background: #181a1f;
+}
+
+[data-theme='dark'] .react-flow__node-default.archdocGraphNode--user_story,
+[data-theme='dark'] .archdocGraphNode--user_story {
+  border-color: #5eead4;
+}
+
+[data-theme='dark'] .react-flow__node-default.archdocGraphNode--entity,
+[data-theme='dark'] .archdocGraphNode--entity {
+  border-color: #fde68a;
+}
 .archdocStoryMarkdown {
   display: grid;
   gap: 0.45rem;
@@ -1763,5 +1831,234 @@
   .archdocUserStoryControls,
   .archdocUserStoryLayout {
     grid-template-columns: 1fr;
+  }
+}
+
+.archdocOperationRelationList {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.32rem;
+  max-width: 100%;
+}
+
+.archdocOperationRelationBadge,
+.archdocOperationRelationOverflow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  max-width: 100%;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  padding: 0.16rem 0.44rem;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-900);
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.25;
+  vertical-align: middle;
+  cursor: help;
+}
+
+.archdocOperationRelationBadge svg {
+  flex: 0 0 auto;
+  width: 0.72rem;
+  height: 0.72rem;
+}
+
+.archdocOperationRelationBadge span,
+.archdocOperationRelationBadge small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.archdocOperationRelationBadge small {
+  max-width: 14rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.archdocOperationRelationBadge--inherited {
+  border-color: #0891b2;
+  background: rgba(8, 145, 178, 0.1);
+  color: #155e75;
+}
+
+.archdocOperationRelationBadge--serviceCall {
+  border-color: var(--ifm-color-primary);
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--ifm-color-primary-darkest);
+}
+
+.archdocOperationRelationOverflow {
+  border-style: dashed;
+  color: var(--ifm-color-emphasis-700);
+}
+
+[data-theme='dark'] .archdocOperationRelationBadge,
+[data-theme='dark'] .archdocOperationRelationOverflow {
+  border-color: #4b5563;
+  background: #20242d;
+  color: #f8fafc;
+}
+
+[data-theme='dark'] .archdocOperationRelationBadge small {
+  color: #cbd5e1;
+}
+
+[data-theme='dark'] .archdocOperationRelationBadge--inherited {
+  border-color: #22d3ee;
+  background: rgba(34, 211, 238, 0.12);
+  color: #cffafe;
+}
+
+[data-theme='dark'] .archdocOperationRelationBadge--serviceCall {
+  border-color: #93c5fd;
+  background: rgba(147, 197, 253, 0.12);
+  color: #dbeafe;
+}
+.archdocDrawableDiagram {
+  margin: 1.5rem 0 2rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--ifm-background-surface-color);
+}
+
+.archdocDrawableDiagramHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.archdocDrawableDiagramHeader > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.archdocDrawableDiagramHeader span {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.82rem;
+}
+
+.archdocDrawableDiagramControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.archdocDrawableDiagramControls button,
+.archdocDrawableDiagramControls a {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
+  padding: 0.45rem 0.65rem;
+  text-decoration: none;
+}
+
+.archdocDrawableDiagramControls button:hover,
+.archdocDrawableDiagramControls a:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.archdocDrawableDiagramFrame {
+  overflow: auto;
+  cursor: grab;
+  background: #f8fafc;
+  overscroll-behavior: contain;
+  padding: 1rem;
+}
+
+.archdocDrawableDiagramFrame--dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.archdocDrawableDiagramFrame img {
+  display: block;
+  max-width: none;
+  transform-origin: top left;
+}
+
+[data-theme='dark'] .archdocDrawableDiagramFrame {
+  background: #111827;
+}
+
+.archdocPdfDocument {
+  margin: 1.5rem 0 2rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--ifm-background-surface-color);
+}
+
+.archdocPdfDocumentHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.archdocPdfDocumentHeader > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.archdocPdfDocumentHeader span {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.82rem;
+}
+
+.archdocPdfDocumentControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.archdocPdfDocumentControls a {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  line-height: 1;
+  padding: 0.45rem 0.65rem;
+  text-decoration: none;
+}
+
+.archdocPdfDocumentControls a:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.archdocPdfDocument iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: #f8fafc;
+}
+
+@media (max-width: 720px) {
+  .archdocPdfDocumentHeader {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

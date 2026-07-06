@@ -1,0 +1,41 @@
+﻿## master...origin/master
+ M README.md
+ M archdoc.yml
+ M archdoc/src/archdoc.egg-info/SOURCES.txt
+ M archdoc/src/archdoc.egg-info/dependency_links.txt
+ M archdoc/src/archdoc.egg-info/entry_points.txt
+ M archdoc/src/archdoc.egg-info/requires.txt
+ M archdoc/src/archdoc.egg-info/top_level.txt
+ M archdoc/src/archdoc/config/loader.py
+ M archdoc/src/archdoc/mapper/operation_link_mapper.py
+ M archdoc/src/archdoc/mapper/service_mapper.py
+ M archdoc/src/archdoc/scanner/python_scanner.py
+ M archdoc/src/archdoc/validator/catalog_validator.py
+ M docs/architecture/README.md
+ M docs/architecture/archdoc-review.sqlite3
+ M site/src/components/archdoc/TablePrimitives.tsx
+ M site/src/components/archdoc/archdocApi.ts
+ M site/src/css/custom.css
+ M site/src/features/archdoc/catalog/OperationsCatalogView.tsx
+ M site/src/features/archdoc/components/TablePrimitives.tsx
+ M site/src/features/archdoc/graph/ServiceActionGraphView.tsx
+ M ui_backend/app/main.py
+ M ui_backend/app/storage.py
+?? archdoc/src/archdoc/validator/class_resource_profile.py
+?? archdoc/tests/
+?? docs/architecture/US-FIN-016_participant_payout_experience.md
+?? docs/architecture/changes/2026-06-30-class-resource-profile-db-origin-validation.md
+?? docs/architecture/changes/2026-06-30-facade-service-resource-origin-validation.md
+?? docs/architecture/changes/2026-06-30-manual-setup-documentation.md
+?? docs/architecture/changes/2026-06-30-operation-relation-ui-badges.md
+?? docs/architecture/changes/2026-06-30-scanner-scope-regression-test-harness.md
+?? docs/architecture/changes/2026-06-30-service-inheritance-operation-links.md
+?? docs/architecture/user-stories/US-FIN-011_payout_routing_cadence.md
+?? docs/architecture/user-stories/US-FIN-012_payment_methods.md
+?? docs/architecture/user-stories/US-FIN-013_approval_workflow.md
+?? docs/architecture/user-stories/US-FIN-014_dispatch_authorization.md
+?? docs/architecture/user-stories/US-FIN-015_reset_to_defaults.md
+?? docs/architecture/user-stories/US-FIN-017.md
+?? docs/setup.md
+?? docs/todo.md
+?? recovery-backups/

@@ -4,7 +4,20 @@
   "source_file": "routers/laboratories.py",
   "endpoints": [
     {
-      "id": "routers.laboratories.delete.param-lab-id.closures.param-closure-id.delete-laboratory-closure",
+      "id": "routers.laboratories.delete.laboratories.param-lab-id.closures.param-closure-id.delete-laboratory-closure",
+      "identity": {
+        "catalog_id": "routers.laboratories.delete.laboratories.param-lab-id.closures.param-closure-id.delete-laboratory-closure",
+        "logical_id": "routers.laboratories.delete.laboratories.param-lab-id.closures.param-closure-id.delete-laboratory-closure",
+        "source_id": "endpoint:7f3894421005f8fa",
+        "display_name": "DELETE /laboratories/{lab_id}/closures/{closure_id}",
+        "aliases": [
+          "routers.laboratories.delete.laboratories.param-lab-id.closures.param-closure-id.delete-laboratory-closure",
+          "routers.laboratories.delete_laboratory_closure",
+          "/{lab_id}/closures/{closure_id}",
+          "/laboratories",
+          "/laboratories/{lab_id}/closures/{closure_id}"
+        ]
+      },
       "module": "routers.laboratories",
       "function_name": "delete_laboratory_closure",
       "qualified_name": "routers.laboratories.delete_laboratory_closure",
@@ -18,6 +31,9 @@
       },
       "http_method": "DELETE",
       "path": "/{lab_id}/closures/{closure_id}",
+      "include_prefix": "/laboratories",
+      "router_prefix": null,
+      "full_path": "/laboratories/{lab_id}/closures/{closure_id}",
       "router": "router",
       "kwargs": {
         "status_code": "status.HTTP_204_NO_CONTENT",
@@ -62,18 +78,39 @@
       ],
       "source": {
         "file": "routers/laboratories.py",
-        "line_start": 461,
-        "line_end": 479
+        "line_start": 666,
+        "line_end": 684
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/{lab_id}/closures/{closure_id}",
+          "include_prefix=/laboratories",
+          "router_prefix=None",
+          "full_path=/laboratories/{lab_id}/closures/{closure_id}",
+          "function=routers.laboratories.delete_laboratory_closure"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.laboratories.delete.param-lab-id.delete-laboratory",
+      "id": "routers.laboratories.delete.laboratories.param-lab-id.delete-laboratory",
+      "identity": {
+        "catalog_id": "routers.laboratories.delete.laboratories.param-lab-id.delete-laboratory",
+        "logical_id": "routers.laboratories.delete.laboratories.param-lab-id.delete-laboratory",
+        "source_id": "endpoint:bba40475fa9fad33",
+        "display_name": "DELETE /laboratories/{lab_id}",
+        "aliases": [
+          "routers.laboratories.delete.laboratories.param-lab-id.delete-laboratory",
+          "routers.laboratories.delete_laboratory",
+          "/{lab_id}",
+          "/laboratories",
+          "/laboratories/{lab_id}"
+        ]
+      },
       "module": "routers.laboratories",
       "function_name": "delete_laboratory",
       "qualified_name": "routers.laboratories.delete_laboratory",
@@ -87,6 +124,9 @@
       },
       "http_method": "DELETE",
       "path": "/{lab_id}",
+      "include_prefix": "/laboratories",
+      "router_prefix": null,
+      "full_path": "/laboratories/{lab_id}",
       "router": "router",
       "kwargs": {
         "status_code": "status.HTTP_204_NO_CONTENT",
@@ -124,18 +164,210 @@
       ],
       "source": {
         "file": "routers/laboratories.py",
-        "line_start": 324,
-        "line_end": 340
+        "line_start": 529,
+        "line_end": 545
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/{lab_id}",
+          "include_prefix=/laboratories",
+          "router_prefix=None",
+          "full_path=/laboratories/{lab_id}",
+          "function=routers.laboratories.delete_laboratory"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.laboratories.get.param-lab-id.closures.list-laboratory-closures",
+      "id": "routers.laboratories.delete.laboratories.reservations.param-reservation-id.delete-lab-reservation",
+      "identity": {
+        "catalog_id": "routers.laboratories.delete.laboratories.reservations.param-reservation-id.delete-lab-reservation",
+        "logical_id": "routers.laboratories.delete.laboratories.reservations.param-reservation-id.delete-lab-reservation",
+        "source_id": "endpoint:2911d37c75c79a3e",
+        "display_name": "DELETE /laboratories/reservations/{reservation_id}",
+        "aliases": [
+          "routers.laboratories.delete.laboratories.reservations.param-reservation-id.delete-lab-reservation",
+          "routers.laboratories.delete_lab_reservation",
+          "/reservations/{reservation_id}",
+          "/laboratories",
+          "/laboratories/reservations/{reservation_id}"
+        ]
+      },
+      "module": "routers.laboratories",
+      "function_name": "delete_lab_reservation",
+      "qualified_name": "routers.laboratories.delete_lab_reservation",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "DELETE",
+      "path": "/reservations/{reservation_id}",
+      "include_prefix": "/laboratories",
+      "router_prefix": null,
+      "full_path": "/laboratories/reservations/{reservation_id}",
+      "router": "router",
+      "kwargs": {
+        "status_code": "status.HTTP_204_NO_CONTENT",
+        "operation_id": "delete_lab_reservation"
+      },
+      "parameters": [
+        {
+          "name": "reservation_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(LabPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/laboratories.py",
+        "line_start": 461,
+        "line_end": 481
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/reservations/{reservation_id}",
+          "include_prefix=/laboratories",
+          "router_prefix=None",
+          "full_path=/laboratories/reservations/{reservation_id}",
+          "function=routers.laboratories.delete_lab_reservation"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.laboratories.get.laboratories.list-laboratories",
+      "identity": {
+        "catalog_id": "routers.laboratories.get.laboratories.list-laboratories",
+        "logical_id": "routers.laboratories.get.laboratories.list-laboratories",
+        "source_id": "endpoint:2e4ecf375e27cec9",
+        "display_name": "GET /laboratories",
+        "aliases": [
+          "routers.laboratories.get.laboratories.list-laboratories",
+          "routers.laboratories.list_laboratories",
+          "/",
+          "/laboratories"
+        ]
+      },
+      "module": "routers.laboratories",
+      "function_name": "list_laboratories",
+      "qualified_name": "routers.laboratories.list_laboratories",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/",
+      "include_prefix": "/laboratories",
+      "router_prefix": null,
+      "full_path": "/laboratories",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[LaboratoryResponse]",
+        "operation_id": "list_laboratories"
+      },
+      "parameters": [
+        {
+          "name": "include_inactive",
+          "annotation": "bool",
+          "default": "Query(False, description='Include inactive laboratories')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_any_permission([LabPermissions.EDIT, SessionPermissions.VIEW]))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/laboratories.py",
+        "line_start": 339,
+        "line_end": 350
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/",
+          "include_prefix=/laboratories",
+          "router_prefix=None",
+          "full_path=/laboratories",
+          "function=routers.laboratories.list_laboratories"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.laboratories.get.laboratories.param-lab-id.closures.list-laboratory-closures",
+      "identity": {
+        "catalog_id": "routers.laboratories.get.laboratories.param-lab-id.closures.list-laboratory-closures",
+        "logical_id": "routers.laboratories.get.laboratories.param-lab-id.closures.list-laboratory-closures",
+        "source_id": "endpoint:3c68a8009e45148c",
+        "display_name": "GET /laboratories/{lab_id}/closures",
+        "aliases": [
+          "routers.laboratories.get.laboratories.param-lab-id.closures.list-laboratory-closures",
+          "routers.laboratories.list_laboratory_closures",
+          "/{lab_id}/closures",
+          "/laboratories",
+          "/laboratories/{lab_id}/closures"
+        ]
+      },
       "module": "routers.laboratories",
       "function_name": "list_laboratory_closures",
       "qualified_name": "routers.laboratories.list_laboratory_closures",
@@ -149,6 +381,9 @@
       },
       "http_method": "GET",
       "path": "/{lab_id}/closures",
+      "include_prefix": "/laboratories",
+      "router_prefix": null,
+      "full_path": "/laboratories/{lab_id}/closures",
       "router": "router",
       "kwargs": {
         "response_model": "list[LabClosureResponse]",
@@ -200,18 +435,39 @@
       ],
       "source": {
         "file": "routers/laboratories.py",
-        "line_start": 381,
-        "line_end": 413
+        "line_start": 586,
+        "line_end": 618
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{lab_id}/closures",
+          "include_prefix=/laboratories",
+          "router_prefix=None",
+          "full_path=/laboratories/{lab_id}/closures",
+          "function=routers.laboratories.list_laboratory_closures"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.laboratories.get.param-lab-id.get-laboratory",
+      "id": "routers.laboratories.get.laboratories.param-lab-id.get-laboratory",
+      "identity": {
+        "catalog_id": "routers.laboratories.get.laboratories.param-lab-id.get-laboratory",
+        "logical_id": "routers.laboratories.get.laboratories.param-lab-id.get-laboratory",
+        "source_id": "endpoint:1d463cf10865c1f5",
+        "display_name": "GET /laboratories/{lab_id}",
+        "aliases": [
+          "routers.laboratories.get.laboratories.param-lab-id.get-laboratory",
+          "routers.laboratories.get_laboratory",
+          "/{lab_id}",
+          "/laboratories",
+          "/laboratories/{lab_id}"
+        ]
+      },
       "module": "routers.laboratories",
       "function_name": "get_laboratory",
       "qualified_name": "routers.laboratories.get_laboratory",
@@ -225,6 +481,9 @@
       },
       "http_method": "GET",
       "path": "/{lab_id}",
+      "include_prefix": "/laboratories",
+      "router_prefix": null,
+      "full_path": "/laboratories/{lab_id}",
       "router": "router",
       "kwargs": {
         "response_model": "LaboratoryResponse",
@@ -262,21 +521,42 @@
       ],
       "source": {
         "file": "routers/laboratories.py",
-        "line_start": 281,
-        "line_end": 296
+        "line_start": 485,
+        "line_end": 500
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{lab_id}",
+          "include_prefix=/laboratories",
+          "router_prefix=None",
+          "full_path=/laboratories/{lab_id}",
+          "function=routers.laboratories.get_laboratory"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.laboratories.get.root.list-laboratories",
+      "id": "routers.laboratories.get.laboratories.reservations.list-lab-reservations",
+      "identity": {
+        "catalog_id": "routers.laboratories.get.laboratories.reservations.list-lab-reservations",
+        "logical_id": "routers.laboratories.get.laboratories.reservations.list-lab-reservations",
+        "source_id": "endpoint:1f81310f57af5632",
+        "display_name": "GET /laboratories/reservations",
+        "aliases": [
+          "routers.laboratories.get.laboratories.reservations.list-lab-reservations",
+          "routers.laboratories.list_lab_reservations",
+          "/reservations",
+          "/laboratories",
+          "/laboratories/reservations"
+        ]
+      },
       "module": "routers.laboratories",
-      "function_name": "list_laboratories",
-      "qualified_name": "routers.laboratories.list_laboratories",
+      "function_name": "list_lab_reservations",
+      "qualified_name": "routers.laboratories.list_lab_reservations",
       "implementation": {
         "kind": "direct_db_access",
         "confidence": "high",
@@ -286,17 +566,34 @@
         ]
       },
       "http_method": "GET",
-      "path": "/",
+      "path": "/reservations",
+      "include_prefix": "/laboratories",
+      "router_prefix": null,
+      "full_path": "/laboratories/reservations",
       "router": "router",
       "kwargs": {
-        "response_model": "list[LaboratoryResponse]",
-        "operation_id": "list_laboratories"
+        "response_model": "list[LabReservationResponse]",
+        "operation_id": "list_lab_reservations"
       },
       "parameters": [
         {
-          "name": "include_inactive",
-          "annotation": "bool",
-          "default": "Query(False, description='Include inactive laboratories')",
+          "name": "lab_id",
+          "annotation": "str | None",
+          "default": "Query(None, description='Filter by laboratory')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "start_at",
+          "annotation": "datetime | None",
+          "default": "Query(None, description='Filter reservations ending after this timestamp')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "end_at",
+          "annotation": "datetime | None",
+          "default": "Query(None, description='Filter reservations starting before this timestamp')",
           "kind": "positional_or_keyword",
           "source": "query"
         },
@@ -324,18 +621,125 @@
       ],
       "source": {
         "file": "routers/laboratories.py",
-        "line_start": 227,
-        "line_end": 238
+        "line_start": 394,
+        "line_end": 416
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/reservations",
+          "include_prefix=/laboratories",
+          "router_prefix=None",
+          "full_path=/laboratories/reservations",
+          "function=routers.laboratories.list_lab_reservations"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.laboratories.post.param-lab-id.closures.create-laboratory-closure",
+      "id": "routers.laboratories.post.laboratories.create-laboratory",
+      "identity": {
+        "catalog_id": "routers.laboratories.post.laboratories.create-laboratory",
+        "logical_id": "routers.laboratories.post.laboratories.create-laboratory",
+        "source_id": "endpoint:aabcda04f6d3ebd3",
+        "display_name": "POST /laboratories",
+        "aliases": [
+          "routers.laboratories.post.laboratories.create-laboratory",
+          "routers.laboratories.create_laboratory",
+          "/",
+          "/laboratories"
+        ]
+      },
+      "module": "routers.laboratories",
+      "function_name": "create_laboratory",
+      "qualified_name": "routers.laboratories.create_laboratory",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/",
+      "include_prefix": "/laboratories",
+      "router_prefix": null,
+      "full_path": "/laboratories",
+      "router": "router",
+      "kwargs": {
+        "response_model": "LaboratoryResponse",
+        "status_code": "status.HTTP_201_CREATED",
+        "operation_id": "create_laboratory"
+      },
+      "parameters": [
+        {
+          "name": "lab_data",
+          "annotation": "LaboratoryCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(LabPermissions.ADD))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/laboratories.py",
+        "line_start": 354,
+        "line_end": 390
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/",
+          "include_prefix=/laboratories",
+          "router_prefix=None",
+          "full_path=/laboratories",
+          "function=routers.laboratories.create_laboratory"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.laboratories.post.laboratories.param-lab-id.closures.create-laboratory-closure",
+      "identity": {
+        "catalog_id": "routers.laboratories.post.laboratories.param-lab-id.closures.create-laboratory-closure",
+        "logical_id": "routers.laboratories.post.laboratories.param-lab-id.closures.create-laboratory-closure",
+        "source_id": "endpoint:4b0acf5f0b8bf764",
+        "display_name": "POST /laboratories/{lab_id}/closures",
+        "aliases": [
+          "routers.laboratories.post.laboratories.param-lab-id.closures.create-laboratory-closure",
+          "routers.laboratories.create_laboratory_closure",
+          "/{lab_id}/closures",
+          "/laboratories",
+          "/laboratories/{lab_id}/closures"
+        ]
+      },
       "module": "routers.laboratories",
       "function_name": "create_laboratory_closure",
       "qualified_name": "routers.laboratories.create_laboratory_closure",
@@ -349,6 +753,9 @@
       },
       "http_method": "POST",
       "path": "/{lab_id}/closures",
+      "include_prefix": "/laboratories",
+      "router_prefix": null,
+      "full_path": "/laboratories/{lab_id}/closures",
       "router": "router",
       "kwargs": {
         "response_model": "LabClosureResponse",
@@ -394,21 +801,42 @@
       ],
       "source": {
         "file": "routers/laboratories.py",
-        "line_start": 417,
-        "line_end": 453
+        "line_start": 622,
+        "line_end": 658
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{lab_id}/closures",
+          "include_prefix=/laboratories",
+          "router_prefix=None",
+          "full_path=/laboratories/{lab_id}/closures",
+          "function=routers.laboratories.create_laboratory_closure"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.laboratories.post.root.create-laboratory",
+      "id": "routers.laboratories.post.laboratories.reservations.create-lab-reservation",
+      "identity": {
+        "catalog_id": "routers.laboratories.post.laboratories.reservations.create-lab-reservation",
+        "logical_id": "routers.laboratories.post.laboratories.reservations.create-lab-reservation",
+        "source_id": "endpoint:6235812af419089f",
+        "display_name": "POST /laboratories/reservations",
+        "aliases": [
+          "routers.laboratories.post.laboratories.reservations.create-lab-reservation",
+          "routers.laboratories.create_lab_reservation",
+          "/reservations",
+          "/laboratories",
+          "/laboratories/reservations"
+        ]
+      },
       "module": "routers.laboratories",
-      "function_name": "create_laboratory",
-      "qualified_name": "routers.laboratories.create_laboratory",
+      "function_name": "create_lab_reservation",
+      "qualified_name": "routers.laboratories.create_lab_reservation",
       "implementation": {
         "kind": "direct_db_access",
         "confidence": "high",
@@ -418,20 +846,30 @@
         ]
       },
       "http_method": "POST",
-      "path": "/",
+      "path": "/reservations",
+      "include_prefix": "/laboratories",
+      "router_prefix": null,
+      "full_path": "/laboratories/reservations",
       "router": "router",
       "kwargs": {
-        "response_model": "LaboratoryResponse",
+        "response_model": "LabReservationResponse",
         "status_code": "status.HTTP_201_CREATED",
-        "operation_id": "create_laboratory"
+        "operation_id": "create_lab_reservation"
       },
       "parameters": [
         {
-          "name": "lab_data",
-          "annotation": "LaboratoryCreate",
+          "name": "reservation_data",
+          "annotation": "LabReservationCreate",
           "default": null,
           "kind": "positional_or_keyword",
           "source": "body_or_positional"
+        },
+        {
+          "name": "lab_id",
+          "annotation": "str",
+          "default": "Query(..., description='Laboratory ID to reserve')",
+          "kind": "positional_or_keyword",
+          "source": "query"
         },
         {
           "name": "db",
@@ -448,27 +886,55 @@
           "source": "dependency"
         },
         {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission(LabPermissions.ADD))",
+          "default": "Depends(require_permission(LabPermissions.EDIT))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/laboratories.py",
-        "line_start": 242,
-        "line_end": 277
+        "line_start": 420,
+        "line_end": 453
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/reservations",
+          "include_prefix=/laboratories",
+          "router_prefix=None",
+          "full_path=/laboratories/reservations",
+          "function=routers.laboratories.create_lab_reservation"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.laboratories.put.param-lab-id.update-laboratory",
+      "id": "routers.laboratories.put.laboratories.param-lab-id.update-laboratory",
+      "identity": {
+        "catalog_id": "routers.laboratories.put.laboratories.param-lab-id.update-laboratory",
+        "logical_id": "routers.laboratories.put.laboratories.param-lab-id.update-laboratory",
+        "source_id": "endpoint:8fb4722a37fc45bb",
+        "display_name": "PUT /laboratories/{lab_id}",
+        "aliases": [
+          "routers.laboratories.put.laboratories.param-lab-id.update-laboratory",
+          "routers.laboratories.update_laboratory",
+          "/{lab_id}",
+          "/laboratories",
+          "/laboratories/{lab_id}"
+        ]
+      },
       "module": "routers.laboratories",
       "function_name": "update_laboratory",
       "qualified_name": "routers.laboratories.update_laboratory",
@@ -482,6 +948,9 @@
       },
       "http_method": "PUT",
       "path": "/{lab_id}",
+      "include_prefix": "/laboratories",
+      "router_prefix": null,
+      "full_path": "/laboratories/{lab_id}",
       "router": "router",
       "kwargs": {
         "response_model": "LaboratoryResponse",
@@ -526,13 +995,21 @@
       ],
       "source": {
         "file": "routers/laboratories.py",
-        "line_start": 300,
-        "line_end": 320
+        "line_start": 504,
+        "line_end": 525
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/{lab_id}",
+          "include_prefix=/laboratories",
+          "router_prefix=None",
+          "full_path=/laboratories/{lab_id}",
+          "function=routers.laboratories.update_laboratory"
+        ]
       },
       "review_status": "generated"
     }

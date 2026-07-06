@@ -4,20 +4,37 @@
   "source_file": "routers/email_templates.py",
   "endpoints": [
     {
-      "id": "routers.email_templates.delete.param-template-id.delete-template",
+      "id": "routers.email_templates.delete.email.templates.param-template-id.delete-template",
+      "identity": {
+        "catalog_id": "routers.email_templates.delete.email.templates.param-template-id.delete-template",
+        "logical_id": "routers.email_templates.delete.email.templates.param-template-id.delete-template",
+        "source_id": "endpoint:c3403a547e59687c",
+        "display_name": "DELETE /email/templates/{template_id}",
+        "aliases": [
+          "routers.email_templates.delete.email.templates.param-template-id.delete-template",
+          "routers.email_templates.delete_template",
+          "/{template_id}",
+          "/email/templates",
+          "/email/templates/{template_id}"
+        ]
+      },
       "module": "routers.email_templates",
       "function_name": "delete_template",
       "qualified_name": "routers.email_templates.delete_template",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "DELETE",
       "path": "/{template_id}",
+      "include_prefix": null,
+      "router_prefix": "/email/templates",
+      "full_path": "/email/templates/{template_id}",
       "router": "router",
       "kwargs": {
         "status_code": "204"
@@ -60,25 +77,50 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/{template_id}",
+          "include_prefix=None",
+          "router_prefix=/email/templates",
+          "full_path=/email/templates/{template_id}",
+          "function=routers.email_templates.delete_template"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_templates.get.categories.list.list-template-categories",
+      "id": "routers.email_templates.get.email.templates.categories.list.list-template-categories",
+      "identity": {
+        "catalog_id": "routers.email_templates.get.email.templates.categories.list.list-template-categories",
+        "logical_id": "routers.email_templates.get.email.templates.categories.list.list-template-categories",
+        "source_id": "endpoint:acc915f44ab407c1",
+        "display_name": "GET /email/templates/categories/list",
+        "aliases": [
+          "routers.email_templates.get.email.templates.categories.list.list-template-categories",
+          "routers.email_templates.list_template_categories",
+          "/categories/list",
+          "/email/templates",
+          "/email/templates/categories/list"
+        ]
+      },
       "module": "routers.email_templates",
       "function_name": "list_template_categories",
       "qualified_name": "routers.email_templates.list_template_categories",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/categories/list",
+      "include_prefix": null,
+      "router_prefix": "/email/templates",
+      "full_path": "/email/templates/categories/list",
       "router": "router",
       "kwargs": {
         "response_model": "list[str]"
@@ -114,25 +156,48 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/categories/list",
+          "include_prefix=None",
+          "router_prefix=/email/templates",
+          "full_path=/email/templates/categories/list",
+          "function=routers.email_templates.list_template_categories"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_templates.get.list-templates",
+      "id": "routers.email_templates.get.email.templates.list-templates",
+      "identity": {
+        "catalog_id": "routers.email_templates.get.email.templates.list-templates",
+        "logical_id": "routers.email_templates.get.email.templates.list-templates",
+        "source_id": "endpoint:9a72767ae11c1c92",
+        "display_name": "GET /email/templates",
+        "aliases": [
+          "routers.email_templates.get.email.templates.list-templates",
+          "routers.email_templates.list_templates",
+          "/email/templates"
+        ]
+      },
       "module": "routers.email_templates",
       "function_name": "list_templates",
       "qualified_name": "routers.email_templates.list_templates",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "",
+      "include_prefix": null,
+      "router_prefix": "/email/templates",
+      "full_path": "/email/templates",
       "router": "router",
       "kwargs": {
         "response_model": "TemplateListResponse"
@@ -203,25 +268,50 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=",
+          "include_prefix=None",
+          "router_prefix=/email/templates",
+          "full_path=/email/templates",
+          "function=routers.email_templates.list_templates"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_templates.get.param-template-id.get-template",
+      "id": "routers.email_templates.get.email.templates.param-template-id.get-template",
+      "identity": {
+        "catalog_id": "routers.email_templates.get.email.templates.param-template-id.get-template",
+        "logical_id": "routers.email_templates.get.email.templates.param-template-id.get-template",
+        "source_id": "endpoint:b3155668598d5266",
+        "display_name": "GET /email/templates/{template_id}",
+        "aliases": [
+          "routers.email_templates.get.email.templates.param-template-id.get-template",
+          "routers.email_templates.get_template",
+          "/{template_id}",
+          "/email/templates",
+          "/email/templates/{template_id}"
+        ]
+      },
       "module": "routers.email_templates",
       "function_name": "get_template",
       "qualified_name": "routers.email_templates.get_template",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/{template_id}",
+      "include_prefix": null,
+      "router_prefix": "/email/templates",
+      "full_path": "/email/templates/{template_id}",
       "router": "router",
       "kwargs": {
         "response_model": "TemplateResponse"
@@ -264,25 +354,50 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{template_id}",
+          "include_prefix=None",
+          "router_prefix=/email/templates",
+          "full_path=/email/templates/{template_id}",
+          "function=routers.email_templates.get_template"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_templates.patch.param-template-id.update-template",
+      "id": "routers.email_templates.patch.email.templates.param-template-id.update-template",
+      "identity": {
+        "catalog_id": "routers.email_templates.patch.email.templates.param-template-id.update-template",
+        "logical_id": "routers.email_templates.patch.email.templates.param-template-id.update-template",
+        "source_id": "endpoint:efb4b3667e1cff78",
+        "display_name": "PATCH /email/templates/{template_id}",
+        "aliases": [
+          "routers.email_templates.patch.email.templates.param-template-id.update-template",
+          "routers.email_templates.update_template",
+          "/{template_id}",
+          "/email/templates",
+          "/email/templates/{template_id}"
+        ]
+      },
       "module": "routers.email_templates",
       "function_name": "update_template",
       "qualified_name": "routers.email_templates.update_template",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "PATCH",
       "path": "/{template_id}",
+      "include_prefix": null,
+      "router_prefix": "/email/templates",
+      "full_path": "/email/templates/{template_id}",
       "router": "router",
       "kwargs": {
         "response_model": "TemplateResponse"
@@ -332,25 +447,48 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PATCH",
+          "path=/{template_id}",
+          "include_prefix=None",
+          "router_prefix=/email/templates",
+          "full_path=/email/templates/{template_id}",
+          "function=routers.email_templates.update_template"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_templates.post.create-template",
+      "id": "routers.email_templates.post.email.templates.create-template",
+      "identity": {
+        "catalog_id": "routers.email_templates.post.email.templates.create-template",
+        "logical_id": "routers.email_templates.post.email.templates.create-template",
+        "source_id": "endpoint:c83f504ab40f3dad",
+        "display_name": "POST /email/templates",
+        "aliases": [
+          "routers.email_templates.post.email.templates.create-template",
+          "routers.email_templates.create_template",
+          "/email/templates"
+        ]
+      },
       "module": "routers.email_templates",
       "function_name": "create_template",
       "qualified_name": "routers.email_templates.create_template",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "POST",
       "path": "",
+      "include_prefix": null,
+      "router_prefix": "/email/templates",
+      "full_path": "/email/templates",
       "router": "router",
       "kwargs": {
         "response_model": "TemplateResponse"
@@ -393,25 +531,50 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=",
+          "include_prefix=None",
+          "router_prefix=/email/templates",
+          "full_path=/email/templates",
+          "function=routers.email_templates.create_template"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_templates.post.param-template-id.duplicate.duplicate-template",
+      "id": "routers.email_templates.post.email.templates.param-template-id.duplicate.duplicate-template",
+      "identity": {
+        "catalog_id": "routers.email_templates.post.email.templates.param-template-id.duplicate.duplicate-template",
+        "logical_id": "routers.email_templates.post.email.templates.param-template-id.duplicate.duplicate-template",
+        "source_id": "endpoint:5c7f9199147d1667",
+        "display_name": "POST /email/templates/{template_id}/duplicate",
+        "aliases": [
+          "routers.email_templates.post.email.templates.param-template-id.duplicate.duplicate-template",
+          "routers.email_templates.duplicate_template",
+          "/{template_id}/duplicate",
+          "/email/templates",
+          "/email/templates/{template_id}/duplicate"
+        ]
+      },
       "module": "routers.email_templates",
       "function_name": "duplicate_template",
       "qualified_name": "routers.email_templates.duplicate_template",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "POST",
       "path": "/{template_id}/duplicate",
+      "include_prefix": null,
+      "router_prefix": "/email/templates",
+      "full_path": "/email/templates/{template_id}/duplicate",
       "router": "router",
       "kwargs": {
         "response_model": "TemplateResponse"
@@ -461,7 +624,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{template_id}/duplicate",
+          "include_prefix=None",
+          "router_prefix=/email/templates",
+          "full_path=/email/templates/{template_id}/duplicate",
+          "function=routers.email_templates.duplicate_template"
+        ]
       },
       "review_status": "generated"
     }

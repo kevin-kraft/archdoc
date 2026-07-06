@@ -4,7 +4,20 @@
   "source_file": "routers/vouchers.py",
   "endpoints": [
     {
-      "id": "routers.vouchers.get.param-voucher-id.qr.get-voucher-qr",
+      "id": "routers.vouchers.get.financial.vouchers.param-voucher-id.qr.get-voucher-qr",
+      "identity": {
+        "catalog_id": "routers.vouchers.get.financial.vouchers.param-voucher-id.qr.get-voucher-qr",
+        "logical_id": "routers.vouchers.get.financial.vouchers.param-voucher-id.qr.get-voucher-qr",
+        "source_id": "endpoint:8566370446c03ae1",
+        "display_name": "GET /financial/vouchers/{voucher_id}/qr",
+        "aliases": [
+          "routers.vouchers.get.financial.vouchers.param-voucher-id.qr.get-voucher-qr",
+          "routers.vouchers.get_voucher_qr",
+          "/{voucher_id}/qr",
+          "/financial/vouchers",
+          "/financial/vouchers/{voucher_id}/qr"
+        ]
+      },
       "module": "routers.vouchers",
       "function_name": "get_voucher_qr",
       "qualified_name": "routers.vouchers.get_voucher_qr",
@@ -20,6 +33,9 @@
       },
       "http_method": "GET",
       "path": "/{voucher_id}/qr",
+      "include_prefix": null,
+      "router_prefix": "/financial/vouchers",
+      "full_path": "/financial/vouchers/{voucher_id}/qr",
       "router": "router",
       "kwargs": {
         "response_model": "VoucherQRResponse"
@@ -69,12 +85,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{voucher_id}/qr",
+          "include_prefix=None",
+          "router_prefix=/financial/vouchers",
+          "full_path=/financial/vouchers/{voucher_id}/qr",
+          "function=routers.vouchers.get_voucher_qr"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.vouchers.get.participant.param-participant-id.list-participant-vouchers",
+      "id": "routers.vouchers.get.financial.vouchers.participant.param-participant-id.list-participant-vouchers",
+      "identity": {
+        "catalog_id": "routers.vouchers.get.financial.vouchers.participant.param-participant-id.list-participant-vouchers",
+        "logical_id": "routers.vouchers.get.financial.vouchers.participant.param-participant-id.list-participant-vouchers",
+        "source_id": "endpoint:c86d59d9dcf1927e",
+        "display_name": "GET /financial/vouchers/participant/{participant_id}",
+        "aliases": [
+          "routers.vouchers.get.financial.vouchers.participant.param-participant-id.list-participant-vouchers",
+          "routers.vouchers.list_participant_vouchers",
+          "/participant/{participant_id}",
+          "/financial/vouchers",
+          "/financial/vouchers/participant/{participant_id}"
+        ]
+      },
       "module": "routers.vouchers",
       "function_name": "list_participant_vouchers",
       "qualified_name": "routers.vouchers.list_participant_vouchers",
@@ -90,6 +127,9 @@
       },
       "http_method": "GET",
       "path": "/participant/{participant_id}",
+      "include_prefix": null,
+      "router_prefix": "/financial/vouchers",
+      "full_path": "/financial/vouchers/participant/{participant_id}",
       "router": "router",
       "kwargs": {
         "response_model": "SecureVoucherListResponse"
@@ -139,12 +179,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/participant/{participant_id}",
+          "include_prefix=None",
+          "router_prefix=/financial/vouchers",
+          "full_path=/financial/vouchers/participant/{participant_id}",
+          "function=routers.vouchers.list_participant_vouchers"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.vouchers.post.batch.batch-issue-vouchers",
+      "id": "routers.vouchers.post.financial.vouchers.batch.batch-issue-vouchers",
+      "identity": {
+        "catalog_id": "routers.vouchers.post.financial.vouchers.batch.batch-issue-vouchers",
+        "logical_id": "routers.vouchers.post.financial.vouchers.batch.batch-issue-vouchers",
+        "source_id": "endpoint:1476c9193b09a73d",
+        "display_name": "POST /financial/vouchers/batch",
+        "aliases": [
+          "routers.vouchers.post.financial.vouchers.batch.batch-issue-vouchers",
+          "routers.vouchers.batch_issue_vouchers",
+          "/batch",
+          "/financial/vouchers",
+          "/financial/vouchers/batch"
+        ]
+      },
       "module": "routers.vouchers",
       "function_name": "batch_issue_vouchers",
       "qualified_name": "routers.vouchers.batch_issue_vouchers",
@@ -161,6 +222,9 @@
       },
       "http_method": "POST",
       "path": "/batch",
+      "include_prefix": null,
+      "router_prefix": "/financial/vouchers",
+      "full_path": "/financial/vouchers/batch",
       "router": "router",
       "kwargs": {
         "response_model": "SecureVoucherListResponse"
@@ -210,12 +274,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/batch",
+          "include_prefix=None",
+          "router_prefix=/financial/vouchers",
+          "full_path=/financial/vouchers/batch",
+          "function=routers.vouchers.batch_issue_vouchers"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.vouchers.post.issue.issue-voucher",
+      "id": "routers.vouchers.post.financial.vouchers.issue.issue-voucher",
+      "identity": {
+        "catalog_id": "routers.vouchers.post.financial.vouchers.issue.issue-voucher",
+        "logical_id": "routers.vouchers.post.financial.vouchers.issue.issue-voucher",
+        "source_id": "endpoint:d96aa0cfa408bab7",
+        "display_name": "POST /financial/vouchers/issue",
+        "aliases": [
+          "routers.vouchers.post.financial.vouchers.issue.issue-voucher",
+          "routers.vouchers.issue_voucher",
+          "/issue",
+          "/financial/vouchers",
+          "/financial/vouchers/issue"
+        ]
+      },
       "module": "routers.vouchers",
       "function_name": "issue_voucher",
       "qualified_name": "routers.vouchers.issue_voucher",
@@ -232,6 +317,9 @@
       },
       "http_method": "POST",
       "path": "/issue",
+      "include_prefix": null,
+      "router_prefix": "/financial/vouchers",
+      "full_path": "/financial/vouchers/issue",
       "router": "router",
       "kwargs": {
         "response_model": "SecureVoucherResponse"
@@ -281,12 +369,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/issue",
+          "include_prefix=None",
+          "router_prefix=/financial/vouchers",
+          "full_path=/financial/vouchers/issue",
+          "function=routers.vouchers.issue_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.vouchers.post.param-code.redeem.redeem-voucher",
+      "id": "routers.vouchers.post.financial.vouchers.param-code.redeem.redeem-voucher",
+      "identity": {
+        "catalog_id": "routers.vouchers.post.financial.vouchers.param-code.redeem.redeem-voucher",
+        "logical_id": "routers.vouchers.post.financial.vouchers.param-code.redeem.redeem-voucher",
+        "source_id": "endpoint:ffc14cf902c9a0a8",
+        "display_name": "POST /financial/vouchers/{code}/redeem",
+        "aliases": [
+          "routers.vouchers.post.financial.vouchers.param-code.redeem.redeem-voucher",
+          "routers.vouchers.redeem_voucher",
+          "/{code}/redeem",
+          "/financial/vouchers",
+          "/financial/vouchers/{code}/redeem"
+        ]
+      },
       "module": "routers.vouchers",
       "function_name": "redeem_voucher",
       "qualified_name": "routers.vouchers.redeem_voucher",
@@ -303,6 +412,9 @@
       },
       "http_method": "POST",
       "path": "/{code}/redeem",
+      "include_prefix": null,
+      "router_prefix": "/financial/vouchers",
+      "full_path": "/financial/vouchers/{code}/redeem",
       "router": "router",
       "kwargs": {
         "response_model": "SecureVoucherResponse"
@@ -366,12 +478,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{code}/redeem",
+          "include_prefix=None",
+          "router_prefix=/financial/vouchers",
+          "full_path=/financial/vouchers/{code}/redeem",
+          "function=routers.vouchers.redeem_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.vouchers.post.param-code.validate.validate-voucher",
+      "id": "routers.vouchers.post.financial.vouchers.param-code.validate.validate-voucher",
+      "identity": {
+        "catalog_id": "routers.vouchers.post.financial.vouchers.param-code.validate.validate-voucher",
+        "logical_id": "routers.vouchers.post.financial.vouchers.param-code.validate.validate-voucher",
+        "source_id": "endpoint:32d7c215f5865350",
+        "display_name": "POST /financial/vouchers/{code}/validate",
+        "aliases": [
+          "routers.vouchers.post.financial.vouchers.param-code.validate.validate-voucher",
+          "routers.vouchers.validate_voucher",
+          "/{code}/validate",
+          "/financial/vouchers",
+          "/financial/vouchers/{code}/validate"
+        ]
+      },
       "module": "routers.vouchers",
       "function_name": "validate_voucher",
       "qualified_name": "routers.vouchers.validate_voucher",
@@ -387,6 +520,9 @@
       },
       "http_method": "POST",
       "path": "/{code}/validate",
+      "include_prefix": null,
+      "router_prefix": "/financial/vouchers",
+      "full_path": "/financial/vouchers/{code}/validate",
       "router": "router",
       "kwargs": {
         "response_model": "VoucherValidateResponse"
@@ -436,12 +572,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{code}/validate",
+          "include_prefix=None",
+          "router_prefix=/financial/vouchers",
+          "full_path=/financial/vouchers/{code}/validate",
+          "function=routers.vouchers.validate_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.vouchers.post.param-voucher-id.revoke.revoke-voucher",
+      "id": "routers.vouchers.post.financial.vouchers.param-voucher-id.revoke.revoke-voucher",
+      "identity": {
+        "catalog_id": "routers.vouchers.post.financial.vouchers.param-voucher-id.revoke.revoke-voucher",
+        "logical_id": "routers.vouchers.post.financial.vouchers.param-voucher-id.revoke.revoke-voucher",
+        "source_id": "endpoint:65797837eb8fe351",
+        "display_name": "POST /financial/vouchers/{voucher_id}/revoke",
+        "aliases": [
+          "routers.vouchers.post.financial.vouchers.param-voucher-id.revoke.revoke-voucher",
+          "routers.vouchers.revoke_voucher",
+          "/{voucher_id}/revoke",
+          "/financial/vouchers",
+          "/financial/vouchers/{voucher_id}/revoke"
+        ]
+      },
       "module": "routers.vouchers",
       "function_name": "revoke_voucher",
       "qualified_name": "routers.vouchers.revoke_voucher",
@@ -458,6 +615,9 @@
       },
       "http_method": "POST",
       "path": "/{voucher_id}/revoke",
+      "include_prefix": null,
+      "router_prefix": "/financial/vouchers",
+      "full_path": "/financial/vouchers/{voucher_id}/revoke",
       "router": "router",
       "kwargs": {
         "response_model": "SecureVoucherResponse"
@@ -507,7 +667,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{voucher_id}/revoke",
+          "include_prefix=None",
+          "router_prefix=/financial/vouchers",
+          "full_path=/financial/vouchers/{voucher_id}/revoke",
+          "function=routers.vouchers.revoke_voucher"
+        ]
       },
       "review_status": "generated"
     }

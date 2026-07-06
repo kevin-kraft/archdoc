@@ -1,8 +1,20 @@
 {
   "id": "operations.pdf-generation",
+  "identity": {
+    "catalog_id": "operations.pdf-generation",
+    "logical_id": "operations.pdf-generation",
+    "source_id": "service:f3f2143349f26b91",
+    "display_name": "PDFGenerationService",
+    "aliases": [
+      "operations.pdf-generation",
+      "services.operations.pdf.PDFGenerationService"
+    ]
+  },
   "module": "services.operations.pdf",
   "class_name": "PDFGenerationService",
   "qualified_name": "services.operations.pdf.PDFGenerationService",
+  "description": "Service for generating PDF documents",
+  "docstring": "Service for generating PDF documents",
   "source": {
     "file": "services/operations/pdf.py",
     "line_start": 35,
@@ -11,8 +23,53 @@
   "operations": [
     {
       "id": "operations.pdf-generation.operation.generate_participant_list_pdf",
+      "identity": {
+        "catalog_id": "operations.pdf-generation.operation.generate_participant_list_pdf",
+        "logical_id": "operations.pdf-generation.operation.generate_participant_list_pdf",
+        "source_id": "operation:71239128d7bf87ff",
+        "display_name": "PDFGenerationService.generate_participant_list_pdf",
+        "aliases": [
+          "operations.pdf-generation.operation.generate_participant_list_pdf",
+          "services.operations.pdf.PDFGenerationService.generate_participant_list_pdf"
+        ]
+      },
       "method": "generate_participant_list_pdf",
       "qualified_name": "services.operations.pdf.PDFGenerationService.generate_participant_list_pdf",
+      "parameters": [
+        {
+          "name": "participants",
+          "annotation": "list[dict[str, Any]]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_name",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "title",
+          "annotation": "str",
+          "default": "'Participant List'",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "include_contact",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "watermark",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bytes",
+      "description": "Generate PDF participant list",
+      "docstring": "Generate PDF participant list\n\nArgs:\n    participants: List of participant data\n    org_name: Organization name\n    title: Document title\n    include_contact: Include contact information\n    watermark: Optional watermark text\n    \nReturns:\n    PDF bytes",
       "source": {
         "file": "services/operations/pdf.py",
         "line_start": 63,
@@ -21,14 +78,63 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=generate_participant_list_pdf",
+          "qualified_name=services.operations.pdf.PDFGenerationService.generate_participant_list_pdf"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "operations.pdf-generation.operation.generate_calendar_pdf",
+      "identity": {
+        "catalog_id": "operations.pdf-generation.operation.generate_calendar_pdf",
+        "logical_id": "operations.pdf-generation.operation.generate_calendar_pdf",
+        "source_id": "operation:9217565b63c599b3",
+        "display_name": "PDFGenerationService.generate_calendar_pdf",
+        "aliases": [
+          "operations.pdf-generation.operation.generate_calendar_pdf",
+          "services.operations.pdf.PDFGenerationService.generate_calendar_pdf"
+        ]
+      },
       "method": "generate_calendar_pdf",
       "qualified_name": "services.operations.pdf.PDFGenerationService.generate_calendar_pdf",
+      "parameters": [
+        {
+          "name": "sessions",
+          "annotation": "list[dict[str, Any]]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "start_date",
+          "annotation": "datetime",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "end_date",
+          "annotation": "datetime",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_name",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "filters",
+          "annotation": "dict[str, Any]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bytes",
+      "description": "Generate PDF calendar view",
+      "docstring": "Generate PDF calendar view\n\nArgs:\n    sessions: List of session data\n    start_date: Calendar start date\n    end_date: Calendar end date\n    org_name: Organization name\n    filters: Applied filters\n    \nReturns:\n    PDF bytes",
       "source": {
         "file": "services/operations/pdf.py",
         "line_start": 147,
@@ -37,14 +143,57 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=generate_calendar_pdf",
+          "qualified_name=services.operations.pdf.PDFGenerationService.generate_calendar_pdf"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "operations.pdf-generation.operation.generate_session_report_pdf",
+      "identity": {
+        "catalog_id": "operations.pdf-generation.operation.generate_session_report_pdf",
+        "logical_id": "operations.pdf-generation.operation.generate_session_report_pdf",
+        "source_id": "operation:b8df97f72e855077",
+        "display_name": "PDFGenerationService.generate_session_report_pdf",
+        "aliases": [
+          "operations.pdf-generation.operation.generate_session_report_pdf",
+          "services.operations.pdf.PDFGenerationService.generate_session_report_pdf"
+        ]
+      },
       "method": "generate_session_report_pdf",
       "qualified_name": "services.operations.pdf.PDFGenerationService.generate_session_report_pdf",
+      "parameters": [
+        {
+          "name": "session_data",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "participants",
+          "annotation": "list[dict[str, Any]]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "include_attendance",
+          "annotation": "bool",
+          "default": "True",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "include_financials",
+          "annotation": "bool",
+          "default": "True",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bytes",
+      "description": "Generate detailed session report PDF",
+      "docstring": "Generate detailed session report PDF\n\nArgs:\n    session_data: Session information\n    participants: List of enrolled participants\n    include_attendance: Include attendance details\n    include_financials: Include payment information\n    \nReturns:\n    PDF bytes",
       "source": {
         "file": "services/operations/pdf.py",
         "line_start": 221,
@@ -53,14 +202,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=generate_session_report_pdf",
+          "qualified_name=services.operations.pdf.PDFGenerationService.generate_session_report_pdf"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "operations.pdf-generation.operation.generate_html_to_pdf",
+      "identity": {
+        "catalog_id": "operations.pdf-generation.operation.generate_html_to_pdf",
+        "logical_id": "operations.pdf-generation.operation.generate_html_to_pdf",
+        "source_id": "operation:e7727c6623184675",
+        "display_name": "PDFGenerationService.generate_html_to_pdf",
+        "aliases": [
+          "operations.pdf-generation.operation.generate_html_to_pdf",
+          "services.operations.pdf.PDFGenerationService.generate_html_to_pdf"
+        ]
+      },
       "method": "generate_html_to_pdf",
       "qualified_name": "services.operations.pdf.PDFGenerationService.generate_html_to_pdf",
+      "parameters": [
+        {
+          "name": "html_template",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "context",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "css",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bytes",
+      "description": "Generate PDF from HTML template using WeasyPrint",
+      "docstring": "Generate PDF from HTML template using WeasyPrint\n\nArgs:\n    html_template: Jinja2 HTML template string\n    context: Template context data\n    css: Optional CSS string\n    \nReturns:\n    PDF bytes",
       "source": {
         "file": "services/operations/pdf.py",
         "line_start": 319,
@@ -69,7 +255,11 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=generate_html_to_pdf",
+          "qualified_name=services.operations.pdf.PDFGenerationService.generate_html_to_pdf"
+        ]
       },
       "review_status": "generated"
     }
@@ -77,7 +267,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=PDFGenerationService",
+      "source_path=services/operations/pdf.py"
+    ]
   },
   "review_status": "generated"
 }

@@ -4,88 +4,36 @@
   "source_file": "routers/orgs.py",
   "endpoints": [
     {
-      "id": "routers.orgs.get.param-org-id.get-org",
-      "module": "routers.orgs",
-      "function_name": "get_org",
-      "qualified_name": "routers.orgs.get_org",
-      "implementation": {
-        "kind": "direct_db_access",
-        "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
-        "signals": [
-          "db_or_sqlalchemy_call"
+      "id": "routers.orgs.get.orgs.list-orgs",
+      "identity": {
+        "catalog_id": "routers.orgs.get.orgs.list-orgs",
+        "logical_id": "routers.orgs.get.orgs.list-orgs",
+        "source_id": "endpoint:526b24c27ac29880",
+        "display_name": "GET /orgs",
+        "aliases": [
+          "routers.orgs.get.orgs.list-orgs",
+          "routers.orgs.list_orgs",
+          "/",
+          "/orgs"
         ]
       },
-      "http_method": "GET",
-      "path": "/{org_id}",
-      "router": "router",
-      "kwargs": {
-        "response_model": "OrgResponse"
-      },
-      "parameters": [
-        {
-          "name": "org_id",
-          "annotation": "str",
-          "default": null,
-          "kind": "positional_or_keyword",
-          "source": "body_or_positional"
-        },
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "Depends(get_db_session_no_org)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "current_org",
-          "annotation": "str",
-          "default": "Depends(require_org_context)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "can_manage_all_orgs",
-          "annotation": "bool",
-          "default": "Depends(has_permission(OrgPermissions.MANAGE))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "Depends(require_permission(OrgPermissions.READ))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        }
-      ],
-      "source": {
-        "file": "routers/orgs.py",
-        "line_start": 193,
-        "line_end": 222
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.orgs.get.root.list-orgs",
       "module": "routers.orgs",
       "function_name": "list_orgs",
       "qualified_name": "routers.orgs.list_orgs",
       "implementation": {
-        "kind": "direct_db_access",
+        "kind": "service_operation",
         "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/",
+      "include_prefix": "/orgs",
+      "router_prefix": null,
+      "full_path": "/orgs",
       "router": "router",
       "kwargs": {
         "response_model": "list[OrgResponse]"
@@ -122,31 +70,149 @@
       ],
       "source": {
         "file": "routers/orgs.py",
-        "line_start": 167,
-        "line_end": 190
+        "line_start": 47,
+        "line_end": 62
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/",
+          "include_prefix=/orgs",
+          "router_prefix=None",
+          "full_path=/orgs",
+          "function=routers.orgs.list_orgs"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.orgs.patch.param-org-id.status.update-org-status",
+      "id": "routers.orgs.get.orgs.param-org-id.get-org",
+      "identity": {
+        "catalog_id": "routers.orgs.get.orgs.param-org-id.get-org",
+        "logical_id": "routers.orgs.get.orgs.param-org-id.get-org",
+        "source_id": "endpoint:5f934a855a103ed3",
+        "display_name": "GET /orgs/{org_id}",
+        "aliases": [
+          "routers.orgs.get.orgs.param-org-id.get-org",
+          "routers.orgs.get_org",
+          "/{org_id}",
+          "/orgs",
+          "/orgs/{org_id}"
+        ]
+      },
+      "module": "routers.orgs",
+      "function_name": "get_org",
+      "qualified_name": "routers.orgs.get_org",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{org_id}",
+      "include_prefix": "/orgs",
+      "router_prefix": null,
+      "full_path": "/orgs/{org_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "OrgResponse"
+      },
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_no_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "current_org",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_manage_all_orgs",
+          "annotation": "bool",
+          "default": "Depends(has_permission(OrgPermissions.MANAGE))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(OrgPermissions.READ))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/orgs.py",
+        "line_start": 65,
+        "line_end": 77
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{org_id}",
+          "include_prefix=/orgs",
+          "router_prefix=None",
+          "full_path=/orgs/{org_id}",
+          "function=routers.orgs.get_org"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.orgs.patch.orgs.param-org-id.status.update-org-status",
+      "identity": {
+        "catalog_id": "routers.orgs.patch.orgs.param-org-id.status.update-org-status",
+        "logical_id": "routers.orgs.patch.orgs.param-org-id.status.update-org-status",
+        "source_id": "endpoint:260b105360274c2d",
+        "display_name": "PATCH /orgs/{org_id}/status",
+        "aliases": [
+          "routers.orgs.patch.orgs.param-org-id.status.update-org-status",
+          "routers.orgs.update_org_status",
+          "/{org_id}/status",
+          "/orgs",
+          "/orgs/{org_id}/status"
+        ]
+      },
       "module": "routers.orgs",
       "function_name": "update_org_status",
       "qualified_name": "routers.orgs.update_org_status",
       "implementation": {
-        "kind": "direct_db_access",
+        "kind": "service_operation",
         "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "PATCH",
       "path": "/{org_id}/status",
+      "include_prefix": "/orgs",
+      "router_prefix": null,
+      "full_path": "/orgs/{org_id}/status",
       "router": "router",
       "kwargs": {
         "response_model": "OrgResponse"
@@ -183,31 +249,56 @@
       ],
       "source": {
         "file": "routers/orgs.py",
-        "line_start": 133,
-        "line_end": 164
+        "line_start": 37,
+        "line_end": 44
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PATCH",
+          "path=/{org_id}/status",
+          "include_prefix=/orgs",
+          "router_prefix=None",
+          "full_path=/orgs/{org_id}/status",
+          "function=routers.orgs.update_org_status"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.orgs.patch.param-org-id.update-org",
+      "id": "routers.orgs.patch.orgs.param-org-id.update-org",
+      "identity": {
+        "catalog_id": "routers.orgs.patch.orgs.param-org-id.update-org",
+        "logical_id": "routers.orgs.patch.orgs.param-org-id.update-org",
+        "source_id": "endpoint:7bce80185652a6e3",
+        "display_name": "PATCH /orgs/{org_id}",
+        "aliases": [
+          "routers.orgs.patch.orgs.param-org-id.update-org",
+          "routers.orgs.update_org",
+          "/{org_id}",
+          "/orgs",
+          "/orgs/{org_id}"
+        ]
+      },
       "module": "routers.orgs",
       "function_name": "update_org",
       "qualified_name": "routers.orgs.update_org",
       "implementation": {
-        "kind": "direct_db_access",
+        "kind": "service_operation",
         "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "PATCH",
       "path": "/{org_id}",
+      "include_prefix": "/orgs",
+      "router_prefix": null,
+      "full_path": "/orgs/{org_id}",
       "router": "router",
       "kwargs": {
         "response_model": "OrgResponse"
@@ -258,32 +349,55 @@
       ],
       "source": {
         "file": "routers/orgs.py",
-        "line_start": 225,
-        "line_end": 292
+        "line_start": 80,
+        "line_end": 102
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PATCH",
+          "path=/{org_id}",
+          "include_prefix=/orgs",
+          "router_prefix=None",
+          "full_path=/orgs/{org_id}",
+          "function=routers.orgs.update_org"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.orgs.post.root.create-org",
+      "id": "routers.orgs.post.orgs.create-org",
+      "identity": {
+        "catalog_id": "routers.orgs.post.orgs.create-org",
+        "logical_id": "routers.orgs.post.orgs.create-org",
+        "source_id": "endpoint:450e640ebdd02ae8",
+        "display_name": "POST /orgs",
+        "aliases": [
+          "routers.orgs.post.orgs.create-org",
+          "routers.orgs.create_org",
+          "/",
+          "/orgs"
+        ]
+      },
       "module": "routers.orgs",
       "function_name": "create_org",
       "qualified_name": "routers.orgs.create_org",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call",
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "POST",
       "path": "/",
+      "include_prefix": "/orgs",
+      "router_prefix": null,
+      "full_path": "/orgs",
       "router": "router",
       "kwargs": {
         "response_model": "OrgResponse"
@@ -313,13 +427,21 @@
       ],
       "source": {
         "file": "routers/orgs.py",
-        "line_start": 75,
-        "line_end": 129
+        "line_start": 23,
+        "line_end": 33
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/",
+          "include_prefix=/orgs",
+          "router_prefix=None",
+          "full_path=/orgs",
+          "function=routers.orgs.create_org"
+        ]
       },
       "review_status": "generated"
     }

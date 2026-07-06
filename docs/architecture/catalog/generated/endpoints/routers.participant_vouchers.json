@@ -4,7 +4,20 @@
   "source_file": "routers/participant_vouchers.py",
   "endpoints": [
     {
-      "id": "routers.participant_vouchers.get.param-participant-id.vouchers.get-participant-vouchers",
+      "id": "routers.participant_vouchers.get.participants.param-participant-id.vouchers.get-participant-vouchers",
+      "identity": {
+        "catalog_id": "routers.participant_vouchers.get.participants.param-participant-id.vouchers.get-participant-vouchers",
+        "logical_id": "routers.participant_vouchers.get.participants.param-participant-id.vouchers.get-participant-vouchers",
+        "source_id": "endpoint:a29efc27da52f484",
+        "display_name": "GET /participants/{participant_id}/vouchers",
+        "aliases": [
+          "routers.participant_vouchers.get.participants.param-participant-id.vouchers.get-participant-vouchers",
+          "routers.participant_vouchers.get_participant_vouchers",
+          "/{participant_id}/vouchers",
+          "/participants",
+          "/participants/{participant_id}/vouchers"
+        ]
+      },
       "module": "routers.participant_vouchers",
       "function_name": "get_participant_vouchers",
       "qualified_name": "routers.participant_vouchers.get_participant_vouchers",
@@ -19,6 +32,9 @@
       },
       "http_method": "GET",
       "path": "/{participant_id}/vouchers",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/{participant_id}/vouchers",
       "router": "router",
       "kwargs": {
         "response_model": "list[dict]",
@@ -49,7 +65,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_show'))",
+          "default": "Depends(require_permission('participants:show'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         },
@@ -63,18 +79,39 @@
       ],
       "source": {
         "file": "routers/participant_vouchers.py",
-        "line_start": 58,
-        "line_end": 67
+        "line_start": 64,
+        "line_end": 73
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{participant_id}/vouchers",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/{participant_id}/vouchers",
+          "function=routers.participant_vouchers.get_participant_vouchers"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_vouchers.get.participants.param-participant-id.vouchers.get-participant-vouchers",
+      "id": "routers.participant_vouchers.get.participants.participants.param-participant-id.vouchers.get-participant-vouchers",
+      "identity": {
+        "catalog_id": "routers.participant_vouchers.get.participants.participants.param-participant-id.vouchers.get-participant-vouchers",
+        "logical_id": "routers.participant_vouchers.get.participants.participants.param-participant-id.vouchers.get-participant-vouchers",
+        "source_id": "endpoint:d493d44bea56bf34",
+        "display_name": "GET /participants/participants/{participant_id}/vouchers",
+        "aliases": [
+          "routers.participant_vouchers.get.participants.participants.param-participant-id.vouchers.get-participant-vouchers",
+          "routers.participant_vouchers.get_participant_vouchers",
+          "/participants/{participant_id}/vouchers",
+          "/participants",
+          "/participants/participants/{participant_id}/vouchers"
+        ]
+      },
       "module": "routers.participant_vouchers",
       "function_name": "get_participant_vouchers",
       "qualified_name": "routers.participant_vouchers.get_participant_vouchers",
@@ -90,6 +127,9 @@
       },
       "http_method": "GET",
       "path": "/participants/{participant_id}/vouchers",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/participants/{participant_id}/vouchers",
       "router": "router",
       "kwargs": {
         "response_model": "list[dict]",
@@ -120,7 +160,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_show'))",
+          "default": "Depends(require_permission('participants:show'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         },
@@ -134,18 +174,39 @@
       ],
       "source": {
         "file": "routers/participant_vouchers.py",
-        "line_start": 58,
-        "line_end": 67
+        "line_start": 64,
+        "line_end": 73
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/participants/{participant_id}/vouchers",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/participants/{participant_id}/vouchers",
+          "function=routers.participant_vouchers.get_participant_vouchers"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_vouchers.post.param-participant-id.vouchers.create-voucher",
+      "id": "routers.participant_vouchers.post.participants.param-participant-id.vouchers.create-voucher",
+      "identity": {
+        "catalog_id": "routers.participant_vouchers.post.participants.param-participant-id.vouchers.create-voucher",
+        "logical_id": "routers.participant_vouchers.post.participants.param-participant-id.vouchers.create-voucher",
+        "source_id": "endpoint:dabf68b459ccd1ce",
+        "display_name": "POST /participants/{participant_id}/vouchers",
+        "aliases": [
+          "routers.participant_vouchers.post.participants.param-participant-id.vouchers.create-voucher",
+          "routers.participant_vouchers.create_voucher",
+          "/{participant_id}/vouchers",
+          "/participants",
+          "/participants/{participant_id}/vouchers"
+        ]
+      },
       "module": "routers.participant_vouchers",
       "function_name": "create_voucher",
       "qualified_name": "routers.participant_vouchers.create_voucher",
@@ -160,6 +221,9 @@
       },
       "http_method": "POST",
       "path": "/{participant_id}/vouchers",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/{participant_id}/vouchers",
       "router": "router",
       "kwargs": {
         "response_model": "dict",
@@ -175,7 +239,7 @@
         },
         {
           "name": "voucher_data",
-          "annotation": "dict[str, Any]",
+          "annotation": "ParticipantVoucherCreate",
           "default": null,
           "kind": "positional_or_keyword",
           "source": "body_or_positional"
@@ -204,25 +268,46 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('payments_edit'))",
+          "default": "Depends(require_permission('payments:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/participant_vouchers.py",
-        "line_start": 35,
-        "line_end": 49
+        "line_start": 37,
+        "line_end": 55
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{participant_id}/vouchers",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/{participant_id}/vouchers",
+          "function=routers.participant_vouchers.create_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_vouchers.post.participants.param-participant-id.vouchers.create-voucher",
+      "id": "routers.participant_vouchers.post.participants.participants.param-participant-id.vouchers.create-voucher",
+      "identity": {
+        "catalog_id": "routers.participant_vouchers.post.participants.participants.param-participant-id.vouchers.create-voucher",
+        "logical_id": "routers.participant_vouchers.post.participants.participants.param-participant-id.vouchers.create-voucher",
+        "source_id": "endpoint:b64b1f050b63e683",
+        "display_name": "POST /participants/participants/{participant_id}/vouchers",
+        "aliases": [
+          "routers.participant_vouchers.post.participants.participants.param-participant-id.vouchers.create-voucher",
+          "routers.participant_vouchers.create_voucher",
+          "/participants/{participant_id}/vouchers",
+          "/participants",
+          "/participants/participants/{participant_id}/vouchers"
+        ]
+      },
       "module": "routers.participant_vouchers",
       "function_name": "create_voucher",
       "qualified_name": "routers.participant_vouchers.create_voucher",
@@ -238,6 +323,9 @@
       },
       "http_method": "POST",
       "path": "/participants/{participant_id}/vouchers",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/participants/{participant_id}/vouchers",
       "router": "router",
       "kwargs": {
         "response_model": "dict",
@@ -253,7 +341,7 @@
         },
         {
           "name": "voucher_data",
-          "annotation": "dict[str, Any]",
+          "annotation": "ParticipantVoucherCreate",
           "default": null,
           "kind": "positional_or_keyword",
           "source": "body_or_positional"
@@ -282,20 +370,28 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('payments_edit'))",
+          "default": "Depends(require_permission('payments:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/participant_vouchers.py",
-        "line_start": 35,
-        "line_end": 49
+        "line_start": 37,
+        "line_end": 55
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/participants/{participant_id}/vouchers",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/participants/{participant_id}/vouchers",
+          "function=routers.participant_vouchers.create_voucher"
+        ]
       },
       "review_status": "generated"
     }

@@ -4,7 +4,20 @@
   "source_file": "routers/participant_status.py",
   "endpoints": [
     {
-      "id": "routers.participant_status.get.current.param-participant-id.get-current-status",
+      "id": "routers.participant_status.get.participant-status.current.param-participant-id.get-current-status",
+      "identity": {
+        "catalog_id": "routers.participant_status.get.participant-status.current.param-participant-id.get-current-status",
+        "logical_id": "routers.participant_status.get.participant-status.current.param-participant-id.get-current-status",
+        "source_id": "endpoint:03837daa994c30a7",
+        "display_name": "GET /participant-status/current/{participant_id}",
+        "aliases": [
+          "routers.participant_status.get.participant-status.current.param-participant-id.get-current-status",
+          "routers.participant_status.get_current_status",
+          "/current/{participant_id}",
+          "/participant-status",
+          "/participant-status/current/{participant_id}"
+        ]
+      },
       "module": "routers.participant_status",
       "function_name": "get_current_status",
       "qualified_name": "routers.participant_status.get_current_status",
@@ -20,6 +33,9 @@
       },
       "http_method": "GET",
       "path": "/current/{participant_id}",
+      "include_prefix": null,
+      "router_prefix": "/participant-status",
+      "full_path": "/participant-status/current/{participant_id}",
       "router": "router",
       "kwargs": {
         "response_model": "ParticipantStatusResponse"
@@ -63,18 +79,39 @@
       ],
       "source": {
         "file": "routers/participant_status.py",
-        "line_start": 47,
-        "line_end": 74
+        "line_start": 51,
+        "line_end": 78
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/current/{participant_id}",
+          "include_prefix=None",
+          "router_prefix=/participant-status",
+          "full_path=/participant-status/current/{participant_id}",
+          "function=routers.participant_status.get_current_status"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_status.get.history.param-participant-id.get-status-history",
+      "id": "routers.participant_status.get.participant-status.history.param-participant-id.get-status-history",
+      "identity": {
+        "catalog_id": "routers.participant_status.get.participant-status.history.param-participant-id.get-status-history",
+        "logical_id": "routers.participant_status.get.participant-status.history.param-participant-id.get-status-history",
+        "source_id": "endpoint:e3e599f3509fa80b",
+        "display_name": "GET /participant-status/history/{participant_id}",
+        "aliases": [
+          "routers.participant_status.get.participant-status.history.param-participant-id.get-status-history",
+          "routers.participant_status.get_status_history",
+          "/history/{participant_id}",
+          "/participant-status",
+          "/participant-status/history/{participant_id}"
+        ]
+      },
       "module": "routers.participant_status",
       "function_name": "get_status_history",
       "qualified_name": "routers.participant_status.get_status_history",
@@ -90,6 +127,9 @@
       },
       "http_method": "GET",
       "path": "/history/{participant_id}",
+      "include_prefix": null,
+      "router_prefix": "/participant-status",
+      "full_path": "/participant-status/history/{participant_id}",
       "router": "router",
       "kwargs": {
         "response_model": "list[ParticipantStatusHistoryResponse]"
@@ -140,18 +180,39 @@
       ],
       "source": {
         "file": "routers/participant_status.py",
-        "line_start": 78,
-        "line_end": 102
+        "line_start": 82,
+        "line_end": 106
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/history/{participant_id}",
+          "include_prefix=None",
+          "router_prefix=/participant-status",
+          "full_path=/participant-status/history/{participant_id}",
+          "function=routers.participant_status.get_status_history"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_status.get.participants.param-status.get-participants-by-status",
+      "id": "routers.participant_status.get.participant-status.participants.param-status.get-participants-by-status",
+      "identity": {
+        "catalog_id": "routers.participant_status.get.participant-status.participants.param-status.get-participants-by-status",
+        "logical_id": "routers.participant_status.get.participant-status.participants.param-status.get-participants-by-status",
+        "source_id": "endpoint:db0d4b2f3ebb59a3",
+        "display_name": "GET /participant-status/participants/{status}",
+        "aliases": [
+          "routers.participant_status.get.participant-status.participants.param-status.get-participants-by-status",
+          "routers.participant_status.get_participants_by_status",
+          "/participants/{status}",
+          "/participant-status",
+          "/participant-status/participants/{status}"
+        ]
+      },
       "module": "routers.participant_status",
       "function_name": "get_participants_by_status",
       "qualified_name": "routers.participant_status.get_participants_by_status",
@@ -167,9 +228,12 @@
       },
       "http_method": "GET",
       "path": "/participants/{status}",
+      "include_prefix": null,
+      "router_prefix": "/participant-status",
+      "full_path": "/participant-status/participants/{status}",
       "router": "router",
       "kwargs": {
-        "response_model": "list[dict]"
+        "response_model": "list[ParticipantStatusListItem]"
       },
       "parameters": [
         {
@@ -224,18 +288,39 @@
       ],
       "source": {
         "file": "routers/participant_status.py",
-        "line_start": 182,
-        "line_end": 202
+        "line_start": 189,
+        "line_end": 209
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/participants/{status}",
+          "include_prefix=None",
+          "router_prefix=/participant-status",
+          "full_path=/participant-status/participants/{status}",
+          "function=routers.participant_status.get_participants_by_status"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_status.get.statistics.get-status-statistics",
+      "id": "routers.participant_status.get.participant-status.statistics.get-status-statistics",
+      "identity": {
+        "catalog_id": "routers.participant_status.get.participant-status.statistics.get-status-statistics",
+        "logical_id": "routers.participant_status.get.participant-status.statistics.get-status-statistics",
+        "source_id": "endpoint:c0050e71973d0049",
+        "display_name": "GET /participant-status/statistics",
+        "aliases": [
+          "routers.participant_status.get.participant-status.statistics.get-status-statistics",
+          "routers.participant_status.get_status_statistics",
+          "/statistics",
+          "/participant-status",
+          "/participant-status/statistics"
+        ]
+      },
       "module": "routers.participant_status",
       "function_name": "get_status_statistics",
       "qualified_name": "routers.participant_status.get_status_statistics",
@@ -251,6 +336,9 @@
       },
       "http_method": "GET",
       "path": "/statistics",
+      "include_prefix": null,
+      "router_prefix": "/participant-status",
+      "full_path": "/participant-status/statistics",
       "router": "router",
       "kwargs": {
         "response_model": "StatusStatistics"
@@ -287,18 +375,39 @@
       ],
       "source": {
         "file": "routers/participant_status.py",
-        "line_start": 161,
-        "line_end": 178
+        "line_start": 168,
+        "line_end": 185
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/statistics",
+          "include_prefix=None",
+          "router_prefix=/participant-status",
+          "full_path=/participant-status/statistics",
+          "function=routers.participant_status.get_status_statistics"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_status.get.summary.param-participant-id.get-status-summary",
+      "id": "routers.participant_status.get.participant-status.summary.param-participant-id.get-status-summary",
+      "identity": {
+        "catalog_id": "routers.participant_status.get.participant-status.summary.param-participant-id.get-status-summary",
+        "logical_id": "routers.participant_status.get.participant-status.summary.param-participant-id.get-status-summary",
+        "source_id": "endpoint:aa3b185fb537c051",
+        "display_name": "GET /participant-status/summary/{participant_id}",
+        "aliases": [
+          "routers.participant_status.get.participant-status.summary.param-participant-id.get-status-summary",
+          "routers.participant_status.get_status_summary",
+          "/summary/{participant_id}",
+          "/participant-status",
+          "/participant-status/summary/{participant_id}"
+        ]
+      },
       "module": "routers.participant_status",
       "function_name": "get_status_summary",
       "qualified_name": "routers.participant_status.get_status_summary",
@@ -314,8 +423,13 @@
       },
       "http_method": "GET",
       "path": "/summary/{participant_id}",
+      "include_prefix": null,
+      "router_prefix": "/participant-status",
+      "full_path": "/participant-status/summary/{participant_id}",
       "router": "router",
-      "kwargs": {},
+      "kwargs": {
+        "response_model": "ParticipantStatusSummary"
+      },
       "parameters": [
         {
           "name": "participant_id",
@@ -355,18 +469,39 @@
       ],
       "source": {
         "file": "routers/participant_status.py",
-        "line_start": 206,
-        "line_end": 233
+        "line_start": 213,
+        "line_end": 240
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/summary/{participant_id}",
+          "include_prefix=None",
+          "router_prefix=/participant-status",
+          "full_path=/participant-status/summary/{participant_id}",
+          "function=routers.participant_status.get_status_summary"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_status.post.bulk-update.bulk-update-participant-status",
+      "id": "routers.participant_status.post.participant-status.bulk-update.bulk-update-participant-status",
+      "identity": {
+        "catalog_id": "routers.participant_status.post.participant-status.bulk-update.bulk-update-participant-status",
+        "logical_id": "routers.participant_status.post.participant-status.bulk-update.bulk-update-participant-status",
+        "source_id": "endpoint:cc45e4abee025c90",
+        "display_name": "POST /participant-status/bulk-update",
+        "aliases": [
+          "routers.participant_status.post.participant-status.bulk-update.bulk-update-participant-status",
+          "routers.participant_status.bulk_update_participant_status",
+          "/bulk-update",
+          "/participant-status",
+          "/participant-status/bulk-update"
+        ]
+      },
       "module": "routers.participant_status",
       "function_name": "bulk_update_participant_status",
       "qualified_name": "routers.participant_status.bulk_update_participant_status",
@@ -382,6 +517,9 @@
       },
       "http_method": "POST",
       "path": "/bulk-update",
+      "include_prefix": null,
+      "router_prefix": "/participant-status",
+      "full_path": "/participant-status/bulk-update",
       "router": "router",
       "kwargs": {
         "response_model": "StatusBulkUpdateResponse"
@@ -425,18 +563,39 @@
       ],
       "source": {
         "file": "routers/participant_status.py",
-        "line_start": 135,
-        "line_end": 157
+        "line_start": 140,
+        "line_end": 164
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/bulk-update",
+          "include_prefix=None",
+          "router_prefix=/participant-status",
+          "full_path=/participant-status/bulk-update",
+          "function=routers.participant_status.bulk_update_participant_status"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_status.post.change-status.change-participant-status",
+      "id": "routers.participant_status.post.participant-status.change-status.change-participant-status",
+      "identity": {
+        "catalog_id": "routers.participant_status.post.participant-status.change-status.change-participant-status",
+        "logical_id": "routers.participant_status.post.participant-status.change-status.change-participant-status",
+        "source_id": "endpoint:65c1df951a1013ef",
+        "display_name": "POST /participant-status/change-status",
+        "aliases": [
+          "routers.participant_status.post.participant-status.change-status.change-participant-status",
+          "routers.participant_status.change_participant_status",
+          "/change-status",
+          "/participant-status",
+          "/participant-status/change-status"
+        ]
+      },
       "module": "routers.participant_status",
       "function_name": "change_participant_status",
       "qualified_name": "routers.participant_status.change_participant_status",
@@ -452,6 +611,9 @@
       },
       "http_method": "POST",
       "path": "/change-status",
+      "include_prefix": null,
+      "router_prefix": "/participant-status",
+      "full_path": "/participant-status/change-status",
       "router": "router",
       "kwargs": {
         "response_model": "ParticipantStatusResponse"
@@ -495,18 +657,39 @@
       ],
       "source": {
         "file": "routers/participant_status.py",
-        "line_start": 237,
-        "line_end": 266
+        "line_start": 244,
+        "line_end": 274
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/change-status",
+          "include_prefix=None",
+          "router_prefix=/participant-status",
+          "full_path=/participant-status/change-status",
+          "function=routers.participant_status.change_participant_status"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_status.post.update.update-participant-status",
+      "id": "routers.participant_status.post.participant-status.update.update-participant-status",
+      "identity": {
+        "catalog_id": "routers.participant_status.post.participant-status.update.update-participant-status",
+        "logical_id": "routers.participant_status.post.participant-status.update.update-participant-status",
+        "source_id": "endpoint:f48d1f8d046f704c",
+        "display_name": "POST /participant-status/update",
+        "aliases": [
+          "routers.participant_status.post.participant-status.update.update-participant-status",
+          "routers.participant_status.update_participant_status",
+          "/update",
+          "/participant-status",
+          "/participant-status/update"
+        ]
+      },
       "module": "routers.participant_status",
       "function_name": "update_participant_status",
       "qualified_name": "routers.participant_status.update_participant_status",
@@ -522,6 +705,9 @@
       },
       "http_method": "POST",
       "path": "/update",
+      "include_prefix": null,
+      "router_prefix": "/participant-status",
+      "full_path": "/participant-status/update",
       "router": "router",
       "kwargs": {
         "response_model": "ParticipantStatusResponse"
@@ -572,13 +758,21 @@
       ],
       "source": {
         "file": "routers/participant_status.py",
-        "line_start": 106,
-        "line_end": 131
+        "line_start": 110,
+        "line_end": 136
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/update",
+          "include_prefix=None",
+          "router_prefix=/participant-status",
+          "full_path=/participant-status/update",
+          "function=routers.participant_status.update_participant_status"
+        ]
       },
       "review_status": "generated"
     }

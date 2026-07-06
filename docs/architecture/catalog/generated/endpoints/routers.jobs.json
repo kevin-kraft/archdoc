@@ -4,68 +4,19 @@
   "source_file": "routers/jobs.py",
   "endpoints": [
     {
-      "id": "routers.jobs.get.param-job-id.get-job",
-      "module": "routers.jobs",
-      "function_name": "get_job",
-      "qualified_name": "routers.jobs.get_job",
-      "implementation": {
-        "kind": "direct_db_access",
-        "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
-        "signals": [
-          "db_or_sqlalchemy_call"
+      "id": "routers.jobs.get.jobs.list-jobs",
+      "identity": {
+        "catalog_id": "routers.jobs.get.jobs.list-jobs",
+        "logical_id": "routers.jobs.get.jobs.list-jobs",
+        "source_id": "endpoint:2d67736248b35d9b",
+        "display_name": "GET /jobs",
+        "aliases": [
+          "routers.jobs.get.jobs.list-jobs",
+          "routers.jobs.list_jobs",
+          "/",
+          "/jobs"
         ]
       },
-      "http_method": "GET",
-      "path": "/{job_id}",
-      "router": "router",
-      "kwargs": {
-        "response_model": "JobResponse"
-      },
-      "parameters": [
-        {
-          "name": "job_id",
-          "annotation": "str",
-          "default": null,
-          "kind": "positional_or_keyword",
-          "source": "body_or_positional"
-        },
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "Depends(get_db_session_for_org)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "auth_ctx",
-          "annotation": "tuple[str, str]",
-          "default": "Depends(require_auth_with_org)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "Depends(require_permission(MiscPermissions.REGULAR_TASKS_SHOW))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        }
-      ],
-      "source": {
-        "file": "routers/jobs.py",
-        "line_start": 101,
-        "line_end": 121
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.jobs.get.root.list-jobs",
       "module": "routers.jobs",
       "function_name": "list_jobs",
       "qualified_name": "routers.jobs.list_jobs",
@@ -79,6 +30,9 @@
       },
       "http_method": "GET",
       "path": "/",
+      "include_prefix": "/jobs",
+      "router_prefix": null,
+      "full_path": "/jobs",
       "router": "router",
       "kwargs": {
         "response_model": "list[JobResponse]"
@@ -128,12 +82,117 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/",
+          "include_prefix=/jobs",
+          "router_prefix=None",
+          "full_path=/jobs",
+          "function=routers.jobs.list_jobs"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.jobs.post.root.create-job",
+      "id": "routers.jobs.get.jobs.param-job-id.get-job",
+      "identity": {
+        "catalog_id": "routers.jobs.get.jobs.param-job-id.get-job",
+        "logical_id": "routers.jobs.get.jobs.param-job-id.get-job",
+        "source_id": "endpoint:96e014ccece2c784",
+        "display_name": "GET /jobs/{job_id}",
+        "aliases": [
+          "routers.jobs.get.jobs.param-job-id.get-job",
+          "routers.jobs.get_job",
+          "/{job_id}",
+          "/jobs",
+          "/jobs/{job_id}"
+        ]
+      },
+      "module": "routers.jobs",
+      "function_name": "get_job",
+      "qualified_name": "routers.jobs.get_job",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{job_id}",
+      "include_prefix": "/jobs",
+      "router_prefix": null,
+      "full_path": "/jobs/{job_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "JobResponse"
+      },
+      "parameters": [
+        {
+          "name": "job_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session_for_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "Depends(require_auth_with_org)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(MiscPermissions.REGULAR_TASKS_SHOW))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/jobs.py",
+        "line_start": 101,
+        "line_end": 121
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{job_id}",
+          "include_prefix=/jobs",
+          "router_prefix=None",
+          "full_path=/jobs/{job_id}",
+          "function=routers.jobs.get_job"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.jobs.post.jobs.create-job",
+      "identity": {
+        "catalog_id": "routers.jobs.post.jobs.create-job",
+        "logical_id": "routers.jobs.post.jobs.create-job",
+        "source_id": "endpoint:7ab307d5205dd6ac",
+        "display_name": "POST /jobs",
+        "aliases": [
+          "routers.jobs.post.jobs.create-job",
+          "routers.jobs.create_job",
+          "/",
+          "/jobs"
+        ]
+      },
       "module": "routers.jobs",
       "function_name": "create_job",
       "qualified_name": "routers.jobs.create_job",
@@ -147,6 +206,9 @@
       },
       "http_method": "POST",
       "path": "/",
+      "include_prefix": "/jobs",
+      "router_prefix": null,
+      "full_path": "/jobs",
       "router": "router",
       "kwargs": {
         "response_model": "JobResponse"
@@ -189,7 +251,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/",
+          "include_prefix=/jobs",
+          "router_prefix=None",
+          "full_path=/jobs",
+          "function=routers.jobs.create_job"
+        ]
       },
       "review_status": "generated"
     }

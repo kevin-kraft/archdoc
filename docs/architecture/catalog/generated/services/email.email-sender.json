@@ -1,91 +1,422 @@
 {
   "id": "email.email-sender",
+  "identity": {
+    "catalog_id": "email.email-sender",
+    "logical_id": "email.email-sender",
+    "source_id": "service:bf9542dac5ec55b9",
+    "display_name": "EmailSenderService",
+    "aliases": [
+      "email.email-sender",
+      "services.email.sender.EmailSenderService"
+    ]
+  },
   "module": "services.email.sender",
   "class_name": "EmailSenderService",
   "qualified_name": "services.email.sender.EmailSenderService",
+  "description": "Service for sending emails with retry logic and rate limiting",
+  "docstring": "Service for sending emails with retry logic and rate limiting",
   "source": {
     "file": "services/email/sender.py",
-    "line_start": 44,
-    "line_end": 849
+    "line_start": 53,
+    "line_end": 1369
   },
   "operations": [
     {
       "id": "email.email-sender.operation.get_rate_limiter",
+      "identity": {
+        "catalog_id": "email.email-sender.operation.get_rate_limiter",
+        "logical_id": "email.email-sender.operation.get_rate_limiter",
+        "source_id": "operation:ebd12046e5126f0e",
+        "display_name": "EmailSenderService.get_rate_limiter",
+        "aliases": [
+          "email.email-sender.operation.get_rate_limiter",
+          "services.email.sender.EmailSenderService.get_rate_limiter"
+        ]
+      },
       "method": "get_rate_limiter",
       "qualified_name": "services.email.sender.EmailSenderService.get_rate_limiter",
+      "parameters": [
+        {
+          "name": "cls",
+          "annotation": null,
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "EmailRateLimiter",
+      "description": "Get or create rate limiter for the configured provider",
+      "docstring": "Get or create rate limiter for the configured provider",
       "source": {
         "file": "services/email/sender.py",
-        "line_start": 54,
-        "line_end": 62
+        "line_start": 63,
+        "line_end": 71
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_rate_limiter",
+          "qualified_name=services.email.sender.EmailSenderService.get_rate_limiter"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "email.email-sender.operation.get_smtp_config",
+      "identity": {
+        "catalog_id": "email.email-sender.operation.get_smtp_config",
+        "logical_id": "email.email-sender.operation.get_smtp_config",
+        "source_id": "operation:4d4c1ac8d974b7f4",
+        "display_name": "EmailSenderService.get_smtp_config",
+        "aliases": [
+          "email.email-sender.operation.get_smtp_config",
+          "services.email.sender.EmailSenderService.get_smtp_config"
+        ]
+      },
       "method": "get_smtp_config",
       "qualified_name": "services.email.sender.EmailSenderService.get_smtp_config",
+      "parameters": [],
+      "returns": "dict[str, Any]",
+      "description": "Get SMTP configuration from settings (fallback)",
+      "docstring": "Get SMTP configuration from settings (fallback)",
       "source": {
         "file": "services/email/sender.py",
-        "line_start": 65,
-        "line_end": 78
+        "line_start": 74,
+        "line_end": 87
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_smtp_config",
+          "qualified_name=services.email.sender.EmailSenderService.get_smtp_config"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "email.email-sender.operation.build_campaign_delivery_context",
+      "identity": {
+        "catalog_id": "email.email-sender.operation.build_campaign_delivery_context",
+        "logical_id": "email.email-sender.operation.build_campaign_delivery_context",
+        "source_id": "operation:215d1f26dc1e00d4",
+        "display_name": "EmailSenderService.build_campaign_delivery_context",
+        "aliases": [
+          "email.email-sender.operation.build_campaign_delivery_context",
+          "services.email.sender.EmailSenderService.build_campaign_delivery_context"
+        ]
+      },
+      "method": "build_campaign_delivery_context",
+      "qualified_name": "services.email.sender.EmailSenderService.build_campaign_delivery_context",
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "SimpleNamespace",
+      "description": "Build the render/send delivery context used when tracking rows are unavailable.",
+      "docstring": "Build the render/send delivery context used when tracking rows are unavailable.",
+      "source": {
+        "file": "services/email/sender.py",
+        "line_start": 160,
+        "line_end": 176
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high",
+        "evidence": [
+          "method_name=build_campaign_delivery_context",
+          "qualified_name=services.email.sender.EmailSenderService.build_campaign_delivery_context"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "email.email-sender.operation.get_org_smtp_config",
+      "identity": {
+        "catalog_id": "email.email-sender.operation.get_org_smtp_config",
+        "logical_id": "email.email-sender.operation.get_org_smtp_config",
+        "source_id": "operation:6113bdc93d5f2a4c",
+        "display_name": "EmailSenderService.get_org_smtp_config",
+        "aliases": [
+          "email.email-sender.operation.get_org_smtp_config",
+          "services.email.sender.EmailSenderService.get_org_smtp_config"
+        ]
+      },
       "method": "get_org_smtp_config",
       "qualified_name": "services.email.sender.EmailSenderService.get_org_smtp_config",
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": "Get organization-specific SMTP configuration",
+      "docstring": "Get organization-specific SMTP configuration",
       "source": {
         "file": "services/email/sender.py",
-        "line_start": 360,
-        "line_end": 387
+        "line_start": 382,
+        "line_end": 413
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_org_smtp_config",
+          "qualified_name=services.email.sender.EmailSenderService.get_org_smtp_config"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "email.email-sender.operation.get_org_email_branding",
+      "identity": {
+        "catalog_id": "email.email-sender.operation.get_org_email_branding",
+        "logical_id": "email.email-sender.operation.get_org_email_branding",
+        "source_id": "operation:5870becbbd93919a",
+        "display_name": "EmailSenderService.get_org_email_branding",
+        "aliases": [
+          "email.email-sender.operation.get_org_email_branding",
+          "services.email.sender.EmailSenderService.get_org_email_branding"
+        ]
+      },
+      "method": "get_org_email_branding",
+      "qualified_name": "services.email.sender.EmailSenderService.get_org_email_branding",
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, str]",
+      "description": "Load org branding used for campaign email chrome.",
+      "docstring": "Load org branding used for campaign email chrome.",
+      "source": {
+        "file": "services/email/sender.py",
+        "line_start": 416,
+        "line_end": 464
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_org_email_branding",
+          "qualified_name=services.email.sender.EmailSenderService.get_org_email_branding"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "email.email-sender.operation.send_campaign_emails",
+      "identity": {
+        "catalog_id": "email.email-sender.operation.send_campaign_emails",
+        "logical_id": "email.email-sender.operation.send_campaign_emails",
+        "source_id": "operation:343a35aba6913e4a",
+        "display_name": "EmailSenderService.send_campaign_emails",
+        "aliases": [
+          "email.email-sender.operation.send_campaign_emails",
+          "services.email.sender.EmailSenderService.send_campaign_emails"
+        ]
+      },
       "method": "send_campaign_emails",
       "qualified_name": "services.email.sender.EmailSenderService.send_campaign_emails",
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "campaign",
+          "annotation": "Union[UUID, EmailCampaign]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "batch_size",
+          "annotation": "int",
+          "default": "50",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "delay_between_batches",
+          "annotation": "float",
+          "default": "1.0",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, int]",
+      "description": "Send all emails for a campaign in batches with rate limiting and quota enforcement",
+      "docstring": "Send all emails for a campaign in batches with rate limiting and quota enforcement\n\nArgs:\n    db: Database session\n    campaign: Email campaign UUID or loaded campaign model\n    batch_size: Number of emails per batch (auto-adjusted based on provider)\n    delay_between_batches: Deprecated - rate limiter handles delays",
       "source": {
         "file": "services/email/sender.py",
-        "line_start": 390,
-        "line_end": 581
+        "line_start": 744,
+        "line_end": 939
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=send_campaign_emails",
+          "qualified_name=services.email.sender.EmailSenderService.send_campaign_emails"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "email.email-sender.operation.render_campaign_email",
+      "identity": {
+        "catalog_id": "email.email-sender.operation.render_campaign_email",
+        "logical_id": "email.email-sender.operation.render_campaign_email",
+        "source_id": "operation:57d8c4d8893c466c",
+        "display_name": "EmailSenderService.render_campaign_email",
+        "aliases": [
+          "email.email-sender.operation.render_campaign_email",
+          "services.email.sender.EmailSenderService.render_campaign_email"
+        ]
+      },
+      "method": "render_campaign_email",
+      "qualified_name": "services.email.sender.EmailSenderService.render_campaign_email",
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "campaign",
+          "annotation": "EmailCampaign",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "delivery",
+          "annotation": "CampaignDelivery",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "participant",
+          "annotation": "Participant",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "experiment",
+          "annotation": "Optional[Experiment]",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "session",
+          "annotation": "Optional[Session]",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": "Render campaign content with the same personalization path used for delivery.",
+      "docstring": "Render campaign content with the same personalization path used for delivery.",
+      "source": {
+        "file": "services/email/sender.py",
+        "line_start": 1092,
+        "line_end": 1138
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high",
+        "evidence": [
+          "method_name=render_campaign_email",
+          "qualified_name=services.email.sender.EmailSenderService.render_campaign_email"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "email.email-sender.operation.send_test_email",
+      "identity": {
+        "catalog_id": "email.email-sender.operation.send_test_email",
+        "logical_id": "email.email-sender.operation.send_test_email",
+        "source_id": "operation:16fc64bea4c0e075",
+        "display_name": "EmailSenderService.send_test_email",
+        "aliases": [
+          "email.email-sender.operation.send_test_email",
+          "services.email.sender.EmailSenderService.send_test_email"
+        ]
+      },
       "method": "send_test_email",
       "qualified_name": "services.email.sender.EmailSenderService.send_test_email",
+      "parameters": [
+        {
+          "name": "to_email",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "subject",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "body_html",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "body_text",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": "Send a test email (for preview/testing)",
+      "docstring": "Send a test email (for preview/testing)",
       "source": {
         "file": "services/email/sender.py",
-        "line_start": 816,
-        "line_end": 849
+        "line_start": 1336,
+        "line_end": 1369
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=send_test_email",
+          "qualified_name=services.email.sender.EmailSenderService.send_test_email"
+        ]
       },
       "review_status": "generated"
     }
@@ -93,7 +424,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=EmailSenderService",
+      "source_path=services/email/sender.py"
+    ]
   },
   "review_status": "generated"
 }

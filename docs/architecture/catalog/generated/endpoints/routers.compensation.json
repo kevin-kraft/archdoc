@@ -4,7 +4,20 @@
   "source_file": "routers/compensation.py",
   "endpoints": [
     {
-      "id": "routers.compensation.get.bank-details.param-participant-id.get-bank-details",
+      "id": "routers.compensation.get.compensations.bank-details.param-participant-id.get-bank-details",
+      "identity": {
+        "catalog_id": "routers.compensation.get.compensations.bank-details.param-participant-id.get-bank-details",
+        "logical_id": "routers.compensation.get.compensations.bank-details.param-participant-id.get-bank-details",
+        "source_id": "endpoint:d33177047390aed3",
+        "display_name": "GET /compensations/bank-details/{participant_id}",
+        "aliases": [
+          "routers.compensation.get.compensations.bank-details.param-participant-id.get-bank-details",
+          "routers.compensation.get_bank_details",
+          "/bank-details/{participant_id}",
+          "/compensations",
+          "/compensations/bank-details/{participant_id}"
+        ]
+      },
       "module": "routers.compensation",
       "function_name": "get_bank_details",
       "qualified_name": "routers.compensation.get_bank_details",
@@ -18,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "/bank-details/{participant_id}",
+      "include_prefix": "/compensations",
+      "router_prefix": null,
+      "full_path": "/compensations/bank-details/{participant_id}",
       "router": "router",
       "kwargs": {
         "response_model": "BankDetailsResponse"
@@ -54,140 +70,38 @@
       ],
       "source": {
         "file": "routers/compensation.py",
-        "line_start": 1206,
-        "line_end": 1225
+        "line_start": 1253,
+        "line_end": 1272
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.compensation.get.param-compensation-id.get-compensation",
-      "module": "routers.compensation",
-      "function_name": "get_compensation",
-      "qualified_name": "routers.compensation.get_compensation",
-      "implementation": {
-        "kind": "direct_db_access",
-        "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
-        "signals": [
-          "db_or_sqlalchemy_call"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/bank-details/{participant_id}",
+          "include_prefix=/compensations",
+          "router_prefix=None",
+          "full_path=/compensations/bank-details/{participant_id}",
+          "function=routers.compensation.get_bank_details"
         ]
       },
-      "http_method": "GET",
-      "path": "/{compensation_id}",
-      "router": "router",
-      "kwargs": {
-        "response_model": "CompensationResponse"
-      },
-      "parameters": [
-        {
-          "name": "compensation_id",
-          "annotation": "str",
-          "default": null,
-          "kind": "positional_or_keyword",
-          "source": "body_or_positional"
-        },
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "DB_SESSION_DEPENDENCY",
-          "kind": "positional_or_keyword",
-          "source": "default"
-        },
-        {
-          "name": "org_id",
-          "annotation": "str",
-          "default": "ORG_CONTEXT_DEPENDENCY",
-          "kind": "positional_or_keyword",
-          "source": "default"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "VIEW_PERMISSION_DEPENDENCY",
-          "kind": "positional_or_keyword",
-          "source": "default"
-        },
-        {
-          "name": "can_view_pii",
-          "annotation": "bool",
-          "default": "EXPORT_PII_PERMISSION_DEPENDENCY",
-          "kind": "positional_or_keyword",
-          "source": "default"
-        }
-      ],
-      "source": {
-        "file": "routers/compensation.py",
-        "line_start": 637,
-        "line_end": 661
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
       "review_status": "generated"
     },
     {
-      "id": "routers.compensation.get.reports.by-experiment.get-budget-report",
-      "module": "routers.compensation",
-      "function_name": "get_budget_report",
-      "qualified_name": "routers.compensation.get_budget_report",
-      "implementation": {
-        "kind": "direct_db_access",
-        "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
-        "signals": [
-          "db_or_sqlalchemy_call"
+      "id": "routers.compensation.get.compensations.list-compensations",
+      "identity": {
+        "catalog_id": "routers.compensation.get.compensations.list-compensations",
+        "logical_id": "routers.compensation.get.compensations.list-compensations",
+        "source_id": "endpoint:af9648ef0ada1e9f",
+        "display_name": "GET /compensations",
+        "aliases": [
+          "routers.compensation.get.compensations.list-compensations",
+          "routers.compensation.list_compensations",
+          "/",
+          "/compensations"
         ]
       },
-      "http_method": "GET",
-      "path": "/reports/by-experiment",
-      "router": "router",
-      "kwargs": {
-        "response_model": "list[BudgetReport]"
-      },
-      "parameters": [
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "DB_SESSION_DEPENDENCY",
-          "kind": "positional_or_keyword",
-          "source": "default"
-        },
-        {
-          "name": "org_id",
-          "annotation": "str",
-          "default": "ORG_CONTEXT_DEPENDENCY",
-          "kind": "positional_or_keyword",
-          "source": "default"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "VIEW_PERMISSION_DEPENDENCY",
-          "kind": "positional_or_keyword",
-          "source": "default"
-        }
-      ],
-      "source": {
-        "file": "routers/compensation.py",
-        "line_start": 1045,
-        "line_end": 1101
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.compensation.get.root.list-compensations",
       "module": "routers.compensation",
       "function_name": "list_compensations",
       "qualified_name": "routers.compensation.list_compensations",
@@ -201,6 +115,9 @@
       },
       "http_method": "GET",
       "path": "/",
+      "include_prefix": "/compensations",
+      "router_prefix": null,
+      "full_path": "/compensations",
       "router": "router",
       "kwargs": {
         "response_model": "list[CompensationResponse]"
@@ -307,18 +224,209 @@
       ],
       "source": {
         "file": "routers/compensation.py",
-        "line_start": 563,
-        "line_end": 633
+        "line_start": 604,
+        "line_end": 674
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/",
+          "include_prefix=/compensations",
+          "router_prefix=None",
+          "full_path=/compensations",
+          "function=routers.compensation.list_compensations"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.compensation.get.statistics.overview.get-compensation-statistics",
+      "id": "routers.compensation.get.compensations.param-compensation-id.get-compensation",
+      "identity": {
+        "catalog_id": "routers.compensation.get.compensations.param-compensation-id.get-compensation",
+        "logical_id": "routers.compensation.get.compensations.param-compensation-id.get-compensation",
+        "source_id": "endpoint:26677790bf00ab57",
+        "display_name": "GET /compensations/{compensation_id}",
+        "aliases": [
+          "routers.compensation.get.compensations.param-compensation-id.get-compensation",
+          "routers.compensation.get_compensation",
+          "/{compensation_id}",
+          "/compensations",
+          "/compensations/{compensation_id}"
+        ]
+      },
+      "module": "routers.compensation",
+      "function_name": "get_compensation",
+      "qualified_name": "routers.compensation.get_compensation",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{compensation_id}",
+      "include_prefix": "/compensations",
+      "router_prefix": null,
+      "full_path": "/compensations/{compensation_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "CompensationResponse"
+      },
+      "parameters": [
+        {
+          "name": "compensation_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "VIEW_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "EXPORT_PII_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/compensation.py",
+        "line_start": 678,
+        "line_end": 702
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{compensation_id}",
+          "include_prefix=/compensations",
+          "router_prefix=None",
+          "full_path=/compensations/{compensation_id}",
+          "function=routers.compensation.get_compensation"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.compensation.get.compensations.reports.by-experiment.get-budget-report",
+      "identity": {
+        "catalog_id": "routers.compensation.get.compensations.reports.by-experiment.get-budget-report",
+        "logical_id": "routers.compensation.get.compensations.reports.by-experiment.get-budget-report",
+        "source_id": "endpoint:0474f33bc7805512",
+        "display_name": "GET /compensations/reports/by-experiment",
+        "aliases": [
+          "routers.compensation.get.compensations.reports.by-experiment.get-budget-report",
+          "routers.compensation.get_budget_report",
+          "/reports/by-experiment",
+          "/compensations",
+          "/compensations/reports/by-experiment"
+        ]
+      },
+      "module": "routers.compensation",
+      "function_name": "get_budget_report",
+      "qualified_name": "routers.compensation.get_budget_report",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/reports/by-experiment",
+      "include_prefix": "/compensations",
+      "router_prefix": null,
+      "full_path": "/compensations/reports/by-experiment",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[BudgetReport]"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "VIEW_PERMISSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/compensation.py",
+        "line_start": 1092,
+        "line_end": 1148
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/reports/by-experiment",
+          "include_prefix=/compensations",
+          "router_prefix=None",
+          "full_path=/compensations/reports/by-experiment",
+          "function=routers.compensation.get_budget_report"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.compensation.get.compensations.statistics.overview.get-compensation-statistics",
+      "identity": {
+        "catalog_id": "routers.compensation.get.compensations.statistics.overview.get-compensation-statistics",
+        "logical_id": "routers.compensation.get.compensations.statistics.overview.get-compensation-statistics",
+        "source_id": "endpoint:441df8efc810379c",
+        "display_name": "GET /compensations/statistics/overview",
+        "aliases": [
+          "routers.compensation.get.compensations.statistics.overview.get-compensation-statistics",
+          "routers.compensation.get_compensation_statistics",
+          "/statistics/overview",
+          "/compensations",
+          "/compensations/statistics/overview"
+        ]
+      },
       "module": "routers.compensation",
       "function_name": "get_compensation_statistics",
       "qualified_name": "routers.compensation.get_compensation_statistics",
@@ -332,6 +440,9 @@
       },
       "http_method": "GET",
       "path": "/statistics/overview",
+      "include_prefix": "/compensations",
+      "router_prefix": null,
+      "full_path": "/compensations/statistics/overview",
       "router": "router",
       "kwargs": {
         "response_model": "list[CompensationStats]"
@@ -361,18 +472,39 @@
       ],
       "source": {
         "file": "routers/compensation.py",
-        "line_start": 988,
-        "line_end": 1041
+        "line_start": 1035,
+        "line_end": 1088
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/statistics/overview",
+          "include_prefix=/compensations",
+          "router_prefix=None",
+          "full_path=/compensations/statistics/overview",
+          "function=routers.compensation.get_compensation_statistics"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.compensation.post.bank-details.create-or-update-bank-details",
+      "id": "routers.compensation.post.compensations.bank-details.create-or-update-bank-details",
+      "identity": {
+        "catalog_id": "routers.compensation.post.compensations.bank-details.create-or-update-bank-details",
+        "logical_id": "routers.compensation.post.compensations.bank-details.create-or-update-bank-details",
+        "source_id": "endpoint:2b7aa82f14bde019",
+        "display_name": "POST /compensations/bank-details",
+        "aliases": [
+          "routers.compensation.post.compensations.bank-details.create-or-update-bank-details",
+          "routers.compensation.create_or_update_bank_details",
+          "/bank-details",
+          "/compensations",
+          "/compensations/bank-details"
+        ]
+      },
       "module": "routers.compensation",
       "function_name": "create_or_update_bank_details",
       "qualified_name": "routers.compensation.create_or_update_bank_details",
@@ -388,6 +520,9 @@
       },
       "http_method": "POST",
       "path": "/bank-details",
+      "include_prefix": "/compensations",
+      "router_prefix": null,
+      "full_path": "/compensations/bank-details",
       "router": "router",
       "kwargs": {
         "response_model": "BankDetailsResponse",
@@ -439,33 +574,56 @@
       ],
       "source": {
         "file": "routers/compensation.py",
-        "line_start": 1107,
-        "line_end": 1202
+        "line_start": 1154,
+        "line_end": 1249
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/bank-details",
+          "include_prefix=/compensations",
+          "router_prefix=None",
+          "full_path=/compensations/bank-details",
+          "function=routers.compensation.create_or_update_bank_details"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.compensation.post.bulk-approve.bulk-approve-compensations",
+      "id": "routers.compensation.post.compensations.bulk-approve.bulk-approve-compensations",
+      "identity": {
+        "catalog_id": "routers.compensation.post.compensations.bulk-approve.bulk-approve-compensations",
+        "logical_id": "routers.compensation.post.compensations.bulk-approve.bulk-approve-compensations",
+        "source_id": "endpoint:dad855421d3b13df",
+        "display_name": "POST /compensations/bulk-approve",
+        "aliases": [
+          "routers.compensation.post.compensations.bulk-approve.bulk-approve-compensations",
+          "routers.compensation.bulk_approve_compensations",
+          "/bulk-approve",
+          "/compensations",
+          "/compensations/bulk-approve"
+        ]
+      },
       "module": "routers.compensation",
       "function_name": "bulk_approve_compensations",
       "qualified_name": "routers.compensation.bulk_approve_compensations",
       "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
         "signals": [
           "db_or_sqlalchemy_call",
-          "direct_service_class_call",
-          "endpoint_service_link_resolved"
+          "direct_service_class_call"
         ]
       },
       "http_method": "POST",
       "path": "/bulk-approve",
+      "include_prefix": "/compensations",
+      "router_prefix": null,
+      "full_path": "/compensations/bulk-approve",
       "router": "router",
       "kwargs": {
         "response_model": "BulkApprovalResponse"
@@ -509,18 +667,38 @@
       ],
       "source": {
         "file": "routers/compensation.py",
-        "line_start": 1314,
-        "line_end": 1415
+        "line_start": 1361,
+        "line_end": 1462
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/bulk-approve",
+          "include_prefix=/compensations",
+          "router_prefix=None",
+          "full_path=/compensations/bulk-approve",
+          "function=routers.compensation.bulk_approve_compensations"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.compensation.post.root.create-compensation",
+      "id": "routers.compensation.post.compensations.create-compensation",
+      "identity": {
+        "catalog_id": "routers.compensation.post.compensations.create-compensation",
+        "logical_id": "routers.compensation.post.compensations.create-compensation",
+        "source_id": "endpoint:193896ab9f9dc5ee",
+        "display_name": "POST /compensations",
+        "aliases": [
+          "routers.compensation.post.compensations.create-compensation",
+          "routers.compensation.create_compensation",
+          "/",
+          "/compensations"
+        ]
+      },
       "module": "routers.compensation",
       "function_name": "create_compensation",
       "qualified_name": "routers.compensation.create_compensation",
@@ -537,6 +715,9 @@
       },
       "http_method": "POST",
       "path": "/",
+      "include_prefix": "/compensations",
+      "router_prefix": null,
+      "full_path": "/compensations",
       "router": "router",
       "kwargs": {
         "response_model": "CompensationResponse",
@@ -581,34 +762,57 @@
       ],
       "source": {
         "file": "routers/compensation.py",
-        "line_start": 453,
-        "line_end": 559
+        "line_start": 493,
+        "line_end": 600
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/",
+          "include_prefix=/compensations",
+          "router_prefix=None",
+          "full_path=/compensations",
+          "function=routers.compensation.create_compensation"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.compensation.put.bank-details.param-participant-id.verify.verify-bank-details",
+      "id": "routers.compensation.put.compensations.bank-details.param-participant-id.verify.verify-bank-details",
+      "identity": {
+        "catalog_id": "routers.compensation.put.compensations.bank-details.param-participant-id.verify.verify-bank-details",
+        "logical_id": "routers.compensation.put.compensations.bank-details.param-participant-id.verify.verify-bank-details",
+        "source_id": "endpoint:463902bfc0e2fcd4",
+        "display_name": "PUT /compensations/bank-details/{participant_id}/verify",
+        "aliases": [
+          "routers.compensation.put.compensations.bank-details.param-participant-id.verify.verify-bank-details",
+          "routers.compensation.verify_bank_details",
+          "/bank-details/{participant_id}/verify",
+          "/compensations",
+          "/compensations/bank-details/{participant_id}/verify"
+        ]
+      },
       "module": "routers.compensation",
       "function_name": "verify_bank_details",
       "qualified_name": "routers.compensation.verify_bank_details",
       "implementation": {
-        "kind": "service_operation",
+        "kind": "service_candidate",
         "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
+        "reason": "Endpoint contains a typed or assigned service variable and calls a method on it.",
         "signals": [
           "db_or_sqlalchemy_call",
           "service_variable_detected",
-          "service_method_call_detected",
-          "endpoint_service_link_resolved"
+          "service_method_call_detected"
         ]
       },
       "http_method": "PUT",
       "path": "/bank-details/{participant_id}/verify",
+      "include_prefix": "/compensations",
+      "router_prefix": null,
+      "full_path": "/compensations/bank-details/{participant_id}/verify",
       "router": "router",
       "kwargs": {
         "response_model": "BankDetailsResponse"
@@ -659,18 +863,39 @@
       ],
       "source": {
         "file": "routers/compensation.py",
-        "line_start": 1235,
-        "line_end": 1295
+        "line_start": 1282,
+        "line_end": 1342
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/bank-details/{participant_id}/verify",
+          "include_prefix=/compensations",
+          "router_prefix=None",
+          "full_path=/compensations/bank-details/{participant_id}/verify",
+          "function=routers.compensation.verify_bank_details"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.compensation.put.param-compensation-id.approve.approve-compensation",
+      "id": "routers.compensation.put.compensations.param-compensation-id.approve.approve-compensation",
+      "identity": {
+        "catalog_id": "routers.compensation.put.compensations.param-compensation-id.approve.approve-compensation",
+        "logical_id": "routers.compensation.put.compensations.param-compensation-id.approve.approve-compensation",
+        "source_id": "endpoint:dd7606001287bc60",
+        "display_name": "PUT /compensations/{compensation_id}/approve",
+        "aliases": [
+          "routers.compensation.put.compensations.param-compensation-id.approve.approve-compensation",
+          "routers.compensation.approve_compensation",
+          "/{compensation_id}/approve",
+          "/compensations",
+          "/compensations/{compensation_id}/approve"
+        ]
+      },
       "module": "routers.compensation",
       "function_name": "approve_compensation",
       "qualified_name": "routers.compensation.approve_compensation",
@@ -684,6 +909,9 @@
       },
       "http_method": "PUT",
       "path": "/{compensation_id}/approve",
+      "include_prefix": "/compensations",
+      "router_prefix": null,
+      "full_path": "/compensations/{compensation_id}/approve",
       "router": "router",
       "kwargs": {
         "response_model": "CompensationResponse"
@@ -741,33 +969,56 @@
       ],
       "source": {
         "file": "routers/compensation.py",
-        "line_start": 665,
-        "line_end": 719
+        "line_start": 706,
+        "line_end": 760
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/{compensation_id}/approve",
+          "include_prefix=/compensations",
+          "router_prefix=None",
+          "full_path=/compensations/{compensation_id}/approve",
+          "function=routers.compensation.approve_compensation"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.compensation.put.param-compensation-id.dual-approve.dual-approve-compensation",
+      "id": "routers.compensation.put.compensations.param-compensation-id.dual-approve.dual-approve-compensation",
+      "identity": {
+        "catalog_id": "routers.compensation.put.compensations.param-compensation-id.dual-approve.dual-approve-compensation",
+        "logical_id": "routers.compensation.put.compensations.param-compensation-id.dual-approve.dual-approve-compensation",
+        "source_id": "endpoint:8c6d728c912fb5d4",
+        "display_name": "PUT /compensations/{compensation_id}/dual-approve",
+        "aliases": [
+          "routers.compensation.put.compensations.param-compensation-id.dual-approve.dual-approve-compensation",
+          "routers.compensation.dual_approve_compensation",
+          "/{compensation_id}/dual-approve",
+          "/compensations",
+          "/compensations/{compensation_id}/dual-approve"
+        ]
+      },
       "module": "routers.compensation",
       "function_name": "dual_approve_compensation",
       "qualified_name": "routers.compensation.dual_approve_compensation",
       "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
         "signals": [
           "db_or_sqlalchemy_call",
-          "direct_service_class_call",
-          "endpoint_service_link_resolved"
+          "direct_service_class_call"
         ]
       },
       "http_method": "PUT",
       "path": "/{compensation_id}/dual-approve",
+      "include_prefix": "/compensations",
+      "router_prefix": null,
+      "full_path": "/compensations/{compensation_id}/dual-approve",
       "router": "router",
       "kwargs": {
         "response_model": "CompensationResponse"
@@ -825,33 +1076,56 @@
       ],
       "source": {
         "file": "routers/compensation.py",
-        "line_start": 789,
-        "line_end": 895
+        "line_start": 830,
+        "line_end": 936
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/{compensation_id}/dual-approve",
+          "include_prefix=/compensations",
+          "router_prefix=None",
+          "full_path=/compensations/{compensation_id}/dual-approve",
+          "function=routers.compensation.dual_approve_compensation"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.compensation.put.param-compensation-id.mark-paid.mark-compensation-paid",
+      "id": "routers.compensation.put.compensations.param-compensation-id.mark-paid.mark-compensation-paid",
+      "identity": {
+        "catalog_id": "routers.compensation.put.compensations.param-compensation-id.mark-paid.mark-compensation-paid",
+        "logical_id": "routers.compensation.put.compensations.param-compensation-id.mark-paid.mark-compensation-paid",
+        "source_id": "endpoint:3ee3e77cac802a34",
+        "display_name": "PUT /compensations/{compensation_id}/mark-paid",
+        "aliases": [
+          "routers.compensation.put.compensations.param-compensation-id.mark-paid.mark-compensation-paid",
+          "routers.compensation.mark_compensation_paid",
+          "/{compensation_id}/mark-paid",
+          "/compensations",
+          "/compensations/{compensation_id}/mark-paid"
+        ]
+      },
       "module": "routers.compensation",
       "function_name": "mark_compensation_paid",
       "qualified_name": "routers.compensation.mark_compensation_paid",
       "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
         "signals": [
           "db_or_sqlalchemy_call",
-          "direct_service_class_call",
-          "endpoint_service_link_resolved"
+          "direct_service_class_call"
         ]
       },
       "http_method": "PUT",
       "path": "/{compensation_id}/mark-paid",
+      "include_prefix": "/compensations",
+      "router_prefix": null,
+      "full_path": "/compensations/{compensation_id}/mark-paid",
       "router": "router",
       "kwargs": {
         "response_model": "CompensationResponse"
@@ -909,33 +1183,56 @@
       ],
       "source": {
         "file": "routers/compensation.py",
-        "line_start": 899,
-        "line_end": 984
+        "line_start": 940,
+        "line_end": 1031
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/{compensation_id}/mark-paid",
+          "include_prefix=/compensations",
+          "router_prefix=None",
+          "full_path=/compensations/{compensation_id}/mark-paid",
+          "function=routers.compensation.mark_compensation_paid"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.compensation.put.param-compensation-id.reject.reject-compensation",
+      "id": "routers.compensation.put.compensations.param-compensation-id.reject.reject-compensation",
+      "identity": {
+        "catalog_id": "routers.compensation.put.compensations.param-compensation-id.reject.reject-compensation",
+        "logical_id": "routers.compensation.put.compensations.param-compensation-id.reject.reject-compensation",
+        "source_id": "endpoint:ec1d8237625dc5c4",
+        "display_name": "PUT /compensations/{compensation_id}/reject",
+        "aliases": [
+          "routers.compensation.put.compensations.param-compensation-id.reject.reject-compensation",
+          "routers.compensation.reject_compensation",
+          "/{compensation_id}/reject",
+          "/compensations",
+          "/compensations/{compensation_id}/reject"
+        ]
+      },
       "module": "routers.compensation",
       "function_name": "reject_compensation",
       "qualified_name": "routers.compensation.reject_compensation",
       "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
         "signals": [
           "db_or_sqlalchemy_call",
-          "direct_service_class_call",
-          "endpoint_service_link_resolved"
+          "direct_service_class_call"
         ]
       },
       "http_method": "PUT",
       "path": "/{compensation_id}/reject",
+      "include_prefix": "/compensations",
+      "router_prefix": null,
+      "full_path": "/compensations/{compensation_id}/reject",
       "router": "router",
       "kwargs": {
         "response_model": "CompensationResponse"
@@ -993,13 +1290,21 @@
       ],
       "source": {
         "file": "routers/compensation.py",
-        "line_start": 723,
-        "line_end": 785
+        "line_start": 764,
+        "line_end": 826
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/{compensation_id}/reject",
+          "include_prefix=/compensations",
+          "router_prefix=None",
+          "full_path=/compensations/{compensation_id}/reject",
+          "function=routers.compensation.reject_compensation"
+        ]
       },
       "review_status": "generated"
     }

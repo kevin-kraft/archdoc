@@ -4,7 +4,20 @@
   "source_file": "routers/notifications.py",
   "endpoints": [
     {
-      "id": "routers.notifications.delete.push.unsubscribe.unsubscribe-push-notification",
+      "id": "routers.notifications.delete.notifications.push.unsubscribe.unsubscribe-push-notification",
+      "identity": {
+        "catalog_id": "routers.notifications.delete.notifications.push.unsubscribe.unsubscribe-push-notification",
+        "logical_id": "routers.notifications.delete.notifications.push.unsubscribe.unsubscribe-push-notification",
+        "source_id": "endpoint:93a5e0e9f6b07724",
+        "display_name": "DELETE /notifications/push/unsubscribe",
+        "aliases": [
+          "routers.notifications.delete.notifications.push.unsubscribe.unsubscribe-push-notification",
+          "routers.notifications.unsubscribe_push_notification",
+          "/push/unsubscribe",
+          "/notifications",
+          "/notifications/push/unsubscribe"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "unsubscribe_push_notification",
       "qualified_name": "routers.notifications.unsubscribe_push_notification",
@@ -20,6 +33,9 @@
       },
       "http_method": "DELETE",
       "path": "/push/unsubscribe",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/push/unsubscribe",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -47,18 +63,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 457,
-        "line_end": 466
+        "line_start": 637,
+        "line_end": 646
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/push/unsubscribe",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/push/unsubscribe",
+          "function=routers.notifications.unsubscribe_push_notification"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.delete.templates.param-template-id.delete-template",
+      "id": "routers.notifications.delete.notifications.templates.param-template-id.delete-template",
+      "identity": {
+        "catalog_id": "routers.notifications.delete.notifications.templates.param-template-id.delete-template",
+        "logical_id": "routers.notifications.delete.notifications.templates.param-template-id.delete-template",
+        "source_id": "endpoint:98afbf58faaae9e5",
+        "display_name": "DELETE /notifications/templates/{template_id}",
+        "aliases": [
+          "routers.notifications.delete.notifications.templates.param-template-id.delete-template",
+          "routers.notifications.delete_template",
+          "/templates/{template_id}",
+          "/notifications",
+          "/notifications/templates/{template_id}"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "delete_template",
       "qualified_name": "routers.notifications.delete_template",
@@ -74,6 +111,9 @@
       },
       "http_method": "DELETE",
       "path": "/templates/{template_id}",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/templates/{template_id}",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -108,18 +148,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 213,
-        "line_end": 227
+        "line_start": 383,
+        "line_end": 397
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/templates/{template_id}",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/templates/{template_id}",
+          "function=routers.notifications.delete_template"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.get.channels.list-channel-credentials",
+      "id": "routers.notifications.get.notifications.channels.list-channel-credentials",
+      "identity": {
+        "catalog_id": "routers.notifications.get.notifications.channels.list-channel-credentials",
+        "logical_id": "routers.notifications.get.notifications.channels.list-channel-credentials",
+        "source_id": "endpoint:0c1992aea3cc085a",
+        "display_name": "GET /notifications/channels",
+        "aliases": [
+          "routers.notifications.get.notifications.channels.list-channel-credentials",
+          "routers.notifications.list_channel_credentials",
+          "/channels",
+          "/notifications",
+          "/notifications/channels"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "list_channel_credentials",
       "qualified_name": "routers.notifications.list_channel_credentials",
@@ -133,6 +194,9 @@
       },
       "http_method": "GET",
       "path": "/channels",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/channels",
       "router": "router",
       "kwargs": {
         "response_model": "list[ChannelCredentialResponse]"
@@ -169,18 +233,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 251,
-        "line_end": 268
+        "line_start": 421,
+        "line_end": 438
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/channels",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/channels",
+          "function=routers.notifications.list_channel_credentials"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.get.delivery-events.param-outbox-id.get-delivery-events",
+      "id": "routers.notifications.get.notifications.delivery-events.param-outbox-id.get-delivery-events",
+      "identity": {
+        "catalog_id": "routers.notifications.get.notifications.delivery-events.param-outbox-id.get-delivery-events",
+        "logical_id": "routers.notifications.get.notifications.delivery-events.param-outbox-id.get-delivery-events",
+        "source_id": "endpoint:58aa49820a520ac8",
+        "display_name": "GET /notifications/delivery-events/{outbox_id}",
+        "aliases": [
+          "routers.notifications.get.notifications.delivery-events.param-outbox-id.get-delivery-events",
+          "routers.notifications.get_delivery_events",
+          "/delivery-events/{outbox_id}",
+          "/notifications",
+          "/notifications/delivery-events/{outbox_id}"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "get_delivery_events",
       "qualified_name": "routers.notifications.get_delivery_events",
@@ -194,6 +279,9 @@
       },
       "http_method": "GET",
       "path": "/delivery-events/{outbox_id}",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/delivery-events/{outbox_id}",
       "router": "router",
       "kwargs": {
         "response_model": "list[DeliveryEventResponse]"
@@ -230,18 +318,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 383,
-        "line_end": 418
+        "line_start": 563,
+        "line_end": 598
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/delivery-events/{outbox_id}",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/delivery-events/{outbox_id}",
+          "function=routers.notifications.get_delivery_events"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.get.outbox.list-outbox",
+      "id": "routers.notifications.get.notifications.outbox.list-outbox",
+      "identity": {
+        "catalog_id": "routers.notifications.get.notifications.outbox.list-outbox",
+        "logical_id": "routers.notifications.get.notifications.outbox.list-outbox",
+        "source_id": "endpoint:1efc116fee6ea9f2",
+        "display_name": "GET /notifications/outbox",
+        "aliases": [
+          "routers.notifications.get.notifications.outbox.list-outbox",
+          "routers.notifications.list_outbox",
+          "/outbox",
+          "/notifications",
+          "/notifications/outbox"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "list_outbox",
       "qualified_name": "routers.notifications.list_outbox",
@@ -255,6 +364,9 @@
       },
       "http_method": "GET",
       "path": "/outbox",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/outbox",
       "router": "router",
       "kwargs": {
         "response_model": "list[OutboxResponse]"
@@ -312,18 +424,117 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 306,
-        "line_end": 343
+        "line_start": 482,
+        "line_end": 523
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/outbox",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/outbox",
+          "function=routers.notifications.list_outbox"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.get.templates.list-templates",
+      "id": "routers.notifications.get.notifications.template-defaults.list-template-defaults",
+      "identity": {
+        "catalog_id": "routers.notifications.get.notifications.template-defaults.list-template-defaults",
+        "logical_id": "routers.notifications.get.notifications.template-defaults.list-template-defaults",
+        "source_id": "endpoint:5d4cf08259ee5eb5",
+        "display_name": "GET /notifications/template-defaults",
+        "aliases": [
+          "routers.notifications.get.notifications.template-defaults.list-template-defaults",
+          "routers.notifications.list_template_defaults",
+          "/template-defaults",
+          "/notifications",
+          "/notifications/template-defaults"
+        ]
+      },
+      "module": "routers.notifications",
+      "function_name": "list_template_defaults",
+      "qualified_name": "routers.notifications.list_template_defaults",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/template-defaults",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/template-defaults",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[EmailTemplateDefaultResponse]"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "__mail_edit_perm",
+          "annotation": "None",
+          "default": "Depends(require_permission(MailPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 218,
+        "line_end": 225
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/template-defaults",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/template-defaults",
+          "function=routers.notifications.list_template_defaults"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.get.notifications.templates.list-templates",
+      "identity": {
+        "catalog_id": "routers.notifications.get.notifications.templates.list-templates",
+        "logical_id": "routers.notifications.get.notifications.templates.list-templates",
+        "source_id": "endpoint:c52b1e812f118981",
+        "display_name": "GET /notifications/templates",
+        "aliases": [
+          "routers.notifications.get.notifications.templates.list-templates",
+          "routers.notifications.list_templates",
+          "/templates",
+          "/notifications",
+          "/notifications/templates"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "list_templates",
       "qualified_name": "routers.notifications.list_templates",
@@ -337,6 +548,9 @@
       },
       "http_method": "GET",
       "path": "/templates",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/templates",
       "router": "router",
       "kwargs": {
         "response_model": "list[MessageTemplateResponse]"
@@ -394,18 +608,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 96,
-        "line_end": 127
+        "line_start": 266,
+        "line_end": 297
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/templates",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/templates",
+          "function=routers.notifications.list_templates"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.get.templates.param-template-id.get-template",
+      "id": "routers.notifications.get.notifications.templates.param-template-id.get-template",
+      "identity": {
+        "catalog_id": "routers.notifications.get.notifications.templates.param-template-id.get-template",
+        "logical_id": "routers.notifications.get.notifications.templates.param-template-id.get-template",
+        "source_id": "endpoint:94efee6f949ec94e",
+        "display_name": "GET /notifications/templates/{template_id}",
+        "aliases": [
+          "routers.notifications.get.notifications.templates.param-template-id.get-template",
+          "routers.notifications.get_template",
+          "/templates/{template_id}",
+          "/notifications",
+          "/notifications/templates/{template_id}"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "get_template",
       "qualified_name": "routers.notifications.get_template",
@@ -419,6 +654,9 @@
       },
       "http_method": "GET",
       "path": "/templates/{template_id}",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/templates/{template_id}",
       "router": "router",
       "kwargs": {
         "response_model": "MessageTemplateResponse"
@@ -455,18 +693,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 172,
-        "line_end": 188
+        "line_start": 342,
+        "line_end": 358
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/templates/{template_id}",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/templates/{template_id}",
+          "function=routers.notifications.get_template"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.get.templates.recruitment-defaults.preview.preview-recruitment-default-templates",
+      "id": "routers.notifications.get.notifications.templates.recruitment-defaults.preview.preview-recruitment-default-templates",
+      "identity": {
+        "catalog_id": "routers.notifications.get.notifications.templates.recruitment-defaults.preview.preview-recruitment-default-templates",
+        "logical_id": "routers.notifications.get.notifications.templates.recruitment-defaults.preview.preview-recruitment-default-templates",
+        "source_id": "endpoint:5b65d3197069c507",
+        "display_name": "GET /notifications/templates/recruitment-defaults/preview",
+        "aliases": [
+          "routers.notifications.get.notifications.templates.recruitment-defaults.preview.preview-recruitment-default-templates",
+          "routers.notifications.preview_recruitment_default_templates",
+          "/templates/recruitment-defaults/preview",
+          "/notifications",
+          "/notifications/templates/recruitment-defaults/preview"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "preview_recruitment_default_templates",
       "qualified_name": "routers.notifications.preview_recruitment_default_templates",
@@ -480,6 +739,9 @@
       },
       "http_method": "GET",
       "path": "/templates/recruitment-defaults/preview",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/templates/recruitment-defaults/preview",
       "router": "router",
       "kwargs": {
         "response_model": "list[RecruitmentDefaultTemplatePreviewResponse]",
@@ -517,18 +779,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 134,
-        "line_end": 146
+        "line_start": 304,
+        "line_end": 316
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/templates/recruitment-defaults/preview",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/templates/recruitment-defaults/preview",
+          "function=routers.notifications.preview_recruitment_default_templates"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.get.vapid-public-key.get-vapid-public-key",
+      "id": "routers.notifications.get.notifications.vapid-public-key.get-vapid-public-key",
+      "identity": {
+        "catalog_id": "routers.notifications.get.notifications.vapid-public-key.get-vapid-public-key",
+        "logical_id": "routers.notifications.get.notifications.vapid-public-key.get-vapid-public-key",
+        "source_id": "endpoint:194d7a04369a125f",
+        "display_name": "GET /notifications/vapid-public-key",
+        "aliases": [
+          "routers.notifications.get.notifications.vapid-public-key.get-vapid-public-key",
+          "routers.notifications.get_vapid_public_key",
+          "/vapid-public-key",
+          "/notifications",
+          "/notifications/vapid-public-key"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "get_vapid_public_key",
       "qualified_name": "routers.notifications.get_vapid_public_key",
@@ -542,23 +825,47 @@
       },
       "http_method": "GET",
       "path": "/vapid-public-key",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/vapid-public-key",
       "router": "router",
       "kwargs": {},
       "parameters": [],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 421,
-        "line_end": 430
+        "line_start": 601,
+        "line_end": 610
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/vapid-public-key",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/vapid-public-key",
+          "function=routers.notifications.get_vapid_public_key"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.post.channels.create-channel-credential",
+      "id": "routers.notifications.post.notifications.channels.create-channel-credential",
+      "identity": {
+        "catalog_id": "routers.notifications.post.notifications.channels.create-channel-credential",
+        "logical_id": "routers.notifications.post.notifications.channels.create-channel-credential",
+        "source_id": "endpoint:027627f07e5cbe81",
+        "display_name": "POST /notifications/channels",
+        "aliases": [
+          "routers.notifications.post.notifications.channels.create-channel-credential",
+          "routers.notifications.create_channel_credential",
+          "/channels",
+          "/notifications",
+          "/notifications/channels"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "create_channel_credential",
       "qualified_name": "routers.notifications.create_channel_credential",
@@ -574,6 +881,9 @@
       },
       "http_method": "POST",
       "path": "/channels",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/channels",
       "router": "router",
       "kwargs": {
         "response_model": "ChannelCredentialResponse"
@@ -610,18 +920,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 230,
-        "line_end": 248
+        "line_start": 400,
+        "line_end": 418
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/channels",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/channels",
+          "function=routers.notifications.create_channel_credential"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.post.delivery-events.create-delivery-event",
+      "id": "routers.notifications.post.notifications.delivery-events.create-delivery-event",
+      "identity": {
+        "catalog_id": "routers.notifications.post.notifications.delivery-events.create-delivery-event",
+        "logical_id": "routers.notifications.post.notifications.delivery-events.create-delivery-event",
+        "source_id": "endpoint:43abab327c99b589",
+        "display_name": "POST /notifications/delivery-events",
+        "aliases": [
+          "routers.notifications.post.notifications.delivery-events.create-delivery-event",
+          "routers.notifications.create_delivery_event",
+          "/delivery-events",
+          "/notifications",
+          "/notifications/delivery-events"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "create_delivery_event",
       "qualified_name": "routers.notifications.create_delivery_event",
@@ -635,6 +966,9 @@
       },
       "http_method": "POST",
       "path": "/delivery-events",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/delivery-events",
       "router": "router",
       "kwargs": {
         "response_model": "DeliveryEventResponse"
@@ -671,18 +1005,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 346,
-        "line_end": 380
+        "line_start": 526,
+        "line_end": 560
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/delivery-events",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/delivery-events",
+          "function=routers.notifications.create_delivery_event"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.post.push.send-reminders.send-session-reminders",
+      "id": "routers.notifications.post.notifications.push.send-reminders.send-session-reminders",
+      "identity": {
+        "catalog_id": "routers.notifications.post.notifications.push.send-reminders.send-session-reminders",
+        "logical_id": "routers.notifications.post.notifications.push.send-reminders.send-session-reminders",
+        "source_id": "endpoint:dac36214e2864ae8",
+        "display_name": "POST /notifications/push/send-reminders",
+        "aliases": [
+          "routers.notifications.post.notifications.push.send-reminders.send-session-reminders",
+          "routers.notifications.send_session_reminders",
+          "/push/send-reminders",
+          "/notifications",
+          "/notifications/push/send-reminders"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "send_session_reminders",
       "qualified_name": "routers.notifications.send_session_reminders",
@@ -696,6 +1051,9 @@
       },
       "http_method": "POST",
       "path": "/push/send-reminders",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/push/send-reminders",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -730,18 +1088,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 487,
-        "line_end": 512
+        "line_start": 680,
+        "line_end": 705
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/push/send-reminders",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/push/send-reminders",
+          "function=routers.notifications.send_session_reminders"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.post.push.send.send-push-notification-to-participant",
+      "id": "routers.notifications.post.notifications.push.send.send-push-notification-to-participant",
+      "identity": {
+        "catalog_id": "routers.notifications.post.notifications.push.send.send-push-notification-to-participant",
+        "logical_id": "routers.notifications.post.notifications.push.send.send-push-notification-to-participant",
+        "source_id": "endpoint:506a1ef00ad699e8",
+        "display_name": "POST /notifications/push/send",
+        "aliases": [
+          "routers.notifications.post.notifications.push.send.send-push-notification-to-participant",
+          "routers.notifications.send_push_notification_to_participant",
+          "/push/send",
+          "/notifications",
+          "/notifications/push/send"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "send_push_notification_to_participant",
       "qualified_name": "routers.notifications.send_push_notification_to_participant",
@@ -750,13 +1129,15 @@
         "confidence": "high",
         "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "service_variable_detected",
-          "service_method_call_detected",
+          "direct_service_class_call",
           "endpoint_service_link_resolved"
         ]
       },
       "http_method": "POST",
       "path": "/push/send",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/push/send",
       "router": "router",
       "kwargs": {
         "response_model": "PushNotificationSendResponse"
@@ -793,18 +1174,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 470,
-        "line_end": 483
+        "line_start": 650,
+        "line_end": 676
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/push/send",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/push/send",
+          "function=routers.notifications.send_push_notification_to_participant"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.post.push.subscribe.subscribe-push-notification",
+      "id": "routers.notifications.post.notifications.push.subscribe.subscribe-push-notification",
+      "identity": {
+        "catalog_id": "routers.notifications.post.notifications.push.subscribe.subscribe-push-notification",
+        "logical_id": "routers.notifications.post.notifications.push.subscribe.subscribe-push-notification",
+        "source_id": "endpoint:087e958668206b5c",
+        "display_name": "POST /notifications/push/subscribe",
+        "aliases": [
+          "routers.notifications.post.notifications.push.subscribe.subscribe-push-notification",
+          "routers.notifications.subscribe_push_notification",
+          "/push/subscribe",
+          "/notifications",
+          "/notifications/push/subscribe"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "subscribe_push_notification",
       "qualified_name": "routers.notifications.subscribe_push_notification",
@@ -820,6 +1222,9 @@
       },
       "http_method": "POST",
       "path": "/push/subscribe",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/push/subscribe",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -847,18 +1252,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 434,
-        "line_end": 453
+        "line_start": 614,
+        "line_end": 633
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/push/subscribe",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/push/subscribe",
+          "function=routers.notifications.subscribe_push_notification"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.post.send.send-message",
+      "id": "routers.notifications.post.notifications.send.send-message",
+      "identity": {
+        "catalog_id": "routers.notifications.post.notifications.send.send-message",
+        "logical_id": "routers.notifications.post.notifications.send.send-message",
+        "source_id": "endpoint:d7b76fb6cfc6626c",
+        "display_name": "POST /notifications/send",
+        "aliases": [
+          "routers.notifications.post.notifications.send.send-message",
+          "routers.notifications.send_message",
+          "/send",
+          "/notifications",
+          "/notifications/send"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "send_message",
       "qualified_name": "routers.notifications.send_message",
@@ -867,13 +1293,15 @@
         "confidence": "high",
         "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "service_variable_detected",
-          "service_method_call_detected",
+          "direct_service_class_call",
           "endpoint_service_link_resolved"
         ]
       },
       "http_method": "POST",
       "path": "/send",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/send",
       "router": "router",
       "kwargs": {
         "response_model": "OutboxResponse"
@@ -910,18 +1338,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 271,
-        "line_end": 303
+        "line_start": 441,
+        "line_end": 479
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/send",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/send",
+          "function=routers.notifications.send_message"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.post.templates.create-template",
+      "id": "routers.notifications.post.notifications.templates.create-template",
+      "identity": {
+        "catalog_id": "routers.notifications.post.notifications.templates.create-template",
+        "logical_id": "routers.notifications.post.notifications.templates.create-template",
+        "source_id": "endpoint:872a03cbd18a9afd",
+        "display_name": "POST /notifications/templates",
+        "aliases": [
+          "routers.notifications.post.notifications.templates.create-template",
+          "routers.notifications.create_template",
+          "/templates",
+          "/notifications",
+          "/notifications/templates"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "create_template",
       "qualified_name": "routers.notifications.create_template",
@@ -937,6 +1386,9 @@
       },
       "http_method": "POST",
       "path": "/templates",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/templates",
       "router": "router",
       "kwargs": {
         "response_model": "MessageTemplateResponse"
@@ -973,18 +1425,39 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 83,
-        "line_end": 93
+        "line_start": 204,
+        "line_end": 214
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/templates",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/templates",
+          "function=routers.notifications.create_template"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.post.templates.recruitment-defaults.seed-recruitment-default-templates",
+      "id": "routers.notifications.post.notifications.templates.recruitment-defaults.seed-recruitment-default-templates",
+      "identity": {
+        "catalog_id": "routers.notifications.post.notifications.templates.recruitment-defaults.seed-recruitment-default-templates",
+        "logical_id": "routers.notifications.post.notifications.templates.recruitment-defaults.seed-recruitment-default-templates",
+        "source_id": "endpoint:fbf3a02f2d2e0288",
+        "display_name": "POST /notifications/templates/recruitment-defaults",
+        "aliases": [
+          "routers.notifications.post.notifications.templates.recruitment-defaults.seed-recruitment-default-templates",
+          "routers.notifications.seed_recruitment_default_templates",
+          "/templates/recruitment-defaults",
+          "/notifications",
+          "/notifications/templates/recruitment-defaults"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "seed_recruitment_default_templates",
       "qualified_name": "routers.notifications.seed_recruitment_default_templates",
@@ -998,6 +1471,9 @@
       },
       "http_method": "POST",
       "path": "/templates/recruitment-defaults",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/templates/recruitment-defaults",
       "router": "router",
       "kwargs": {
         "response_model": "list[MessageTemplateResponse]",
@@ -1042,18 +1518,131 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 153,
-        "line_end": 169
+        "line_start": 323,
+        "line_end": 339
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/templates/recruitment-defaults",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/templates/recruitment-defaults",
+          "function=routers.notifications.seed_recruitment_default_templates"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.notifications.put.templates.param-template-id.update-template",
+      "id": "routers.notifications.put.notifications.template-defaults.param-event-key.update-template-default",
+      "identity": {
+        "catalog_id": "routers.notifications.put.notifications.template-defaults.param-event-key.update-template-default",
+        "logical_id": "routers.notifications.put.notifications.template-defaults.param-event-key.update-template-default",
+        "source_id": "endpoint:a51fd732036e72fc",
+        "display_name": "PUT /notifications/template-defaults/{event_key}",
+        "aliases": [
+          "routers.notifications.put.notifications.template-defaults.param-event-key.update-template-default",
+          "routers.notifications.update_template_default",
+          "/template-defaults/{event_key}",
+          "/notifications",
+          "/notifications/template-defaults/{event_key}"
+        ]
+      },
+      "module": "routers.notifications",
+      "function_name": "update_template_default",
+      "qualified_name": "routers.notifications.update_template_default",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "PUT",
+      "path": "/template-defaults/{event_key}",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/template-defaults/{event_key}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[EmailTemplateDefaultResponse]"
+      },
+      "parameters": [
+        {
+          "name": "event_key",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "payload",
+          "annotation": "EmailTemplateDefaultUpdate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(MailPermissions.EDIT))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/notifications.py",
+        "line_start": 229,
+        "line_end": 263
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/template-defaults/{event_key}",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/template-defaults/{event_key}",
+          "function=routers.notifications.update_template_default"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.notifications.put.notifications.templates.param-template-id.update-template",
+      "identity": {
+        "catalog_id": "routers.notifications.put.notifications.templates.param-template-id.update-template",
+        "logical_id": "routers.notifications.put.notifications.templates.param-template-id.update-template",
+        "source_id": "endpoint:4c703af50f166e6a",
+        "display_name": "PUT /notifications/templates/{template_id}",
+        "aliases": [
+          "routers.notifications.put.notifications.templates.param-template-id.update-template",
+          "routers.notifications.update_template",
+          "/templates/{template_id}",
+          "/notifications",
+          "/notifications/templates/{template_id}"
+        ]
+      },
       "module": "routers.notifications",
       "function_name": "update_template",
       "qualified_name": "routers.notifications.update_template",
@@ -1069,6 +1658,9 @@
       },
       "http_method": "PUT",
       "path": "/templates/{template_id}",
+      "include_prefix": "/notifications",
+      "router_prefix": null,
+      "full_path": "/notifications/templates/{template_id}",
       "router": "router",
       "kwargs": {
         "response_model": "MessageTemplateResponse"
@@ -1112,13 +1704,21 @@
       ],
       "source": {
         "file": "routers/notifications.py",
-        "line_start": 191,
-        "line_end": 210
+        "line_start": 361,
+        "line_end": 380
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/templates/{template_id}",
+          "include_prefix=/notifications",
+          "router_prefix=None",
+          "full_path=/notifications/templates/{template_id}",
+          "function=routers.notifications.update_template"
+        ]
       },
       "review_status": "generated"
     }

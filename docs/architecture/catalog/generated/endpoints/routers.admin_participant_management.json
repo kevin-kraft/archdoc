@@ -4,7 +4,20 @@
   "source_file": "routers/admin_participant_management.py",
   "endpoints": [
     {
-      "id": "routers.admin_participant_management.get.compensation.list.list-all-compensations",
+      "id": "routers.admin_participant_management.get.admin.participant-management.compensation.list.list-all-compensations",
+      "identity": {
+        "catalog_id": "routers.admin_participant_management.get.admin.participant-management.compensation.list.list-all-compensations",
+        "logical_id": "routers.admin_participant_management.get.admin.participant-management.compensation.list.list-all-compensations",
+        "source_id": "endpoint:d7d12b517268f7c1",
+        "display_name": "GET /admin/participant-management/compensation/list",
+        "aliases": [
+          "routers.admin_participant_management.get.admin.participant-management.compensation.list.list-all-compensations",
+          "routers.admin_participant_management.list_all_compensations",
+          "/compensation/list",
+          "/admin/participant-management",
+          "/admin/participant-management/compensation/list"
+        ]
+      },
       "module": "routers.admin_participant_management",
       "function_name": "list_all_compensations",
       "qualified_name": "routers.admin_participant_management.list_all_compensations",
@@ -18,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "/compensation/list",
+      "include_prefix": "/admin/participant-management",
+      "router_prefix": null,
+      "full_path": "/admin/participant-management/compensation/list",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -80,18 +96,39 @@
       ],
       "source": {
         "file": "routers/admin_participant_management.py",
-        "line_start": 107,
-        "line_end": 163
+        "line_start": 109,
+        "line_end": 165
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/compensation/list",
+          "include_prefix=/admin/participant-management",
+          "router_prefix=None",
+          "full_path=/admin/participant-management/compensation/list",
+          "function=routers.admin_participant_management.list_all_compensations"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_participant_management.get.compensation.summary.get-compensation-summary",
+      "id": "routers.admin_participant_management.get.admin.participant-management.compensation.summary.get-compensation-summary",
+      "identity": {
+        "catalog_id": "routers.admin_participant_management.get.admin.participant-management.compensation.summary.get-compensation-summary",
+        "logical_id": "routers.admin_participant_management.get.admin.participant-management.compensation.summary.get-compensation-summary",
+        "source_id": "endpoint:39451f155db53702",
+        "display_name": "GET /admin/participant-management/compensation/summary",
+        "aliases": [
+          "routers.admin_participant_management.get.admin.participant-management.compensation.summary.get-compensation-summary",
+          "routers.admin_participant_management.get_compensation_summary",
+          "/compensation/summary",
+          "/admin/participant-management",
+          "/admin/participant-management/compensation/summary"
+        ]
+      },
       "module": "routers.admin_participant_management",
       "function_name": "get_compensation_summary",
       "qualified_name": "routers.admin_participant_management.get_compensation_summary",
@@ -105,6 +142,9 @@
       },
       "http_method": "GET",
       "path": "/compensation/summary",
+      "include_prefix": "/admin/participant-management",
+      "router_prefix": null,
+      "full_path": "/admin/participant-management/compensation/summary",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -132,18 +172,39 @@
       ],
       "source": {
         "file": "routers/admin_participant_management.py",
-        "line_start": 45,
-        "line_end": 103
+        "line_start": 47,
+        "line_end": 105
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/compensation/summary",
+          "include_prefix=/admin/participant-management",
+          "router_prefix=None",
+          "full_path=/admin/participant-management/compensation/summary",
+          "function=routers.admin_participant_management.get_compensation_summary"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_participant_management.get.feedback.list.list-all-feedback",
+      "id": "routers.admin_participant_management.get.admin.participant-management.feedback.list.list-all-feedback",
+      "identity": {
+        "catalog_id": "routers.admin_participant_management.get.admin.participant-management.feedback.list.list-all-feedback",
+        "logical_id": "routers.admin_participant_management.get.admin.participant-management.feedback.list.list-all-feedback",
+        "source_id": "endpoint:a5d71c0b49f39580",
+        "display_name": "GET /admin/participant-management/feedback/list",
+        "aliases": [
+          "routers.admin_participant_management.get.admin.participant-management.feedback.list.list-all-feedback",
+          "routers.admin_participant_management.list_all_feedback",
+          "/feedback/list",
+          "/admin/participant-management",
+          "/admin/participant-management/feedback/list"
+        ]
+      },
       "module": "routers.admin_participant_management",
       "function_name": "list_all_feedback",
       "qualified_name": "routers.admin_participant_management.list_all_feedback",
@@ -157,6 +218,9 @@
       },
       "http_method": "GET",
       "path": "/feedback/list",
+      "include_prefix": "/admin/participant-management",
+      "router_prefix": null,
+      "full_path": "/admin/participant-management/feedback/list",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -226,18 +290,39 @@
       ],
       "source": {
         "file": "routers/admin_participant_management.py",
-        "line_start": 287,
-        "line_end": 341
+        "line_start": 289,
+        "line_end": 343
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/feedback/list",
+          "include_prefix=/admin/participant-management",
+          "router_prefix=None",
+          "full_path=/admin/participant-management/feedback/list",
+          "function=routers.admin_participant_management.list_all_feedback"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_participant_management.get.feedback.summary.get-feedback-summary",
+      "id": "routers.admin_participant_management.get.admin.participant-management.feedback.summary.get-feedback-summary",
+      "identity": {
+        "catalog_id": "routers.admin_participant_management.get.admin.participant-management.feedback.summary.get-feedback-summary",
+        "logical_id": "routers.admin_participant_management.get.admin.participant-management.feedback.summary.get-feedback-summary",
+        "source_id": "endpoint:5158524b661fb8a5",
+        "display_name": "GET /admin/participant-management/feedback/summary",
+        "aliases": [
+          "routers.admin_participant_management.get.admin.participant-management.feedback.summary.get-feedback-summary",
+          "routers.admin_participant_management.get_feedback_summary",
+          "/feedback/summary",
+          "/admin/participant-management",
+          "/admin/participant-management/feedback/summary"
+        ]
+      },
       "module": "routers.admin_participant_management",
       "function_name": "get_feedback_summary",
       "qualified_name": "routers.admin_participant_management.get_feedback_summary",
@@ -251,6 +336,9 @@
       },
       "http_method": "GET",
       "path": "/feedback/summary",
+      "include_prefix": "/admin/participant-management",
+      "router_prefix": null,
+      "full_path": "/admin/participant-management/feedback/summary",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -278,18 +366,39 @@
       ],
       "source": {
         "file": "routers/admin_participant_management.py",
-        "line_start": 239,
-        "line_end": 283
+        "line_start": 241,
+        "line_end": 285
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/feedback/summary",
+          "include_prefix=/admin/participant-management",
+          "router_prefix=None",
+          "full_path=/admin/participant-management/feedback/summary",
+          "function=routers.admin_participant_management.get_feedback_summary"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_participant_management.get.participants.param-participant-id.compensation.get-participant-compensation-history",
+      "id": "routers.admin_participant_management.get.admin.participant-management.participants.param-participant-id.compensation.get-participant-compensation-history",
+      "identity": {
+        "catalog_id": "routers.admin_participant_management.get.admin.participant-management.participants.param-participant-id.compensation.get-participant-compensation-history",
+        "logical_id": "routers.admin_participant_management.get.admin.participant-management.participants.param-participant-id.compensation.get-participant-compensation-history",
+        "source_id": "endpoint:c6a820fd8ac0ba3b",
+        "display_name": "GET /admin/participant-management/participants/{participant_id}/compensation",
+        "aliases": [
+          "routers.admin_participant_management.get.admin.participant-management.participants.param-participant-id.compensation.get-participant-compensation-history",
+          "routers.admin_participant_management.get_participant_compensation_history",
+          "/participants/{participant_id}/compensation",
+          "/admin/participant-management",
+          "/admin/participant-management/participants/{participant_id}/compensation"
+        ]
+      },
       "module": "routers.admin_participant_management",
       "function_name": "get_participant_compensation_history",
       "qualified_name": "routers.admin_participant_management.get_participant_compensation_history",
@@ -303,6 +412,9 @@
       },
       "http_method": "GET",
       "path": "/participants/{participant_id}/compensation",
+      "include_prefix": "/admin/participant-management",
+      "router_prefix": null,
+      "full_path": "/admin/participant-management/participants/{participant_id}/compensation",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -344,18 +456,39 @@
       ],
       "source": {
         "file": "routers/admin_participant_management.py",
-        "line_start": 382,
-        "line_end": 415
+        "line_start": 384,
+        "line_end": 417
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/participants/{participant_id}/compensation",
+          "include_prefix=/admin/participant-management",
+          "router_prefix=None",
+          "full_path=/admin/participant-management/participants/{participant_id}/compensation",
+          "function=routers.admin_participant_management.get_participant_compensation_history"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_participant_management.get.participants.param-participant-id.feedback.get-participant-feedback-history",
+      "id": "routers.admin_participant_management.get.admin.participant-management.participants.param-participant-id.feedback.get-participant-feedback-history",
+      "identity": {
+        "catalog_id": "routers.admin_participant_management.get.admin.participant-management.participants.param-participant-id.feedback.get-participant-feedback-history",
+        "logical_id": "routers.admin_participant_management.get.admin.participant-management.participants.param-participant-id.feedback.get-participant-feedback-history",
+        "source_id": "endpoint:fd4e3effbfc603fb",
+        "display_name": "GET /admin/participant-management/participants/{participant_id}/feedback",
+        "aliases": [
+          "routers.admin_participant_management.get.admin.participant-management.participants.param-participant-id.feedback.get-participant-feedback-history",
+          "routers.admin_participant_management.get_participant_feedback_history",
+          "/participants/{participant_id}/feedback",
+          "/admin/participant-management",
+          "/admin/participant-management/participants/{participant_id}/feedback"
+        ]
+      },
       "module": "routers.admin_participant_management",
       "function_name": "get_participant_feedback_history",
       "qualified_name": "routers.admin_participant_management.get_participant_feedback_history",
@@ -369,6 +502,9 @@
       },
       "http_method": "GET",
       "path": "/participants/{participant_id}/feedback",
+      "include_prefix": "/admin/participant-management",
+      "router_prefix": null,
+      "full_path": "/admin/participant-management/participants/{participant_id}/feedback",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -410,18 +546,39 @@
       ],
       "source": {
         "file": "routers/admin_participant_management.py",
-        "line_start": 419,
-        "line_end": 451
+        "line_start": 421,
+        "line_end": 453
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/participants/{participant_id}/feedback",
+          "include_prefix=/admin/participant-management",
+          "router_prefix=None",
+          "full_path=/admin/participant-management/participants/{participant_id}/feedback",
+          "function=routers.admin_participant_management.get_participant_feedback_history"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_participant_management.put.compensation.param-compensation-id.approve.approve-compensation",
+      "id": "routers.admin_participant_management.put.admin.participant-management.compensation.param-compensation-id.approve.approve-compensation",
+      "identity": {
+        "catalog_id": "routers.admin_participant_management.put.admin.participant-management.compensation.param-compensation-id.approve.approve-compensation",
+        "logical_id": "routers.admin_participant_management.put.admin.participant-management.compensation.param-compensation-id.approve.approve-compensation",
+        "source_id": "endpoint:88593f4dfe7cef18",
+        "display_name": "PUT /admin/participant-management/compensation/{compensation_id}/approve",
+        "aliases": [
+          "routers.admin_participant_management.put.admin.participant-management.compensation.param-compensation-id.approve.approve-compensation",
+          "routers.admin_participant_management.approve_compensation",
+          "/compensation/{compensation_id}/approve",
+          "/admin/participant-management",
+          "/admin/participant-management/compensation/{compensation_id}/approve"
+        ]
+      },
       "module": "routers.admin_participant_management",
       "function_name": "approve_compensation",
       "qualified_name": "routers.admin_participant_management.approve_compensation",
@@ -438,6 +595,9 @@
       },
       "http_method": "PUT",
       "path": "/compensation/{compensation_id}/approve",
+      "include_prefix": "/admin/participant-management",
+      "router_prefix": null,
+      "full_path": "/admin/participant-management/compensation/{compensation_id}/approve",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -486,18 +646,39 @@
       ],
       "source": {
         "file": "routers/admin_participant_management.py",
-        "line_start": 167,
-        "line_end": 198
+        "line_start": 169,
+        "line_end": 200
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/compensation/{compensation_id}/approve",
+          "include_prefix=/admin/participant-management",
+          "router_prefix=None",
+          "full_path=/admin/participant-management/compensation/{compensation_id}/approve",
+          "function=routers.admin_participant_management.approve_compensation"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_participant_management.put.compensation.param-compensation-id.mark-paid.mark-compensation-paid",
+      "id": "routers.admin_participant_management.put.admin.participant-management.compensation.param-compensation-id.mark-paid.mark-compensation-paid",
+      "identity": {
+        "catalog_id": "routers.admin_participant_management.put.admin.participant-management.compensation.param-compensation-id.mark-paid.mark-compensation-paid",
+        "logical_id": "routers.admin_participant_management.put.admin.participant-management.compensation.param-compensation-id.mark-paid.mark-compensation-paid",
+        "source_id": "endpoint:3282c898447752ff",
+        "display_name": "PUT /admin/participant-management/compensation/{compensation_id}/mark-paid",
+        "aliases": [
+          "routers.admin_participant_management.put.admin.participant-management.compensation.param-compensation-id.mark-paid.mark-compensation-paid",
+          "routers.admin_participant_management.mark_compensation_paid",
+          "/compensation/{compensation_id}/mark-paid",
+          "/admin/participant-management",
+          "/admin/participant-management/compensation/{compensation_id}/mark-paid"
+        ]
+      },
       "module": "routers.admin_participant_management",
       "function_name": "mark_compensation_paid",
       "qualified_name": "routers.admin_participant_management.mark_compensation_paid",
@@ -514,6 +695,9 @@
       },
       "http_method": "PUT",
       "path": "/compensation/{compensation_id}/mark-paid",
+      "include_prefix": "/admin/participant-management",
+      "router_prefix": null,
+      "full_path": "/admin/participant-management/compensation/{compensation_id}/mark-paid",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -562,18 +746,39 @@
       ],
       "source": {
         "file": "routers/admin_participant_management.py",
-        "line_start": 202,
-        "line_end": 233
+        "line_start": 204,
+        "line_end": 235
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/compensation/{compensation_id}/mark-paid",
+          "include_prefix=/admin/participant-management",
+          "router_prefix=None",
+          "full_path=/admin/participant-management/compensation/{compensation_id}/mark-paid",
+          "function=routers.admin_participant_management.mark_compensation_paid"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_participant_management.put.feedback.param-feedback-id.respond.respond-to-feedback",
+      "id": "routers.admin_participant_management.put.admin.participant-management.feedback.param-feedback-id.respond.respond-to-feedback",
+      "identity": {
+        "catalog_id": "routers.admin_participant_management.put.admin.participant-management.feedback.param-feedback-id.respond.respond-to-feedback",
+        "logical_id": "routers.admin_participant_management.put.admin.participant-management.feedback.param-feedback-id.respond.respond-to-feedback",
+        "source_id": "endpoint:734690331272949d",
+        "display_name": "PUT /admin/participant-management/feedback/{feedback_id}/respond",
+        "aliases": [
+          "routers.admin_participant_management.put.admin.participant-management.feedback.param-feedback-id.respond.respond-to-feedback",
+          "routers.admin_participant_management.respond_to_feedback",
+          "/feedback/{feedback_id}/respond",
+          "/admin/participant-management",
+          "/admin/participant-management/feedback/{feedback_id}/respond"
+        ]
+      },
       "module": "routers.admin_participant_management",
       "function_name": "respond_to_feedback",
       "qualified_name": "routers.admin_participant_management.respond_to_feedback",
@@ -590,6 +795,9 @@
       },
       "http_method": "PUT",
       "path": "/feedback/{feedback_id}/respond",
+      "include_prefix": "/admin/participant-management",
+      "router_prefix": null,
+      "full_path": "/admin/participant-management/feedback/{feedback_id}/respond",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -645,13 +853,21 @@
       ],
       "source": {
         "file": "routers/admin_participant_management.py",
-        "line_start": 345,
-        "line_end": 378
+        "line_start": 347,
+        "line_end": 380
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/feedback/{feedback_id}/respond",
+          "include_prefix=/admin/participant-management",
+          "router_prefix=None",
+          "full_path=/admin/participant-management/feedback/{feedback_id}/respond",
+          "function=routers.admin_participant_management.respond_to_feedback"
+        ]
       },
       "review_status": "generated"
     }

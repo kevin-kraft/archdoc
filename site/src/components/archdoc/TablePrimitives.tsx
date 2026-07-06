@@ -1,5 +1,5 @@
 import React from 'react';
-import {FaCircleCheck, FaTriangleExclamation} from 'react-icons/fa6';
+import {FaArrowRight, FaCircleCheck, FaCodeBranch, FaTriangleExclamation} from 'react-icons/fa6';
 
 type ToolbarProps = {
   title: string;
@@ -133,6 +133,113 @@ export function LinkStateIcon({linked}: {linked: boolean}) {
   );
 }
 
+
+type OperationRelationEndpoint = {
+  operation_id?: string | null;
+  service_id?: string | null;
+  class_name?: string | null;
+  method_name?: string | null;
+};
+
+export type OperationRelationLink = {
+  id?: string;
+  link_type?: string;
+  source?: OperationRelationEndpoint | null;
+  target?: OperationRelationEndpoint | null;
+  call_name?: string;
+  resolved?: boolean;
+  details?: Record<string, unknown>;
+};
+
+function relationDirection(link: OperationRelationLink, operationId?: string): 'incoming' | 'outgoing' {
+  return link.target?.operation_id === operationId ? 'incoming' : 'outgoing';
+}
+
+function relationCounterpart(link: OperationRelationLink, direction: 'incoming' | 'outgoing') {
+  const endpoint = direction === 'incoming' ? link.source : link.target;
+  return `${endpoint?.class_name ?? endpoint?.service_id ?? 'Service'}.${endpoint?.method_name ?? 'unknown'}`;
+}
+
+function relationDescription(link: OperationRelationLink, direction: 'incoming' | 'outgoing', counterpart: string) {
+  if (link.link_type === 'inherited_operation') {
+    return direction === 'outgoing'
+      ? `Inherited operation: this facade-owned operation is implemented by ${counterpart}.`
+      : `Inherited operation target: ${counterpart} exposes this implementation through a facade or inherited service.`;
+  }
+
+  if (link.link_type === 'service_call') {
+    return direction === 'outgoing'
+      ? `Service operation call to ${counterpart}.`
+      : `Service operation call from ${counterpart}.`;
+  }
+
+  return `Operation relation ${link.link_type ?? 'unknown'} with ${counterpart}.`;
+}
+
+export function OperationRelationBadge({
+  link,
+  operationId,
+  compact = false,
+}: {
+  link: OperationRelationLink;
+  operationId?: string;
+  compact?: boolean;
+}) {
+  const direction = relationDirection(link, operationId);
+  const counterpart = relationCounterpart(link, direction);
+  const inherited = link.link_type === 'inherited_operation';
+  const label = inherited
+    ? (direction === 'incoming' ? 'Inherited target' : 'Inherited')
+    : (direction === 'incoming' ? 'Called by' : 'Calls');
+  const title = relationDescription(link, direction, counterpart);
+  const className = inherited
+    ? 'archdocOperationRelationBadge archdocOperationRelationBadge--inherited'
+    : 'archdocOperationRelationBadge archdocOperationRelationBadge--serviceCall';
+
+  return (
+    <span className={className} title={title} aria-label={title}>
+      {inherited ? <FaCodeBranch aria-hidden="true" /> : <FaArrowRight aria-hidden="true" />}
+      <span>{label}</span>
+      {!compact ? <small>{counterpart}</small> : null}
+    </span>
+  );
+}
+
+export function OperationRelationSummary({
+  links,
+  operationId,
+  max = 3,
+}: {
+  links?: OperationRelationLink[];
+  operationId?: string;
+  max?: number;
+}) {
+  const relationLinks = links ?? [];
+  if (!relationLinks.length) {
+    return <span className="archdocMuted">No operation relations</span>;
+  }
+
+  const visible = relationLinks.slice(0, max);
+  const hidden = relationLinks.length - visible.length;
+
+  return (
+    <span className="archdocOperationRelationList">
+      {visible.map((link, index) => (
+        <OperationRelationBadge
+          key={link.id ?? `${link.link_type ?? 'relation'}-${index}`}
+          link={link}
+          operationId={operationId}
+          compact={relationLinks.length > 2}
+        />
+      ))}
+      {hidden > 0 ? (
+        <span className="archdocOperationRelationOverflow" title={`${hidden} additional operation relation(s)`}>
+          +{hidden}
+        </span>
+      ) : null}
+    </span>
+  );
+}
 export function ConfidenceBadge({value}: {value?: string}) {
   return <span className={`archdocConfidenceBadge archdocConfidenceBadge--${value ?? 'unknown'}`}>{value ?? 'unknown'}</span>;
 }

@@ -14,6 +14,7 @@ from archdoc.validator.models import (
     ValidationReport,
     ValidationSummary
 )
+from archdoc.validator.class_resource_profile import ClassResourceProfile, build_class_resource_profiles
 
 def validate_catalog(
     facts: RawCodeFacts,
@@ -51,10 +52,13 @@ def validate_catalog(
         services=services,
         issues=issues,
     )
+    class_resource_profiles = build_class_resource_profiles(facts)
     _check_service_db_session_initialization(
         facts=facts,
         services=services,
+        links=links,
         issues=issues,
+        class_resource_profiles=class_resource_profiles,
     )
 
     _check_broken_links(
@@ -424,8 +428,11 @@ def _check_unreferenced_operations(
     internal_referenced_operation_ids: set[str],
     issues: list[ValidationIssue],
 ) -> None:
-    referenced_operation_ids = {link.operation_id for link in links}
-    referenced_operation_ids.update(internal_referenced_operation_ids)
+    referenced_operation_ids = _covered_operation_ids(
+        services=services,
+        links=links,
+        internal_referenced_operation_ids=internal_referenced_operation_ids,
+    )
 
     for service in services:
         for operation in service.operations:
@@ -449,6 +456,33 @@ def _check_unreferenced_operations(
                     },
                 )
             )
+
+
+def _covered_operation_ids(
+    services: list[ServiceCatalogItem],
+    links: list[EndpointServiceLinkItem],
+    internal_referenced_operation_ids: set[str],
+) -> set[str]:
+    referenced_operation_ids = {link.operation_id for link in links if link.operation_id}
+    referenced_operation_ids.update(internal_referenced_operation_ids)
+
+    qualified_names_by_referenced_id = {
+        operation.qualified_name
+        for service in services
+        for operation in service.operations
+        if operation.id in referenced_operation_ids
+    }
+    if not qualified_names_by_referenced_id:
+        return referenced_operation_ids
+
+    referenced_operation_ids.update(
+        operation.id
+        for service in services
+        for operation in service.operations
+        if operation.qualified_name in qualified_names_by_referenced_id
+    )
+    return referenced_operation_ids
+
 
 def _check_empty_services(
     services: list[ServiceCatalogItem],
@@ -478,67 +512,129 @@ def _check_empty_services(
 def _check_service_db_session_initialization(
     facts: RawCodeFacts,
     services: list[ServiceCatalogItem],
+    links: list[EndpointServiceLinkItem],
     issues: list[ValidationIssue],
+    class_resource_profiles: dict[str, ClassResourceProfile],
 ) -> None:
-    services_by_qualified_name: dict[str, list[ServiceCatalogItem]] = {}
+    method_index = _build_method_function_index(facts)
+    operations_by_qualified_name = _operations_by_qualified_name(services)
+    endpoint_linked_operation_ids = {link.operation_id for link in links if link.operation_id}
+
+    service_resource_profiles = {
+        service.id: class_resource_profiles.get(service.qualified_name)
+        for service in services
+    }
+    services_with_self_db = {
+        service.id
+        for service in services
+        if _profile_has_resource(service_resource_profiles.get(service.id), "self.db")
+    }
+    operation_ids_with_self_db_owner = {
+        operation.id
+        for service in services
+        if service.id in services_with_self_db
+        for operation in service.operations
+    }
+
     for service in services:
-        services_by_qualified_name.setdefault(service.qualified_name, []).append(service)
-    for file in facts.files:
-        if file.error:
-            continue
+        resource_profile = service_resource_profiles.get(service.id)
+        service_has_self_db = service.id in services_with_self_db
 
-        for class_fact in file.classes:
-            matching_services = services_by_qualified_name.get(class_fact.qualified_name, [])
-            if not matching_services:
+        for operation in service.operations:
+            method_entry = method_index.get(operation.qualified_name)
+            if method_entry is None:
                 continue
 
-            has_self_db_assignment = any(
-                assignment.target == "self.db"
-                for method in class_fact.methods
-                for assignment in method.assignments
+            declaring_class, method = method_entry
+            db_calls = [
+                call
+                for call in method.calls
+                if call.name.startswith("self.db.")
+            ]
+            if not db_calls:
+                continue
+
+            if service_has_self_db:
+                continue
+
+            if _same_source_operation_has_resource_owner(
+                operation=operation,
+                operations_by_qualified_name=operations_by_qualified_name,
+                operation_ids_with_self_db_owner=operation_ids_with_self_db_owner,
+                endpoint_linked_operation_ids=endpoint_linked_operation_ids,
+            ):
+                continue
+
+            first_call = db_calls[0]
+            issues.append(
+                ValidationIssue(
+                    code="service_db_session_origin_unknown",
+                    severity="warning",
+                    message=(
+                        "Service operation uses self.db, but Archdoc could not resolve a class resource origin "
+                        "for self.db on this operation owner."
+                    ),
+                    item_id=operation.id,
+                    source_file=first_call.source.file,
+                    line_start=first_call.source.line_start,
+                    line_end=first_call.source.line_end,
+                    details={
+                        "service_id": service.id,
+                        "service_class": service.class_name,
+                        "method": method.name,
+                        "qualified_name": method.qualified_name,
+                        "declaring_class": declaring_class.qualified_name,
+                        "db_attribute": "self.db",
+                        "db_calls": [call.name for call in db_calls],
+                        "resource_origins": [
+                            origin.as_details()
+                            for origins in (resource_profile.origins_by_attribute.values() if resource_profile else [])
+                            for origin in origins
+                        ],
+                        "same_source_operation_owners": [
+                            {
+                                "service_id": owner_service.id,
+                                "service_class": owner_service.class_name,
+                                "operation_id": owner_operation.id,
+                                "has_self_db_origin": owner_service.id in services_with_self_db,
+                            }
+                            for owner_service, owner_operation in operations_by_qualified_name.get(operation.qualified_name, [])
+                        ],
+                    },
+                )
             )
-            if has_self_db_assignment:
-                continue
-
-            for service in matching_services:
-                operation_ids_by_qualified_name = {
-                    operation.qualified_name: operation.id
-                    for operation in service.operations
-                }
-
-                for method in class_fact.methods:
-                    db_calls = [
-                        call
-                        for call in method.calls
-                        if call.name.startswith("self.db.")
-                    ]
-                    if not db_calls:
-                        continue
-
-                    operation_id = operation_ids_by_qualified_name.get(method.qualified_name)
-                    first_call = db_calls[0]
-                    issues.append(
-                        ValidationIssue(
-                            code="service_db_session_not_initialized",
-                            severity="warning",
-                            message=(
-                                "Service method uses self.db, but the service class has no detected self.db assignment."
-                            ),
-                            item_id=operation_id or method.qualified_name,
-                            source_file=first_call.source.file,
-                            line_start=first_call.source.line_start,
-                            line_end=first_call.source.line_end,
-                            details={
-                                "service_id": service.id,
-                                "service_class": service.class_name,
-                                "method": method.name,
-                                "qualified_name": method.qualified_name,
-                                "db_calls": [call.name for call in db_calls],
-                            },
-                        )
-                    )
 
 
+def _operations_by_qualified_name(
+    services: list[ServiceCatalogItem],
+) -> dict[str, list[tuple[ServiceCatalogItem, OperationCatalogItem]]]:
+    grouped: dict[str, list[tuple[ServiceCatalogItem, OperationCatalogItem]]] = {}
+
+    for service in services:
+        for operation in service.operations:
+            grouped.setdefault(operation.qualified_name, []).append((service, operation))
+
+    return grouped
+
+
+def _profile_has_resource(profile: ClassResourceProfile | None, attribute: str) -> bool:
+    return bool(profile and profile.origins_for(attribute))
+
+
+def _same_source_operation_has_resource_owner(
+    operation: OperationCatalogItem,
+    operations_by_qualified_name: dict[str, list[tuple[ServiceCatalogItem, OperationCatalogItem]]],
+    operation_ids_with_self_db_owner: set[str],
+    endpoint_linked_operation_ids: set[str],
+) -> bool:
+    if operation.id in endpoint_linked_operation_ids:
+        return False
+
+    return any(
+        owner_operation.id != operation.id
+        and owner_operation.id in operation_ids_with_self_db_owner
+        for _owner_service, owner_operation in operations_by_qualified_name.get(operation.qualified_name, [])
+    )
 def _check_raw_parse_errors(
     facts: RawCodeFacts,
     issues: list[ValidationIssue],
@@ -565,8 +661,11 @@ def _build_summary(
     issues: list[ValidationIssue],
 ) -> ValidationSummary:
     covered_endpoint_ids = _covered_endpoint_ids(endpoints, links)
-    referenced_operation_ids = {link.operation_id for link in links}
-    referenced_operation_ids.update(internal_referenced_operation_ids)
+    referenced_operation_ids = _covered_operation_ids(
+        services=services,
+        links=links,
+        internal_referenced_operation_ids=internal_referenced_operation_ids,
+    )
 
     operation_count = sum(len(service.operations) for service in services)
 

@@ -5,6 +5,17 @@
   "endpoints": [
     {
       "id": "routers.experiment_sessions_webhooks.post.webhook.otree.otree-webhook",
+      "identity": {
+        "catalog_id": "routers.experiment_sessions_webhooks.post.webhook.otree.otree-webhook",
+        "logical_id": "routers.experiment_sessions_webhooks.post.webhook.otree.otree-webhook",
+        "source_id": "endpoint:ed70b2e5454579fb",
+        "display_name": "POST /webhook/otree",
+        "aliases": [
+          "routers.experiment_sessions_webhooks.post.webhook.otree.otree-webhook",
+          "routers.experiment_sessions_webhooks.otree_webhook",
+          "/webhook/otree"
+        ]
+      },
       "module": "routers.experiment_sessions_webhooks",
       "function_name": "otree_webhook",
       "qualified_name": "routers.experiment_sessions_webhooks.otree_webhook",
@@ -20,6 +31,9 @@
       },
       "http_method": "POST",
       "path": "/webhook/otree",
+      "include_prefix": null,
+      "router_prefix": null,
+      "full_path": "/webhook/otree",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -68,13 +82,21 @@
       ],
       "source": {
         "file": "routers/experiment_sessions_webhooks.py",
-        "line_start": 480,
-        "line_end": 545
+        "line_start": 482,
+        "line_end": 547
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/webhook/otree",
+          "include_prefix=None",
+          "router_prefix=None",
+          "full_path=/webhook/otree",
+          "function=routers.experiment_sessions_webhooks.otree_webhook"
+        ]
       },
       "review_status": "generated"
     }

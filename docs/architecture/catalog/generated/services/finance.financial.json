@@ -1,18 +1,57 @@
 {
   "id": "finance.financial",
+  "identity": {
+    "catalog_id": "finance.financial",
+    "logical_id": "finance.financial",
+    "source_id": "service:18608025a8d09f8d",
+    "display_name": "FinancialService",
+    "aliases": [
+      "finance.financial",
+      "services.finance.core.FinancialService"
+    ]
+  },
   "module": "services.finance.core",
   "class_name": "FinancialService",
   "qualified_name": "services.finance.core.FinancialService",
+  "description": "Compatibility facade for finance workflows.",
+  "docstring": "Compatibility facade for finance workflows.\n\nShared helpers and patch-sensitive collaborator exports stay in this module,\nwhile domain-specific implementations live in the adjacent finance modules.",
   "source": {
     "file": "services/finance/core.py",
     "line_start": 32,
-    "line_end": 128
+    "line_end": 138
   },
   "operations": [
     {
       "id": "finance.financial.operation.create_payment_method",
+      "identity": {
+        "catalog_id": "finance.financial.operation.create_payment_method",
+        "logical_id": "finance.financial.operation.create_payment_method",
+        "source_id": "operation:e01d372e247e889a",
+        "display_name": "FinancialService.create_payment_method",
+        "aliases": [
+          "finance.financial.operation.create_payment_method",
+          "services.finance.payment_methods.PaymentMethodsMixin.create_payment_method"
+        ]
+      },
       "method": "create_payment_method",
       "qualified_name": "services.finance.payment_methods.PaymentMethodsMixin.create_payment_method",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "method_data",
+          "annotation": "PaymentMethodCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payment_methods.py",
         "line_start": 13,
@@ -21,14 +60,51 @@
       "detection": {
         "method": "inherited_public_method_from_PaymentMethodsMixin",
         "rule": "inherited_public_method_from_PaymentMethodsMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_payment_method",
+          "qualified_name=services.finance.payment_methods.PaymentMethodsMixin.create_payment_method"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.update_payment_method",
+      "identity": {
+        "catalog_id": "finance.financial.operation.update_payment_method",
+        "logical_id": "finance.financial.operation.update_payment_method",
+        "source_id": "operation:9969cb10d9e39646",
+        "display_name": "FinancialService.update_payment_method",
+        "aliases": [
+          "finance.financial.operation.update_payment_method",
+          "services.finance.payment_methods.PaymentMethodsMixin.update_payment_method"
+        ]
+      },
       "method": "update_payment_method",
       "qualified_name": "services.finance.payment_methods.PaymentMethodsMixin.update_payment_method",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "method_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "update_data",
+          "annotation": "Any",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any | None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payment_methods.py",
         "line_start": 46,
@@ -37,62 +113,264 @@
       "detection": {
         "method": "inherited_public_method_from_PaymentMethodsMixin",
         "rule": "inherited_public_method_from_PaymentMethodsMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_payment_method",
+          "qualified_name=services.finance.payment_methods.PaymentMethodsMixin.update_payment_method"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.create_payout",
+      "identity": {
+        "catalog_id": "finance.financial.operation.create_payout",
+        "logical_id": "finance.financial.operation.create_payout",
+        "source_id": "operation:29b16927db3f4f55",
+        "display_name": "FinancialService.create_payout",
+        "aliases": [
+          "finance.financial.operation.create_payout",
+          "services.finance.payout_creation.PayoutCreationMixin.create_payout"
+        ]
+      },
       "method": "create_payout",
       "qualified_name": "services.finance.payout_creation.PayoutCreationMixin.create_payout",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_data",
+          "annotation": "PayoutCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "Any",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_creation.py",
-        "line_start": 338,
-        "line_end": 369
+        "line_start": 362,
+        "line_end": 393
       },
       "detection": {
         "method": "inherited_public_method_from_PayoutCreationMixin",
         "rule": "inherited_public_method_from_PayoutCreationMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_payout",
+          "qualified_name=services.finance.payout_creation.PayoutCreationMixin.create_payout"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.update_payout_status",
+      "identity": {
+        "catalog_id": "finance.financial.operation.update_payout_status",
+        "logical_id": "finance.financial.operation.update_payout_status",
+        "source_id": "operation:e26e13b41ed45f6a",
+        "display_name": "FinancialService.update_payout_status",
+        "aliases": [
+          "finance.financial.operation.update_payout_status",
+          "services.finance.payout_creation.PayoutCreationMixin.update_payout_status"
+        ]
+      },
       "method": "update_payout_status",
       "qualified_name": "services.finance.payout_creation.PayoutCreationMixin.update_payout_status",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "status",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "transaction_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "failure_reason",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "override_reason",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "Any | None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_creation.py",
-        "line_start": 371,
-        "line_end": 413
+        "line_start": 395,
+        "line_end": 437
       },
       "detection": {
         "method": "inherited_public_method_from_PayoutCreationMixin",
         "rule": "inherited_public_method_from_PayoutCreationMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_payout_status",
+          "qualified_name=services.finance.payout_creation.PayoutCreationMixin.update_payout_status"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.approve_dispatch",
+      "identity": {
+        "catalog_id": "finance.financial.operation.approve_dispatch",
+        "logical_id": "finance.financial.operation.approve_dispatch",
+        "source_id": "operation:330da6a7f74fecd8",
+        "display_name": "FinancialService.approve_dispatch",
+        "aliases": [
+          "finance.financial.operation.approve_dispatch",
+          "services.finance.payout_creation.PayoutCreationMixin.approve_dispatch"
+        ]
+      },
       "method": "approve_dispatch",
       "qualified_name": "services.finance.payout_creation.PayoutCreationMixin.approve_dispatch",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "provider_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "payout_ids",
+          "annotation": "list[str]",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "payment_settings",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_creation.py",
-        "line_start": 415,
-        "line_end": 492
+        "line_start": 439,
+        "line_end": 525
       },
       "detection": {
         "method": "inherited_public_method_from_PayoutCreationMixin",
         "rule": "inherited_public_method_from_PayoutCreationMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=approve_dispatch",
+          "qualified_name=services.finance.payout_creation.PayoutCreationMixin.approve_dispatch"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.update_payout_from_provider",
+      "identity": {
+        "catalog_id": "finance.financial.operation.update_payout_from_provider",
+        "logical_id": "finance.financial.operation.update_payout_from_provider",
+        "source_id": "operation:ce97c1e4471516d4",
+        "display_name": "FinancialService.update_payout_from_provider",
+        "aliases": [
+          "finance.financial.operation.update_payout_from_provider",
+          "services.finance.payout_provider_sync.PayoutProviderSyncMixin.update_payout_from_provider"
+        ]
+      },
       "method": "update_payout_from_provider",
       "qualified_name": "services.finance.payout_provider_sync.PayoutProviderSyncMixin.update_payout_from_provider",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "transaction_status",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "provider_status_raw",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "error_message",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "refresh_from_provider",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "Any | None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_provider_sync.py",
         "line_start": 249,
@@ -101,14 +379,51 @@
       "detection": {
         "method": "inherited_public_method_from_PayoutProviderSyncMixin",
         "rule": "inherited_public_method_from_PayoutProviderSyncMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_payout_from_provider",
+          "qualified_name=services.finance.payout_provider_sync.PayoutProviderSyncMixin.update_payout_from_provider"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.check_payout_provider_status",
+      "identity": {
+        "catalog_id": "finance.financial.operation.check_payout_provider_status",
+        "logical_id": "finance.financial.operation.check_payout_provider_status",
+        "source_id": "operation:eee29a5fe180b372",
+        "display_name": "FinancialService.check_payout_provider_status",
+        "aliases": [
+          "finance.financial.operation.check_payout_provider_status",
+          "services.finance.payout_provider_sync.PayoutProviderSyncMixin.check_payout_provider_status"
+        ]
+      },
       "method": "check_payout_provider_status",
       "qualified_name": "services.finance.payout_provider_sync.PayoutProviderSyncMixin.check_payout_provider_status",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_provider_sync.py",
         "line_start": 299,
@@ -117,14 +432,57 @@
       "detection": {
         "method": "inherited_public_method_from_PayoutProviderSyncMixin",
         "rule": "inherited_public_method_from_PayoutProviderSyncMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=check_payout_provider_status",
+          "qualified_name=services.finance.payout_provider_sync.PayoutProviderSyncMixin.check_payout_provider_status"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.cancel_payout_at_provider",
+      "identity": {
+        "catalog_id": "finance.financial.operation.cancel_payout_at_provider",
+        "logical_id": "finance.financial.operation.cancel_payout_at_provider",
+        "source_id": "operation:358eac98927b0089",
+        "display_name": "FinancialService.cancel_payout_at_provider",
+        "aliases": [
+          "finance.financial.operation.cancel_payout_at_provider",
+          "services.finance.payout_provider_sync.PayoutProviderSyncMixin.cancel_payout_at_provider"
+        ]
+      },
       "method": "cancel_payout_at_provider",
       "qualified_name": "services.finance.payout_provider_sync.PayoutProviderSyncMixin.cancel_payout_at_provider",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "override_reason",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/payout_provider_sync.py",
         "line_start": 406,
@@ -133,174 +491,581 @@
       "detection": {
         "method": "inherited_public_method_from_PayoutProviderSyncMixin",
         "rule": "inherited_public_method_from_PayoutProviderSyncMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=cancel_payout_at_provider",
+          "qualified_name=services.finance.payout_provider_sync.PayoutProviderSyncMixin.cancel_payout_at_provider"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.create_payment_batch",
+      "identity": {
+        "catalog_id": "finance.financial.operation.create_payment_batch",
+        "logical_id": "finance.financial.operation.create_payment_batch",
+        "source_id": "operation:8c3c6d8e7442f7e7",
+        "display_name": "FinancialService.create_payment_batch",
+        "aliases": [
+          "finance.financial.operation.create_payment_batch",
+          "services.finance.transactions_batch.TransactionsBatchMixin.create_payment_batch"
+        ]
+      },
       "method": "create_payment_batch",
       "qualified_name": "services.finance.transactions_batch.TransactionsBatchMixin.create_payment_batch",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "batch_data",
+          "annotation": "PaymentBatchCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "created_by",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/transactions_batch.py",
-        "line_start": 185,
-        "line_end": 221
+        "line_start": 186,
+        "line_end": 223
       },
       "detection": {
         "method": "inherited_public_method_from_TransactionsBatchMixin",
         "rule": "inherited_public_method_from_TransactionsBatchMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_payment_batch",
+          "qualified_name=services.finance.transactions_batch.TransactionsBatchMixin.create_payment_batch"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.add_payout_to_batch",
+      "identity": {
+        "catalog_id": "finance.financial.operation.add_payout_to_batch",
+        "logical_id": "finance.financial.operation.add_payout_to_batch",
+        "source_id": "operation:0bec3d412ed870a0",
+        "display_name": "FinancialService.add_payout_to_batch",
+        "aliases": [
+          "finance.financial.operation.add_payout_to_batch",
+          "services.finance.transactions_batch.TransactionsBatchMixin.add_payout_to_batch"
+        ]
+      },
       "method": "add_payout_to_batch",
       "qualified_name": "services.finance.transactions_batch.TransactionsBatchMixin.add_payout_to_batch",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "batch_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "payout_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "Any",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/transactions_batch.py",
-        "line_start": 223,
-        "line_end": 293
+        "line_start": 225,
+        "line_end": 295
       },
       "detection": {
         "method": "inherited_public_method_from_TransactionsBatchMixin",
         "rule": "inherited_public_method_from_TransactionsBatchMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=add_payout_to_batch",
+          "qualified_name=services.finance.transactions_batch.TransactionsBatchMixin.add_payout_to_batch"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.process_payment_batch",
+      "identity": {
+        "catalog_id": "finance.financial.operation.process_payment_batch",
+        "logical_id": "finance.financial.operation.process_payment_batch",
+        "source_id": "operation:c67e8e11e94caca4",
+        "display_name": "FinancialService.process_payment_batch",
+        "aliases": [
+          "finance.financial.operation.process_payment_batch",
+          "services.finance.transactions_batch.TransactionsBatchMixin.process_payment_batch"
+        ]
+      },
       "method": "process_payment_batch",
       "qualified_name": "services.finance.transactions_batch.TransactionsBatchMixin.process_payment_batch",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "batch_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "bool",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/transactions_batch.py",
-        "line_start": 295,
-        "line_end": 338
+        "line_start": 297,
+        "line_end": 337
       },
       "detection": {
         "method": "inherited_public_method_from_TransactionsBatchMixin",
         "rule": "inherited_public_method_from_TransactionsBatchMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=process_payment_batch",
+          "qualified_name=services.finance.transactions_batch.TransactionsBatchMixin.process_payment_batch"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.create_transaction",
+      "identity": {
+        "catalog_id": "finance.financial.operation.create_transaction",
+        "logical_id": "finance.financial.operation.create_transaction",
+        "source_id": "operation:cc921a47002e758e",
+        "display_name": "FinancialService.create_transaction",
+        "aliases": [
+          "finance.financial.operation.create_transaction",
+          "services.finance.transactions_reporting.TransactionsReportingMixin.create_transaction"
+        ]
+      },
       "method": "create_transaction",
       "qualified_name": "services.finance.transactions_reporting.TransactionsReportingMixin.create_transaction",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "transaction_data",
+          "annotation": "FinancialTransactionCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/transactions_reporting.py",
-        "line_start": 178,
-        "line_end": 181
+        "line_start": 189,
+        "line_end": 192
       },
       "detection": {
         "method": "inherited_public_method_from_TransactionsReportingMixin",
         "rule": "inherited_public_method_from_TransactionsReportingMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_transaction",
+          "qualified_name=services.finance.transactions_reporting.TransactionsReportingMixin.create_transaction"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.generate_financial_report",
+      "identity": {
+        "catalog_id": "finance.financial.operation.generate_financial_report",
+        "logical_id": "finance.financial.operation.generate_financial_report",
+        "source_id": "operation:5e93aaec90e3577d",
+        "display_name": "FinancialService.generate_financial_report",
+        "aliases": [
+          "finance.financial.operation.generate_financial_report",
+          "services.finance.transactions_reporting.TransactionsReportingMixin.generate_financial_report"
+        ]
+      },
       "method": "generate_financial_report",
       "qualified_name": "services.finance.transactions_reporting.TransactionsReportingMixin.generate_financial_report",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "report_data",
+          "annotation": "FinancialReportCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/transactions_reporting.py",
-        "line_start": 183,
-        "line_end": 202
+        "line_start": 194,
+        "line_end": 213
       },
       "detection": {
         "method": "inherited_public_method_from_TransactionsReportingMixin",
         "rule": "inherited_public_method_from_TransactionsReportingMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=generate_financial_report",
+          "qualified_name=services.finance.transactions_reporting.TransactionsReportingMixin.generate_financial_report"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.get_financial_stats",
+      "identity": {
+        "catalog_id": "finance.financial.operation.get_financial_stats",
+        "logical_id": "finance.financial.operation.get_financial_stats",
+        "source_id": "operation:bd568386a80dfdb3",
+        "display_name": "FinancialService.get_financial_stats",
+        "aliases": [
+          "finance.financial.operation.get_financial_stats",
+          "services.finance.transactions_reporting.TransactionsReportingMixin.get_financial_stats"
+        ]
+      },
       "method": "get_financial_stats",
       "qualified_name": "services.finance.transactions_reporting.TransactionsReportingMixin.get_financial_stats",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "start_date",
+          "annotation": "datetime",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "end_date",
+          "annotation": "datetime",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/transactions_reporting.py",
-        "line_start": 246,
-        "line_end": 360
+        "line_start": 257,
+        "line_end": 371
       },
       "detection": {
         "method": "inherited_public_method_from_TransactionsReportingMixin",
         "rule": "inherited_public_method_from_TransactionsReportingMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_financial_stats",
+          "qualified_name=services.finance.transactions_reporting.TransactionsReportingMixin.get_financial_stats"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.get_ledger_summary",
+      "identity": {
+        "catalog_id": "finance.financial.operation.get_ledger_summary",
+        "logical_id": "finance.financial.operation.get_ledger_summary",
+        "source_id": "operation:72432ed8996f2215",
+        "display_name": "FinancialService.get_ledger_summary",
+        "aliases": [
+          "finance.financial.operation.get_ledger_summary",
+          "services.finance.transactions_reporting.TransactionsReportingMixin.get_ledger_summary"
+        ]
+      },
       "method": "get_ledger_summary",
       "qualified_name": "services.finance.transactions_reporting.TransactionsReportingMixin.get_ledger_summary",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "start_date",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "end_date",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/transactions_reporting.py",
-        "line_start": 362,
-        "line_end": 391
+        "line_start": 373,
+        "line_end": 402
       },
       "detection": {
         "method": "inherited_public_method_from_TransactionsReportingMixin",
         "rule": "inherited_public_method_from_TransactionsReportingMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_ledger_summary",
+          "qualified_name=services.finance.transactions_reporting.TransactionsReportingMixin.get_ledger_summary"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.create_voucher",
+      "identity": {
+        "catalog_id": "finance.financial.operation.create_voucher",
+        "logical_id": "finance.financial.operation.create_voucher",
+        "source_id": "operation:4b22b7f3426d3c4a",
+        "display_name": "FinancialService.create_voucher",
+        "aliases": [
+          "finance.financial.operation.create_voucher",
+          "services.finance.vouchers.VouchersService.create_voucher"
+        ]
+      },
       "method": "create_voucher",
       "qualified_name": "services.finance.vouchers.VouchersService.create_voucher",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "voucher_data",
+          "annotation": "VoucherCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/vouchers.py",
-        "line_start": 19,
-        "line_end": 57
+        "line_start": 20,
+        "line_end": 59
       },
       "detection": {
         "method": "inherited_public_method_from_VouchersService",
         "rule": "inherited_public_method_from_VouchersService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_voucher",
+          "qualified_name=services.finance.vouchers.VouchersService.create_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.list_vouchers",
+      "identity": {
+        "catalog_id": "finance.financial.operation.list_vouchers",
+        "logical_id": "finance.financial.operation.list_vouchers",
+        "source_id": "operation:773dce4df527ccc1",
+        "display_name": "FinancialService.list_vouchers",
+        "aliases": [
+          "finance.financial.operation.list_vouchers",
+          "services.finance.vouchers.VouchersService.list_vouchers"
+        ]
+      },
       "method": "list_vouchers",
       "qualified_name": "services.finance.vouchers.VouchersService.list_vouchers",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "is_used",
+          "annotation": "bool | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "0",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "100",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "list[Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/vouchers.py",
-        "line_start": 59,
-        "line_end": 74
+        "line_start": 61,
+        "line_end": 76
       },
       "detection": {
         "method": "inherited_public_method_from_VouchersService",
         "rule": "inherited_public_method_from_VouchersService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=list_vouchers",
+          "qualified_name=services.finance.vouchers.VouchersService.list_vouchers"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.use_voucher",
+      "identity": {
+        "catalog_id": "finance.financial.operation.use_voucher",
+        "logical_id": "finance.financial.operation.use_voucher",
+        "source_id": "operation:2ce7ef71c3af6cba",
+        "display_name": "FinancialService.use_voucher",
+        "aliases": [
+          "finance.financial.operation.use_voucher",
+          "services.finance.vouchers.VouchersService.use_voucher"
+        ]
+      },
       "method": "use_voucher",
       "qualified_name": "services.finance.vouchers.VouchersService.use_voucher",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "voucher_code",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any | None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/vouchers.py",
-        "line_start": 76,
-        "line_end": 114
+        "line_start": 78,
+        "line_end": 116
       },
       "detection": {
         "method": "inherited_public_method_from_VouchersService",
         "rule": "inherited_public_method_from_VouchersService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=use_voucher",
+          "qualified_name=services.finance.vouchers.VouchersService.use_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.get_participant_payouts",
+      "identity": {
+        "catalog_id": "finance.financial.operation.get_participant_payouts",
+        "logical_id": "finance.financial.operation.get_participant_payouts",
+        "source_id": "operation:4d61aea57badf05e",
+        "display_name": "FinancialService.get_participant_payouts",
+        "aliases": [
+          "finance.financial.operation.get_participant_payouts",
+          "services.finance.compensation.CompensationService.get_participant_payouts"
+        ]
+      },
       "method": "get_participant_payouts",
       "qualified_name": "services.finance.compensation.CompensationService.get_participant_payouts",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "start_date",
+          "annotation": "datetime | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "end_date",
+          "annotation": "datetime | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/compensation.py",
         "line_start": 21,
@@ -309,167 +1074,664 @@
       "detection": {
         "method": "inherited_public_method_from_CompensationService",
         "rule": "inherited_public_method_from_CompensationService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_participant_payouts",
+          "qualified_name=services.finance.compensation.CompensationService.get_participant_payouts"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.create_budget",
+      "identity": {
+        "catalog_id": "finance.financial.operation.create_budget",
+        "logical_id": "finance.financial.operation.create_budget",
+        "source_id": "operation:9897026d0c1c2a1a",
+        "display_name": "FinancialService.create_budget",
+        "aliases": [
+          "finance.financial.operation.create_budget",
+          "services.finance.budget.BudgetService.create_budget"
+        ]
+      },
       "method": "create_budget",
       "qualified_name": "services.finance.budget.BudgetService.create_budget",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "budget_data",
+          "annotation": "BudgetCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/budget.py",
-        "line_start": 318,
-        "line_end": 361
+        "line_start": 167,
+        "line_end": 211
       },
       "detection": {
         "method": "inherited_public_method_from_BudgetService",
         "rule": "inherited_public_method_from_BudgetService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_budget",
+          "qualified_name=services.finance.budget.BudgetService.create_budget"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.get_budget",
+      "identity": {
+        "catalog_id": "finance.financial.operation.get_budget",
+        "logical_id": "finance.financial.operation.get_budget",
+        "source_id": "operation:03376684c3c78f54",
+        "display_name": "FinancialService.get_budget",
+        "aliases": [
+          "finance.financial.operation.get_budget",
+          "services.finance.budget.BudgetService.get_budget"
+        ]
+      },
       "method": "get_budget",
       "qualified_name": "services.finance.budget.BudgetService.get_budget",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "budget_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any | None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/budget.py",
-        "line_start": 363,
-        "line_end": 372
+        "line_start": 213,
+        "line_end": 222
       },
       "detection": {
         "method": "inherited_public_method_from_BudgetService",
         "rule": "inherited_public_method_from_BudgetService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_budget",
+          "qualified_name=services.finance.budget.BudgetService.get_budget"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.list_budgets",
+      "identity": {
+        "catalog_id": "finance.financial.operation.list_budgets",
+        "logical_id": "finance.financial.operation.list_budgets",
+        "source_id": "operation:a1bd329ed94f3deb",
+        "display_name": "FinancialService.list_budgets",
+        "aliases": [
+          "finance.financial.operation.list_budgets",
+          "services.finance.budget.BudgetService.list_budgets"
+        ]
+      },
       "method": "list_budgets",
       "qualified_name": "services.finance.budget.BudgetService.list_budgets",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "is_active",
+          "annotation": "bool | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "0",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "100",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "list[Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/budget.py",
-        "line_start": 374,
-        "line_end": 390
+        "line_start": 224,
+        "line_end": 240
       },
       "detection": {
         "method": "inherited_public_method_from_BudgetService",
         "rule": "inherited_public_method_from_BudgetService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=list_budgets",
+          "qualified_name=services.finance.budget.BudgetService.list_budgets"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "finance.financial.operation.list_budgets_for_user",
+      "identity": {
+        "catalog_id": "finance.financial.operation.list_budgets_for_user",
+        "logical_id": "finance.financial.operation.list_budgets_for_user",
+        "source_id": "operation:702b25e967e15e9a",
+        "display_name": "FinancialService.list_budgets_for_user",
+        "aliases": [
+          "finance.financial.operation.list_budgets_for_user",
+          "services.finance.budget.BudgetService.list_budgets_for_user"
+        ]
+      },
+      "method": "list_budgets_for_user",
+      "qualified_name": "services.finance.budget.BudgetService.list_budgets_for_user",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "is_active",
+          "annotation": "bool | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "0",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "100",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "list[Any]",
+      "description": null,
+      "docstring": null,
+      "source": {
+        "file": "services/finance/budget.py",
+        "line_start": 242,
+        "line_end": 275
+      },
+      "detection": {
+        "method": "inherited_public_method_from_BudgetService",
+        "rule": "inherited_public_method_from_BudgetService",
+        "confidence": "high",
+        "evidence": [
+          "method_name=list_budgets_for_user",
+          "qualified_name=services.finance.budget.BudgetService.list_budgets_for_user"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "finance.financial.operation.user_can_view_budget",
+      "identity": {
+        "catalog_id": "finance.financial.operation.user_can_view_budget",
+        "logical_id": "finance.financial.operation.user_can_view_budget",
+        "source_id": "operation:dca46241855a452f",
+        "display_name": "FinancialService.user_can_view_budget",
+        "aliases": [
+          "finance.financial.operation.user_can_view_budget",
+          "services.finance.budget.BudgetService.user_can_view_budget"
+        ]
+      },
+      "method": "user_can_view_budget",
+      "qualified_name": "services.finance.budget.BudgetService.user_can_view_budget",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "budget_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": null,
+      "docstring": null,
+      "source": {
+        "file": "services/finance/budget.py",
+        "line_start": 277,
+        "line_end": 303
+      },
+      "detection": {
+        "method": "inherited_public_method_from_BudgetService",
+        "rule": "inherited_public_method_from_BudgetService",
+        "confidence": "high",
+        "evidence": [
+          "method_name=user_can_view_budget",
+          "qualified_name=services.finance.budget.BudgetService.user_can_view_budget"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.update_budget",
+      "identity": {
+        "catalog_id": "finance.financial.operation.update_budget",
+        "logical_id": "finance.financial.operation.update_budget",
+        "source_id": "operation:c44aeb9347c6f695",
+        "display_name": "FinancialService.update_budget",
+        "aliases": [
+          "finance.financial.operation.update_budget",
+          "services.finance.budget.BudgetService.update_budget"
+        ]
+      },
       "method": "update_budget",
       "qualified_name": "services.finance.budget.BudgetService.update_budget",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "budget_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "update_data",
+          "annotation": "BudgetUpdate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any | None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/budget.py",
-        "line_start": 392,
-        "line_end": 413
+        "line_start": 305,
+        "line_end": 326
       },
       "detection": {
         "method": "inherited_public_method_from_BudgetService",
         "rule": "inherited_public_method_from_BudgetService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_budget",
+          "qualified_name=services.finance.budget.BudgetService.update_budget"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.delete_budget",
+      "identity": {
+        "catalog_id": "finance.financial.operation.delete_budget",
+        "logical_id": "finance.financial.operation.delete_budget",
+        "source_id": "operation:2cf3002b5b60c842",
+        "display_name": "FinancialService.delete_budget",
+        "aliases": [
+          "finance.financial.operation.delete_budget",
+          "services.finance.budget.BudgetService.delete_budget"
+        ]
+      },
       "method": "delete_budget",
       "qualified_name": "services.finance.budget.BudgetService.delete_budget",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "budget_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/budget.py",
-        "line_start": 415,
-        "line_end": 452
+        "line_start": 328,
+        "line_end": 365
       },
       "detection": {
         "method": "inherited_public_method_from_BudgetService",
         "rule": "inherited_public_method_from_BudgetService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=delete_budget",
+          "qualified_name=services.finance.budget.BudgetService.delete_budget"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.create_budget_allocation",
+      "identity": {
+        "catalog_id": "finance.financial.operation.create_budget_allocation",
+        "logical_id": "finance.financial.operation.create_budget_allocation",
+        "source_id": "operation:64431f04eadc7296",
+        "display_name": "FinancialService.create_budget_allocation",
+        "aliases": [
+          "finance.financial.operation.create_budget_allocation",
+          "services.finance.budget.BudgetService.create_budget_allocation"
+        ]
+      },
       "method": "create_budget_allocation",
       "qualified_name": "services.finance.budget.BudgetService.create_budget_allocation",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "allocation_data",
+          "annotation": "BudgetAllocationCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/budget.py",
-        "line_start": 454,
-        "line_end": 482
+        "line_start": 367,
+        "line_end": 395
       },
       "detection": {
         "method": "inherited_public_method_from_BudgetService",
         "rule": "inherited_public_method_from_BudgetService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_budget_allocation",
+          "qualified_name=services.finance.budget.BudgetService.create_budget_allocation"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.get_budget_spent",
+      "identity": {
+        "catalog_id": "finance.financial.operation.get_budget_spent",
+        "logical_id": "finance.financial.operation.get_budget_spent",
+        "source_id": "operation:ccc3aee4dbd3360e",
+        "display_name": "FinancialService.get_budget_spent",
+        "aliases": [
+          "finance.financial.operation.get_budget_spent",
+          "services.finance.budget.BudgetService.get_budget_spent"
+        ]
+      },
       "method": "get_budget_spent",
       "qualified_name": "services.finance.budget.BudgetService.get_budget_spent",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "budget_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Decimal",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/budget.py",
-        "line_start": 484,
-        "line_end": 493
+        "line_start": 397,
+        "line_end": 406
       },
       "detection": {
         "method": "inherited_public_method_from_BudgetService",
         "rule": "inherited_public_method_from_BudgetService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_budget_spent",
+          "qualified_name=services.finance.budget.BudgetService.get_budget_spent"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.get_budget_allocated",
+      "identity": {
+        "catalog_id": "finance.financial.operation.get_budget_allocated",
+        "logical_id": "finance.financial.operation.get_budget_allocated",
+        "source_id": "operation:cd7e96e8d04a8455",
+        "display_name": "FinancialService.get_budget_allocated",
+        "aliases": [
+          "finance.financial.operation.get_budget_allocated",
+          "services.finance.budget.BudgetService.get_budget_allocated"
+        ]
+      },
       "method": "get_budget_allocated",
       "qualified_name": "services.finance.budget.BudgetService.get_budget_allocated",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "budget_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Decimal",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/budget.py",
-        "line_start": 495,
-        "line_end": 503
+        "line_start": 408,
+        "line_end": 416
       },
       "detection": {
         "method": "inherited_public_method_from_BudgetService",
         "rule": "inherited_public_method_from_BudgetService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_budget_allocated",
+          "qualified_name=services.finance.budget.BudgetService.get_budget_allocated"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.get_budget_utilization",
+      "identity": {
+        "catalog_id": "finance.financial.operation.get_budget_utilization",
+        "logical_id": "finance.financial.operation.get_budget_utilization",
+        "source_id": "operation:6f04f61b6306a9b2",
+        "display_name": "FinancialService.get_budget_utilization",
+        "aliases": [
+          "finance.financial.operation.get_budget_utilization",
+          "services.finance.budget.BudgetService.get_budget_utilization"
+        ]
+      },
       "method": "get_budget_utilization",
       "qualified_name": "services.finance.budget.BudgetService.get_budget_utilization",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "budget_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/budget.py",
-        "line_start": 505,
-        "line_end": 524
+        "line_start": 418,
+        "line_end": 437
       },
       "detection": {
         "method": "inherited_public_method_from_BudgetService",
         "rule": "inherited_public_method_from_BudgetService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_budget_utilization",
+          "qualified_name=services.finance.budget.BudgetService.get_budget_utilization"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "finance.financial.operation.get_budget_operational_summaries",
+      "identity": {
+        "catalog_id": "finance.financial.operation.get_budget_operational_summaries",
+        "logical_id": "finance.financial.operation.get_budget_operational_summaries",
+        "source_id": "operation:b7fe8fe11cc7926e",
+        "display_name": "FinancialService.get_budget_operational_summaries",
+        "aliases": [
+          "finance.financial.operation.get_budget_operational_summaries",
+          "services.finance.budget.BudgetService.get_budget_operational_summaries"
+        ]
+      },
+      "method": "get_budget_operational_summaries",
+      "qualified_name": "services.finance.budget.BudgetService.get_budget_operational_summaries",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "budget_ids",
+          "annotation": "list[str] | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[dict[str, Any]]",
+      "description": null,
+      "docstring": null,
+      "source": {
+        "file": "services/finance/budget.py",
+        "line_start": 439,
+        "line_end": 562
+      },
+      "detection": {
+        "method": "inherited_public_method_from_BudgetService",
+        "rule": "inherited_public_method_from_BudgetService",
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_budget_operational_summaries",
+          "qualified_name=services.finance.budget.BudgetService.get_budget_operational_summaries"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.financial.operation.get_experiment_costs",
+      "identity": {
+        "catalog_id": "finance.financial.operation.get_experiment_costs",
+        "logical_id": "finance.financial.operation.get_experiment_costs",
+        "source_id": "operation:3549b58ad8add352",
+        "display_name": "FinancialService.get_experiment_costs",
+        "aliases": [
+          "finance.financial.operation.get_experiment_costs",
+          "services.finance.budget.BudgetService.get_experiment_costs"
+        ]
+      },
       "method": "get_experiment_costs",
       "qualified_name": "services.finance.budget.BudgetService.get_experiment_costs",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "experiment_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/budget.py",
-        "line_start": 526,
-        "line_end": 549
+        "line_start": 564,
+        "line_end": 587
       },
       "detection": {
         "method": "inherited_public_method_from_BudgetService",
         "rule": "inherited_public_method_from_BudgetService",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_experiment_costs",
+          "qualified_name=services.finance.budget.BudgetService.get_experiment_costs"
+        ]
       },
       "review_status": "generated"
     }
@@ -477,7 +1739,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=FinancialService",
+      "source_path=services/finance/core.py"
+    ]
   },
   "review_status": "generated"
 }

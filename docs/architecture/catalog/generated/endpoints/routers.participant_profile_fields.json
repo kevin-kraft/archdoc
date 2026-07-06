@@ -4,7 +4,20 @@
   "source_file": "routers/participant_profile_fields.py",
   "endpoints": [
     {
-      "id": "routers.participant_profile_fields.delete.profile-fields.param-field-id.delete-profile-field",
+      "id": "routers.participant_profile_fields.delete.participants.profile-fields.param-field-id.delete-profile-field",
+      "identity": {
+        "catalog_id": "routers.participant_profile_fields.delete.participants.profile-fields.param-field-id.delete-profile-field",
+        "logical_id": "routers.participant_profile_fields.delete.participants.profile-fields.param-field-id.delete-profile-field",
+        "source_id": "endpoint:3d17d569e9c16126",
+        "display_name": "DELETE /participants/profile-fields/{field_id}",
+        "aliases": [
+          "routers.participant_profile_fields.delete.participants.profile-fields.param-field-id.delete-profile-field",
+          "routers.participant_profile_fields.delete_profile_field",
+          "/profile-fields/{field_id}",
+          "/participants",
+          "/participants/profile-fields/{field_id}"
+        ]
+      },
       "module": "routers.participant_profile_fields",
       "function_name": "delete_profile_field",
       "qualified_name": "routers.participant_profile_fields.delete_profile_field",
@@ -20,6 +33,9 @@
       },
       "http_method": "DELETE",
       "path": "/profile-fields/{field_id}",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/profile-fields/{field_id}",
       "router": "router",
       "kwargs": {
         "response_model": "dict",
@@ -57,7 +73,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('pform_config_field_configure'))",
+          "default": "Depends(require_permission('pform:config:field:configure'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -70,12 +86,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/profile-fields/{field_id}",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/profile-fields/{field_id}",
+          "function=routers.participant_profile_fields.delete_profile_field"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_profile_fields.get.fields.get-profile-fields",
+      "id": "routers.participant_profile_fields.get.participants.fields.get-profile-fields",
+      "identity": {
+        "catalog_id": "routers.participant_profile_fields.get.participants.fields.get-profile-fields",
+        "logical_id": "routers.participant_profile_fields.get.participants.fields.get-profile-fields",
+        "source_id": "endpoint:a8b6d0077027bba8",
+        "display_name": "GET /participants/fields",
+        "aliases": [
+          "routers.participant_profile_fields.get.participants.fields.get-profile-fields",
+          "routers.participant_profile_fields.get_profile_fields",
+          "/fields",
+          "/participants",
+          "/participants/fields"
+        ]
+      },
       "module": "routers.participant_profile_fields",
       "function_name": "get_profile_fields",
       "qualified_name": "routers.participant_profile_fields.get_profile_fields",
@@ -91,6 +128,9 @@
       },
       "http_method": "GET",
       "path": "/fields",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/fields",
       "router": "router",
       "kwargs": {
         "response_model": "list[dict[str, Any]]",
@@ -121,7 +161,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('pform_config_field_configure'))",
+          "default": "Depends(require_permission('pform:config:field:configure'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -134,12 +174,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/fields",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/fields",
+          "function=routers.participant_profile_fields.get_profile_fields"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_profile_fields.get.profile-fields.get-profile-fields-enhanced",
+      "id": "routers.participant_profile_fields.get.participants.profile-fields.get-profile-fields-enhanced",
+      "identity": {
+        "catalog_id": "routers.participant_profile_fields.get.participants.profile-fields.get-profile-fields-enhanced",
+        "logical_id": "routers.participant_profile_fields.get.participants.profile-fields.get-profile-fields-enhanced",
+        "source_id": "endpoint:48dc165d67cafc55",
+        "display_name": "GET /participants/profile-fields",
+        "aliases": [
+          "routers.participant_profile_fields.get.participants.profile-fields.get-profile-fields-enhanced",
+          "routers.participant_profile_fields.get_profile_fields_enhanced",
+          "/profile-fields",
+          "/participants",
+          "/participants/profile-fields"
+        ]
+      },
       "module": "routers.participant_profile_fields",
       "function_name": "get_profile_fields_enhanced",
       "qualified_name": "routers.participant_profile_fields.get_profile_fields_enhanced",
@@ -155,6 +216,9 @@
       },
       "http_method": "GET",
       "path": "/profile-fields",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/profile-fields",
       "router": "router",
       "kwargs": {
         "response_model": "list[ProfileFieldResponse]",
@@ -178,7 +242,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_edit'))",
+          "default": "Depends(require_permission('participants:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -191,12 +255,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/profile-fields",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/profile-fields",
+          "function=routers.participant_profile_fields.get_profile_fields_enhanced"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_profile_fields.post.fields.manage-profile-fields",
+      "id": "routers.participant_profile_fields.post.participants.fields.manage-profile-fields",
+      "identity": {
+        "catalog_id": "routers.participant_profile_fields.post.participants.fields.manage-profile-fields",
+        "logical_id": "routers.participant_profile_fields.post.participants.fields.manage-profile-fields",
+        "source_id": "endpoint:6bc57b49f16bb762",
+        "display_name": "POST /participants/fields",
+        "aliases": [
+          "routers.participant_profile_fields.post.participants.fields.manage-profile-fields",
+          "routers.participant_profile_fields.manage_profile_fields",
+          "/fields",
+          "/participants",
+          "/participants/fields"
+        ]
+      },
       "module": "routers.participant_profile_fields",
       "function_name": "manage_profile_fields",
       "qualified_name": "routers.participant_profile_fields.manage_profile_fields",
@@ -212,6 +297,9 @@
       },
       "http_method": "POST",
       "path": "/fields",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/fields",
       "router": "router",
       "kwargs": {
         "response_model": "list[ProfileFieldConfig]",
@@ -242,7 +330,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('pform_config_field_configure'))",
+          "default": "Depends(require_permission('pform:config:field:configure'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -255,12 +343,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/fields",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/fields",
+          "function=routers.participant_profile_fields.manage_profile_fields"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_profile_fields.post.profile-fields.add-profile-field",
+      "id": "routers.participant_profile_fields.post.participants.profile-fields.add-profile-field",
+      "identity": {
+        "catalog_id": "routers.participant_profile_fields.post.participants.profile-fields.add-profile-field",
+        "logical_id": "routers.participant_profile_fields.post.participants.profile-fields.add-profile-field",
+        "source_id": "endpoint:05a995fc43e4a677",
+        "display_name": "POST /participants/profile-fields",
+        "aliases": [
+          "routers.participant_profile_fields.post.participants.profile-fields.add-profile-field",
+          "routers.participant_profile_fields.add_profile_field",
+          "/profile-fields",
+          "/participants",
+          "/participants/profile-fields"
+        ]
+      },
       "module": "routers.participant_profile_fields",
       "function_name": "add_profile_field",
       "qualified_name": "routers.participant_profile_fields.add_profile_field",
@@ -276,6 +385,9 @@
       },
       "http_method": "POST",
       "path": "/profile-fields",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/profile-fields",
       "router": "router",
       "kwargs": {
         "response_model": "ProfileFieldResponse",
@@ -313,7 +425,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('pform_config_field_configure'))",
+          "default": "Depends(require_permission('pform:config:field:configure'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -326,12 +438,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/profile-fields",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/profile-fields",
+          "function=routers.participant_profile_fields.add_profile_field"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_profile_fields.put.profile-fields.param-field-id.update-profile-field",
+      "id": "routers.participant_profile_fields.put.participants.profile-fields.param-field-id.update-profile-field",
+      "identity": {
+        "catalog_id": "routers.participant_profile_fields.put.participants.profile-fields.param-field-id.update-profile-field",
+        "logical_id": "routers.participant_profile_fields.put.participants.profile-fields.param-field-id.update-profile-field",
+        "source_id": "endpoint:b04a02c17765ce8d",
+        "display_name": "PUT /participants/profile-fields/{field_id}",
+        "aliases": [
+          "routers.participant_profile_fields.put.participants.profile-fields.param-field-id.update-profile-field",
+          "routers.participant_profile_fields.update_profile_field",
+          "/profile-fields/{field_id}",
+          "/participants",
+          "/participants/profile-fields/{field_id}"
+        ]
+      },
       "module": "routers.participant_profile_fields",
       "function_name": "update_profile_field",
       "qualified_name": "routers.participant_profile_fields.update_profile_field",
@@ -347,6 +480,9 @@
       },
       "http_method": "PUT",
       "path": "/profile-fields/{field_id}",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/profile-fields/{field_id}",
       "router": "router",
       "kwargs": {
         "response_model": "ProfileFieldResponse",
@@ -391,7 +527,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('pform_config_field_configure'))",
+          "default": "Depends(require_permission('pform:config:field:configure'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
@@ -404,7 +540,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/profile-fields/{field_id}",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/profile-fields/{field_id}",
+          "function=routers.participant_profile_fields.update_profile_field"
+        ]
       },
       "review_status": "generated"
     }

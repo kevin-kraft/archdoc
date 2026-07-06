@@ -4,7 +4,20 @@
   "source_file": "routers/admin_recruitment_metrics.py",
   "endpoints": [
     {
-      "id": "routers.admin_recruitment_metrics.get.campaigns.export.export-campaign-metrics",
+      "id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.campaigns.export.export-campaign-metrics",
+      "identity": {
+        "catalog_id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.campaigns.export.export-campaign-metrics",
+        "logical_id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.campaigns.export.export-campaign-metrics",
+        "source_id": "endpoint:fc9e347bb1af5808",
+        "display_name": "GET /admin/recruitment-metrics/campaigns/export",
+        "aliases": [
+          "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.campaigns.export.export-campaign-metrics",
+          "routers.admin_recruitment_metrics.export_campaign_metrics",
+          "/campaigns/export",
+          "/admin/recruitment-metrics",
+          "/admin/recruitment-metrics/campaigns/export"
+        ]
+      },
       "module": "routers.admin_recruitment_metrics",
       "function_name": "export_campaign_metrics",
       "qualified_name": "routers.admin_recruitment_metrics.export_campaign_metrics",
@@ -18,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "/campaigns/export",
+      "include_prefix": "/admin/recruitment-metrics",
+      "router_prefix": null,
+      "full_path": "/admin/recruitment-metrics/campaigns/export",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -58,12 +74,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/campaigns/export",
+          "include_prefix=/admin/recruitment-metrics",
+          "router_prefix=None",
+          "full_path=/admin/recruitment-metrics/campaigns/export",
+          "function=routers.admin_recruitment_metrics.export_campaign_metrics"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_recruitment_metrics.get.campaigns.get-campaign-metrics",
+      "id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.campaigns.get-campaign-metrics",
+      "identity": {
+        "catalog_id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.campaigns.get-campaign-metrics",
+        "logical_id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.campaigns.get-campaign-metrics",
+        "source_id": "endpoint:dbcef0d27b82e804",
+        "display_name": "GET /admin/recruitment-metrics/campaigns",
+        "aliases": [
+          "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.campaigns.get-campaign-metrics",
+          "routers.admin_recruitment_metrics.get_campaign_metrics",
+          "/campaigns",
+          "/admin/recruitment-metrics",
+          "/admin/recruitment-metrics/campaigns"
+        ]
+      },
       "module": "routers.admin_recruitment_metrics",
       "function_name": "get_campaign_metrics",
       "qualified_name": "routers.admin_recruitment_metrics.get_campaign_metrics",
@@ -77,6 +114,9 @@
       },
       "http_method": "GET",
       "path": "/campaigns",
+      "include_prefix": "/admin/recruitment-metrics",
+      "router_prefix": null,
+      "full_path": "/admin/recruitment-metrics/campaigns",
       "router": "router",
       "kwargs": {
         "response_model": "list[CampaignMetrics]"
@@ -119,12 +159,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/campaigns",
+          "include_prefix=/admin/recruitment-metrics",
+          "router_prefix=None",
+          "full_path=/admin/recruitment-metrics/campaigns",
+          "function=routers.admin_recruitment_metrics.get_campaign_metrics"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_recruitment_metrics.get.funnel.export.export-recruitment-funnel",
+      "id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.funnel.export.export-recruitment-funnel",
+      "identity": {
+        "catalog_id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.funnel.export.export-recruitment-funnel",
+        "logical_id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.funnel.export.export-recruitment-funnel",
+        "source_id": "endpoint:e2be8c77f0b7db23",
+        "display_name": "GET /admin/recruitment-metrics/funnel/export",
+        "aliases": [
+          "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.funnel.export.export-recruitment-funnel",
+          "routers.admin_recruitment_metrics.export_recruitment_funnel",
+          "/funnel/export",
+          "/admin/recruitment-metrics",
+          "/admin/recruitment-metrics/funnel/export"
+        ]
+      },
       "module": "routers.admin_recruitment_metrics",
       "function_name": "export_recruitment_funnel",
       "qualified_name": "routers.admin_recruitment_metrics.export_recruitment_funnel",
@@ -138,6 +199,9 @@
       },
       "http_method": "GET",
       "path": "/funnel/export",
+      "include_prefix": "/admin/recruitment-metrics",
+      "router_prefix": null,
+      "full_path": "/admin/recruitment-metrics/funnel/export",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -185,12 +249,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/funnel/export",
+          "include_prefix=/admin/recruitment-metrics",
+          "router_prefix=None",
+          "full_path=/admin/recruitment-metrics/funnel/export",
+          "function=routers.admin_recruitment_metrics.export_recruitment_funnel"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_recruitment_metrics.get.funnel.get-recruitment-funnel",
+      "id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.funnel.get-recruitment-funnel",
+      "identity": {
+        "catalog_id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.funnel.get-recruitment-funnel",
+        "logical_id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.funnel.get-recruitment-funnel",
+        "source_id": "endpoint:8f3094d3df691c0f",
+        "display_name": "GET /admin/recruitment-metrics/funnel",
+        "aliases": [
+          "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.funnel.get-recruitment-funnel",
+          "routers.admin_recruitment_metrics.get_recruitment_funnel",
+          "/funnel",
+          "/admin/recruitment-metrics",
+          "/admin/recruitment-metrics/funnel"
+        ]
+      },
       "module": "routers.admin_recruitment_metrics",
       "function_name": "get_recruitment_funnel",
       "qualified_name": "routers.admin_recruitment_metrics.get_recruitment_funnel",
@@ -204,6 +289,9 @@
       },
       "http_method": "GET",
       "path": "/funnel",
+      "include_prefix": "/admin/recruitment-metrics",
+      "router_prefix": null,
+      "full_path": "/admin/recruitment-metrics/funnel",
       "router": "router",
       "kwargs": {
         "response_model": "FunnelMetrics"
@@ -253,12 +341,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/funnel",
+          "include_prefix=/admin/recruitment-metrics",
+          "router_prefix=None",
+          "full_path=/admin/recruitment-metrics/funnel",
+          "function=routers.admin_recruitment_metrics.get_recruitment_funnel"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_recruitment_metrics.get.trends.get-recruitment-trends",
+      "id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.trends.get-recruitment-trends",
+      "identity": {
+        "catalog_id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.trends.get-recruitment-trends",
+        "logical_id": "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.trends.get-recruitment-trends",
+        "source_id": "endpoint:bc92d4695ce8ba06",
+        "display_name": "GET /admin/recruitment-metrics/trends",
+        "aliases": [
+          "routers.admin_recruitment_metrics.get.admin.recruitment-metrics.trends.get-recruitment-trends",
+          "routers.admin_recruitment_metrics.get_recruitment_trends",
+          "/trends",
+          "/admin/recruitment-metrics",
+          "/admin/recruitment-metrics/trends"
+        ]
+      },
       "module": "routers.admin_recruitment_metrics",
       "function_name": "get_recruitment_trends",
       "qualified_name": "routers.admin_recruitment_metrics.get_recruitment_trends",
@@ -272,6 +381,9 @@
       },
       "http_method": "GET",
       "path": "/trends",
+      "include_prefix": "/admin/recruitment-metrics",
+      "router_prefix": null,
+      "full_path": "/admin/recruitment-metrics/trends",
       "router": "router",
       "kwargs": {
         "response_model": "list[TimeSeriesPoint]"
@@ -314,7 +426,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/trends",
+          "include_prefix=/admin/recruitment-metrics",
+          "router_prefix=None",
+          "full_path=/admin/recruitment-metrics/trends",
+          "function=routers.admin_recruitment_metrics.get_recruitment_trends"
+        ]
       },
       "review_status": "generated"
     }

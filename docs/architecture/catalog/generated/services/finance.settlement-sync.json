@@ -1,18 +1,63 @@
 {
   "id": "finance.settlement-sync",
+  "identity": {
+    "catalog_id": "finance.settlement-sync",
+    "logical_id": "finance.settlement-sync",
+    "source_id": "service:76ae61f8839d1d3f",
+    "display_name": "SettlementSyncService",
+    "aliases": [
+      "finance.settlement-sync",
+      "services.finance.settlements.SettlementSyncService"
+    ]
+  },
   "module": "services.finance.settlements",
   "class_name": "SettlementSyncService",
   "qualified_name": "services.finance.settlements.SettlementSyncService",
+  "description": null,
+  "docstring": null,
   "source": {
     "file": "services/finance/settlements.py",
-    "line_start": 10,
-    "line_end": 16
+    "line_start": 13,
+    "line_end": 19
   },
   "operations": [
     {
       "id": "finance.settlement-sync.operation.build_verification_statuses",
+      "identity": {
+        "catalog_id": "finance.settlement-sync.operation.build_verification_statuses",
+        "logical_id": "finance.settlement-sync.operation.build_verification_statuses",
+        "source_id": "operation:0afef17275f6cf38",
+        "display_name": "SettlementSyncService.build_verification_statuses",
+        "aliases": [
+          "finance.settlement-sync.operation.build_verification_statuses",
+          "services.finance.settlement_verification.SettlementVerificationMixin.build_verification_statuses"
+        ]
+      },
       "method": "build_verification_statuses",
       "qualified_name": "services.finance.settlement_verification.SettlementVerificationMixin.build_verification_statuses",
+      "parameters": [
+        {
+          "name": "participant",
+          "annotation": "Participant",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "bank_details",
+          "annotation": "ParticipantBankDetails | None",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "method_config",
+          "annotation": "dict[str, Any] | None",
+          "default": null,
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "dict[str, str]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/settlement_verification.py",
         "line_start": 10,
@@ -21,14 +66,45 @@
       "detection": {
         "method": "inherited_public_method_from_SettlementVerificationMixin",
         "rule": "inherited_public_method_from_SettlementVerificationMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=build_verification_statuses",
+          "qualified_name=services.finance.settlement_verification.SettlementVerificationMixin.build_verification_statuses"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.settlement-sync.operation.reset_field_verification_statuses",
+      "identity": {
+        "catalog_id": "finance.settlement-sync.operation.reset_field_verification_statuses",
+        "logical_id": "finance.settlement-sync.operation.reset_field_verification_statuses",
+        "source_id": "operation:f3bbb129271c48e7",
+        "display_name": "SettlementSyncService.reset_field_verification_statuses",
+        "aliases": [
+          "finance.settlement-sync.operation.reset_field_verification_statuses",
+          "services.finance.settlement_verification.SettlementVerificationMixin.reset_field_verification_statuses"
+        ]
+      },
       "method": "reset_field_verification_statuses",
       "qualified_name": "services.finance.settlement_verification.SettlementVerificationMixin.reset_field_verification_statuses",
+      "parameters": [
+        {
+          "name": "participant",
+          "annotation": "Participant",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "field_keys",
+          "annotation": "list[str]",
+          "default": null,
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/settlement_verification.py",
         "line_start": 33,
@@ -37,151 +113,625 @@
       "detection": {
         "method": "inherited_public_method_from_SettlementVerificationMixin",
         "rule": "inherited_public_method_from_SettlementVerificationMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=reset_field_verification_statuses",
+          "qualified_name=services.finance.settlement_verification.SettlementVerificationMixin.reset_field_verification_statuses"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.settlement-sync.operation.refresh_participant_payout_schedule",
+      "identity": {
+        "catalog_id": "finance.settlement-sync.operation.refresh_participant_payout_schedule",
+        "logical_id": "finance.settlement-sync.operation.refresh_participant_payout_schedule",
+        "source_id": "operation:b0cad19ebc228010",
+        "display_name": "SettlementSyncService.refresh_participant_payout_schedule",
+        "aliases": [
+          "finance.settlement-sync.operation.refresh_participant_payout_schedule",
+          "services.finance.settlement_workflows.SettlementWorkflowMixin.refresh_participant_payout_schedule"
+        ]
+      },
       "method": "refresh_participant_payout_schedule",
       "qualified_name": "services.finance.settlement_workflows.SettlementWorkflowMixin.refresh_participant_payout_schedule",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "uuid.UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "uuid.UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "payment_settings",
+          "annotation": "dict[str, Any] | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/settlement_workflows.py",
-        "line_start": 161,
-        "line_end": 224
+        "line_start": 166,
+        "line_end": 229
       },
       "detection": {
         "method": "inherited_public_method_from_SettlementWorkflowMixin",
         "rule": "inherited_public_method_from_SettlementWorkflowMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=refresh_participant_payout_schedule",
+          "qualified_name=services.finance.settlement_workflows.SettlementWorkflowMixin.refresh_participant_payout_schedule"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.settlement-sync.operation.refresh_open_payout_preferences",
+      "identity": {
+        "catalog_id": "finance.settlement-sync.operation.refresh_open_payout_preferences",
+        "logical_id": "finance.settlement-sync.operation.refresh_open_payout_preferences",
+        "source_id": "operation:0d7ef35909d5f3d9",
+        "display_name": "SettlementSyncService.refresh_open_payout_preferences",
+        "aliases": [
+          "finance.settlement-sync.operation.refresh_open_payout_preferences",
+          "services.finance.settlement_workflows.SettlementWorkflowMixin.refresh_open_payout_preferences"
+        ]
+      },
       "method": "refresh_open_payout_preferences",
       "qualified_name": "services.finance.settlement_workflows.SettlementWorkflowMixin.refresh_open_payout_preferences",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "uuid.UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "uuid.UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "payment_settings",
+          "annotation": "dict[str, Any] | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/settlement_workflows.py",
-        "line_start": 226,
-        "line_end": 302
+        "line_start": 231,
+        "line_end": 307
       },
       "detection": {
         "method": "inherited_public_method_from_SettlementWorkflowMixin",
         "rule": "inherited_public_method_from_SettlementWorkflowMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=refresh_open_payout_preferences",
+          "qualified_name=services.finance.settlement_workflows.SettlementWorkflowMixin.refresh_open_payout_preferences"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.settlement-sync.operation.create_session_completion_payout",
+      "identity": {
+        "catalog_id": "finance.settlement-sync.operation.create_session_completion_payout",
+        "logical_id": "finance.settlement-sync.operation.create_session_completion_payout",
+        "source_id": "operation:15354a929e132f5d",
+        "display_name": "SettlementSyncService.create_session_completion_payout",
+        "aliases": [
+          "finance.settlement-sync.operation.create_session_completion_payout",
+          "services.finance.settlement_workflows.SettlementWorkflowMixin.create_session_completion_payout"
+        ]
+      },
       "method": "create_session_completion_payout",
       "qualified_name": "services.finance.settlement_workflows.SettlementWorkflowMixin.create_session_completion_payout",
+      "parameters": [
+        {
+          "name": "session",
+          "annotation": "Session",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "experiment",
+          "annotation": "Experiment",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "enrollment",
+          "annotation": "Enrollment",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "amount",
+          "annotation": "float",
+          "default": null,
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "Payout",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/settlement_workflows.py",
-        "line_start": 304,
-        "line_end": 372
+        "line_start": 309,
+        "line_end": 377
       },
       "detection": {
         "method": "inherited_public_method_from_SettlementWorkflowMixin",
         "rule": "inherited_public_method_from_SettlementWorkflowMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_session_completion_payout",
+          "qualified_name=services.finance.settlement_workflows.SettlementWorkflowMixin.create_session_completion_payout"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "finance.settlement-sync.operation.create_reviewed_ledger_payout",
+      "identity": {
+        "catalog_id": "finance.settlement-sync.operation.create_reviewed_ledger_payout",
+        "logical_id": "finance.settlement-sync.operation.create_reviewed_ledger_payout",
+        "source_id": "operation:d913da186ec1c069",
+        "display_name": "SettlementSyncService.create_reviewed_ledger_payout",
+        "aliases": [
+          "finance.settlement-sync.operation.create_reviewed_ledger_payout",
+          "services.finance.settlement_workflows.SettlementWorkflowMixin.create_reviewed_ledger_payout"
+        ]
+      },
+      "method": "create_reviewed_ledger_payout",
+      "qualified_name": "services.finance.settlement_workflows.SettlementWorkflowMixin.create_reviewed_ledger_payout",
+      "parameters": [
+        {
+          "name": "session",
+          "annotation": "Session",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "experiment",
+          "annotation": "Experiment",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "ledger",
+          "annotation": "ParticipationLedger",
+          "default": null,
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "Payout",
+      "description": null,
+      "docstring": null,
+      "source": {
+        "file": "services/finance/settlement_workflows.py",
+        "line_start": 379,
+        "line_end": 453
+      },
+      "detection": {
+        "method": "inherited_public_method_from_SettlementWorkflowMixin",
+        "rule": "inherited_public_method_from_SettlementWorkflowMixin",
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_reviewed_ledger_payout",
+          "qualified_name=services.finance.settlement_workflows.SettlementWorkflowMixin.create_reviewed_ledger_payout"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.settlement-sync.operation.create_or_update_policy_bound_payout",
+      "identity": {
+        "catalog_id": "finance.settlement-sync.operation.create_or_update_policy_bound_payout",
+        "logical_id": "finance.settlement-sync.operation.create_or_update_policy_bound_payout",
+        "source_id": "operation:b2c16a970a2339ea",
+        "display_name": "SettlementSyncService.create_or_update_policy_bound_payout",
+        "aliases": [
+          "finance.settlement-sync.operation.create_or_update_policy_bound_payout",
+          "services.finance.settlement_workflows.SettlementWorkflowMixin.create_or_update_policy_bound_payout"
+        ]
+      },
       "method": "create_or_update_policy_bound_payout",
       "qualified_name": "services.finance.settlement_workflows.SettlementWorkflowMixin.create_or_update_policy_bound_payout",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "uuid.UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "participant",
+          "annotation": "Participant",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "uuid.UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "session_id",
+          "annotation": "uuid.UUID | None",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "experiment_id",
+          "annotation": "uuid.UUID | None",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "amount",
+          "annotation": "float",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "currency",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "notes",
+          "annotation": "str | None",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "payment_settings",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "find_existing",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "idempotency_key",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "Payout",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/settlement_workflows.py",
-        "line_start": 374,
-        "line_end": 471
+        "line_start": 455,
+        "line_end": 552
       },
       "detection": {
         "method": "inherited_public_method_from_SettlementWorkflowMixin",
         "rule": "inherited_public_method_from_SettlementWorkflowMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_or_update_policy_bound_payout",
+          "qualified_name=services.finance.settlement_workflows.SettlementWorkflowMixin.create_or_update_policy_bound_payout"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.settlement-sync.operation.provision_payout_for_compensation",
+      "identity": {
+        "catalog_id": "finance.settlement-sync.operation.provision_payout_for_compensation",
+        "logical_id": "finance.settlement-sync.operation.provision_payout_for_compensation",
+        "source_id": "operation:76707df96610834b",
+        "display_name": "SettlementSyncService.provision_payout_for_compensation",
+        "aliases": [
+          "finance.settlement-sync.operation.provision_payout_for_compensation",
+          "services.finance.settlement_workflows.SettlementWorkflowMixin.provision_payout_for_compensation"
+        ]
+      },
       "method": "provision_payout_for_compensation",
       "qualified_name": "services.finance.settlement_workflows.SettlementWorkflowMixin.provision_payout_for_compensation",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "uuid.UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "participant",
+          "annotation": "Participant",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "compensation",
+          "annotation": "ParticipantCompensation",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "payment_settings",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "notes",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "Payout | None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/settlement_workflows.py",
-        "line_start": 484,
-        "line_end": 531
+        "line_start": 574,
+        "line_end": 621
       },
       "detection": {
         "method": "inherited_public_method_from_SettlementWorkflowMixin",
         "rule": "inherited_public_method_from_SettlementWorkflowMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=provision_payout_for_compensation",
+          "qualified_name=services.finance.settlement_workflows.SettlementWorkflowMixin.provision_payout_for_compensation"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.settlement-sync.operation.sync_compensation_from_payout",
+      "identity": {
+        "catalog_id": "finance.settlement-sync.operation.sync_compensation_from_payout",
+        "logical_id": "finance.settlement-sync.operation.sync_compensation_from_payout",
+        "source_id": "operation:63f90c5df881893e",
+        "display_name": "SettlementSyncService.sync_compensation_from_payout",
+        "aliases": [
+          "finance.settlement-sync.operation.sync_compensation_from_payout",
+          "services.finance.settlement_workflows.SettlementWorkflowMixin.sync_compensation_from_payout"
+        ]
+      },
       "method": "sync_compensation_from_payout",
       "qualified_name": "services.finance.settlement_workflows.SettlementWorkflowMixin.sync_compensation_from_payout",
+      "parameters": [
+        {
+          "name": "payout",
+          "annotation": "Payout",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "session",
+          "annotation": "Session | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "experiment",
+          "annotation": "Experiment | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "compensation_status",
+          "annotation": "CompensationStatus | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "ParticipantCompensation",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/settlement_workflows.py",
-        "line_start": 533,
-        "line_end": 548
+        "line_start": 623,
+        "line_end": 638
       },
       "detection": {
         "method": "inherited_public_method_from_SettlementWorkflowMixin",
         "rule": "inherited_public_method_from_SettlementWorkflowMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=sync_compensation_from_payout",
+          "qualified_name=services.finance.settlement_workflows.SettlementWorkflowMixin.sync_compensation_from_payout"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.settlement-sync.operation.apply_compensation_decision_to_payout",
+      "identity": {
+        "catalog_id": "finance.settlement-sync.operation.apply_compensation_decision_to_payout",
+        "logical_id": "finance.settlement-sync.operation.apply_compensation_decision_to_payout",
+        "source_id": "operation:301d9a0cd640a006",
+        "display_name": "SettlementSyncService.apply_compensation_decision_to_payout",
+        "aliases": [
+          "finance.settlement-sync.operation.apply_compensation_decision_to_payout",
+          "services.finance.settlement_workflows.SettlementWorkflowMixin.apply_compensation_decision_to_payout"
+        ]
+      },
       "method": "apply_compensation_decision_to_payout",
       "qualified_name": "services.finance.settlement_workflows.SettlementWorkflowMixin.apply_compensation_decision_to_payout",
+      "parameters": [
+        {
+          "name": "compensation",
+          "annotation": "ParticipantCompensation",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "decision",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "actor_id",
+          "annotation": "uuid.UUID | None",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "payment_reference",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "reason",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "effective_at",
+          "annotation": "datetime | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/settlement_workflows.py",
-        "line_start": 550,
-        "line_end": 613
+        "line_start": 640,
+        "line_end": 703
       },
       "detection": {
         "method": "inherited_public_method_from_SettlementWorkflowMixin",
         "rule": "inherited_public_method_from_SettlementWorkflowMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=apply_compensation_decision_to_payout",
+          "qualified_name=services.finance.settlement_workflows.SettlementWorkflowMixin.apply_compensation_decision_to_payout"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.settlement-sync.operation.list_participant_settlement_records",
+      "identity": {
+        "catalog_id": "finance.settlement-sync.operation.list_participant_settlement_records",
+        "logical_id": "finance.settlement-sync.operation.list_participant_settlement_records",
+        "source_id": "operation:fff538bd3143497f",
+        "display_name": "SettlementSyncService.list_participant_settlement_records",
+        "aliases": [
+          "finance.settlement-sync.operation.list_participant_settlement_records",
+          "services.finance.settlement_workflows.SettlementWorkflowMixin.list_participant_settlement_records"
+        ]
+      },
       "method": "list_participant_settlement_records",
       "qualified_name": "services.finance.settlement_workflows.SettlementWorkflowMixin.list_participant_settlement_records",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "uuid.UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "uuid.UUID",
+          "default": null,
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "list[ParticipantSettlementRecord]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/settlement_workflows.py",
-        "line_start": 615,
-        "line_end": 657
+        "line_start": 705,
+        "line_end": 747
       },
       "detection": {
         "method": "inherited_public_method_from_SettlementWorkflowMixin",
         "rule": "inherited_public_method_from_SettlementWorkflowMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=list_participant_settlement_records",
+          "qualified_name=services.finance.settlement_workflows.SettlementWorkflowMixin.list_participant_settlement_records"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.settlement-sync.operation.get_participant_payout_overview",
+      "identity": {
+        "catalog_id": "finance.settlement-sync.operation.get_participant_payout_overview",
+        "logical_id": "finance.settlement-sync.operation.get_participant_payout_overview",
+        "source_id": "operation:8de62160087fe619",
+        "display_name": "SettlementSyncService.get_participant_payout_overview",
+        "aliases": [
+          "finance.settlement-sync.operation.get_participant_payout_overview",
+          "services.finance.settlement_workflows.SettlementWorkflowMixin.get_participant_payout_overview"
+        ]
+      },
       "method": "get_participant_payout_overview",
       "qualified_name": "services.finance.settlement_workflows.SettlementWorkflowMixin.get_participant_payout_overview",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "uuid.UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "uuid.UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "payment_settings",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/settlement_workflows.py",
-        "line_start": 659,
-        "line_end": 679
+        "line_start": 749,
+        "line_end": 779
       },
       "detection": {
         "method": "inherited_public_method_from_SettlementWorkflowMixin",
         "rule": "inherited_public_method_from_SettlementWorkflowMixin",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_participant_payout_overview",
+          "qualified_name=services.finance.settlement_workflows.SettlementWorkflowMixin.get_participant_payout_overview"
+        ]
       },
       "review_status": "generated"
     }
@@ -189,7 +739,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=SettlementSyncService",
+      "source_path=services/finance/settlements.py"
+    ]
   },
   "review_status": "generated"
 }

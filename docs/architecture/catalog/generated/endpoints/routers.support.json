@@ -4,7 +4,18 @@
   "source_file": "routers/support.py",
   "endpoints": [
     {
-      "id": "routers.support.get.list-support-tickets",
+      "id": "routers.support.get.support.tickets.list-support-tickets",
+      "identity": {
+        "catalog_id": "routers.support.get.support.tickets.list-support-tickets",
+        "logical_id": "routers.support.get.support.tickets.list-support-tickets",
+        "source_id": "endpoint:c3385a9b1d890862",
+        "display_name": "GET /support/tickets",
+        "aliases": [
+          "routers.support.get.support.tickets.list-support-tickets",
+          "routers.support.list_support_tickets",
+          "/support/tickets"
+        ]
+      },
       "module": "routers.support",
       "function_name": "list_support_tickets",
       "qualified_name": "routers.support.list_support_tickets",
@@ -20,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "",
+      "include_prefix": null,
+      "router_prefix": "/support/tickets",
+      "full_path": "/support/tickets",
       "router": "router",
       "kwargs": {
         "response_model": "list[SupportTicketSummaryResponse]"
@@ -111,12 +125,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=",
+          "include_prefix=None",
+          "router_prefix=/support/tickets",
+          "full_path=/support/tickets",
+          "function=routers.support.list_support_tickets"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.support.get.param-ticket-id.get-support-ticket",
+      "id": "routers.support.get.support.tickets.param-ticket-id.get-support-ticket",
+      "identity": {
+        "catalog_id": "routers.support.get.support.tickets.param-ticket-id.get-support-ticket",
+        "logical_id": "routers.support.get.support.tickets.param-ticket-id.get-support-ticket",
+        "source_id": "endpoint:74953aadb72fce0e",
+        "display_name": "GET /support/tickets/{ticket_id}",
+        "aliases": [
+          "routers.support.get.support.tickets.param-ticket-id.get-support-ticket",
+          "routers.support.get_support_ticket",
+          "/{ticket_id}",
+          "/support/tickets",
+          "/support/tickets/{ticket_id}"
+        ]
+      },
       "module": "routers.support",
       "function_name": "get_support_ticket",
       "qualified_name": "routers.support.get_support_ticket",
@@ -132,6 +167,9 @@
       },
       "http_method": "GET",
       "path": "/{ticket_id}",
+      "include_prefix": null,
+      "router_prefix": "/support/tickets",
+      "full_path": "/support/tickets/{ticket_id}",
       "router": "router",
       "kwargs": {
         "response_model": "SupportTicketDetailResponse"
@@ -181,12 +219,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{ticket_id}",
+          "include_prefix=None",
+          "router_prefix=/support/tickets",
+          "full_path=/support/tickets/{ticket_id}",
+          "function=routers.support.get_support_ticket"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.support.post.param-ticket-id.entries.add-support-ticket-entry",
+      "id": "routers.support.post.support.tickets.param-ticket-id.entries.add-support-ticket-entry",
+      "identity": {
+        "catalog_id": "routers.support.post.support.tickets.param-ticket-id.entries.add-support-ticket-entry",
+        "logical_id": "routers.support.post.support.tickets.param-ticket-id.entries.add-support-ticket-entry",
+        "source_id": "endpoint:192cb15b208b2a61",
+        "display_name": "POST /support/tickets/{ticket_id}/entries",
+        "aliases": [
+          "routers.support.post.support.tickets.param-ticket-id.entries.add-support-ticket-entry",
+          "routers.support.add_support_ticket_entry",
+          "/{ticket_id}/entries",
+          "/support/tickets",
+          "/support/tickets/{ticket_id}/entries"
+        ]
+      },
       "module": "routers.support",
       "function_name": "add_support_ticket_entry",
       "qualified_name": "routers.support.add_support_ticket_entry",
@@ -202,6 +261,9 @@
       },
       "http_method": "POST",
       "path": "/{ticket_id}/entries",
+      "include_prefix": null,
+      "router_prefix": "/support/tickets",
+      "full_path": "/support/tickets/{ticket_id}/entries",
       "router": "router",
       "kwargs": {
         "response_model": "SupportTicketDetailResponse"
@@ -272,12 +334,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{ticket_id}/entries",
+          "include_prefix=None",
+          "router_prefix=/support/tickets",
+          "full_path=/support/tickets/{ticket_id}/entries",
+          "function=routers.support.add_support_ticket_entry"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.support.post.param-ticket-id.status.update-support-ticket-status",
+      "id": "routers.support.post.support.tickets.param-ticket-id.status.update-support-ticket-status",
+      "identity": {
+        "catalog_id": "routers.support.post.support.tickets.param-ticket-id.status.update-support-ticket-status",
+        "logical_id": "routers.support.post.support.tickets.param-ticket-id.status.update-support-ticket-status",
+        "source_id": "endpoint:13b4f9778ea75f5e",
+        "display_name": "POST /support/tickets/{ticket_id}/status",
+        "aliases": [
+          "routers.support.post.support.tickets.param-ticket-id.status.update-support-ticket-status",
+          "routers.support.update_support_ticket_status",
+          "/{ticket_id}/status",
+          "/support/tickets",
+          "/support/tickets/{ticket_id}/status"
+        ]
+      },
       "module": "routers.support",
       "function_name": "update_support_ticket_status",
       "qualified_name": "routers.support.update_support_ticket_status",
@@ -293,6 +376,9 @@
       },
       "http_method": "POST",
       "path": "/{ticket_id}/status",
+      "include_prefix": null,
+      "router_prefix": "/support/tickets",
+      "full_path": "/support/tickets/{ticket_id}/status",
       "router": "router",
       "kwargs": {
         "response_model": "SupportTicketDetailResponse"
@@ -356,7 +442,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{ticket_id}/status",
+          "include_prefix=None",
+          "router_prefix=/support/tickets",
+          "full_path=/support/tickets/{ticket_id}/status",
+          "function=routers.support.update_support_ticket_status"
+        ]
       },
       "review_status": "generated"
     }

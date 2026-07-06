@@ -1,43 +1,123 @@
 {
   "id": "participants.participant-voucher-application",
+  "identity": {
+    "catalog_id": "participants.participant-voucher-application",
+    "logical_id": "participants.participant-voucher-application",
+    "source_id": "service:7e427d467790d768",
+    "display_name": "ParticipantVoucherApplicationService",
+    "aliases": [
+      "participants.participant-voucher-application",
+      "services.participants.vouchers.ParticipantVoucherApplicationService"
+    ]
+  },
   "module": "services.participants.vouchers",
   "class_name": "ParticipantVoucherApplicationService",
   "qualified_name": "services.participants.vouchers.ParticipantVoucherApplicationService",
+  "description": null,
+  "docstring": null,
   "source": {
     "file": "services/participants/vouchers.py",
     "line_start": 15,
-    "line_end": 67
+    "line_end": 77
   },
   "operations": [
     {
       "id": "participants.participant-voucher-application.operation.create_voucher",
+      "identity": {
+        "catalog_id": "participants.participant-voucher-application.operation.create_voucher",
+        "logical_id": "participants.participant-voucher-application.operation.create_voucher",
+        "source_id": "operation:c381fbe784b2ac11",
+        "display_name": "ParticipantVoucherApplicationService.create_voucher",
+        "aliases": [
+          "participants.participant-voucher-application.operation.create_voucher",
+          "services.participants.vouchers.ParticipantVoucherApplicationService.create_voucher"
+        ]
+      },
       "method": "create_voucher",
       "qualified_name": "services.participants.vouchers.ParticipantVoucherApplicationService.create_voucher",
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "voucher_data",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Voucher",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/participants/vouchers.py",
-        "line_start": 19,
-        "line_end": 56
+        "line_start": 28,
+        "line_end": 66
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_voucher",
+          "qualified_name=services.participants.vouchers.ParticipantVoucherApplicationService.create_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "participants.participant-voucher-application.operation.get_participant_vouchers",
+      "identity": {
+        "catalog_id": "participants.participant-voucher-application.operation.get_participant_vouchers",
+        "logical_id": "participants.participant-voucher-application.operation.get_participant_vouchers",
+        "source_id": "operation:415f3cecda14fa8b",
+        "display_name": "ParticipantVoucherApplicationService.get_participant_vouchers",
+        "aliases": [
+          "participants.participant-voucher-application.operation.get_participant_vouchers",
+          "services.participants.vouchers.ParticipantVoucherApplicationService.get_participant_vouchers"
+        ]
+      },
       "method": "get_participant_vouchers",
       "qualified_name": "services.participants.vouchers.ParticipantVoucherApplicationService.get_participant_vouchers",
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[Voucher]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/participants/vouchers.py",
-        "line_start": 58,
-        "line_end": 67
+        "line_start": 68,
+        "line_end": 77
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_participant_vouchers",
+          "qualified_name=services.participants.vouchers.ParticipantVoucherApplicationService.get_participant_vouchers"
+        ]
       },
       "review_status": "generated"
     }
@@ -45,7 +125,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=ParticipantVoucherApplicationService",
+      "source_path=services/participants/vouchers.py"
+    ]
   },
   "review_status": "generated"
 }

@@ -4,7 +4,20 @@
   "source_file": "routers/query_builder.py",
   "endpoints": [
     {
-      "id": "routers.query_builder.delete.queries.param-query-id.delete-saved-query",
+      "id": "routers.query_builder.delete.query-builder.queries.param-query-id.delete-saved-query",
+      "identity": {
+        "catalog_id": "routers.query_builder.delete.query-builder.queries.param-query-id.delete-saved-query",
+        "logical_id": "routers.query_builder.delete.query-builder.queries.param-query-id.delete-saved-query",
+        "source_id": "endpoint:12529adeada95e14",
+        "display_name": "DELETE /query-builder/queries/{query_id}",
+        "aliases": [
+          "routers.query_builder.delete.query-builder.queries.param-query-id.delete-saved-query",
+          "routers.query_builder.delete_saved_query",
+          "/queries/{query_id}",
+          "/query-builder",
+          "/query-builder/queries/{query_id}"
+        ]
+      },
       "module": "routers.query_builder",
       "function_name": "delete_saved_query",
       "qualified_name": "routers.query_builder.delete_saved_query",
@@ -20,6 +33,9 @@
       },
       "http_method": "DELETE",
       "path": "/queries/{query_id}",
+      "include_prefix": null,
+      "router_prefix": "/query-builder",
+      "full_path": "/query-builder/queries/{query_id}",
       "router": "router",
       "kwargs": {
         "status_code": "status.HTTP_204_NO_CONTENT"
@@ -56,31 +72,57 @@
       ],
       "source": {
         "file": "routers/query_builder.py",
-        "line_start": 386,
-        "line_end": 399
+        "line_start": 161,
+        "line_end": 172
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/queries/{query_id}",
+          "include_prefix=None",
+          "router_prefix=/query-builder",
+          "full_path=/query-builder/queries/{query_id}",
+          "function=routers.query_builder.delete_saved_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.query_builder.get.experiments.param-experiment-id.queries.list-saved-queries",
+      "id": "routers.query_builder.get.query-builder.experiments.param-experiment-id.queries.list-saved-queries",
+      "identity": {
+        "catalog_id": "routers.query_builder.get.query-builder.experiments.param-experiment-id.queries.list-saved-queries",
+        "logical_id": "routers.query_builder.get.query-builder.experiments.param-experiment-id.queries.list-saved-queries",
+        "source_id": "endpoint:1dbe780845632564",
+        "display_name": "GET /query-builder/experiments/{experiment_id}/queries",
+        "aliases": [
+          "routers.query_builder.get.query-builder.experiments.param-experiment-id.queries.list-saved-queries",
+          "routers.query_builder.list_saved_queries",
+          "/experiments/{experiment_id}/queries",
+          "/query-builder",
+          "/query-builder/experiments/{experiment_id}/queries"
+        ]
+      },
       "module": "routers.query_builder",
       "function_name": "list_saved_queries",
       "qualified_name": "routers.query_builder.list_saved_queries",
       "implementation": {
-        "kind": "direct_db_access",
+        "kind": "service_operation",
         "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call"
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/experiments/{experiment_id}/queries",
+      "include_prefix": null,
+      "router_prefix": "/query-builder",
+      "full_path": "/query-builder/experiments/{experiment_id}/queries",
       "router": "router",
       "kwargs": {
         "response_model": "list[SavedQueryResponse]"
@@ -117,18 +159,39 @@
       ],
       "source": {
         "file": "routers/query_builder.py",
-        "line_start": 269,
-        "line_end": 296
+        "line_start": 115,
+        "line_end": 126
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/experiments/{experiment_id}/queries",
+          "include_prefix=None",
+          "router_prefix=/query-builder",
+          "full_path=/query-builder/experiments/{experiment_id}/queries",
+          "function=routers.query_builder.list_saved_queries"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.query_builder.get.modules.get-query-modules",
+      "id": "routers.query_builder.get.query-builder.modules.get-query-modules",
+      "identity": {
+        "catalog_id": "routers.query_builder.get.query-builder.modules.get-query-modules",
+        "logical_id": "routers.query_builder.get.query-builder.modules.get-query-modules",
+        "source_id": "endpoint:bb0eaae6f9aa4518",
+        "display_name": "GET /query-builder/modules",
+        "aliases": [
+          "routers.query_builder.get.query-builder.modules.get-query-modules",
+          "routers.query_builder.get_query_modules",
+          "/modules",
+          "/query-builder",
+          "/query-builder/modules"
+        ]
+      },
       "module": "routers.query_builder",
       "function_name": "get_query_modules",
       "qualified_name": "routers.query_builder.get_query_modules",
@@ -144,6 +207,9 @@
       },
       "http_method": "GET",
       "path": "/modules",
+      "include_prefix": null,
+      "router_prefix": "/query-builder",
+      "full_path": "/query-builder/modules",
       "router": "router",
       "kwargs": {
         "response_model": "QueryModulesResponse"
@@ -159,31 +225,57 @@
       ],
       "source": {
         "file": "routers/query_builder.py",
-        "line_start": 42,
-        "line_end": 49
+        "line_start": 40,
+        "line_end": 47
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/modules",
+          "include_prefix=None",
+          "router_prefix=/query-builder",
+          "full_path=/query-builder/modules",
+          "function=routers.query_builder.get_query_modules"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.query_builder.get.queries.param-query-id.get-saved-query",
+      "id": "routers.query_builder.get.query-builder.queries.param-query-id.get-saved-query",
+      "identity": {
+        "catalog_id": "routers.query_builder.get.query-builder.queries.param-query-id.get-saved-query",
+        "logical_id": "routers.query_builder.get.query-builder.queries.param-query-id.get-saved-query",
+        "source_id": "endpoint:cbc7250a84bb6f62",
+        "display_name": "GET /query-builder/queries/{query_id}",
+        "aliases": [
+          "routers.query_builder.get.query-builder.queries.param-query-id.get-saved-query",
+          "routers.query_builder.get_saved_query",
+          "/queries/{query_id}",
+          "/query-builder",
+          "/query-builder/queries/{query_id}"
+        ]
+      },
       "module": "routers.query_builder",
       "function_name": "get_saved_query",
       "qualified_name": "routers.query_builder.get_saved_query",
       "implementation": {
-        "kind": "direct_db_access",
+        "kind": "service_operation",
         "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call"
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/queries/{query_id}",
+      "include_prefix": null,
+      "router_prefix": "/query-builder",
+      "full_path": "/query-builder/queries/{query_id}",
       "router": "router",
       "kwargs": {
         "response_model": "SavedQueryResponse"
@@ -220,31 +312,57 @@
       ],
       "source": {
         "file": "routers/query_builder.py",
-        "line_start": 300,
-        "line_end": 330
+        "line_start": 130,
+        "line_end": 141
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/queries/{query_id}",
+          "include_prefix=None",
+          "router_prefix=/query-builder",
+          "full_path=/query-builder/queries/{query_id}",
+          "function=routers.query_builder.get_saved_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.query_builder.get.queries.param-query-id.history.get-query-execution-history",
+      "id": "routers.query_builder.get.query-builder.queries.param-query-id.history.get-query-execution-history",
+      "identity": {
+        "catalog_id": "routers.query_builder.get.query-builder.queries.param-query-id.history.get-query-execution-history",
+        "logical_id": "routers.query_builder.get.query-builder.queries.param-query-id.history.get-query-execution-history",
+        "source_id": "endpoint:a2a932582097dede",
+        "display_name": "GET /query-builder/queries/{query_id}/history",
+        "aliases": [
+          "routers.query_builder.get.query-builder.queries.param-query-id.history.get-query-execution-history",
+          "routers.query_builder.get_query_execution_history",
+          "/queries/{query_id}/history",
+          "/query-builder",
+          "/query-builder/queries/{query_id}/history"
+        ]
+      },
       "module": "routers.query_builder",
       "function_name": "get_query_execution_history",
       "qualified_name": "routers.query_builder.get_query_execution_history",
       "implementation": {
-        "kind": "direct_db_access",
+        "kind": "service_operation",
         "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call"
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/queries/{query_id}/history",
+      "include_prefix": null,
+      "router_prefix": "/query-builder",
+      "full_path": "/query-builder/queries/{query_id}/history",
       "router": "router",
       "kwargs": {
         "response_model": "list[QueryExecutionHistoryResponse]"
@@ -281,18 +399,39 @@
       ],
       "source": {
         "file": "routers/query_builder.py",
-        "line_start": 407,
-        "line_end": 444
+        "line_start": 180,
+        "line_end": 191
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/queries/{query_id}/history",
+          "include_prefix=None",
+          "router_prefix=/query-builder",
+          "full_path=/query-builder/queries/{query_id}/history",
+          "function=routers.query_builder.get_query_execution_history"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.query_builder.post.experiments.param-experiment-id.query.build.build-query",
+      "id": "routers.query_builder.post.query-builder.experiments.param-experiment-id.query.build.build-query",
+      "identity": {
+        "catalog_id": "routers.query_builder.post.query-builder.experiments.param-experiment-id.query.build.build-query",
+        "logical_id": "routers.query_builder.post.query-builder.experiments.param-experiment-id.query.build.build-query",
+        "source_id": "endpoint:549ee0f9b2c9bf81",
+        "display_name": "POST /query-builder/experiments/{experiment_id}/query/build",
+        "aliases": [
+          "routers.query_builder.post.query-builder.experiments.param-experiment-id.query.build.build-query",
+          "routers.query_builder.build_query",
+          "/experiments/{experiment_id}/query/build",
+          "/query-builder",
+          "/query-builder/experiments/{experiment_id}/query/build"
+        ]
+      },
       "module": "routers.query_builder",
       "function_name": "build_query",
       "qualified_name": "routers.query_builder.build_query",
@@ -301,7 +440,6 @@
         "confidence": "high",
         "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call",
           "service_variable_detected",
           "service_method_call_detected",
           "endpoint_service_link_resolved"
@@ -309,6 +447,9 @@
       },
       "http_method": "POST",
       "path": "/experiments/{experiment_id}/query/build",
+      "include_prefix": null,
+      "router_prefix": "/query-builder",
+      "full_path": "/query-builder/experiments/{experiment_id}/query/build",
       "router": "router",
       "kwargs": {
         "response_model": "QueryBuildResponse"
@@ -343,6 +484,13 @@
           "source": "dependency"
         },
         {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
           "name": "_",
           "annotation": "None",
           "default": "Depends(require_permission(ExperimentPermissions.ASSIGN_PARTICIPANTS))",
@@ -352,18 +500,39 @@
       ],
       "source": {
         "file": "routers/query_builder.py",
-        "line_start": 57,
-        "line_end": 109
+        "line_start": 55,
+        "line_end": 77
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/experiments/{experiment_id}/query/build",
+          "include_prefix=None",
+          "router_prefix=/query-builder",
+          "full_path=/query-builder/experiments/{experiment_id}/query/build",
+          "function=routers.query_builder.build_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.query_builder.post.experiments.param-experiment-id.query.execute.execute-query",
+      "id": "routers.query_builder.post.query-builder.experiments.param-experiment-id.query.execute.execute-query",
+      "identity": {
+        "catalog_id": "routers.query_builder.post.query-builder.experiments.param-experiment-id.query.execute.execute-query",
+        "logical_id": "routers.query_builder.post.query-builder.experiments.param-experiment-id.query.execute.execute-query",
+        "source_id": "endpoint:2576a4f0981f9939",
+        "display_name": "POST /query-builder/experiments/{experiment_id}/query/execute",
+        "aliases": [
+          "routers.query_builder.post.query-builder.experiments.param-experiment-id.query.execute.execute-query",
+          "routers.query_builder.execute_query",
+          "/experiments/{experiment_id}/query/execute",
+          "/query-builder",
+          "/query-builder/experiments/{experiment_id}/query/execute"
+        ]
+      },
       "module": "routers.query_builder",
       "function_name": "execute_query",
       "qualified_name": "routers.query_builder.execute_query",
@@ -372,7 +541,6 @@
         "confidence": "high",
         "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call",
           "service_variable_detected",
           "service_method_call_detected",
           "endpoint_service_link_resolved"
@@ -380,6 +548,9 @@
       },
       "http_method": "POST",
       "path": "/experiments/{experiment_id}/query/execute",
+      "include_prefix": null,
+      "router_prefix": "/query-builder",
+      "full_path": "/query-builder/experiments/{experiment_id}/query/execute",
       "router": "router",
       "kwargs": {
         "response_model": "QueryExecuteResponse"
@@ -423,18 +594,39 @@
       ],
       "source": {
         "file": "routers/query_builder.py",
-        "line_start": 117,
-        "line_end": 261
+        "line_start": 85,
+        "line_end": 107
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/experiments/{experiment_id}/query/execute",
+          "include_prefix=None",
+          "router_prefix=/query-builder",
+          "full_path=/query-builder/experiments/{experiment_id}/query/execute",
+          "function=routers.query_builder.execute_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.query_builder.put.queries.param-query-id.update-saved-query",
+      "id": "routers.query_builder.put.query-builder.queries.param-query-id.update-saved-query",
+      "identity": {
+        "catalog_id": "routers.query_builder.put.query-builder.queries.param-query-id.update-saved-query",
+        "logical_id": "routers.query_builder.put.query-builder.queries.param-query-id.update-saved-query",
+        "source_id": "endpoint:dc5bf27802ac2557",
+        "display_name": "PUT /query-builder/queries/{query_id}",
+        "aliases": [
+          "routers.query_builder.put.query-builder.queries.param-query-id.update-saved-query",
+          "routers.query_builder.update_saved_query",
+          "/queries/{query_id}",
+          "/query-builder",
+          "/query-builder/queries/{query_id}"
+        ]
+      },
       "module": "routers.query_builder",
       "function_name": "update_saved_query",
       "qualified_name": "routers.query_builder.update_saved_query",
@@ -443,7 +635,6 @@
         "confidence": "high",
         "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call",
           "service_variable_detected",
           "service_method_call_detected",
           "endpoint_service_link_resolved"
@@ -451,6 +642,9 @@
       },
       "http_method": "PUT",
       "path": "/queries/{query_id}",
+      "include_prefix": null,
+      "router_prefix": "/query-builder",
+      "full_path": "/query-builder/queries/{query_id}",
       "router": "router",
       "kwargs": {
         "response_model": "SavedQueryResponse"
@@ -494,13 +688,21 @@
       ],
       "source": {
         "file": "routers/query_builder.py",
-        "line_start": 334,
-        "line_end": 382
+        "line_start": 145,
+        "line_end": 157
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/queries/{query_id}",
+          "include_prefix=None",
+          "router_prefix=/query-builder",
+          "full_path=/query-builder/queries/{query_id}",
+          "function=routers.query_builder.update_saved_query"
+        ]
       },
       "review_status": "generated"
     }

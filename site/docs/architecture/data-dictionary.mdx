@@ -1,4 +1,4 @@
----
+﻿---
 title: Architecture Data Dictionary
 sidebar_label: Data Dictionary
 sidebar_position: 5
@@ -7,31 +7,35 @@ hide_table_of_contents: true
 
 # Architecture Data Dictionary
 
-This page defines the generated architecture catalog fields used in the UI.
+This page defines the generated architecture catalog fields used by the docs UI and the archdoc API read models.
 
 The current documentation is based on deterministic source-code extraction and rule-based mapping. Generated values are not manually edited directly, because they can be overwritten by the next generator run.
+
+Current catalog snapshot: the generated architecture actions catalog contains 10,085 actions, including database actions, database transactions, permission actions, audit actions, worker actions, external actions, entity declarations and type usage records. The operation-link catalog contains service-call and inherited-operation links.
 
 ## Core Concepts
 
 | Term | Meaning |
 |---|---|
 | **Raw Fact** | A direct code fact extracted from the Python codebase, for example files, classes, methods, decorators, calls, assignments or imports. Raw facts are not business interpretations. |
-| **Catalog Item** | A structured architecture object generated from raw facts, for example a service, endpoint, operation or endpoint-service link. |
+| **Catalog Item** | A structured architecture object generated from raw facts, for example a service, endpoint, operation, action or link. |
+| **Read Model** | A UI-oriented projection assembled from generated catalogs, for example service-action graph data or a user-story trace payload. |
 | **Generated** | Automatically created by `archdoc`. Generated files can be overwritten during the next run. |
-| **Manual** | A manually maintained correction, note or enrichment. This should later live separately from generated files. |
+| **Manual** | A manually maintained correction, note or enrichment. This should live outside generated files. |
 | **Source** | The source-code reference from which a fact or catalog item was derived, usually file plus line numbers. |
 | **Detection** | Metadata describing how an item was detected, for example by rule, signal or mapping. |
 | **Confidence** | A confidence level showing how reliable a detected item or link is. |
+| **Review Status** | Human or generated review state of a catalog object. Generated entries are facts from the pipeline, not manually approved design decisions. |
 
 ## Pipeline Layers
 
 | Layer | Meaning |
 |---|---|
-| **Layer 1 — Raw Fact Extraction** | Deterministic extraction of syntax-level code facts from the Python/FastAPI codebase. No AI and no business interpretation. |
-| **Layer 2 — Catalog Mapping** | Rule-based transformation of raw facts into architecture catalog objects such as services, operations, endpoints and endpoint-service links. |
-| **Layer 3 — Validation & Drift Detection** | Checks the generated catalogs for duplicate IDs, broken links, missing mappings and parse errors. |
-| **Layer 4 — Interpretation & Enrichment** | Planned future layer for descriptions, notes, hints and review information. This layer may enrich documentation fields but must not overwrite deterministic facts. |
-| **Layer 5 — Rendering & Visualization** | Docusaurus/MkDocs pages, tables, graphs and other UI views based on the generated catalog data. |
+| **Layer 1 - Raw Fact Extraction** | Deterministic extraction of syntax-level code facts from the Python/FastAPI codebase. No AI and no business interpretation. |
+| **Layer 2 - Catalog Mapping** | Rule-based transformation of raw facts into architecture catalog objects such as services, operations, endpoints, endpoint-service links, operation links and actions. |
+| **Layer 3 - Validation & Drift Detection** | Checks generated catalogs for duplicate IDs, broken links, missing mappings and parse errors. |
+| **Layer 4 - Interpretation & Enrichment** | Human review, descriptions, notes, hints and future enrichments. This layer may add documentation fields but must not overwrite deterministic facts. |
+| **Layer 5 - Rendering & Visualization** | Docusaurus pages, tables, graphs and other UI views based on generated catalogs and read models. |
 
 ---
 
@@ -42,19 +46,21 @@ An **Endpoint** describes a detected HTTP route from FastAPI code.
 | Field | Meaning |
 |---|---|
 | **id** | Unique generated endpoint ID. Usually built from module, HTTP method, path and function name. |
-| **module** | Python module where the endpoint function is defined. Example: `routers.analytics`. Usually derived from the file path without `.py`. |
+| **module** | Python module where the endpoint function is defined. Example: `routers.analytics`. |
 | **function_name** | Name of the Python function implementing the endpoint. Example: `get_dashboard_widgets`. |
 | **qualified_name** | Fully qualified function name including module. Example: `routers.analytics.get_dashboard_widgets`. |
 | **http_method** | HTTP method of the route. Example: `GET`, `POST`, `PATCH`, `DELETE`. |
 | **path** | Route path from the FastAPI decorator. Example: `/dashboard/widgets`. |
-| **full_path** | Planned full route path including router prefix if resolved. Currently may be identical to `path`. |
+| **full_path** | Route path after available prefix resolution. May be identical to `path` when no prefix can be resolved. |
 | **router** | Name of the router object used in the decorator. Example: `router`. |
+| **router_prefix** | Prefix detected from the APIRouter definition when available. |
+| **include_prefix** | Whether the endpoint path is expected to include the router prefix in UI-level display. |
 | **kwargs / route_options** | Options passed to the FastAPI decorator, for example `response_model`, `status_code`, `operation_id` or `include_in_schema`. These are route options, not function parameters. |
 | **parameters** | Parameters from the endpoint function signature. Example: `db`, `org_id`, `current_user`, request body objects. |
+| **implementation** | Implementation metadata for the endpoint function when available. |
 | **source** | File and line range where the endpoint function is defined. |
-| **detection.method** | Detection method. Currently usually `rule`. |
-| **detection.rule** | Rule used to detect the endpoint. Example: `function_with_api_route_signal`. |
-| **detection.confidence** | Confidence of the detection. FastAPI route decorator detection is usually `exact`. |
+| **detection** | Rule metadata describing how the endpoint was found. |
+| **identity** | Stable identity metadata used by generated catalogs and UI joins. |
 | **review_status** | Review state of the item. Currently usually `generated`. |
 
 ### Important Distinction: Route Options vs Parameters
@@ -95,16 +101,6 @@ An **Endpoint Parameter** describes a parameter from the Python function signatu
 | **kind** | Python parameter kind. Example: `positional_or_keyword`, `keyword_only`, `vararg`, `kwarg`. |
 | **source / parameter_source** | Optional derived API meaning, for example `dependency`, `query`, `path`, `body`, `header` or `cookie`. |
 
-### Parameter Examples
-
-| Code | Meaning |
-|---|---|
-| `db: AsyncSession = Depends(get_db_session)` | Dependency injection. |
-| `org_id: str = Depends(require_org_context)` | Dependency/context value. |
-| `payout_id: str` | Usually path-related or body-related depending on the route. |
-| `limit: int = Query(50)` | Query parameter. |
-| `payload: PaymentCreate` | Request body / DTO. |
-
 ---
 
 ## Service Catalog
@@ -117,11 +113,12 @@ A **Service** describes a detected service class or service-like class from the 
 | **module** | Python module where the service class is defined. Example: `services.finance.core`. |
 | **class_name** | Name of the service class. Example: `FinancialService`. |
 | **qualified_name** | Fully qualified class name. Example: `services.finance.core.FinancialService`. |
-| **source** | File and line range of the service class. |
+| **description** | Short description extracted from docstrings or derived documentation fields when available. |
+| **docstring** | Raw or normalized class docstring content. |
 | **operations** | Public methods mapped as operations of the service. |
-| **detection.method** | Detection method. Currently usually `rule`. |
-| **detection.rule** | Rule used to detect the service. Example: `class_suffix_and_service_path`. |
-| **detection.confidence** | Confidence of the service detection. |
+| **source** | File and line range of the service class. |
+| **detection** | Rule metadata describing how the service was found. |
+| **identity** | Stable identity metadata used by generated catalogs and UI joins. |
 | **review_status** | Review state of the item. Currently usually `generated`. |
 
 ### Current Service Detection
@@ -145,16 +142,19 @@ An **Operation** describes a detected method of a service.
 |---|---|
 | **id** | Unique generated operation ID. Example: `finance.financial.operation.cancel_payout_at_provider`. |
 | **method** | Method name in the code. Example: `cancel_payout_at_provider`. |
-| **qualified_name** | Fully qualified method name. May point to a Mixin class if the method is inherited by a service. |
+| **qualified_name** | Fully qualified method name. May point to a mixin class if the method is inherited by a service. |
+| **description** | Short description extracted from the operation docstring when available. |
+| **docstring** | Raw or normalized method docstring content. |
+| **parameters** | Method signature parameters. |
+| **returns** | Return annotation from the method signature. |
 | **source** | File and line range of the method. |
-| **detection.method** | Detection method. Currently usually `rule`. |
-| **detection.rule** | Rule used to detect the operation. Example: `public_method_in_service_class`. |
-| **detection.confidence** | Confidence of the operation detection. |
+| **detection** | Rule metadata describing how the operation was found. |
+| **identity** | Stable identity metadata used by generated catalogs and UI joins. |
 | **review_status** | Review state of the item. Currently usually `generated`. |
 
 ### Mixin Note
 
-Some operations are available through a service but are implemented in a Mixin class.
+Some operations are available through a service but are implemented in a mixin class.
 
 Example:
 
@@ -167,20 +167,21 @@ class PayoutProviderSyncMixin:
         ...
 ```
 
-In this case, the operation belongs to `FinancialService` from an architecture point of view, but the source points to the Mixin file where the method is actually implemented.
+In this case, the operation belongs to `FinancialService` from an architecture point of view, but the source points to the mixin file where the method is actually implemented.
 
 ---
 
-## Schnittstellenkatalog / Endpoint-Service Links
+## Endpoint-Service Links
 
 A **Schnittstelle** describes the connection between an external API endpoint and an internal service operation.
 
 ```text
-HTTP Endpoint → Router Function → Service Operation
+HTTP Endpoint -> Router Function -> Service Operation
 ```
 
 | Field | Meaning |
 |---|---|
+| **id** | Unique link ID. |
 | **endpoint_id** | ID of the API endpoint. |
 | **endpoint_qualified_name** | Fully qualified name of the router function. |
 | **service_id** | ID of the linked service. |
@@ -189,17 +190,174 @@ HTTP Endpoint → Router Function → Service Operation
 | **operation_method** | Method name of the linked operation. |
 | **call_name** | Actual detected method call in the endpoint code. Example: `service.cancel_payout_at_provider`. |
 | **source** | File and line where the call was detected. |
-| **detection.rule** | Rule used to detect the link. |
-| **detection.confidence** | Confidence of the link. |
+| **detection** | Rule metadata describing how the link was found. |
+| **identity** | Stable identity metadata used by generated catalogs and UI joins. |
 | **review_status** | Review state of the link. Currently usually `generated`. |
 
 ### Example
 
 ```text
 POST /payouts/{id}/cancel
-→ routers.financial.cancel_payout
-→ FinancialService.cancel_payout_at_provider
+-> routers.financial.cancel_payout
+-> FinancialService.cancel_payout_at_provider
 ```
+
+---
+
+## Operation Links
+
+An **Operation Link** describes an internal service-to-service or inheritance relationship between operations. These links power incoming/outgoing operation relations in the service-action graph and dependency expansion in user-story traces.
+
+| Field | Meaning |
+|---|---|
+| **id** | Unique link ID. |
+| **link_type** | Relation type. Current values include `service_call` and `inherited_operation`. |
+| **source_ref** | Source operation reference. Usually contains the source operation ID and service context. |
+| **target** | Resolved or attempted target operation/service reference. |
+| **call_name** | Detected call expression or method name that created the relation. |
+| **variable** | Receiver variable when the call was detected through a local service variable. |
+| **resolved** | Whether the target operation could be resolved to a catalog operation. |
+| **confidence** | Link-level confidence shortcut used by UI summaries. |
+| **details.args / details.kwargs** | Detected positional and keyword arguments. |
+| **details.awaited** | Whether the call expression is awaited. |
+| **details.nested_in_call** | Whether the call appears nested in another call expression. |
+| **source** | Source operation metadata, not just a file location. Includes fields such as `service_id`, `operation_id`, `class_name`, `method_name` and `qualified_name`. |
+| **detection** | Rule metadata describing how the operation link was found. |
+| **identity** | Stable identity metadata used by generated catalogs and UI joins. |
+| **review_status** | Review state of the link. Currently usually `generated`. |
+
+Operation links are topology edges. They should be shown as graph relations when they explain architecture flow.
+
+---
+
+## Architecture Actions
+
+An **Architecture Action** describes a meaningful operation-internal action detected inside a service method. These records are the basis for the service-action graph detail view and the user-story trace inspector.
+
+| Field | Meaning |
+|---|---|
+| **id** | Unique generated action ID. |
+| **owner** | Owning operation reference. Usually the operation ID or source operation context. |
+| **kind** | Action kind. Current generated values include `database_action`, `database_transaction`, `permission_action`, `audit_action`, `worker_action`, `external_action`, `entity_declaration` and `type_usage`. |
+| **action** | Human-readable action label, for example `execute select ...`, `session commit` or an audit event. |
+| **access** | Access mode when detectable, for example read/write-like database access. |
+| **call_name** | Detected call expression that produced the action. |
+| **resource** | External or internal resource name when available. |
+| **entity** | Main touched entity/model when available. |
+| **query** | Structured database query details for database actions. |
+| **details** | Additional action-specific metadata. |
+| **source** | File and line range where the action was detected. |
+| **detection** | Rule metadata describing how the action was found. |
+| **identity** | Stable identity metadata used by generated catalogs and UI joins. |
+| **review_status** | Review state of the action. Currently usually `generated`. |
+
+### Action Kind Semantics
+
+| Kind | Meaning | UI topology rule |
+|---|---|---|
+| **database_action** | Query or write interaction with the database. | Can appear as a method-flow detail and may connect to touched entities. |
+| **database_transaction** | Session lifecycle action such as commit, rollback, flush or refresh. | Detail context only in user-story traces; not an independent path node. |
+| **permission_action** | Permission or authorization check. | Method-flow detail. |
+| **audit_action** | Audit event or audit-log write. | Method-flow detail. |
+| **worker_action** | Background job dispatch or scheduled work. | Method-flow detail. |
+| **external_action** | External provider/API interaction. | Method-flow detail. |
+| **entity_declaration** | Entity/model declaration found during extraction. | Entity context, not a user-story path hop. |
+| **type_usage** | Type annotation or return type reference used by an operation. | Detail context only; rendered under `Type Usage`, not as graph topology. |
+
+The important current UI rule: `database_transaction` and `type_usage` are useful review context but are not architecture path hops. In user-story traces they are collected from the trace payload and rendered in the selected operation inspector, following the service-action graph pattern.
+
+---
+
+## Query Details
+
+`query` is present on database actions when the extractor can identify structured query information.
+
+| Field | Meaning |
+|---|---|
+| **operation** | Query operation, for example select-like or update-like behavior. |
+| **variable** | Local variable associated with the query expression when available. |
+| **expression** | Normalized expression string from the source code. |
+| **entities** | List of touched entity/model names. |
+| **entity_details** | Structured metadata for touched entities. |
+| **filters** | Extracted filter expressions. |
+| **joins** | Extracted join expressions. |
+| **ordering** | Extracted order-by expressions. |
+| **limit** | Detected query limit when available. |
+
+### Entity Details
+
+| Field | Meaning |
+|---|---|
+| **name** | Entity/model name. |
+| **qualified_name** | Fully qualified model name when resolved. |
+| **module** | Python module where the entity/model is defined. |
+| **kind** | Entity classification from extraction. |
+| **table_name** | Database table name when available. |
+| **fields** | Extracted model fields when available. |
+| **source** | File and line range of the entity/model declaration. |
+
+---
+
+## Service Action Graph Detail View
+
+The service-action graph renders operation internals as an inspector-oriented read model.
+
+| Section | Meaning |
+|---|---|
+| **Operation** | Method identity, qualified name, source, description, docstring, parameters and return type. |
+| **Operation Links** | Outgoing calls from the selected operation to other operations. |
+| **Incoming Links** | Other operations that call or inherit the selected operation. |
+| **Type Usage** | Type references from parameters, return annotations and operation internals. These are not graph path nodes. |
+| **Detected Method Flow** | Ordered operation actions such as database actions, permission checks, audit events and transaction details. |
+| **Query Details** | Expanded database-action details with entities, filters, joins and ordering when available. |
+
+This view is the reference pattern for action-heavy operation details. Other graph views should reuse the same semantics instead of inventing separate labels for the same generated facts.
+
+---
+
+## User Story Trace Payload
+
+A **User Story Trace** is a read model returned by the UI backend for `GET /api/user-stories/{story_id}/trace`. It connects a story to the generated backend architecture catalogs.
+
+| Field | Meaning |
+|---|---|
+| **story** | Selected user story metadata. |
+| **nodes** | Trace nodes assembled from story, endpoint, service, operation, action and entity records. |
+| **edges** | Trace edges connecting the nodes. |
+| **unresolved_refs** | Referenced endpoints, services or operations that could not be resolved. |
+| **summary** | Node, edge and unresolved-reference counts for the trace header. |
+
+### Trace Node Fields
+
+| Field | Meaning |
+|---|---|
+| **id** | UI-stable trace node ID, usually prefixed by kind, for example `operation:...`. |
+| **kind** | Node kind, for example `story`, `endpoint`, `service`, `operation`, `database_action`, `permission_action`, `audit_action`, `entity` or compact detail kinds. |
+| **target_id** | Catalog item ID represented by the node when available. |
+| **label** | Display label for the graph node. |
+| **payload** | Original catalog object or read-model detail used by the inspector. |
+| **link** | Optional UI navigation target. |
+
+### Trace Edge Fields
+
+| Field | Meaning |
+|---|---|
+| **id** | UI-stable edge ID. |
+| **source** | Source trace node ID. |
+| **target** | Target trace node ID. |
+| **label** | Relationship label. Current examples include `declares`, `routes_to`, `calls`, `owns`, `does`, `touches` and `calls_service`. |
+
+### Trace Compaction Rules
+
+User-story traces intentionally keep path topology compact:
+
+| Rule | Meaning |
+|---|---|
+| **Essential topology** | Story, endpoint, service and operation nodes explain the architecture path and remain visible. |
+| **Action inspector context** | Actions are collected for the selected operation inspector so the user can review method flow without turning every implementation detail into a floating graph node. |
+| **Database transactions** | `database_transaction` entries remain in the trace payload but render under `Detected Method Flow`, not as independent path nodes. |
+| **Type usage** | `type_usage` entries render under `Type Usage`, matching the service-action graph detail view. |
+| **Floating-node pruning** | The trace graph excludes visible nodes that have no visible edge after compaction. |
 
 ---
 
@@ -209,6 +367,8 @@ The **Validation Report** checks the generated catalogs for consistency, missing
 
 | Field | Meaning |
 |---|---|
+| **schema_version** | Version of the validation-report schema. |
+| **summary** | Counts and aggregate validation state. |
 | **services** | Number of detected services. |
 | **operations** | Number of detected service operations. |
 | **endpoints** | Number of detected API endpoints. |
@@ -216,6 +376,7 @@ The **Validation Report** checks the generated catalogs for consistency, missing
 | **linked_endpoints** | Number of endpoints with at least one linked service operation. |
 | **unlinked_endpoints** | Number of endpoints without a detected service operation link. |
 | **unreferenced_operations** | Operations that are currently not referenced by any endpoint-service link. |
+| **issues** | Validation issues with code, severity, source and details. |
 | **errors** | Hard validation problems that should be fixed. |
 | **warnings** | Potential issues, missing mappings or suspicious structures. |
 | **infos** | Informational findings that are not necessarily problems. |
@@ -232,7 +393,7 @@ The **Validation Report** checks the generated catalogs for consistency, missing
 | **item_id** | ID of the affected catalog item. |
 | **source_file** | Affected source file if known. |
 | **line_start / line_end** | Affected source line range if known. |
-| **details** | Additional structured data, for example duplicate entries. |
+| **details** | Additional structured data, for example duplicate entries, recommendations or resolved targets. |
 
 ---
 
@@ -286,6 +447,7 @@ The **Validation Report** checks the generated catalogs for consistency, missing
 | **method** | Type of detection. Example: `rule`, later possibly `manual`, `config_override` or `ai`. |
 | **rule** | Name of the applied rule. Example: `function_with_api_route_signal`. |
 | **confidence** | Confidence level of the detection. |
+| **evidence** | Optional evidence list or structured hints explaining why the rule matched. |
 
 ### Detection Examples
 
@@ -309,7 +471,7 @@ The **Validation Report** checks the generated catalogs for consistency, missing
 
 ## Current Scope
 
-The current prototype includes:
+The current implementation includes:
 
 | Area | Status |
 |---|---|
@@ -318,23 +480,29 @@ The current prototype includes:
 | Operation catalog generation | Implemented |
 | Endpoint catalog generation | Implemented |
 | Endpoint-service linking | Implemented |
+| Operation dependency linking | Implemented |
+| Architecture action extraction | Implemented |
+| Database query/entity detail extraction | Implemented |
+| Type usage extraction | Implemented |
 | Validation report | Implemented |
-| Docusaurus visualization | In progress |
-| Worker extraction | Planned |
-| Entity read/write mapping | Planned |
+| Docusaurus visualization | Implemented and evolving |
+| User-story architecture trace view | Implemented |
+| Compact trace detail inspector | Implemented |
+| Worker/external action extraction | Partial |
 | AI descriptions / notes | Planned |
 | Manual review/edit layer | Planned |
+| Frontend click-trace scanning | Planned |
 
 ## Editing Rules
 
 Generated files should not be edited manually.
 
-Recommended future structure:
+Recommended structure:
 
 ```text
-catalog/generated/   → overwritten by archdoc
-catalog/manual/      → manual notes, descriptions and overrides
-catalog/final/       → merged result for rendering
+catalog/generated/   -> overwritten by archdoc
+catalog/manual/      -> manual notes, descriptions and overrides
+catalog/final/       -> merged result for rendering
 ```
 
-For now, generated files are treated as read-only output from the pipeline.
+For now, generated files are treated as read-only output from the pipeline. Documentation pages such as this one may explain generated fields, but they must not become the source of truth for generated JSON values.

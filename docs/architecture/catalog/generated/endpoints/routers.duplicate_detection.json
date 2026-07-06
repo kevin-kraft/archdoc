@@ -4,7 +4,20 @@
   "source_file": "routers/duplicate_detection.py",
   "endpoints": [
     {
-      "id": "routers.duplicate_detection.delete.config.param-config-id.delete-detection-config",
+      "id": "routers.duplicate_detection.delete.duplicate-detection.config.param-config-id.delete-detection-config",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.delete.duplicate-detection.config.param-config-id.delete-detection-config",
+        "logical_id": "routers.duplicate_detection.delete.duplicate-detection.config.param-config-id.delete-detection-config",
+        "source_id": "endpoint:0f019b7a82e7018e",
+        "display_name": "DELETE /duplicate-detection/config/{config_id}",
+        "aliases": [
+          "routers.duplicate_detection.delete.duplicate-detection.config.param-config-id.delete-detection-config",
+          "routers.duplicate_detection.delete_detection_config",
+          "/config/{config_id}",
+          "/duplicate-detection",
+          "/duplicate-detection/config/{config_id}"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "delete_detection_config",
       "qualified_name": "routers.duplicate_detection.delete_detection_config",
@@ -18,6 +31,9 @@
       },
       "http_method": "DELETE",
       "path": "/config/{config_id}",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/config/{config_id}",
       "router": "router",
       "kwargs": {
         "operation_id": "delete_detection_config"
@@ -60,12 +76,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/config/{config_id}",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/config/{config_id}",
+          "function=routers.duplicate_detection.delete_detection_config"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.duplicate_detection.delete.exclusion-rules.param-rule-id.delete-exclusion-rule",
+      "id": "routers.duplicate_detection.delete.duplicate-detection.exclusion-rules.param-rule-id.delete-exclusion-rule",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.delete.duplicate-detection.exclusion-rules.param-rule-id.delete-exclusion-rule",
+        "logical_id": "routers.duplicate_detection.delete.duplicate-detection.exclusion-rules.param-rule-id.delete-exclusion-rule",
+        "source_id": "endpoint:302574478bd9e935",
+        "display_name": "DELETE /duplicate-detection/exclusion-rules/{rule_id}",
+        "aliases": [
+          "routers.duplicate_detection.delete.duplicate-detection.exclusion-rules.param-rule-id.delete-exclusion-rule",
+          "routers.duplicate_detection.delete_exclusion_rule",
+          "/exclusion-rules/{rule_id}",
+          "/duplicate-detection",
+          "/duplicate-detection/exclusion-rules/{rule_id}"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "delete_exclusion_rule",
       "qualified_name": "routers.duplicate_detection.delete_exclusion_rule",
@@ -79,6 +116,9 @@
       },
       "http_method": "DELETE",
       "path": "/exclusion-rules/{rule_id}",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/exclusion-rules/{rule_id}",
       "router": "router",
       "kwargs": {
         "operation_id": "delete_exclusion_rule"
@@ -121,12 +161,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/exclusion-rules/{rule_id}",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/exclusion-rules/{rule_id}",
+          "function=routers.duplicate_detection.delete_exclusion_rule"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.duplicate_detection.get.config.get-detection-configs",
+      "id": "routers.duplicate_detection.get.duplicate-detection.config.get-detection-configs",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.get.duplicate-detection.config.get-detection-configs",
+        "logical_id": "routers.duplicate_detection.get.duplicate-detection.config.get-detection-configs",
+        "source_id": "endpoint:7c427940eb780ab0",
+        "display_name": "GET /duplicate-detection/config",
+        "aliases": [
+          "routers.duplicate_detection.get.duplicate-detection.config.get-detection-configs",
+          "routers.duplicate_detection.get_detection_configs",
+          "/config",
+          "/duplicate-detection",
+          "/duplicate-detection/config"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "get_detection_configs",
       "qualified_name": "routers.duplicate_detection.get_detection_configs",
@@ -140,6 +201,9 @@
       },
       "http_method": "GET",
       "path": "/config",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/config",
       "router": "router",
       "kwargs": {
         "response_model": "list[DuplicateDetectionConfigResponse]",
@@ -176,12 +240,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/config",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/config",
+          "function=routers.duplicate_detection.get_detection_configs"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.duplicate_detection.get.dashboard-stats.get-dashboard-stats",
+      "id": "routers.duplicate_detection.get.duplicate-detection.dashboard-stats.get-dashboard-stats",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.get.duplicate-detection.dashboard-stats.get-dashboard-stats",
+        "logical_id": "routers.duplicate_detection.get.duplicate-detection.dashboard-stats.get-dashboard-stats",
+        "source_id": "endpoint:75cadf07da0c6ac9",
+        "display_name": "GET /duplicate-detection/dashboard-stats",
+        "aliases": [
+          "routers.duplicate_detection.get.duplicate-detection.dashboard-stats.get-dashboard-stats",
+          "routers.duplicate_detection.get_dashboard_stats",
+          "/dashboard-stats",
+          "/duplicate-detection",
+          "/duplicate-detection/dashboard-stats"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "get_dashboard_stats",
       "qualified_name": "routers.duplicate_detection.get_dashboard_stats",
@@ -197,6 +282,9 @@
       },
       "http_method": "GET",
       "path": "/dashboard-stats",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/dashboard-stats",
       "router": "router",
       "kwargs": {
         "response_model": "DuplicateDashboardStats",
@@ -233,12 +321,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/dashboard-stats",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/dashboard-stats",
+          "function=routers.duplicate_detection.get_dashboard_stats"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.duplicate_detection.get.exclusion-rules.get-exclusion-rules",
+      "id": "routers.duplicate_detection.get.duplicate-detection.exclusion-rules.get-exclusion-rules",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.get.duplicate-detection.exclusion-rules.get-exclusion-rules",
+        "logical_id": "routers.duplicate_detection.get.duplicate-detection.exclusion-rules.get-exclusion-rules",
+        "source_id": "endpoint:3a0f7b36bc17f38a",
+        "display_name": "GET /duplicate-detection/exclusion-rules",
+        "aliases": [
+          "routers.duplicate_detection.get.duplicate-detection.exclusion-rules.get-exclusion-rules",
+          "routers.duplicate_detection.get_exclusion_rules",
+          "/exclusion-rules",
+          "/duplicate-detection",
+          "/duplicate-detection/exclusion-rules"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "get_exclusion_rules",
       "qualified_name": "routers.duplicate_detection.get_exclusion_rules",
@@ -252,6 +361,9 @@
       },
       "http_method": "GET",
       "path": "/exclusion-rules",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/exclusion-rules",
       "router": "router",
       "kwargs": {
         "response_model": "list[DuplicateExclusionRuleResponse]",
@@ -288,12 +400,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/exclusion-rules",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/exclusion-rules",
+          "function=routers.duplicate_detection.get_exclusion_rules"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.duplicate_detection.get.merge-queue.get-merge-queue",
+      "id": "routers.duplicate_detection.get.duplicate-detection.merge-queue.get-merge-queue",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.get.duplicate-detection.merge-queue.get-merge-queue",
+        "logical_id": "routers.duplicate_detection.get.duplicate-detection.merge-queue.get-merge-queue",
+        "source_id": "endpoint:f071d023316ae807",
+        "display_name": "GET /duplicate-detection/merge-queue",
+        "aliases": [
+          "routers.duplicate_detection.get.duplicate-detection.merge-queue.get-merge-queue",
+          "routers.duplicate_detection.get_merge_queue",
+          "/merge-queue",
+          "/duplicate-detection",
+          "/duplicate-detection/merge-queue"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "get_merge_queue",
       "qualified_name": "routers.duplicate_detection.get_merge_queue",
@@ -307,6 +440,9 @@
       },
       "http_method": "GET",
       "path": "/merge-queue",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/merge-queue",
       "router": "router",
       "kwargs": {
         "response_model": "list[DuplicateMergeQueueItem]",
@@ -357,12 +493,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/merge-queue",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/merge-queue",
+          "function=routers.duplicate_detection.get_merge_queue"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.duplicate_detection.get.stats.get-duplicate-stats",
+      "id": "routers.duplicate_detection.get.duplicate-detection.stats.get-duplicate-stats",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.get.duplicate-detection.stats.get-duplicate-stats",
+        "logical_id": "routers.duplicate_detection.get.duplicate-detection.stats.get-duplicate-stats",
+        "source_id": "endpoint:ab73749cc403fc69",
+        "display_name": "GET /duplicate-detection/stats",
+        "aliases": [
+          "routers.duplicate_detection.get.duplicate-detection.stats.get-duplicate-stats",
+          "routers.duplicate_detection.get_duplicate_stats",
+          "/stats",
+          "/duplicate-detection",
+          "/duplicate-detection/stats"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "get_duplicate_stats",
       "qualified_name": "routers.duplicate_detection.get_duplicate_stats",
@@ -378,6 +535,9 @@
       },
       "http_method": "GET",
       "path": "/stats",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/stats",
       "router": "router",
       "kwargs": {
         "response_model": "DuplicateStats",
@@ -428,12 +588,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/stats",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/stats",
+          "function=routers.duplicate_detection.get_duplicate_stats"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.duplicate_detection.post.config.create-detection-config",
+      "id": "routers.duplicate_detection.post.duplicate-detection.config.create-detection-config",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.post.duplicate-detection.config.create-detection-config",
+        "logical_id": "routers.duplicate_detection.post.duplicate-detection.config.create-detection-config",
+        "source_id": "endpoint:f9f72d6f300d152f",
+        "display_name": "POST /duplicate-detection/config",
+        "aliases": [
+          "routers.duplicate_detection.post.duplicate-detection.config.create-detection-config",
+          "routers.duplicate_detection.create_detection_config",
+          "/config",
+          "/duplicate-detection",
+          "/duplicate-detection/config"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "create_detection_config",
       "qualified_name": "routers.duplicate_detection.create_detection_config",
@@ -447,6 +628,9 @@
       },
       "http_method": "POST",
       "path": "/config",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/config",
       "router": "router",
       "kwargs": {
         "response_model": "DuplicateDetectionConfigResponse",
@@ -490,12 +674,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/config",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/config",
+          "function=routers.duplicate_detection.create_detection_config"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.duplicate_detection.post.detect.detect-duplicates",
+      "id": "routers.duplicate_detection.post.duplicate-detection.detect.detect-duplicates",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.post.duplicate-detection.detect.detect-duplicates",
+        "logical_id": "routers.duplicate_detection.post.duplicate-detection.detect.detect-duplicates",
+        "source_id": "endpoint:6399f8baee7d5d6a",
+        "display_name": "POST /duplicate-detection/detect",
+        "aliases": [
+          "routers.duplicate_detection.post.duplicate-detection.detect.detect-duplicates",
+          "routers.duplicate_detection.detect_duplicates",
+          "/detect",
+          "/duplicate-detection",
+          "/duplicate-detection/detect"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "detect_duplicates",
       "qualified_name": "routers.duplicate_detection.detect_duplicates",
@@ -511,6 +716,9 @@
       },
       "http_method": "POST",
       "path": "/detect",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/detect",
       "router": "router",
       "kwargs": {
         "response_model": "DuplicateDetectionResponse",
@@ -554,12 +762,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/detect",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/detect",
+          "function=routers.duplicate_detection.detect_duplicates"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.duplicate_detection.post.exclusion-rules.create-exclusion-rule",
+      "id": "routers.duplicate_detection.post.duplicate-detection.exclusion-rules.create-exclusion-rule",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.post.duplicate-detection.exclusion-rules.create-exclusion-rule",
+        "logical_id": "routers.duplicate_detection.post.duplicate-detection.exclusion-rules.create-exclusion-rule",
+        "source_id": "endpoint:7ec349141dd7fca6",
+        "display_name": "POST /duplicate-detection/exclusion-rules",
+        "aliases": [
+          "routers.duplicate_detection.post.duplicate-detection.exclusion-rules.create-exclusion-rule",
+          "routers.duplicate_detection.create_exclusion_rule",
+          "/exclusion-rules",
+          "/duplicate-detection",
+          "/duplicate-detection/exclusion-rules"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "create_exclusion_rule",
       "qualified_name": "routers.duplicate_detection.create_exclusion_rule",
@@ -573,6 +802,9 @@
       },
       "http_method": "POST",
       "path": "/exclusion-rules",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/exclusion-rules",
       "router": "router",
       "kwargs": {
         "response_model": "DuplicateExclusionRuleResponse",
@@ -616,12 +848,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/exclusion-rules",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/exclusion-rules",
+          "function=routers.duplicate_detection.create_exclusion_rule"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.duplicate_detection.post.merge.bulk.bulk-merge-participants",
+      "id": "routers.duplicate_detection.post.duplicate-detection.merge.bulk.bulk-merge-participants",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.post.duplicate-detection.merge.bulk.bulk-merge-participants",
+        "logical_id": "routers.duplicate_detection.post.duplicate-detection.merge.bulk.bulk-merge-participants",
+        "source_id": "endpoint:0945c2b991033f27",
+        "display_name": "POST /duplicate-detection/merge/bulk",
+        "aliases": [
+          "routers.duplicate_detection.post.duplicate-detection.merge.bulk.bulk-merge-participants",
+          "routers.duplicate_detection.bulk_merge_participants",
+          "/merge/bulk",
+          "/duplicate-detection",
+          "/duplicate-detection/merge/bulk"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "bulk_merge_participants",
       "qualified_name": "routers.duplicate_detection.bulk_merge_participants",
@@ -637,6 +890,9 @@
       },
       "http_method": "POST",
       "path": "/merge/bulk",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/merge/bulk",
       "router": "router",
       "kwargs": {
         "response_model": "DuplicateMergeSummary",
@@ -680,12 +936,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/merge/bulk",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/merge/bulk",
+          "function=routers.duplicate_detection.bulk_merge_participants"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.duplicate_detection.post.merge.merge-participants",
+      "id": "routers.duplicate_detection.post.duplicate-detection.merge.merge-participants",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.post.duplicate-detection.merge.merge-participants",
+        "logical_id": "routers.duplicate_detection.post.duplicate-detection.merge.merge-participants",
+        "source_id": "endpoint:496b089ee66435e5",
+        "display_name": "POST /duplicate-detection/merge",
+        "aliases": [
+          "routers.duplicate_detection.post.duplicate-detection.merge.merge-participants",
+          "routers.duplicate_detection.merge_participants",
+          "/merge",
+          "/duplicate-detection",
+          "/duplicate-detection/merge"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "merge_participants",
       "qualified_name": "routers.duplicate_detection.merge_participants",
@@ -701,6 +978,9 @@
       },
       "http_method": "POST",
       "path": "/merge",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/merge",
       "router": "router",
       "kwargs": {
         "response_model": "MergeResult",
@@ -744,12 +1024,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/merge",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/merge",
+          "function=routers.duplicate_detection.merge_participants"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.duplicate_detection.post.merge.simulate.simulate-merge",
+      "id": "routers.duplicate_detection.post.duplicate-detection.merge.simulate.simulate-merge",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.post.duplicate-detection.merge.simulate.simulate-merge",
+        "logical_id": "routers.duplicate_detection.post.duplicate-detection.merge.simulate.simulate-merge",
+        "source_id": "endpoint:c756dc61ad04af65",
+        "display_name": "POST /duplicate-detection/merge/simulate",
+        "aliases": [
+          "routers.duplicate_detection.post.duplicate-detection.merge.simulate.simulate-merge",
+          "routers.duplicate_detection.simulate_merge",
+          "/merge/simulate",
+          "/duplicate-detection",
+          "/duplicate-detection/merge/simulate"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "simulate_merge",
       "qualified_name": "routers.duplicate_detection.simulate_merge",
@@ -765,6 +1066,9 @@
       },
       "http_method": "POST",
       "path": "/merge/simulate",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/merge/simulate",
       "router": "router",
       "kwargs": {
         "response_model": "MergeSimulationResult",
@@ -808,12 +1112,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/merge/simulate",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/merge/simulate",
+          "function=routers.duplicate_detection.simulate_merge"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.duplicate_detection.put.config.param-config-id.update-detection-config",
+      "id": "routers.duplicate_detection.put.duplicate-detection.config.param-config-id.update-detection-config",
+      "identity": {
+        "catalog_id": "routers.duplicate_detection.put.duplicate-detection.config.param-config-id.update-detection-config",
+        "logical_id": "routers.duplicate_detection.put.duplicate-detection.config.param-config-id.update-detection-config",
+        "source_id": "endpoint:92804f3e9335d973",
+        "display_name": "PUT /duplicate-detection/config/{config_id}",
+        "aliases": [
+          "routers.duplicate_detection.put.duplicate-detection.config.param-config-id.update-detection-config",
+          "routers.duplicate_detection.update_detection_config",
+          "/config/{config_id}",
+          "/duplicate-detection",
+          "/duplicate-detection/config/{config_id}"
+        ]
+      },
       "module": "routers.duplicate_detection",
       "function_name": "update_detection_config",
       "qualified_name": "routers.duplicate_detection.update_detection_config",
@@ -827,6 +1152,9 @@
       },
       "http_method": "PUT",
       "path": "/config/{config_id}",
+      "include_prefix": "/duplicate-detection",
+      "router_prefix": null,
+      "full_path": "/duplicate-detection/config/{config_id}",
       "router": "router",
       "kwargs": {
         "operation_id": "update_detection_config"
@@ -876,7 +1204,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/config/{config_id}",
+          "include_prefix=/duplicate-detection",
+          "router_prefix=None",
+          "full_path=/duplicate-detection/config/{config_id}",
+          "function=routers.duplicate_detection.update_detection_config"
+        ]
       },
       "review_status": "generated"
     }

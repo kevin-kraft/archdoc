@@ -4,6 +4,10 @@ This folder contains the current architecture documentation pipeline for the
 Utilis codebase. The system is intentionally split into a deterministic JSON
 generator and a separate review UI/backend layer.
 
+For local manual setup and package installation, see:
+
+- [../setup.md](../setup.md)
+
 For a presentation-oriented summary, see:
 
 - `docs/architecture/high-level-overview.md`
@@ -106,8 +110,9 @@ and a line-ordered action flow. Transaction-like session calls are normalized
 to reviewable labels such as `session commit` or `refresh new_user`.
 
 The generator also emits operation dependency links for high-confidence
-service-to-service calls. These links are imported into SQLite and shown in the
-service graph inspector as `Calls Services` and `Called By`.
+service-to-service calls and inherited facade operations. These links are imported
+into SQLite and shown in the service graph inspector as operation-level outgoing
+and incoming links.
 
 Service and operation docstrings are captured as generated source facts. The
 graph inspector shows short descriptions and full docstrings for service classes
@@ -119,8 +124,9 @@ provides grouped filters for open service linkage issues.
 
 When multiple catalog operations point to the same source method, architecture
 actions are assigned to every matching operation owner. The validator also flags
-service methods that call `self.db.*` without a detected service-level
-`self.db` assignment.
+service methods that call `self.db.*` when Archdoc cannot resolve a class
+resource origin for `self.db`, including direct assignments, inherited origins,
+properties, and `super().__init__(db)` forwarding.
 
 The generated data can be deleted and rebuilt from source code. Manual review
 decisions should not be written into generated catalog files.

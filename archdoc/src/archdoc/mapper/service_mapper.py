@@ -115,14 +115,6 @@ def _map_service(
             existing = seen.get(operation.id)
 
             if existing is not None:
-                print(
-                    "Duplicate operation id skipped:",
-                    operation.id,
-                    "existing:",
-                    existing.qualified_name,
-                    "duplicate:",
-                    operation.qualified_name,
-                )
                 continue
 
             seen[operation.id] = operation
@@ -320,3 +312,4 @@ def _camel_to_snake(value: str) -> str:
 
 def _slugify(value: str) -> str:
     return value.lower().replace("_", "-")
+

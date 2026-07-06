@@ -4,20 +4,114 @@
   "source_file": "routers/admin_payment_settings.py",
   "endpoints": [
     {
-      "id": "routers.admin_payment_settings.get.settings.payments.get-payment-settings",
+      "id": "routers.admin_payment_settings.get.admin.settings.payments.eligible-approvers.list-payment-eligible-approvers",
+      "identity": {
+        "catalog_id": "routers.admin_payment_settings.get.admin.settings.payments.eligible-approvers.list-payment-eligible-approvers",
+        "logical_id": "routers.admin_payment_settings.get.admin.settings.payments.eligible-approvers.list-payment-eligible-approvers",
+        "source_id": "endpoint:eb3127eb72352018",
+        "display_name": "GET /admin/settings/payments/eligible-approvers",
+        "aliases": [
+          "routers.admin_payment_settings.get.admin.settings.payments.eligible-approvers.list-payment-eligible-approvers",
+          "routers.admin_payment_settings.list_payment_eligible_approvers",
+          "/settings/payments/eligible-approvers",
+          "/admin",
+          "/admin/settings/payments/eligible-approvers"
+        ]
+      },
+      "module": "routers.admin_payment_settings",
+      "function_name": "list_payment_eligible_approvers",
+      "qualified_name": "routers.admin_payment_settings.list_payment_eligible_approvers",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/settings/payments/eligible-approvers",
+      "include_prefix": "/admin",
+      "router_prefix": null,
+      "full_path": "/admin/settings/payments/eligible-approvers",
+      "router": "router",
+      "kwargs": {
+        "response_model": "PaymentEligibleApproversResponse"
+      },
+      "parameters": [
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "ORG_CONTEXT_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "PAYMENT_SETTINGS_VIEW_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/admin_payment_settings.py",
+        "line_start": 66,
+        "line_end": 73
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/settings/payments/eligible-approvers",
+          "include_prefix=/admin",
+          "router_prefix=None",
+          "full_path=/admin/settings/payments/eligible-approvers",
+          "function=routers.admin_payment_settings.list_payment_eligible_approvers"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.admin_payment_settings.get.admin.settings.payments.get-payment-settings",
+      "identity": {
+        "catalog_id": "routers.admin_payment_settings.get.admin.settings.payments.get-payment-settings",
+        "logical_id": "routers.admin_payment_settings.get.admin.settings.payments.get-payment-settings",
+        "source_id": "endpoint:90a13675a5df504a",
+        "display_name": "GET /admin/settings/payments",
+        "aliases": [
+          "routers.admin_payment_settings.get.admin.settings.payments.get-payment-settings",
+          "routers.admin_payment_settings.get_payment_settings",
+          "/settings/payments",
+          "/admin",
+          "/admin/settings/payments"
+        ]
+      },
       "module": "routers.admin_payment_settings",
       "function_name": "get_payment_settings",
       "qualified_name": "routers.admin_payment_settings.get_payment_settings",
       "implementation": {
-        "kind": "direct_db_access",
-        "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
         "signals": [
-          "db_or_sqlalchemy_call"
+          "local_logic_detected"
         ]
       },
       "http_method": "GET",
       "path": "/settings/payments",
+      "include_prefix": "/admin",
+      "router_prefix": null,
+      "full_path": "/admin/settings/payments",
       "router": "router",
       "kwargs": {
         "response_model": "PaymentSettingsResponse"
@@ -47,18 +141,39 @@
       ],
       "source": {
         "file": "routers/admin_payment_settings.py",
-        "line_start": 171,
-        "line_end": 207
+        "line_start": 52,
+        "line_end": 62
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/settings/payments",
+          "include_prefix=/admin",
+          "router_prefix=None",
+          "full_path=/admin/settings/payments",
+          "function=routers.admin_payment_settings.get_payment_settings"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_payment_settings.post.settings.payments.reset.reset-payment-settings",
+      "id": "routers.admin_payment_settings.post.admin.settings.payments.reset.reset-payment-settings",
+      "identity": {
+        "catalog_id": "routers.admin_payment_settings.post.admin.settings.payments.reset.reset-payment-settings",
+        "logical_id": "routers.admin_payment_settings.post.admin.settings.payments.reset.reset-payment-settings",
+        "source_id": "endpoint:ad643144a0628ee2",
+        "display_name": "POST /admin/settings/payments/reset",
+        "aliases": [
+          "routers.admin_payment_settings.post.admin.settings.payments.reset.reset-payment-settings",
+          "routers.admin_payment_settings.reset_payment_settings",
+          "/settings/payments/reset",
+          "/admin",
+          "/admin/settings/payments/reset"
+        ]
+      },
       "module": "routers.admin_payment_settings",
       "function_name": "reset_payment_settings",
       "qualified_name": "routers.admin_payment_settings.reset_payment_settings",
@@ -67,7 +182,6 @@
         "confidence": "high",
         "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call",
           "service_variable_detected",
           "service_method_call_detected",
           "endpoint_service_link_resolved"
@@ -75,6 +189,9 @@
       },
       "http_method": "POST",
       "path": "/settings/payments/reset",
+      "include_prefix": "/admin",
+      "router_prefix": null,
+      "full_path": "/admin/settings/payments/reset",
       "router": "router",
       "kwargs": {
         "response_model": "PaymentSettingsResponse"
@@ -111,18 +228,39 @@
       ],
       "source": {
         "file": "routers/admin_payment_settings.py",
-        "line_start": 273,
-        "line_end": 311
+        "line_start": 117,
+        "line_end": 133
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/settings/payments/reset",
+          "include_prefix=/admin",
+          "router_prefix=None",
+          "full_path=/admin/settings/payments/reset",
+          "function=routers.admin_payment_settings.reset_payment_settings"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_payment_settings.put.settings.payments.update-payment-settings",
+      "id": "routers.admin_payment_settings.put.admin.settings.payments.update-payment-settings",
+      "identity": {
+        "catalog_id": "routers.admin_payment_settings.put.admin.settings.payments.update-payment-settings",
+        "logical_id": "routers.admin_payment_settings.put.admin.settings.payments.update-payment-settings",
+        "source_id": "endpoint:4a912b22fcd78a5b",
+        "display_name": "PUT /admin/settings/payments",
+        "aliases": [
+          "routers.admin_payment_settings.put.admin.settings.payments.update-payment-settings",
+          "routers.admin_payment_settings.update_payment_settings",
+          "/settings/payments",
+          "/admin",
+          "/admin/settings/payments"
+        ]
+      },
       "module": "routers.admin_payment_settings",
       "function_name": "update_payment_settings",
       "qualified_name": "routers.admin_payment_settings.update_payment_settings",
@@ -131,7 +269,6 @@
         "confidence": "high",
         "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call",
           "service_variable_detected",
           "service_method_call_detected",
           "endpoint_service_link_resolved"
@@ -139,6 +276,9 @@
       },
       "http_method": "PUT",
       "path": "/settings/payments",
+      "include_prefix": "/admin",
+      "router_prefix": null,
+      "full_path": "/admin/settings/payments",
       "router": "router",
       "kwargs": {
         "response_model": "PaymentSettingsResponse"
@@ -182,13 +322,21 @@
       ],
       "source": {
         "file": "routers/admin_payment_settings.py",
-        "line_start": 211,
-        "line_end": 269
+        "line_start": 77,
+        "line_end": 113
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/settings/payments",
+          "include_prefix=/admin",
+          "router_prefix=None",
+          "full_path=/admin/settings/payments",
+          "function=routers.admin_payment_settings.update_payment_settings"
+        ]
       },
       "review_status": "generated"
     }

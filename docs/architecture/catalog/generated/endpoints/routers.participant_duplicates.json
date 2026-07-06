@@ -4,77 +4,20 @@
   "source_file": "routers/participant_duplicates.py",
   "endpoints": [
     {
-      "id": "routers.participant_duplicates.post.duplicate-detection.detect-participant-duplicates",
-      "module": "routers.participant_duplicates",
-      "function_name": "detect_participant_duplicates",
-      "qualified_name": "routers.participant_duplicates.detect_participant_duplicates",
-      "implementation": {
-        "kind": "service_candidate",
-        "confidence": "high",
-        "reason": "Endpoint contains a typed or assigned service variable and calls a method on it.",
-        "signals": [
-          "service_variable_detected",
-          "service_method_call_detected"
+      "id": "routers.participant_duplicates.post.participants.enhanced.create-participant-enhanced",
+      "identity": {
+        "catalog_id": "routers.participant_duplicates.post.participants.enhanced.create-participant-enhanced",
+        "logical_id": "routers.participant_duplicates.post.participants.enhanced.create-participant-enhanced",
+        "source_id": "endpoint:28f8ed8a2d2158de",
+        "display_name": "POST /participants/enhanced",
+        "aliases": [
+          "routers.participant_duplicates.post.participants.enhanced.create-participant-enhanced",
+          "routers.participant_duplicates.create_participant_enhanced",
+          "/enhanced",
+          "/participants",
+          "/participants/enhanced"
         ]
       },
-      "http_method": "POST",
-      "path": "/duplicate-detection",
-      "router": "router",
-      "kwargs": {
-        "response_model": "DuplicateDetectionResponse",
-        "operation_id": "detect_participant_duplicates"
-      },
-      "parameters": [
-        {
-          "name": "detection_data",
-          "annotation": "DuplicateDetectionRequest",
-          "default": null,
-          "kind": "positional_or_keyword",
-          "source": "body_or_positional"
-        },
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "Depends(get_db_session)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "org_id",
-          "annotation": "str",
-          "default": "Depends(require_org_context)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "Depends(require_permission('participants_show'))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "__",
-          "annotation": "None",
-          "default": "Depends(require_permission(ParticipantPermissions.VIEW_PII))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        }
-      ],
-      "source": {
-        "file": "routers/participant_duplicates.py",
-        "line_start": 76,
-        "line_end": 107
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.participant_duplicates.post.enhanced.create-participant-enhanced",
       "module": "routers.participant_duplicates",
       "function_name": "create_participant_enhanced",
       "qualified_name": "routers.participant_duplicates.create_participant_enhanced",
@@ -89,6 +32,9 @@
       },
       "http_method": "POST",
       "path": "/enhanced",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/enhanced",
       "router": "router",
       "kwargs": {
         "response_model": "ParticipantResponse",
@@ -133,7 +79,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_edit'))",
+          "default": "Depends(require_permission('participants:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         },
@@ -147,159 +93,39 @@
       ],
       "source": {
         "file": "routers/participant_duplicates.py",
-        "line_start": 36,
-        "line_end": 63
+        "line_start": 18,
+        "line_end": 45
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.participant_duplicates.post.merge.merge-duplicate-participants",
-      "module": "routers.participant_duplicates",
-      "function_name": "merge_duplicate_participants",
-      "qualified_name": "routers.participant_duplicates.merge_duplicate_participants",
-      "implementation": {
-        "kind": "service_candidate",
-        "confidence": "high",
-        "reason": "Endpoint contains a typed or assigned service variable and calls a method on it.",
-        "signals": [
-          "service_variable_detected",
-          "service_method_call_detected"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/enhanced",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/enhanced",
+          "function=routers.participant_duplicates.create_participant_enhanced"
         ]
       },
-      "http_method": "POST",
-      "path": "/merge",
-      "router": "router",
-      "kwargs": {
-        "response_model": "ParticipantMergeResponse",
-        "operation_id": "merge_participant_duplicates"
-      },
-      "parameters": [
-        {
-          "name": "merge_data",
-          "annotation": "ParticipantMergeRequest",
-          "default": null,
-          "kind": "positional_or_keyword",
-          "source": "body_or_positional"
-        },
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "Depends(get_db_session)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "org_id",
-          "annotation": "str",
-          "default": "Depends(require_org_context)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "current_user",
-          "annotation": "dict",
-          "default": "Depends(get_current_user)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "Depends(require_permission('participants_edit'))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        }
-      ],
-      "source": {
-        "file": "routers/participant_duplicates.py",
-        "line_start": 112,
-        "line_end": 129
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
       "review_status": "generated"
     },
     {
-      "id": "routers.participant_duplicates.post.participants.duplicate-detection.detect-participant-duplicates",
-      "module": "routers.participant_duplicates",
-      "function_name": "detect_participant_duplicates",
-      "qualified_name": "routers.participant_duplicates.detect_participant_duplicates",
-      "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
-        "signals": [
-          "service_variable_detected",
-          "service_method_call_detected",
-          "endpoint_service_link_resolved"
+      "id": "routers.participant_duplicates.post.participants.participants.enhanced.create-participant-enhanced",
+      "identity": {
+        "catalog_id": "routers.participant_duplicates.post.participants.participants.enhanced.create-participant-enhanced",
+        "logical_id": "routers.participant_duplicates.post.participants.participants.enhanced.create-participant-enhanced",
+        "source_id": "endpoint:115032c94721c441",
+        "display_name": "POST /participants/participants/enhanced",
+        "aliases": [
+          "routers.participant_duplicates.post.participants.participants.enhanced.create-participant-enhanced",
+          "routers.participant_duplicates.create_participant_enhanced",
+          "/participants/enhanced",
+          "/participants",
+          "/participants/participants/enhanced"
         ]
       },
-      "http_method": "POST",
-      "path": "/participants/duplicate-detection",
-      "router": "router",
-      "kwargs": {
-        "response_model": "DuplicateDetectionResponse",
-        "include_in_schema": "False"
-      },
-      "parameters": [
-        {
-          "name": "detection_data",
-          "annotation": "DuplicateDetectionRequest",
-          "default": null,
-          "kind": "positional_or_keyword",
-          "source": "body_or_positional"
-        },
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "Depends(get_db_session)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "org_id",
-          "annotation": "str",
-          "default": "Depends(require_org_context)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "Depends(require_permission('participants_show'))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "__",
-          "annotation": "None",
-          "default": "Depends(require_permission(ParticipantPermissions.VIEW_PII))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        }
-      ],
-      "source": {
-        "file": "routers/participant_duplicates.py",
-        "line_start": 76,
-        "line_end": 107
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.participant_duplicates.post.participants.enhanced.create-participant-enhanced",
       "module": "routers.participant_duplicates",
       "function_name": "create_participant_enhanced",
       "qualified_name": "routers.participant_duplicates.create_participant_enhanced",
@@ -315,6 +141,9 @@
       },
       "http_method": "POST",
       "path": "/participants/enhanced",
+      "include_prefix": "/participants",
+      "router_prefix": null,
+      "full_path": "/participants/participants/enhanced",
       "router": "router",
       "kwargs": {
         "response_model": "ParticipantResponse",
@@ -359,7 +188,7 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('participants_edit'))",
+          "default": "Depends(require_permission('participants:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         },
@@ -373,84 +202,21 @@
       ],
       "source": {
         "file": "routers/participant_duplicates.py",
-        "line_start": 36,
-        "line_end": 63
+        "line_start": 18,
+        "line_end": 45
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.participant_duplicates.post.participants.merge.merge-duplicate-participants",
-      "module": "routers.participant_duplicates",
-      "function_name": "merge_duplicate_participants",
-      "qualified_name": "routers.participant_duplicates.merge_duplicate_participants",
-      "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
-        "signals": [
-          "service_variable_detected",
-          "service_method_call_detected",
-          "endpoint_service_link_resolved"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/participants/enhanced",
+          "include_prefix=/participants",
+          "router_prefix=None",
+          "full_path=/participants/participants/enhanced",
+          "function=routers.participant_duplicates.create_participant_enhanced"
         ]
-      },
-      "http_method": "POST",
-      "path": "/participants/merge",
-      "router": "router",
-      "kwargs": {
-        "response_model": "ParticipantMergeResponse",
-        "include_in_schema": "False"
-      },
-      "parameters": [
-        {
-          "name": "merge_data",
-          "annotation": "ParticipantMergeRequest",
-          "default": null,
-          "kind": "positional_or_keyword",
-          "source": "body_or_positional"
-        },
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "Depends(get_db_session)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "org_id",
-          "annotation": "str",
-          "default": "Depends(require_org_context)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "current_user",
-          "annotation": "dict",
-          "default": "Depends(get_current_user)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "Depends(require_permission('participants_edit'))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        }
-      ],
-      "source": {
-        "file": "routers/participant_duplicates.py",
-        "line_start": 112,
-        "line_end": 129
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
       },
       "review_status": "generated"
     }

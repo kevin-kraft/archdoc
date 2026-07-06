@@ -4,23 +4,34 @@
   "source_file": "routers/paypal_webhooks.py",
   "endpoints": [
     {
-      "id": "routers.paypal_webhooks.post.handle-paypal-webhook",
+      "id": "routers.paypal_webhooks.post.webhooks.paypal.handle-paypal-webhook",
+      "identity": {
+        "catalog_id": "routers.paypal_webhooks.post.webhooks.paypal.handle-paypal-webhook",
+        "logical_id": "routers.paypal_webhooks.post.webhooks.paypal.handle-paypal-webhook",
+        "source_id": "endpoint:6b8bcf297abfb484",
+        "display_name": "POST /webhooks/paypal",
+        "aliases": [
+          "routers.paypal_webhooks.post.webhooks.paypal.handle-paypal-webhook",
+          "routers.paypal_webhooks.handle_paypal_webhook",
+          "/webhooks/paypal"
+        ]
+      },
       "module": "routers.paypal_webhooks",
       "function_name": "handle_paypal_webhook",
       "qualified_name": "routers.paypal_webhooks.handle_paypal_webhook",
       "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
         "signals": [
-          "db_or_sqlalchemy_call",
-          "service_variable_detected",
-          "service_method_call_detected",
-          "endpoint_service_link_resolved"
+          "local_logic_detected"
         ]
       },
       "http_method": "POST",
       "path": "",
+      "include_prefix": null,
+      "router_prefix": "/webhooks/paypal",
+      "full_path": "/webhooks/paypal",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -41,13 +52,21 @@
       ],
       "source": {
         "file": "routers/paypal_webhooks.py",
-        "line_start": 101,
-        "line_end": 218
+        "line_start": 194,
+        "line_end": 256
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=",
+          "include_prefix=None",
+          "router_prefix=/webhooks/paypal",
+          "full_path=/webhooks/paypal",
+          "function=routers.paypal_webhooks.handle_paypal_webhook"
+        ]
       },
       "review_status": "generated"
     }

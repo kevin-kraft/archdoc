@@ -4,7 +4,20 @@
   "source_file": "routers/recurring_sessions.py",
   "endpoints": [
     {
-      "id": "routers.recurring_sessions.delete.param-recurring-session-id.delete-recurring-session",
+      "id": "routers.recurring_sessions.delete.recurring-sessions.param-recurring-session-id.delete-recurring-session",
+      "identity": {
+        "catalog_id": "routers.recurring_sessions.delete.recurring-sessions.param-recurring-session-id.delete-recurring-session",
+        "logical_id": "routers.recurring_sessions.delete.recurring-sessions.param-recurring-session-id.delete-recurring-session",
+        "source_id": "endpoint:889abf8ce3c29b60",
+        "display_name": "DELETE /recurring-sessions/{recurring_session_id}",
+        "aliases": [
+          "routers.recurring_sessions.delete.recurring-sessions.param-recurring-session-id.delete-recurring-session",
+          "routers.recurring_sessions.delete_recurring_session",
+          "/{recurring_session_id}",
+          "/recurring-sessions",
+          "/recurring-sessions/{recurring_session_id}"
+        ]
+      },
       "module": "routers.recurring_sessions",
       "function_name": "delete_recurring_session",
       "qualified_name": "routers.recurring_sessions.delete_recurring_session",
@@ -18,6 +31,9 @@
       },
       "http_method": "DELETE",
       "path": "/{recurring_session_id}",
+      "include_prefix": "/recurring-sessions",
+      "router_prefix": null,
+      "full_path": "/recurring-sessions/{recurring_session_id}",
       "router": "router",
       "kwargs": {
         "status_code": "204"
@@ -47,208 +63,45 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('session_edit'))",
+          "default": "Depends(require_permission('session:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/recurring_sessions.py",
-        "line_start": 183,
-        "line_end": 193
+        "line_start": 278,
+        "line_end": 288
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.recurring_sessions.get.param-recurring-session-id.exceptions.list-recurring-session-exceptions",
-      "module": "routers.recurring_sessions",
-      "function_name": "list_recurring_session_exceptions",
-      "qualified_name": "routers.recurring_sessions.list_recurring_session_exceptions",
-      "implementation": {
-        "kind": "direct_db_access",
-        "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
-        "signals": [
-          "db_or_sqlalchemy_call"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/{recurring_session_id}",
+          "include_prefix=/recurring-sessions",
+          "router_prefix=None",
+          "full_path=/recurring-sessions/{recurring_session_id}",
+          "function=routers.recurring_sessions.delete_recurring_session"
         ]
       },
-      "http_method": "GET",
-      "path": "/{recurring_session_id}/exceptions",
-      "router": "router",
-      "kwargs": {
-        "response_model": "list[RecurringSessionExceptionResponse]"
-      },
-      "parameters": [
-        {
-          "name": "recurring_session_id",
-          "annotation": "str",
-          "default": null,
-          "kind": "positional_or_keyword",
-          "source": "body_or_positional"
-        },
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "Depends(get_db_session)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "org_id",
-          "annotation": "str",
-          "default": "Depends(require_org_context)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "Depends(require_permission('experiment_show'))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        }
-      ],
-      "source": {
-        "file": "routers/recurring_sessions.py",
-        "line_start": 196,
-        "line_end": 228
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
       "review_status": "generated"
     },
     {
-      "id": "routers.recurring_sessions.get.param-recurring-session-id.generated-sessions.get-generated-sessions",
-      "module": "routers.recurring_sessions",
-      "function_name": "get_generated_sessions",
-      "qualified_name": "routers.recurring_sessions.get_generated_sessions",
-      "implementation": {
-        "kind": "direct_db_access",
-        "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
-        "signals": [
-          "db_or_sqlalchemy_call"
+      "id": "routers.recurring_sessions.get.recurring-sessions.list-recurring-sessions",
+      "identity": {
+        "catalog_id": "routers.recurring_sessions.get.recurring-sessions.list-recurring-sessions",
+        "logical_id": "routers.recurring_sessions.get.recurring-sessions.list-recurring-sessions",
+        "source_id": "endpoint:b260fa3a4a41fcee",
+        "display_name": "GET /recurring-sessions",
+        "aliases": [
+          "routers.recurring_sessions.get.recurring-sessions.list-recurring-sessions",
+          "routers.recurring_sessions.list_recurring_sessions",
+          "/",
+          "/recurring-sessions"
         ]
       },
-      "http_method": "GET",
-      "path": "/{recurring_session_id}/generated-sessions",
-      "router": "router",
-      "kwargs": {
-        "response_model": "list[SessionResponse]"
-      },
-      "parameters": [
-        {
-          "name": "recurring_session_id",
-          "annotation": "str",
-          "default": null,
-          "kind": "positional_or_keyword",
-          "source": "body_or_positional"
-        },
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "Depends(get_db_session)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "org_id",
-          "annotation": "str",
-          "default": "Depends(require_org_context)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "Depends(require_permission('experiment_show'))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        }
-      ],
-      "source": {
-        "file": "routers/recurring_sessions.py",
-        "line_start": 284,
-        "line_end": 332
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.recurring_sessions.get.param-recurring-session-id.get-recurring-session",
-      "module": "routers.recurring_sessions",
-      "function_name": "get_recurring_session",
-      "qualified_name": "routers.recurring_sessions.get_recurring_session",
-      "implementation": {
-        "kind": "direct_db_access",
-        "confidence": "high",
-        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
-        "signals": [
-          "db_or_sqlalchemy_call"
-        ]
-      },
-      "http_method": "GET",
-      "path": "/{recurring_session_id}",
-      "router": "router",
-      "kwargs": {
-        "response_model": "RecurringSessionResponse"
-      },
-      "parameters": [
-        {
-          "name": "recurring_session_id",
-          "annotation": "str",
-          "default": null,
-          "kind": "positional_or_keyword",
-          "source": "body_or_positional"
-        },
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "Depends(get_db_session)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "org_id",
-          "annotation": "str",
-          "default": "Depends(require_org_context)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "Depends(require_permission('experiment_show'))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        }
-      ],
-      "source": {
-        "file": "routers/recurring_sessions.py",
-        "line_start": 124,
-        "line_end": 161
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.recurring_sessions.get.root.list-recurring-sessions",
       "module": "routers.recurring_sessions",
       "function_name": "list_recurring_sessions",
       "qualified_name": "routers.recurring_sessions.list_recurring_sessions",
@@ -262,6 +115,9 @@
       },
       "http_method": "GET",
       "path": "/",
+      "include_prefix": "/recurring-sessions",
+      "router_prefix": null,
+      "full_path": "/recurring-sessions",
       "router": "router",
       "kwargs": {
         "response_model": "list[RecurringSessionResponse]"
@@ -305,25 +161,385 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('experiment_show'))",
+          "default": "Depends(require_permission('experiment:show'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/recurring_sessions.py",
-        "line_start": 93,
-        "line_end": 105
+        "line_start": 179,
+        "line_end": 194
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/",
+          "include_prefix=/recurring-sessions",
+          "router_prefix=None",
+          "full_path=/recurring-sessions",
+          "function=routers.recurring_sessions.list_recurring_sessions"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recurring_sessions.post.param-recurring-session-id.exceptions.create-recurring-session-exception",
+      "id": "routers.recurring_sessions.get.recurring-sessions.param-recurring-session-id.exceptions.list-recurring-session-exceptions",
+      "identity": {
+        "catalog_id": "routers.recurring_sessions.get.recurring-sessions.param-recurring-session-id.exceptions.list-recurring-session-exceptions",
+        "logical_id": "routers.recurring_sessions.get.recurring-sessions.param-recurring-session-id.exceptions.list-recurring-session-exceptions",
+        "source_id": "endpoint:fe8b8bfcb152ab78",
+        "display_name": "GET /recurring-sessions/{recurring_session_id}/exceptions",
+        "aliases": [
+          "routers.recurring_sessions.get.recurring-sessions.param-recurring-session-id.exceptions.list-recurring-session-exceptions",
+          "routers.recurring_sessions.list_recurring_session_exceptions",
+          "/{recurring_session_id}/exceptions",
+          "/recurring-sessions",
+          "/recurring-sessions/{recurring_session_id}/exceptions"
+        ]
+      },
+      "module": "routers.recurring_sessions",
+      "function_name": "list_recurring_session_exceptions",
+      "qualified_name": "routers.recurring_sessions.list_recurring_session_exceptions",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{recurring_session_id}/exceptions",
+      "include_prefix": "/recurring-sessions",
+      "router_prefix": null,
+      "full_path": "/recurring-sessions/{recurring_session_id}/exceptions",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[RecurringSessionExceptionResponse]"
+      },
+      "parameters": [
+        {
+          "name": "recurring_session_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('experiment:show'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recurring_sessions.py",
+        "line_start": 291,
+        "line_end": 323
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{recurring_session_id}/exceptions",
+          "include_prefix=/recurring-sessions",
+          "router_prefix=None",
+          "full_path=/recurring-sessions/{recurring_session_id}/exceptions",
+          "function=routers.recurring_sessions.list_recurring_session_exceptions"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recurring_sessions.get.recurring-sessions.param-recurring-session-id.generated-sessions.get-generated-sessions",
+      "identity": {
+        "catalog_id": "routers.recurring_sessions.get.recurring-sessions.param-recurring-session-id.generated-sessions.get-generated-sessions",
+        "logical_id": "routers.recurring_sessions.get.recurring-sessions.param-recurring-session-id.generated-sessions.get-generated-sessions",
+        "source_id": "endpoint:570ec62247379c83",
+        "display_name": "GET /recurring-sessions/{recurring_session_id}/generated-sessions",
+        "aliases": [
+          "routers.recurring_sessions.get.recurring-sessions.param-recurring-session-id.generated-sessions.get-generated-sessions",
+          "routers.recurring_sessions.get_generated_sessions",
+          "/{recurring_session_id}/generated-sessions",
+          "/recurring-sessions",
+          "/recurring-sessions/{recurring_session_id}/generated-sessions"
+        ]
+      },
+      "module": "routers.recurring_sessions",
+      "function_name": "get_generated_sessions",
+      "qualified_name": "routers.recurring_sessions.get_generated_sessions",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{recurring_session_id}/generated-sessions",
+      "include_prefix": "/recurring-sessions",
+      "router_prefix": null,
+      "full_path": "/recurring-sessions/{recurring_session_id}/generated-sessions",
+      "router": "router",
+      "kwargs": {
+        "response_model": "list[SessionResponse]"
+      },
+      "parameters": [
+        {
+          "name": "recurring_session_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('experiment:show'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recurring_sessions.py",
+        "line_start": 379,
+        "line_end": 427
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{recurring_session_id}/generated-sessions",
+          "include_prefix=/recurring-sessions",
+          "router_prefix=None",
+          "full_path=/recurring-sessions/{recurring_session_id}/generated-sessions",
+          "function=routers.recurring_sessions.get_generated_sessions"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recurring_sessions.get.recurring-sessions.param-recurring-session-id.get-recurring-session",
+      "identity": {
+        "catalog_id": "routers.recurring_sessions.get.recurring-sessions.param-recurring-session-id.get-recurring-session",
+        "logical_id": "routers.recurring_sessions.get.recurring-sessions.param-recurring-session-id.get-recurring-session",
+        "source_id": "endpoint:f979effa4012bbf6",
+        "display_name": "GET /recurring-sessions/{recurring_session_id}",
+        "aliases": [
+          "routers.recurring_sessions.get.recurring-sessions.param-recurring-session-id.get-recurring-session",
+          "routers.recurring_sessions.get_recurring_session",
+          "/{recurring_session_id}",
+          "/recurring-sessions",
+          "/recurring-sessions/{recurring_session_id}"
+        ]
+      },
+      "module": "routers.recurring_sessions",
+      "function_name": "get_recurring_session",
+      "qualified_name": "routers.recurring_sessions.get_recurring_session",
+      "implementation": {
+        "kind": "direct_db_access",
+        "confidence": "high",
+        "reason": "Endpoint directly uses database/session or SQLAlchemy calls.",
+        "signals": [
+          "db_or_sqlalchemy_call"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{recurring_session_id}",
+      "include_prefix": "/recurring-sessions",
+      "router_prefix": null,
+      "full_path": "/recurring-sessions/{recurring_session_id}",
+      "router": "router",
+      "kwargs": {
+        "response_model": "RecurringSessionResponse"
+      },
+      "parameters": [
+        {
+          "name": "recurring_session_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('experiment:show'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recurring_sessions.py",
+        "line_start": 233,
+        "line_end": 256
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{recurring_session_id}",
+          "include_prefix=/recurring-sessions",
+          "router_prefix=None",
+          "full_path=/recurring-sessions/{recurring_session_id}",
+          "function=routers.recurring_sessions.get_recurring_session"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recurring_sessions.post.recurring-sessions.create-recurring-session",
+      "identity": {
+        "catalog_id": "routers.recurring_sessions.post.recurring-sessions.create-recurring-session",
+        "logical_id": "routers.recurring_sessions.post.recurring-sessions.create-recurring-session",
+        "source_id": "endpoint:b144d6a88de0e898",
+        "display_name": "POST /recurring-sessions",
+        "aliases": [
+          "routers.recurring_sessions.post.recurring-sessions.create-recurring-session",
+          "routers.recurring_sessions.create_recurring_session",
+          "/",
+          "/recurring-sessions"
+        ]
+      },
+      "module": "routers.recurring_sessions",
+      "function_name": "create_recurring_session",
+      "qualified_name": "routers.recurring_sessions.create_recurring_session",
+      "implementation": {
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
+        "signals": [
+          "local_logic_detected"
+        ]
+      },
+      "http_method": "POST",
+      "path": "/",
+      "include_prefix": "/recurring-sessions",
+      "router_prefix": null,
+      "full_path": "/recurring-sessions",
+      "router": "router",
+      "kwargs": {
+        "response_model": "RecurringSessionResponse"
+      },
+      "parameters": [
+        {
+          "name": "recurring_session_data",
+          "annotation": "RecurringSessionCreate",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission('session:edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recurring_sessions.py",
+        "line_start": 197,
+        "line_end": 213
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/",
+          "include_prefix=/recurring-sessions",
+          "router_prefix=None",
+          "full_path=/recurring-sessions",
+          "function=routers.recurring_sessions.create_recurring_session"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recurring_sessions.post.recurring-sessions.param-recurring-session-id.exceptions.create-recurring-session-exception",
+      "identity": {
+        "catalog_id": "routers.recurring_sessions.post.recurring-sessions.param-recurring-session-id.exceptions.create-recurring-session-exception",
+        "logical_id": "routers.recurring_sessions.post.recurring-sessions.param-recurring-session-id.exceptions.create-recurring-session-exception",
+        "source_id": "endpoint:6344fee9a63283f1",
+        "display_name": "POST /recurring-sessions/{recurring_session_id}/exceptions",
+        "aliases": [
+          "routers.recurring_sessions.post.recurring-sessions.param-recurring-session-id.exceptions.create-recurring-session-exception",
+          "routers.recurring_sessions.create_recurring_session_exception",
+          "/{recurring_session_id}/exceptions",
+          "/recurring-sessions",
+          "/recurring-sessions/{recurring_session_id}/exceptions"
+        ]
+      },
       "module": "routers.recurring_sessions",
       "function_name": "create_recurring_session_exception",
       "qualified_name": "routers.recurring_sessions.create_recurring_session_exception",
@@ -337,6 +553,9 @@
       },
       "http_method": "POST",
       "path": "/{recurring_session_id}/exceptions",
+      "include_prefix": "/recurring-sessions",
+      "router_prefix": null,
+      "full_path": "/recurring-sessions/{recurring_session_id}/exceptions",
       "router": "router",
       "kwargs": {
         "response_model": "RecurringSessionExceptionResponse"
@@ -373,28 +592,49 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('session_edit'))",
+          "default": "Depends(require_permission('session:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/recurring_sessions.py",
-        "line_start": 231,
-        "line_end": 281
+        "line_start": 326,
+        "line_end": 376
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{recurring_session_id}/exceptions",
+          "include_prefix=/recurring-sessions",
+          "router_prefix=None",
+          "full_path=/recurring-sessions/{recurring_session_id}/exceptions",
+          "function=routers.recurring_sessions.create_recurring_session_exception"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recurring_sessions.post.root.create-recurring-session",
+      "id": "routers.recurring_sessions.post.recurring-sessions.preview.preview-recurring-session",
+      "identity": {
+        "catalog_id": "routers.recurring_sessions.post.recurring-sessions.preview.preview-recurring-session",
+        "logical_id": "routers.recurring_sessions.post.recurring-sessions.preview.preview-recurring-session",
+        "source_id": "endpoint:2a46d4461842cca5",
+        "display_name": "POST /recurring-sessions/preview",
+        "aliases": [
+          "routers.recurring_sessions.post.recurring-sessions.preview.preview-recurring-session",
+          "routers.recurring_sessions.preview_recurring_session",
+          "/preview",
+          "/recurring-sessions",
+          "/recurring-sessions/preview"
+        ]
+      },
       "module": "routers.recurring_sessions",
-      "function_name": "create_recurring_session",
-      "qualified_name": "routers.recurring_sessions.create_recurring_session",
+      "function_name": "preview_recurring_session",
+      "qualified_name": "routers.recurring_sessions.preview_recurring_session",
       "implementation": {
         "kind": "router_internal",
         "confidence": "medium",
@@ -404,10 +644,13 @@
         ]
       },
       "http_method": "POST",
-      "path": "/",
+      "path": "/preview",
+      "include_prefix": "/recurring-sessions",
+      "router_prefix": null,
+      "full_path": "/recurring-sessions/preview",
       "router": "router",
       "kwargs": {
-        "response_model": "RecurringSessionResponse"
+        "response_model": "RecurringSessionAvailabilityResponse"
       },
       "parameters": [
         {
@@ -434,25 +677,46 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('session_edit'))",
+          "default": "Depends(require_permission('session:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/recurring_sessions.py",
-        "line_start": 108,
-        "line_end": 121
+        "line_start": 217,
+        "line_end": 230
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/preview",
+          "include_prefix=/recurring-sessions",
+          "router_prefix=None",
+          "full_path=/recurring-sessions/preview",
+          "function=routers.recurring_sessions.preview_recurring_session"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recurring_sessions.put.param-recurring-session-id.update-recurring-session",
+      "id": "routers.recurring_sessions.put.recurring-sessions.param-recurring-session-id.update-recurring-session",
+      "identity": {
+        "catalog_id": "routers.recurring_sessions.put.recurring-sessions.param-recurring-session-id.update-recurring-session",
+        "logical_id": "routers.recurring_sessions.put.recurring-sessions.param-recurring-session-id.update-recurring-session",
+        "source_id": "endpoint:03a787de469d2bc7",
+        "display_name": "PUT /recurring-sessions/{recurring_session_id}",
+        "aliases": [
+          "routers.recurring_sessions.put.recurring-sessions.param-recurring-session-id.update-recurring-session",
+          "routers.recurring_sessions.update_recurring_session",
+          "/{recurring_session_id}",
+          "/recurring-sessions",
+          "/recurring-sessions/{recurring_session_id}"
+        ]
+      },
       "module": "routers.recurring_sessions",
       "function_name": "update_recurring_session",
       "qualified_name": "routers.recurring_sessions.update_recurring_session",
@@ -466,6 +730,9 @@
       },
       "http_method": "PUT",
       "path": "/{recurring_session_id}",
+      "include_prefix": "/recurring-sessions",
+      "router_prefix": null,
+      "full_path": "/recurring-sessions/{recurring_session_id}",
       "router": "router",
       "kwargs": {
         "response_model": "RecurringSessionResponse"
@@ -502,20 +769,28 @@
         {
           "name": "_",
           "annotation": "None",
-          "default": "Depends(require_permission('session_edit'))",
+          "default": "Depends(require_permission('session:edit'))",
           "kind": "positional_or_keyword",
           "source": "dependency"
         }
       ],
       "source": {
         "file": "routers/recurring_sessions.py",
-        "line_start": 164,
-        "line_end": 180
+        "line_start": 259,
+        "line_end": 275
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/{recurring_session_id}",
+          "include_prefix=/recurring-sessions",
+          "router_prefix=None",
+          "full_path=/recurring-sessions/{recurring_session_id}",
+          "function=routers.recurring_sessions.update_recurring_session"
+        ]
       },
       "review_status": "generated"
     }

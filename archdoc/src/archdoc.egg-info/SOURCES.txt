@@ -49,5 +49,8 @@ src/archdoc/utils/json.py
 src/archdoc/utils/paths.py
 src/archdoc/validator/__init__.py
 src/archdoc/validator/catalog_validator.py
+src/archdoc/validator/class_resource_profile.py
 src/archdoc/validator/models.py
 src/archdoc/validator/writer.py
+tests/test_archdoc_pipeline.py
+tests/test_python_scanner.py

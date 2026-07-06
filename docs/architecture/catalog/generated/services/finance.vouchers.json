@@ -1,59 +1,182 @@
 {
   "id": "finance.vouchers",
+  "identity": {
+    "catalog_id": "finance.vouchers",
+    "logical_id": "finance.vouchers",
+    "source_id": "service:0aa8f81d37e918b8",
+    "display_name": "VouchersService",
+    "aliases": [
+      "finance.vouchers",
+      "services.finance.vouchers.VouchersService"
+    ]
+  },
   "module": "services.finance.vouchers",
   "class_name": "VouchersService",
   "qualified_name": "services.finance.vouchers.VouchersService",
+  "description": null,
+  "docstring": null,
   "source": {
     "file": "services/finance/vouchers.py",
-    "line_start": 18,
-    "line_end": 114
+    "line_start": 19,
+    "line_end": 116
   },
   "operations": [
     {
       "id": "finance.vouchers.operation.create_voucher",
+      "identity": {
+        "catalog_id": "finance.vouchers.operation.create_voucher",
+        "logical_id": "finance.vouchers.operation.create_voucher",
+        "source_id": "operation:41c43a143fcb7221",
+        "display_name": "VouchersService.create_voucher",
+        "aliases": [
+          "finance.vouchers.operation.create_voucher",
+          "services.finance.vouchers.VouchersService.create_voucher"
+        ]
+      },
       "method": "create_voucher",
       "qualified_name": "services.finance.vouchers.VouchersService.create_voucher",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "voucher_data",
+          "annotation": "VoucherCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/vouchers.py",
-        "line_start": 19,
-        "line_end": 57
+        "line_start": 20,
+        "line_end": 59
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_voucher",
+          "qualified_name=services.finance.vouchers.VouchersService.create_voucher"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.vouchers.operation.list_vouchers",
+      "identity": {
+        "catalog_id": "finance.vouchers.operation.list_vouchers",
+        "logical_id": "finance.vouchers.operation.list_vouchers",
+        "source_id": "operation:00d327365065ba13",
+        "display_name": "VouchersService.list_vouchers",
+        "aliases": [
+          "finance.vouchers.operation.list_vouchers",
+          "services.finance.vouchers.VouchersService.list_vouchers"
+        ]
+      },
       "method": "list_vouchers",
       "qualified_name": "services.finance.vouchers.VouchersService.list_vouchers",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "is_used",
+          "annotation": "bool | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "offset",
+          "annotation": "int",
+          "default": "0",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "100",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "list[Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/vouchers.py",
-        "line_start": 59,
-        "line_end": 74
+        "line_start": 61,
+        "line_end": 76
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=list_vouchers",
+          "qualified_name=services.finance.vouchers.VouchersService.list_vouchers"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "finance.vouchers.operation.use_voucher",
+      "identity": {
+        "catalog_id": "finance.vouchers.operation.use_voucher",
+        "logical_id": "finance.vouchers.operation.use_voucher",
+        "source_id": "operation:68e5f11fdb660dc1",
+        "display_name": "VouchersService.use_voucher",
+        "aliases": [
+          "finance.vouchers.operation.use_voucher",
+          "services.finance.vouchers.VouchersService.use_voucher"
+        ]
+      },
       "method": "use_voucher",
       "qualified_name": "services.finance.vouchers.VouchersService.use_voucher",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "voucher_code",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Any | None",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/finance/vouchers.py",
-        "line_start": 76,
-        "line_end": 114
+        "line_start": 78,
+        "line_end": 116
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=use_voucher",
+          "qualified_name=services.finance.vouchers.VouchersService.use_voucher"
+        ]
       },
       "review_status": "generated"
     }
@@ -61,7 +184,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=VouchersService",
+      "source_path=services/finance/vouchers.py"
+    ]
   },
   "review_status": "generated"
 }

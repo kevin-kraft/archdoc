@@ -4,7 +4,20 @@
   "source_file": "routers/calendar.py",
   "endpoints": [
     {
-      "id": "routers.calendar.get.conflicts.suggestions.get-alternative-times",
+      "id": "routers.calendar.get.calendar.conflicts.suggestions.get-alternative-times",
+      "identity": {
+        "catalog_id": "routers.calendar.get.calendar.conflicts.suggestions.get-alternative-times",
+        "logical_id": "routers.calendar.get.calendar.conflicts.suggestions.get-alternative-times",
+        "source_id": "endpoint:95857be7a04abef6",
+        "display_name": "GET /calendar/conflicts/suggestions",
+        "aliases": [
+          "routers.calendar.get.calendar.conflicts.suggestions.get-alternative-times",
+          "routers.calendar.get_alternative_times",
+          "/conflicts/suggestions",
+          "/calendar",
+          "/calendar/conflicts/suggestions"
+        ]
+      },
       "module": "routers.calendar",
       "function_name": "get_alternative_times",
       "qualified_name": "routers.calendar.get_alternative_times",
@@ -20,6 +33,9 @@
       },
       "http_method": "GET",
       "path": "/conflicts/suggestions",
+      "include_prefix": "/calendar",
+      "router_prefix": null,
+      "full_path": "/calendar/conflicts/suggestions",
       "router": "router",
       "kwargs": {
         "response_model": "AlternativeTimeResponse"
@@ -54,6 +70,13 @@
           "source": "default"
         },
         {
+          "name": "requested_capacity",
+          "annotation": "int | None",
+          "default": "REQUESTED_CAPACITY_QUERY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
           "name": "db",
           "annotation": "AsyncSession",
           "default": "DB_SESSION_DEPENDENCY",
@@ -73,22 +96,50 @@
           "default": "SESSION_EDIT_DEPENDENCY",
           "kind": "positional_or_keyword",
           "source": "default"
+        },
+        {
+          "name": "user",
+          "annotation": "dict",
+          "default": "CURRENT_USER_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
         }
       ],
       "source": {
         "file": "routers/calendar.py",
-        "line_start": 92,
-        "line_end": 130
+        "line_start": 101,
+        "line_end": 149
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/conflicts/suggestions",
+          "include_prefix=/calendar",
+          "router_prefix=None",
+          "full_path=/calendar/conflicts/suggestions",
+          "function=routers.calendar.get_alternative_times"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.calendar.get.labs.param-lab-id.availability.get-lab-availability",
+      "id": "routers.calendar.get.calendar.labs.param-lab-id.availability.get-lab-availability",
+      "identity": {
+        "catalog_id": "routers.calendar.get.calendar.labs.param-lab-id.availability.get-lab-availability",
+        "logical_id": "routers.calendar.get.calendar.labs.param-lab-id.availability.get-lab-availability",
+        "source_id": "endpoint:31bbc344f6d82891",
+        "display_name": "GET /calendar/labs/{lab_id}/availability",
+        "aliases": [
+          "routers.calendar.get.calendar.labs.param-lab-id.availability.get-lab-availability",
+          "routers.calendar.get_lab_availability",
+          "/labs/{lab_id}/availability",
+          "/calendar",
+          "/calendar/labs/{lab_id}/availability"
+        ]
+      },
       "module": "routers.calendar",
       "function_name": "get_lab_availability",
       "qualified_name": "routers.calendar.get_lab_availability",
@@ -97,6 +148,7 @@
         "confidence": "high",
         "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
+          "db_or_sqlalchemy_call",
           "service_variable_detected",
           "service_method_call_detected",
           "endpoint_service_link_resolved"
@@ -104,8 +156,13 @@
       },
       "http_method": "GET",
       "path": "/labs/{lab_id}/availability",
+      "include_prefix": "/calendar",
+      "router_prefix": null,
+      "full_path": "/calendar/labs/{lab_id}/availability",
       "router": "router",
-      "kwargs": {},
+      "kwargs": {
+        "response_model": "LabAvailabilityResponse"
+      },
       "parameters": [
         {
           "name": "lab_id",
@@ -153,17 +210,38 @@
       "source": {
         "file": "routers/calendar.py",
         "line_start": 267,
-        "line_end": 322
+        "line_end": 327
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/labs/{lab_id}/availability",
+          "include_prefix=/calendar",
+          "router_prefix=None",
+          "full_path=/calendar/labs/{lab_id}/availability",
+          "function=routers.calendar.get_lab_availability"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.calendar.get.sessions.param-session-id.participants.get-session-participants",
+      "id": "routers.calendar.get.calendar.sessions.param-session-id.participants.get-session-participants",
+      "identity": {
+        "catalog_id": "routers.calendar.get.calendar.sessions.param-session-id.participants.get-session-participants",
+        "logical_id": "routers.calendar.get.calendar.sessions.param-session-id.participants.get-session-participants",
+        "source_id": "endpoint:2d2d38c3c3a99935",
+        "display_name": "GET /calendar/sessions/{session_id}/participants",
+        "aliases": [
+          "routers.calendar.get.calendar.sessions.param-session-id.participants.get-session-participants",
+          "routers.calendar.get_session_participants",
+          "/sessions/{session_id}/participants",
+          "/calendar",
+          "/calendar/sessions/{session_id}/participants"
+        ]
+      },
       "module": "routers.calendar",
       "function_name": "get_session_participants",
       "qualified_name": "routers.calendar.get_session_participants",
@@ -177,6 +255,9 @@
       },
       "http_method": "GET",
       "path": "/sessions/{session_id}/participants",
+      "include_prefix": "/calendar",
+      "router_prefix": null,
+      "full_path": "/calendar/sessions/{session_id}/participants",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -211,18 +292,39 @@
       ],
       "source": {
         "file": "routers/calendar.py",
-        "line_start": 325,
-        "line_end": 376
+        "line_start": 330,
+        "line_end": 384
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/sessions/{session_id}/participants",
+          "include_prefix=/calendar",
+          "router_prefix=None",
+          "full_path=/calendar/sessions/{session_id}/participants",
+          "function=routers.calendar.get_session_participants"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.calendar.post.conflicts.detect.detect-lab-conflicts",
+      "id": "routers.calendar.post.calendar.conflicts.detect.detect-lab-conflicts",
+      "identity": {
+        "catalog_id": "routers.calendar.post.calendar.conflicts.detect.detect-lab-conflicts",
+        "logical_id": "routers.calendar.post.calendar.conflicts.detect.detect-lab-conflicts",
+        "source_id": "endpoint:2c1072cbd737709c",
+        "display_name": "POST /calendar/conflicts/detect",
+        "aliases": [
+          "routers.calendar.post.calendar.conflicts.detect.detect-lab-conflicts",
+          "routers.calendar.detect_lab_conflicts",
+          "/conflicts/detect",
+          "/calendar",
+          "/calendar/conflicts/detect"
+        ]
+      },
       "module": "routers.calendar",
       "function_name": "detect_lab_conflicts",
       "qualified_name": "routers.calendar.detect_lab_conflicts",
@@ -238,6 +340,9 @@
       },
       "http_method": "POST",
       "path": "/conflicts/detect",
+      "include_prefix": "/calendar",
+      "router_prefix": null,
+      "full_path": "/calendar/conflicts/detect",
       "router": "router",
       "kwargs": {
         "response_model": "ConflictDetectionResponse"
@@ -281,18 +386,39 @@
       ],
       "source": {
         "file": "routers/calendar.py",
-        "line_start": 47,
-        "line_end": 89
+        "line_start": 63,
+        "line_end": 98
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/conflicts/detect",
+          "include_prefix=/calendar",
+          "router_prefix=None",
+          "full_path=/calendar/conflicts/detect",
+          "function=routers.calendar.detect_lab_conflicts"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.calendar.post.conflicts.resolution.resolve-session-conflict",
+      "id": "routers.calendar.post.calendar.conflicts.resolution.resolve-session-conflict",
+      "identity": {
+        "catalog_id": "routers.calendar.post.calendar.conflicts.resolution.resolve-session-conflict",
+        "logical_id": "routers.calendar.post.calendar.conflicts.resolution.resolve-session-conflict",
+        "source_id": "endpoint:dc990981126cfec3",
+        "display_name": "POST /calendar/conflicts/resolution",
+        "aliases": [
+          "routers.calendar.post.calendar.conflicts.resolution.resolve-session-conflict",
+          "routers.calendar.resolve_session_conflict",
+          "/conflicts/resolution",
+          "/calendar",
+          "/calendar/conflicts/resolution"
+        ]
+      },
       "module": "routers.calendar",
       "function_name": "resolve_session_conflict",
       "qualified_name": "routers.calendar.resolve_session_conflict",
@@ -308,6 +434,9 @@
       },
       "http_method": "POST",
       "path": "/conflicts/resolution",
+      "include_prefix": "/calendar",
+      "router_prefix": null,
+      "full_path": "/calendar/conflicts/resolution",
       "router": "router",
       "kwargs": {
         "response_model": "ConflictResolutionResponse"
@@ -344,18 +473,39 @@
       ],
       "source": {
         "file": "routers/calendar.py",
-        "line_start": 209,
+        "line_start": 218,
         "line_end": 262
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/conflicts/resolution",
+          "include_prefix=/calendar",
+          "router_prefix=None",
+          "full_path=/calendar/conflicts/resolution",
+          "function=routers.calendar.resolve_session_conflict"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.calendar.post.sessions.param-session-id.validate-schedule.validate-session-schedule",
+      "id": "routers.calendar.post.calendar.sessions.param-session-id.validate-schedule.validate-session-schedule",
+      "identity": {
+        "catalog_id": "routers.calendar.post.calendar.sessions.param-session-id.validate-schedule.validate-session-schedule",
+        "logical_id": "routers.calendar.post.calendar.sessions.param-session-id.validate-schedule.validate-session-schedule",
+        "source_id": "endpoint:28a4efaf2bf7de44",
+        "display_name": "POST /calendar/sessions/{session_id}/validate-schedule",
+        "aliases": [
+          "routers.calendar.post.calendar.sessions.param-session-id.validate-schedule.validate-session-schedule",
+          "routers.calendar.validate_session_schedule",
+          "/sessions/{session_id}/validate-schedule",
+          "/calendar",
+          "/calendar/sessions/{session_id}/validate-schedule"
+        ]
+      },
       "module": "routers.calendar",
       "function_name": "validate_session_schedule",
       "qualified_name": "routers.calendar.validate_session_schedule",
@@ -371,6 +521,9 @@
       },
       "http_method": "POST",
       "path": "/sessions/{session_id}/validate-schedule",
+      "include_prefix": "/calendar",
+      "router_prefix": null,
+      "full_path": "/calendar/sessions/{session_id}/validate-schedule",
       "router": "router",
       "kwargs": {
         "response_model": "SessionValidationResponse"
@@ -407,18 +560,39 @@
       ],
       "source": {
         "file": "routers/calendar.py",
-        "line_start": 133,
-        "line_end": 171
+        "line_start": 152,
+        "line_end": 180
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/sessions/{session_id}/validate-schedule",
+          "include_prefix=/calendar",
+          "router_prefix=None",
+          "full_path=/calendar/sessions/{session_id}/validate-schedule",
+          "function=routers.calendar.validate_session_schedule"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.calendar.post.sessions.recurring.create-recurring-session",
+      "id": "routers.calendar.post.calendar.sessions.recurring.create-recurring-session",
+      "identity": {
+        "catalog_id": "routers.calendar.post.calendar.sessions.recurring.create-recurring-session",
+        "logical_id": "routers.calendar.post.calendar.sessions.recurring.create-recurring-session",
+        "source_id": "endpoint:29ddd353f2235fb7",
+        "display_name": "POST /calendar/sessions/recurring",
+        "aliases": [
+          "routers.calendar.post.calendar.sessions.recurring.create-recurring-session",
+          "routers.calendar.create_recurring_session",
+          "/sessions/recurring",
+          "/calendar",
+          "/calendar/sessions/recurring"
+        ]
+      },
       "module": "routers.calendar",
       "function_name": "create_recurring_session",
       "qualified_name": "routers.calendar.create_recurring_session",
@@ -434,6 +608,9 @@
       },
       "http_method": "POST",
       "path": "/sessions/recurring",
+      "include_prefix": "/calendar",
+      "router_prefix": null,
+      "full_path": "/calendar/sessions/recurring",
       "router": "router",
       "kwargs": {
         "response_model": "RecurringSessionResponse"
@@ -470,13 +647,21 @@
       ],
       "source": {
         "file": "routers/calendar.py",
-        "line_start": 174,
-        "line_end": 206
+        "line_start": 183,
+        "line_end": 215
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/sessions/recurring",
+          "include_prefix=/calendar",
+          "router_prefix=None",
+          "full_path=/calendar/sessions/recurring",
+          "function=routers.calendar.create_recurring_session"
+        ]
       },
       "review_status": "generated"
     }

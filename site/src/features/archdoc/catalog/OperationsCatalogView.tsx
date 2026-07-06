@@ -1,7 +1,7 @@
 import React, {useMemo, useState} from 'react';
 import DataTable, {type DataTableColumn, type DataTableFilter} from '../components/DataTable';
 import ReviewEditor from '../components/ReviewEditor';
-import {CatalogToolbar, LinkStateIcon, PrimarySecondary, SourceRef} from '../components/TablePrimitives';
+import {CatalogToolbar, LinkStateIcon, OperationRelationSummary, PrimarySecondary, SourceRef, type OperationRelationLink} from '../components/TablePrimitives';
 import {fetchOperationRows} from '../api/archdocApi';
 import {useArchdocTableContext} from '../api/useArchdocTableContext';
 import {reviewStatusOptions} from '../constants/reviewStatusOptions';
@@ -9,15 +9,17 @@ import {reviewStatusOptions} from '../constants/reviewStatusOptions';
 type OperationRow = {
   service: any;
   operation: any;
+  operation_links?: OperationRelationLink[];
   _linked?: boolean;
 };
 
-type OperationSortColumn = 'service' | 'operation' | 'coverage' | 'source' | 'review';
+type OperationSortColumn = 'service' | 'operation' | 'coverage' | 'relations' | 'source' | 'review';
 
 export default function OperationsCatalogView() {
   const {source, editable, error, saveOverlay} = useArchdocTableContext();
   const [query, setQuery] = useState('');
   const [coverageFilter, setCoverageFilter] = useState('all');
+  const [relationFilter, setRelationFilter] = useState('all');
   const [reviewStatusFilter, setReviewStatusFilter] = useState('all');
 
   const columns = useMemo<DataTableColumn<OperationRow, OperationSortColumn>[]>(() => [
@@ -51,6 +53,15 @@ export default function OperationsCatalogView() {
       sortable: true,
       value: (row) => row._linked ? 'linked' : 'open',
       render: (row) => <LinkStateIcon linked={Boolean(row._linked)} />,
+    },
+    {
+      key: 'relations',
+      label: 'Relations',
+      sortable: true,
+      value: (row) => (row.operation_links ?? []).map((link) => link.link_type ?? '').join(' '),
+      render: ({operation, operation_links}) => (
+        <OperationRelationSummary links={operation_links ?? []} operationId={operation.id} />
+      ),
     },
     {
       key: 'review',
@@ -92,6 +103,24 @@ export default function OperationsCatalogView() {
       },
     },
     {
+      key: 'relations',
+      label: 'Relations',
+      value: relationFilter,
+      onChange: setRelationFilter,
+      options: [
+        {label: 'All relations', value: 'all'},
+        {label: 'Inherited/facade', value: 'inherited_operation'},
+        {label: 'Service calls', value: 'service_call'},
+        {label: 'No operation relation', value: 'none'},
+      ],
+      predicate: (row, value) => {
+        const links = row.operation_links ?? [];
+        if (value === 'all') return true;
+        if (value === 'none') return links.length === 0;
+        return links.some((link) => link.link_type === value);
+      },
+    },
+    {
       key: 'review_status',
       label: 'Review',
       value: reviewStatusFilter,
@@ -99,7 +128,7 @@ export default function OperationsCatalogView() {
       options: reviewStatusOptions,
       predicate: (row, value) => value === 'all' || row.operation.review_status === value,
     },
-  ], [coverageFilter, reviewStatusFilter]);
+  ], [coverageFilter, relationFilter, reviewStatusFilter]);
 
   if (error) return <p><strong>Error:</strong> {error}</p>;
 

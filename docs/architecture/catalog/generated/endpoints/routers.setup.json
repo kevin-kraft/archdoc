@@ -4,7 +4,20 @@
   "source_file": "routers/setup.py",
   "endpoints": [
     {
-      "id": "routers.setup.get.status.get-setup-status",
+      "id": "routers.setup.get.setup.status.get-setup-status",
+      "identity": {
+        "catalog_id": "routers.setup.get.setup.status.get-setup-status",
+        "logical_id": "routers.setup.get.setup.status.get-setup-status",
+        "source_id": "endpoint:76ca788db1031b5d",
+        "display_name": "GET /setup/status",
+        "aliases": [
+          "routers.setup.get.setup.status.get-setup-status",
+          "routers.setup.get_setup_status",
+          "/status",
+          "/setup",
+          "/setup/status"
+        ]
+      },
       "module": "routers.setup",
       "function_name": "get_setup_status",
       "qualified_name": "routers.setup.get_setup_status",
@@ -18,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "/status",
+      "include_prefix": "/setup",
+      "router_prefix": null,
+      "full_path": "/setup/status",
       "router": "router",
       "kwargs": {
         "response_model": "SetupStatus",
@@ -34,18 +50,39 @@
       ],
       "source": {
         "file": "routers/setup.py",
-        "line_start": 98,
-        "line_end": 105
+        "line_start": 159,
+        "line_end": 166
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/status",
+          "include_prefix=/setup",
+          "router_prefix=None",
+          "full_path=/setup/status",
+          "function=routers.setup.get_setup_status"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.setup.post.setup-complete-path.run-setup",
+      "id": "routers.setup.post.setup.setup-complete-path.run-setup",
+      "identity": {
+        "catalog_id": "routers.setup.post.setup.setup-complete-path.run-setup",
+        "logical_id": "routers.setup.post.setup.setup-complete-path.run-setup",
+        "source_id": "endpoint:69ff4d08e1298545",
+        "display_name": "POST /setup/SETUP_COMPLETE_PATH",
+        "aliases": [
+          "routers.setup.post.setup.setup-complete-path.run-setup",
+          "routers.setup.run_setup",
+          "SETUP_COMPLETE_PATH",
+          "/setup",
+          "/setup/SETUP_COMPLETE_PATH"
+        ]
+      },
       "module": "routers.setup",
       "function_name": "run_setup",
       "qualified_name": "routers.setup.run_setup",
@@ -62,6 +99,9 @@
       },
       "http_method": "POST",
       "path": "SETUP_COMPLETE_PATH",
+      "include_prefix": "/setup",
+      "router_prefix": null,
+      "full_path": "/setup/SETUP_COMPLETE_PATH",
       "router": "router",
       "kwargs": {
         "response_model": "SetupResponse",
@@ -91,6 +131,13 @@
           "source": "body_or_positional"
         },
         {
+          "name": "setup_token",
+          "annotation": "Optional[str]",
+          "default": "Header(default=None, alias=SETUP_BOOTSTRAP_TOKEN_HEADER)",
+          "kind": "positional_or_keyword",
+          "source": "header"
+        },
+        {
           "name": "db",
           "annotation": "AsyncSession",
           "default": "Depends(get_db_session_no_org)",
@@ -100,13 +147,21 @@
       ],
       "source": {
         "file": "routers/setup.py",
-        "line_start": 109,
-        "line_end": 197
+        "line_start": 170,
+        "line_end": 263
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=SETUP_COMPLETE_PATH",
+          "include_prefix=/setup",
+          "router_prefix=None",
+          "full_path=/setup/SETUP_COMPLETE_PATH",
+          "function=routers.setup.run_setup"
+        ]
       },
       "review_status": "generated"
     }

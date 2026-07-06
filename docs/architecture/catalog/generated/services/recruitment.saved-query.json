@@ -1,8 +1,20 @@
 {
   "id": "recruitment.saved-query",
+  "identity": {
+    "catalog_id": "recruitment.saved-query",
+    "logical_id": "recruitment.saved-query",
+    "source_id": "service:11d93b25213d120b",
+    "display_name": "SavedQueryService",
+    "aliases": [
+      "recruitment.saved-query",
+      "services.recruitment.saved_query.SavedQueryService"
+    ]
+  },
   "module": "services.recruitment.saved_query",
   "class_name": "SavedQueryService",
   "qualified_name": "services.recruitment.saved_query.SavedQueryService",
+  "description": null,
+  "docstring": null,
   "source": {
     "file": "services/recruitment/saved_query.py",
     "line_start": 17,
@@ -11,8 +23,41 @@
   "operations": [
     {
       "id": "recruitment.saved-query.operation.create_saved_query",
+      "identity": {
+        "catalog_id": "recruitment.saved-query.operation.create_saved_query",
+        "logical_id": "recruitment.saved-query.operation.create_saved_query",
+        "source_id": "operation:d3bd2c3dc075e352",
+        "display_name": "SavedQueryService.create_saved_query",
+        "aliases": [
+          "recruitment.saved-query.operation.create_saved_query",
+          "services.recruitment.saved_query.SavedQueryService.create_saved_query"
+        ]
+      },
       "method": "create_saved_query",
       "qualified_name": "services.recruitment.saved_query.SavedQueryService.create_saved_query",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "query_data",
+          "annotation": "SavedQueryCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "SavedQueryResponse",
+      "description": "Create a new saved query with RBAC enforcement",
+      "docstring": "Create a new saved query with RBAC enforcement",
       "source": {
         "file": "services/recruitment/saved_query.py",
         "line_start": 33,
@@ -21,14 +66,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_saved_query",
+          "qualified_name=services.recruitment.saved_query.SavedQueryService.create_saved_query"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.saved-query.operation.get_saved_query",
+      "identity": {
+        "catalog_id": "recruitment.saved-query.operation.get_saved_query",
+        "logical_id": "recruitment.saved-query.operation.get_saved_query",
+        "source_id": "operation:5e964768136a7914",
+        "display_name": "SavedQueryService.get_saved_query",
+        "aliases": [
+          "recruitment.saved-query.operation.get_saved_query",
+          "services.recruitment.saved_query.SavedQueryService.get_saved_query"
+        ]
+      },
       "method": "get_saved_query",
       "qualified_name": "services.recruitment.saved_query.SavedQueryService.get_saved_query",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "query_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Optional[SavedQueryResponse]",
+      "description": "Get a specific saved query with RBAC enforcement",
+      "docstring": "Get a specific saved query with RBAC enforcement",
       "source": {
         "file": "services/recruitment/saved_query.py",
         "line_start": 64,
@@ -37,14 +119,57 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_saved_query",
+          "qualified_name=services.recruitment.saved_query.SavedQueryService.get_saved_query"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.saved-query.operation.list_saved_queries",
+      "identity": {
+        "catalog_id": "recruitment.saved-query.operation.list_saved_queries",
+        "logical_id": "recruitment.saved-query.operation.list_saved_queries",
+        "source_id": "operation:0a1a17296ce03290",
+        "display_name": "SavedQueryService.list_saved_queries",
+        "aliases": [
+          "recruitment.saved-query.operation.list_saved_queries",
+          "services.recruitment.saved_query.SavedQueryService.list_saved_queries"
+        ]
+      },
       "method": "list_saved_queries",
       "qualified_name": "services.recruitment.saved_query.SavedQueryService.list_saved_queries",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "skip",
+          "annotation": "int",
+          "default": "0",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "100",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[SavedQueryResponse]",
+      "description": "List saved queries with RBAC enforcement",
+      "docstring": "List saved queries with RBAC enforcement",
       "source": {
         "file": "services/recruitment/saved_query.py",
         "line_start": 88,
@@ -53,14 +178,57 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=list_saved_queries",
+          "qualified_name=services.recruitment.saved_query.SavedQueryService.list_saved_queries"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.saved-query.operation.update_saved_query",
+      "identity": {
+        "catalog_id": "recruitment.saved-query.operation.update_saved_query",
+        "logical_id": "recruitment.saved-query.operation.update_saved_query",
+        "source_id": "operation:6793981abc23d27d",
+        "display_name": "SavedQueryService.update_saved_query",
+        "aliases": [
+          "recruitment.saved-query.operation.update_saved_query",
+          "services.recruitment.saved_query.SavedQueryService.update_saved_query"
+        ]
+      },
       "method": "update_saved_query",
       "qualified_name": "services.recruitment.saved_query.SavedQueryService.update_saved_query",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "query_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "query_data",
+          "annotation": "SavedQueryUpdate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Optional[SavedQueryResponse]",
+      "description": "Update a saved query with RBAC enforcement",
+      "docstring": "Update a saved query with RBAC enforcement",
       "source": {
         "file": "services/recruitment/saved_query.py",
         "line_start": 110,
@@ -69,14 +237,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_saved_query",
+          "qualified_name=services.recruitment.saved_query.SavedQueryService.update_saved_query"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.saved-query.operation.delete_saved_query",
+      "identity": {
+        "catalog_id": "recruitment.saved-query.operation.delete_saved_query",
+        "logical_id": "recruitment.saved-query.operation.delete_saved_query",
+        "source_id": "operation:ec40948e51e72f44",
+        "display_name": "SavedQueryService.delete_saved_query",
+        "aliases": [
+          "recruitment.saved-query.operation.delete_saved_query",
+          "services.recruitment.saved_query.SavedQueryService.delete_saved_query"
+        ]
+      },
       "method": "delete_saved_query",
       "qualified_name": "services.recruitment.saved_query.SavedQueryService.delete_saved_query",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "query_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": "Delete a saved query with RBAC enforcement",
+      "docstring": "Delete a saved query with RBAC enforcement",
       "source": {
         "file": "services/recruitment/saved_query.py",
         "line_start": 148,
@@ -85,7 +290,11 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=delete_saved_query",
+          "qualified_name=services.recruitment.saved_query.SavedQueryService.delete_saved_query"
+        ]
       },
       "review_status": "generated"
     }
@@ -93,7 +302,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=SavedQueryService",
+      "source_path=services/recruitment/saved_query.py"
+    ]
   },
   "review_status": "generated"
 }

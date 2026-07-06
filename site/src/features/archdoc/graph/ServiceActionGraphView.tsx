@@ -12,7 +12,18 @@ import ELK from 'elkjs/lib/elk.bundled.js';
 import '@xyflow/react/dist/style.css';
 
 import {fetchServiceActionGraph} from '../api/archdocApi';
-import {CatalogToolbar} from '../components/TablePrimitives';
+import {
+  actionLabel as actionGraphLabel,
+  DetailBlock,
+  DetailItem,
+  EntityFieldTable,
+  OperationActionSequence,
+  OperationTypeUsageList,
+  QueryDetails,
+  QueryPartList,
+  sourceLabel,
+} from '../components/OperationActionDetails';
+import {CatalogToolbar, OperationRelationBadge, OperationRelationSummary} from '../components/TablePrimitives';
 
 type ServiceSummary = {
   id: string;
@@ -401,7 +412,18 @@ function buildGraph(payload: ServiceGraphPayload | null): GraphState {
         actions: actionsByOwner.get(operation.id) ?? [],
         operationLinks: outgoingOperationLinksByOperation.get(operation.id) ?? [],
         incomingOperationLinks: incomingOperationLinksByOperation.get(operation.id) ?? [],
-        label: <NodeLabel title={operation.method} subtitle={operation.id} meta={operation.source?.file} />,
+        label: (
+          <NodeLabel
+            title={operation.method}
+            subtitle={operation.id}
+            meta={operation.source?.file}
+            relations={[
+              ...(outgoingOperationLinksByOperation.get(operation.id) ?? []),
+              ...(incomingOperationLinksByOperation.get(operation.id) ?? []),
+            ]}
+            operationId={operation.id}
+          />
+        ),
       },
     });
     addEdge({
@@ -546,50 +568,6 @@ function sourceNodeIdForAction(action: any, operationByEndpoint: Map<string, str
   return `operation:${ownerId}`;
 }
 
-function actionGraphLabel(action: any) {
-  const base = action.query
-    ? queryLabel(action.query)
-    : action.resource ?? action.entity ?? action.call_name ?? action.action ?? action.kind ?? 'action';
-
-  if (action.kind === 'database_action') {
-    return compactLabel(`${databaseActionVerb(action)} ${base}`);
-  }
-
-  if (action.kind === 'database_transaction') {
-    return compactLabel(action.resource ?? action.action ?? action.call_name ?? 'transaction');
-  }
-
-  return compactLabel(base);
-}
-
-function databaseActionVerb(action: any) {
-  const callName = String(action.call_name ?? '');
-
-  if (callName.endsWith('.get')) return 'get';
-  if (callName.endsWith('.execute')) return 'execute';
-  if (callName.endsWith('.add')) return 'add';
-  if (callName.endsWith('.delete')) return 'delete';
-
-  if (action.action === 'read') return 'read';
-  if (action.action === 'create') return 'create';
-  if (action.action === 'update') return 'update';
-  if (action.action === 'delete') return 'delete';
-
-  return action.action ?? 'db';
-}
-
-function queryLabel(query: any) {
-  const operation = query.operation ?? 'query';
-  const entities = Array.isArray(query.entities) && query.entities.length
-    ? ` ${query.entities.slice(0, 3).join(', ')}`
-    : '';
-  const filters = Array.isArray(query.filters) && query.filters.length
-    ? ` where ${query.filters.slice(0, 2).join(' && ')}`
-    : '';
-
-  return `${operation}${entities}${filters}`;
-}
-
 function externalTarget(action: any) {
   if (action.kind === 'worker_action') {
     return compactLabel(action.resource ?? action.call_name ?? 'worker');
@@ -619,11 +597,26 @@ function slug(value: string) {
   return value.replace(/[^a-zA-Z0-9_.-]+/g, '-').toLowerCase();
 }
 
-function NodeLabel({title, subtitle, meta}: {title: string; subtitle?: string; meta?: string}) {
+function NodeLabel({
+  title,
+  subtitle,
+  meta,
+  relations = [],
+  operationId,
+}: {
+  title: string;
+  subtitle?: string;
+  meta?: string;
+  relations?: any[];
+  operationId?: string;
+}) {
   return (
     <div className="archdocGraphNodeLabel">
       <strong>{title}</strong>
       {subtitle ? <span>{subtitle}</span> : null}
+      {relations.length ? (
+        <OperationRelationSummary links={relations} operationId={operationId} max={2} />
+      ) : null}
       {meta ? <small>{meta}</small> : null}
     </div>
   );
@@ -715,7 +708,7 @@ function EndpointInspector({endpoint, actions}: {endpoint: any; actions: any[]})
           <DetailItem label="Source" value={sourceLabel(endpoint?.source)} />
         </dl>
       </DetailBlock>
-      <ActionSequence actions={actions} title="Endpoint Gates" />
+      <OperationActionSequence actions={actions} title="Endpoint Gates" />
     </>
   );
 }
@@ -745,10 +738,10 @@ function OperationInspector({
         <DocstringBlock docstring={operation?.docstring} />
       </DetailBlock>
       <ParameterList parameters={operation?.parameters ?? []} />
-      <OperationLinkList title="Calls Services" links={operationLinks} direction="outgoing" />
-      <OperationLinkList title="Called By" links={incomingOperationLinks} direction="incoming" />
-      <TypeUsageList actions={actions} />
-      <ActionSequence actions={actions} title="Detected Method Flow" />
+      <OperationLinkList title="Operation Links" links={operationLinks} direction="outgoing" />
+      <OperationLinkList title="Incoming Links" links={incomingOperationLinks} direction="incoming" />
+      <OperationTypeUsageList actions={actions} />
+      <OperationActionSequence actions={actions} title="Detected Method Flow" />
     </>
   );
 }
@@ -770,7 +763,7 @@ function OperationLinkList({
   direction: 'outgoing' | 'incoming';
 }) {
   if (!links.length) {
-    return <DetailBlock title={title}><p className="archdocMuted">No service calls detected.</p></DetailBlock>;
+    return <DetailBlock title={title}><p className="archdocMuted">No operation links detected.</p></DetailBlock>;
   }
 
   const sortedLinks = [...links]
@@ -786,7 +779,7 @@ function OperationLinkList({
 
           return (
             <li key={link.id}>
-              <strong>{link.resolved ? 'service call' : 'unresolved service call'}</strong>
+              <OperationRelationBadge link={link} operationId={direction === 'outgoing' ? link.source?.operation_id : link.target?.operation_id} />
               <span>{label}</span>
               <small>{sourceLabel(link.source_ref)}</small>
             </li>
@@ -796,6 +789,7 @@ function OperationLinkList({
     </DetailBlock>
   );
 }
+
 
 function ActionInspector({group}: {group: ActionGroup}) {
   const primaryAction = group.actions[0] ?? {};
@@ -846,40 +840,6 @@ function PermissionDetails({action}: {action: any}) {
   );
 }
 
-function QueryDetails({query}: {query: any}) {
-  return (
-    <>
-      <DetailBlock title="Query">
-        <dl className="archdocDetailsList">
-          <DetailItem label="Variable" value={query.variable} />
-          <DetailItem label="Operation" value={query.operation} />
-          <DetailItem label="Entities" value={(query.entities ?? []).join(', ')} />
-          <DetailItem label="Limit" value={query.limit} />
-        </dl>
-        <pre className="archdocCodeBlock">{query.expression}</pre>
-      </DetailBlock>
-      <QueryPartList title="Filters" values={query.filters} />
-      <QueryPartList title="Joins" values={query.joins} />
-      <QueryPartList title="Ordering" values={query.ordering} />
-      {Array.isArray(query.entity_details) && query.entity_details.length ? (
-        <>
-          {query.entity_details.map((entity: any) => (
-            <DetailBlock key={entity.qualified_name ?? entity.name} title={entity.name}>
-              <dl className="archdocDetailsList">
-                <DetailItem label="Kind" value={entity.kind} />
-                <DetailItem label="Table" value={entity.table_name} />
-                <DetailItem label="Module" value={entity.module} />
-                <DetailItem label="Source" value={sourceLabel(entity.source)} />
-              </dl>
-              <EntityFieldTable fields={entity.fields ?? []} />
-            </DetailBlock>
-          ))}
-        </>
-      ) : null}
-    </>
-  );
-}
-
 function ParameterList({parameters}: {parameters: any[]}) {
   if (!parameters.length) {
     return <DetailBlock title="Parameters"><p className="archdocMuted">No parameters detected.</p></DetailBlock>;
@@ -892,58 +852,6 @@ function ParameterList({parameters}: {parameters: any[]}) {
           <span key={`${parameter.name}-${parameter.annotation ?? ''}`}>
             <strong>{parameter.name}</strong>
             {parameter.annotation ? <small>{parameter.annotation}</small> : null}
-          </span>
-        ))}
-      </div>
-    </DetailBlock>
-  );
-}
-
-function ActionSequence({actions, title}: {actions: any[]; title: string}) {
-  const visibleActions = [...actions]
-    .filter((action) => action.kind !== 'type_usage')
-    .sort((left, right) => (left.source?.line_start ?? 0) - (right.source?.line_start ?? 0))
-    .slice(0, 18);
-
-  if (!visibleActions.length) {
-    return <DetailBlock title={title}><p className="archdocMuted">No actions detected.</p></DetailBlock>;
-  }
-
-  return (
-    <DetailBlock title={title}>
-      <ol className="archdocInspectorSequence">
-        {visibleActions.map((action) => (
-          <li key={action.id}>
-            <strong>{labelForActionKind(action.kind ?? 'action')}</strong>
-            <span>{actionGraphLabel(action)}</span>
-            <small>{sourceLabel(action.source)}</small>
-          </li>
-        ))}
-      </ol>
-    </DetailBlock>
-  );
-}
-
-function TypeUsageList({actions}: {actions: any[]}) {
-  const typeActions = [...actions]
-    .filter((action) => action.kind === 'type_usage')
-    .sort((left, right) => (left.source?.line_start ?? 0) - (right.source?.line_start ?? 0));
-
-  if (!typeActions.length) {
-    return null;
-  }
-
-  const uniqueTypes = Array.from(
-    new Map(typeActions.map((action) => [action.resource ?? action.entity ?? action.call_name ?? action.id, action])).values(),
-  ).slice(0, 12);
-
-  return (
-    <DetailBlock title="Type Usage">
-      <div className="archdocInspectorTokenList">
-        {uniqueTypes.map((action) => (
-          <span key={action.id}>
-            <strong>{action.resource ?? action.entity ?? action.call_name}</strong>
-            <small>{sourceLabel(action.source)}</small>
           </span>
         ))}
       </div>
@@ -1027,83 +935,6 @@ function DatabaseActionDetailsPanel({
       ) : null}
     </section>
   );
-}
-
-function DetailBlock({title, children}: {title: string; children: React.ReactNode}) {
-  return (
-    <section className="archdocDetailBlock">
-      <h3>{title}</h3>
-      {children}
-    </section>
-  );
-}
-
-function DetailItem({label, value}: {label: string; value?: string | number | null}) {
-  if (value === undefined || value === null || value === '') {
-    return null;
-  }
-
-  return (
-    <>
-      <dt>{label}</dt>
-      <dd>{String(value)}</dd>
-    </>
-  );
-}
-
-function QueryPartList({title, values}: {title: string; values?: string[]}) {
-  const items = Array.isArray(values) ? values.filter(Boolean) : [];
-
-  return (
-    <DetailBlock title={title}>
-      {items.length ? (
-        <ul className="archdocQueryPartList">
-          {items.map((item, index) => (
-            <li key={`${title}-${index}`}>{item}</li>
-          ))}
-        </ul>
-      ) : (
-        <p className="archdocMuted">None detected.</p>
-      )}
-    </DetailBlock>
-  );
-}
-
-function EntityFieldTable({fields}: {fields: any[]}) {
-  if (!fields.length) {
-    return <p className="archdocMuted">No mapped fields detected.</p>;
-  }
-
-  return (
-    <div className="archdocEntityFieldTableWrap">
-      <table className="archdocEntityFieldTable">
-        <thead>
-          <tr>
-            <th>Field</th>
-            <th>Type</th>
-            <th>Mapping</th>
-          </tr>
-        </thead>
-        <tbody>
-          {fields.map((field) => (
-            <tr key={`${field.name}-${field.source?.line_start ?? ''}`}>
-              <td>{field.name}</td>
-              <td>{field.annotation ?? ''}</td>
-              <td>{field.value_call ?? field.value ?? ''}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-function sourceLabel(source?: {file?: string; line_start?: number}) {
-  if (!source?.file) {
-    return undefined;
-  }
-
-  return `${source.file}${source.line_start ? `:${source.line_start}` : ''}`;
 }
 
 async function layoutGraph(graph: GraphState): Promise<GraphState> {

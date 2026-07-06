@@ -1,75 +1,569 @@
 {
   "id": "recruitment.query-builder",
+  "identity": {
+    "catalog_id": "recruitment.query-builder",
+    "logical_id": "recruitment.query-builder",
+    "source_id": "service:5b4286a91b6e8f2f",
+    "display_name": "QueryBuilderService",
+    "aliases": [
+      "recruitment.query-builder",
+      "services.recruitment.query_builder.QueryBuilderService"
+    ]
+  },
   "module": "services.recruitment.query_builder",
   "class_name": "QueryBuilderService",
   "qualified_name": "services.recruitment.query_builder.QueryBuilderService",
+  "description": "Service for building and executing participant queries",
+  "docstring": "Service for building and executing participant queries",
   "source": {
     "file": "services/recruitment/query_builder.py",
-    "line_start": 17,
-    "line_end": 498
+    "line_start": 42,
+    "line_end": 937
   },
   "operations": [
     {
       "id": "recruitment.query-builder.operation.get_available_modules",
+      "identity": {
+        "catalog_id": "recruitment.query-builder.operation.get_available_modules",
+        "logical_id": "recruitment.query-builder.operation.get_available_modules",
+        "source_id": "operation:c9c7061553c19f5d",
+        "display_name": "QueryBuilderService.get_available_modules",
+        "aliases": [
+          "recruitment.query-builder.operation.get_available_modules",
+          "services.recruitment.query_builder.QueryBuilderService.get_available_modules"
+        ]
+      },
       "method": "get_available_modules",
       "qualified_name": "services.recruitment.query_builder.QueryBuilderService.get_available_modules",
+      "parameters": [],
+      "returns": "list[QueryModuleDefinition]",
+      "description": "Get list of all available query modules",
+      "docstring": "Get list of all available query modules",
       "source": {
         "file": "services/recruitment/query_builder.py",
-        "line_start": 27,
-        "line_end": 172
+        "line_start": 125,
+        "line_end": 270
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_available_modules",
+          "qualified_name=services.recruitment.query_builder.QueryBuilderService.get_available_modules"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.query-builder.operation.build_query",
+      "identity": {
+        "catalog_id": "recruitment.query-builder.operation.build_query",
+        "logical_id": "recruitment.query-builder.operation.build_query",
+        "source_id": "operation:21251192e1bcd52e",
+        "display_name": "QueryBuilderService.build_query",
+        "aliases": [
+          "recruitment.query-builder.operation.build_query",
+          "services.recruitment.query_builder.QueryBuilderService.build_query"
+        ]
+      },
       "method": "build_query",
       "qualified_name": "services.recruitment.query_builder.QueryBuilderService.build_query",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "query_structure",
+          "annotation": "QueryStructure",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "experiment_id",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Select",
+      "description": "Build SQLAlchemy query from query structure",
+      "docstring": "Build SQLAlchemy query from query structure\n\nThis implements a query builder that converts a user-defined query structure\ninto SQLAlchemy filters. Supports:\n- Multiple conditions with AND/OR operators\n- Bracket grouping for complex logic: (A AND B) OR (C AND D)\n- Negation (NOT) on individual conditions\n- Random subset limiting\n\nArgs:\n    org_id: Organization ID (for multi-tenant isolation)\n    query_structure: Query structure with conditions and brackets\n    experiment_id: Optional experiment ID (for \"not yet assigned\" default)\n\nReturns:\n    SQLAlchemy select statement ready for execution",
       "source": {
         "file": "services/recruitment/query_builder.py",
-        "line_start": 178,
-        "line_end": 247
+        "line_start": 276,
+        "line_end": 329
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=build_query",
+          "qualified_name=services.recruitment.query_builder.QueryBuilderService.build_query"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.query-builder.operation.preview_query",
+      "identity": {
+        "catalog_id": "recruitment.query-builder.operation.preview_query",
+        "logical_id": "recruitment.query-builder.operation.preview_query",
+        "source_id": "operation:3ca3f18293b6a583",
+        "display_name": "QueryBuilderService.preview_query",
+        "aliases": [
+          "recruitment.query-builder.operation.preview_query",
+          "services.recruitment.query_builder.QueryBuilderService.preview_query"
+        ]
+      },
       "method": "preview_query",
       "qualified_name": "services.recruitment.query_builder.QueryBuilderService.preview_query",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "query_structure",
+          "annotation": "QueryStructure",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "experiment_id",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "limit",
+          "annotation": "Optional[int]",
+          "default": "100",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "tuple[int, list[Participant]]",
+      "description": "Preview query results without assigning",
+      "docstring": "Preview query results without assigning\n\nImportant: Separates count from result fetching for efficiency.\nGetting count first allows UI to display total matches before showing subset.\n\nRandom sampling uses PostgreSQL's random() function which is efficient for\nsmall samples but can be slow for large result sets. For better performance\non large datasets, consider using TABLESAMPLE or precomputed random scores.\n\nReturns:\n    (total_count, preview_participants)",
       "source": {
         "file": "services/recruitment/query_builder.py",
-        "line_start": 391,
-        "line_end": 434
+        "line_start": 553,
+        "line_end": 609
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=preview_query",
+          "qualified_name=services.recruitment.query_builder.QueryBuilderService.preview_query"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.query-builder.operation.build_experiment_query_preview",
+      "identity": {
+        "catalog_id": "recruitment.query-builder.operation.build_experiment_query_preview",
+        "logical_id": "recruitment.query-builder.operation.build_experiment_query_preview",
+        "source_id": "operation:0e0444adf4635d20",
+        "display_name": "QueryBuilderService.build_experiment_query_preview",
+        "aliases": [
+          "recruitment.query-builder.operation.build_experiment_query_preview",
+          "services.recruitment.query_builder.QueryBuilderService.build_experiment_query_preview"
+        ]
+      },
+      "method": "build_experiment_query_preview",
+      "qualified_name": "services.recruitment.query_builder.QueryBuilderService.build_experiment_query_preview",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "experiment_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "request",
+          "annotation": "QueryBuildRequest",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "QueryBuildResponse",
+      "description": "Build and preview a participant query for an experiment.",
+      "docstring": "Build and preview a participant query for an experiment.",
+      "source": {
+        "file": "services/recruitment/query_builder.py",
+        "line_start": 611,
+        "line_end": 639
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high",
+        "evidence": [
+          "method_name=build_experiment_query_preview",
+          "qualified_name=services.recruitment.query_builder.QueryBuilderService.build_experiment_query_preview"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.query-builder.operation.execute_experiment_query",
+      "identity": {
+        "catalog_id": "recruitment.query-builder.operation.execute_experiment_query",
+        "logical_id": "recruitment.query-builder.operation.execute_experiment_query",
+        "source_id": "operation:91e0fb1f9e373fe4",
+        "display_name": "QueryBuilderService.execute_experiment_query",
+        "aliases": [
+          "recruitment.query-builder.operation.execute_experiment_query",
+          "services.recruitment.query_builder.QueryBuilderService.execute_experiment_query"
+        ]
+      },
+      "method": "execute_experiment_query",
+      "qualified_name": "services.recruitment.query_builder.QueryBuilderService.execute_experiment_query",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "experiment_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "request",
+          "annotation": "QueryExecuteRequest",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "QueryExecuteResponse",
+      "description": "Execute a query and optionally assign matching participants in one transaction.",
+      "docstring": "Execute a query and optionally assign matching participants in one transaction.",
+      "source": {
+        "file": "services/recruitment/query_builder.py",
+        "line_start": 662,
+        "line_end": 797
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high",
+        "evidence": [
+          "method_name=execute_experiment_query",
+          "qualified_name=services.recruitment.query_builder.QueryBuilderService.execute_experiment_query"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.query-builder.operation.list_saved_queries",
+      "identity": {
+        "catalog_id": "recruitment.query-builder.operation.list_saved_queries",
+        "logical_id": "recruitment.query-builder.operation.list_saved_queries",
+        "source_id": "operation:6ce43f5f73bd714a",
+        "display_name": "QueryBuilderService.list_saved_queries",
+        "aliases": [
+          "recruitment.query-builder.operation.list_saved_queries",
+          "services.recruitment.query_builder.QueryBuilderService.list_saved_queries"
+        ]
+      },
+      "method": "list_saved_queries",
+      "qualified_name": "services.recruitment.query_builder.QueryBuilderService.list_saved_queries",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "experiment_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[SavedQueryResponse]",
+      "description": null,
+      "docstring": null,
+      "source": {
+        "file": "services/recruitment/query_builder.py",
+        "line_start": 799,
+        "line_end": 809
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high",
+        "evidence": [
+          "method_name=list_saved_queries",
+          "qualified_name=services.recruitment.query_builder.QueryBuilderService.list_saved_queries"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.query-builder.operation.get_saved_query",
+      "identity": {
+        "catalog_id": "recruitment.query-builder.operation.get_saved_query",
+        "logical_id": "recruitment.query-builder.operation.get_saved_query",
+        "source_id": "operation:9a220ee1cbaae506",
+        "display_name": "QueryBuilderService.get_saved_query",
+        "aliases": [
+          "recruitment.query-builder.operation.get_saved_query",
+          "services.recruitment.query_builder.QueryBuilderService.get_saved_query"
+        ]
+      },
+      "method": "get_saved_query",
+      "qualified_name": "services.recruitment.query_builder.QueryBuilderService.get_saved_query",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "query_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "SavedQueryResponse",
+      "description": null,
+      "docstring": null,
+      "source": {
+        "file": "services/recruitment/query_builder.py",
+        "line_start": 811,
+        "line_end": 813
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_saved_query",
+          "qualified_name=services.recruitment.query_builder.QueryBuilderService.get_saved_query"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.query-builder.operation.update_saved_query",
+      "identity": {
+        "catalog_id": "recruitment.query-builder.operation.update_saved_query",
+        "logical_id": "recruitment.query-builder.operation.update_saved_query",
+        "source_id": "operation:57374fa057bc53a3",
+        "display_name": "QueryBuilderService.update_saved_query",
+        "aliases": [
+          "recruitment.query-builder.operation.update_saved_query",
+          "services.recruitment.query_builder.QueryBuilderService.update_saved_query"
+        ]
+      },
+      "method": "update_saved_query",
+      "qualified_name": "services.recruitment.query_builder.QueryBuilderService.update_saved_query",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "query_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "request",
+          "annotation": "SavedQueryUpdate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "SavedQueryResponse",
+      "description": null,
+      "docstring": null,
+      "source": {
+        "file": "services/recruitment/query_builder.py",
+        "line_start": 815,
+        "line_end": 834
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_saved_query",
+          "qualified_name=services.recruitment.query_builder.QueryBuilderService.update_saved_query"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.query-builder.operation.delete_saved_query",
+      "identity": {
+        "catalog_id": "recruitment.query-builder.operation.delete_saved_query",
+        "logical_id": "recruitment.query-builder.operation.delete_saved_query",
+        "source_id": "operation:c0f891034761abaa",
+        "display_name": "QueryBuilderService.delete_saved_query",
+        "aliases": [
+          "recruitment.query-builder.operation.delete_saved_query",
+          "services.recruitment.query_builder.QueryBuilderService.delete_saved_query"
+        ]
+      },
+      "method": "delete_saved_query",
+      "qualified_name": "services.recruitment.query_builder.QueryBuilderService.delete_saved_query",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "query_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "None",
+      "description": null,
+      "docstring": null,
+      "source": {
+        "file": "services/recruitment/query_builder.py",
+        "line_start": 836,
+        "line_end": 839
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high",
+        "evidence": [
+          "method_name=delete_saved_query",
+          "qualified_name=services.recruitment.query_builder.QueryBuilderService.delete_saved_query"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "recruitment.query-builder.operation.get_query_execution_history",
+      "identity": {
+        "catalog_id": "recruitment.query-builder.operation.get_query_execution_history",
+        "logical_id": "recruitment.query-builder.operation.get_query_execution_history",
+        "source_id": "operation:9371335c2df1d756",
+        "display_name": "QueryBuilderService.get_query_execution_history",
+        "aliases": [
+          "recruitment.query-builder.operation.get_query_execution_history",
+          "services.recruitment.query_builder.QueryBuilderService.get_query_execution_history"
+        ]
+      },
+      "method": "get_query_execution_history",
+      "qualified_name": "services.recruitment.query_builder.QueryBuilderService.get_query_execution_history",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "query_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[QueryExecutionHistoryResponse]",
+      "description": null,
+      "docstring": null,
+      "source": {
+        "file": "services/recruitment/query_builder.py",
+        "line_start": 841,
+        "line_end": 861
+      },
+      "detection": {
+        "method": "public_method_in_service_class",
+        "rule": "public_method_in_service_class",
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_query_execution_history",
+          "qualified_name=services.recruitment.query_builder.QueryBuilderService.get_query_execution_history"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "recruitment.query-builder.operation.generate_query_summary",
+      "identity": {
+        "catalog_id": "recruitment.query-builder.operation.generate_query_summary",
+        "logical_id": "recruitment.query-builder.operation.generate_query_summary",
+        "source_id": "operation:bb386a219b7ef5ec",
+        "display_name": "QueryBuilderService.generate_query_summary",
+        "aliases": [
+          "recruitment.query-builder.operation.generate_query_summary",
+          "services.recruitment.query_builder.QueryBuilderService.generate_query_summary"
+        ]
+      },
       "method": "generate_query_summary",
       "qualified_name": "services.recruitment.query_builder.QueryBuilderService.generate_query_summary",
+      "parameters": [
+        {
+          "name": "query_structure",
+          "annotation": "QueryStructure",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "str",
+      "description": "Generate human-readable query description",
+      "docstring": "Generate human-readable query description",
       "source": {
         "file": "services/recruitment/query_builder.py",
-        "line_start": 436,
-        "line_end": 456
+        "line_start": 875,
+        "line_end": 895
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=generate_query_summary",
+          "qualified_name=services.recruitment.query_builder.QueryBuilderService.generate_query_summary"
+        ]
       },
       "review_status": "generated"
     }
@@ -77,7 +571,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=QueryBuilderService",
+      "source_path=services/recruitment/query_builder.py"
+    ]
   },
   "review_status": "generated"
 }

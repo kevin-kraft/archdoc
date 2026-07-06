@@ -4,7 +4,20 @@
   "source_file": "routers/admin_deliverability.py",
   "endpoints": [
     {
-      "id": "routers.admin_deliverability.get.deliverability.by-domain.get-deliverability-by-domain",
+      "id": "routers.admin_deliverability.get.admin.deliverability.by-domain.get-deliverability-by-domain",
+      "identity": {
+        "catalog_id": "routers.admin_deliverability.get.admin.deliverability.by-domain.get-deliverability-by-domain",
+        "logical_id": "routers.admin_deliverability.get.admin.deliverability.by-domain.get-deliverability-by-domain",
+        "source_id": "endpoint:1fd71ffd967703a7",
+        "display_name": "GET /admin/deliverability/by-domain",
+        "aliases": [
+          "routers.admin_deliverability.get.admin.deliverability.by-domain.get-deliverability-by-domain",
+          "routers.admin_deliverability.get_deliverability_by_domain",
+          "/deliverability/by-domain",
+          "/admin",
+          "/admin/deliverability/by-domain"
+        ]
+      },
       "module": "routers.admin_deliverability",
       "function_name": "get_deliverability_by_domain",
       "qualified_name": "routers.admin_deliverability.get_deliverability_by_domain",
@@ -18,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "/deliverability/by-domain",
+      "include_prefix": "/admin",
+      "router_prefix": null,
+      "full_path": "/admin/deliverability/by-domain",
       "router": "router",
       "kwargs": {
         "response_model": "list[DomainDeliverability]"
@@ -60,12 +76,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/deliverability/by-domain",
+          "include_prefix=/admin",
+          "router_prefix=None",
+          "full_path=/admin/deliverability/by-domain",
+          "function=routers.admin_deliverability.get_deliverability_by_domain"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_deliverability.get.deliverability.metrics.get-deliverability-metrics",
+      "id": "routers.admin_deliverability.get.admin.deliverability.metrics.get-deliverability-metrics",
+      "identity": {
+        "catalog_id": "routers.admin_deliverability.get.admin.deliverability.metrics.get-deliverability-metrics",
+        "logical_id": "routers.admin_deliverability.get.admin.deliverability.metrics.get-deliverability-metrics",
+        "source_id": "endpoint:78967164e09a2cd0",
+        "display_name": "GET /admin/deliverability/metrics",
+        "aliases": [
+          "routers.admin_deliverability.get.admin.deliverability.metrics.get-deliverability-metrics",
+          "routers.admin_deliverability.get_deliverability_metrics",
+          "/deliverability/metrics",
+          "/admin",
+          "/admin/deliverability/metrics"
+        ]
+      },
       "module": "routers.admin_deliverability",
       "function_name": "get_deliverability_metrics",
       "qualified_name": "routers.admin_deliverability.get_deliverability_metrics",
@@ -79,6 +116,9 @@
       },
       "http_method": "GET",
       "path": "/deliverability/metrics",
+      "include_prefix": "/admin",
+      "router_prefix": null,
+      "full_path": "/admin/deliverability/metrics",
       "router": "router",
       "kwargs": {
         "response_model": "DeliverabilityMetrics"
@@ -128,12 +168,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/deliverability/metrics",
+          "include_prefix=/admin",
+          "router_prefix=None",
+          "full_path=/admin/deliverability/metrics",
+          "function=routers.admin_deliverability.get_deliverability_metrics"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_deliverability.get.deliverability.suppression-list.get-suppression-list",
+      "id": "routers.admin_deliverability.get.admin.deliverability.suppression-list.get-suppression-list",
+      "identity": {
+        "catalog_id": "routers.admin_deliverability.get.admin.deliverability.suppression-list.get-suppression-list",
+        "logical_id": "routers.admin_deliverability.get.admin.deliverability.suppression-list.get-suppression-list",
+        "source_id": "endpoint:2308595c28f19e2a",
+        "display_name": "GET /admin/deliverability/suppression-list",
+        "aliases": [
+          "routers.admin_deliverability.get.admin.deliverability.suppression-list.get-suppression-list",
+          "routers.admin_deliverability.get_suppression_list",
+          "/deliverability/suppression-list",
+          "/admin",
+          "/admin/deliverability/suppression-list"
+        ]
+      },
       "module": "routers.admin_deliverability",
       "function_name": "get_suppression_list",
       "qualified_name": "routers.admin_deliverability.get_suppression_list",
@@ -147,6 +208,9 @@
       },
       "http_method": "GET",
       "path": "/deliverability/suppression-list",
+      "include_prefix": "/admin",
+      "router_prefix": null,
+      "full_path": "/admin/deliverability/suppression-list",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -180,12 +244,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/deliverability/suppression-list",
+          "include_prefix=/admin",
+          "router_prefix=None",
+          "full_path=/admin/deliverability/suppression-list",
+          "function=routers.admin_deliverability.get_suppression_list"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_deliverability.get.deliverability.trends.get-deliverability-trends",
+      "id": "routers.admin_deliverability.get.admin.deliverability.trends.get-deliverability-trends",
+      "identity": {
+        "catalog_id": "routers.admin_deliverability.get.admin.deliverability.trends.get-deliverability-trends",
+        "logical_id": "routers.admin_deliverability.get.admin.deliverability.trends.get-deliverability-trends",
+        "source_id": "endpoint:85422a5a94e98d21",
+        "display_name": "GET /admin/deliverability/trends",
+        "aliases": [
+          "routers.admin_deliverability.get.admin.deliverability.trends.get-deliverability-trends",
+          "routers.admin_deliverability.get_deliverability_trends",
+          "/deliverability/trends",
+          "/admin",
+          "/admin/deliverability/trends"
+        ]
+      },
       "module": "routers.admin_deliverability",
       "function_name": "get_deliverability_trends",
       "qualified_name": "routers.admin_deliverability.get_deliverability_trends",
@@ -199,6 +284,9 @@
       },
       "http_method": "GET",
       "path": "/deliverability/trends",
+      "include_prefix": "/admin",
+      "router_prefix": null,
+      "full_path": "/admin/deliverability/trends",
       "router": "router",
       "kwargs": {
         "response_model": "list[DeliverabilityTrend]"
@@ -241,7 +329,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/deliverability/trends",
+          "include_prefix=/admin",
+          "router_prefix=None",
+          "full_path=/admin/deliverability/trends",
+          "function=routers.admin_deliverability.get_deliverability_trends"
+        ]
       },
       "review_status": "generated"
     }

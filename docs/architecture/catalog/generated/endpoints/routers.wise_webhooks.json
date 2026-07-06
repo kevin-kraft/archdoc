@@ -4,7 +4,18 @@
   "source_file": "routers/wise_webhooks.py",
   "endpoints": [
     {
-      "id": "routers.wise_webhooks.post.handle-wise-webhook",
+      "id": "routers.wise_webhooks.post.webhooks.wise.handle-wise-webhook",
+      "identity": {
+        "catalog_id": "routers.wise_webhooks.post.webhooks.wise.handle-wise-webhook",
+        "logical_id": "routers.wise_webhooks.post.webhooks.wise.handle-wise-webhook",
+        "source_id": "endpoint:9b58e85f2ef0be48",
+        "display_name": "POST /webhooks/wise",
+        "aliases": [
+          "routers.wise_webhooks.post.webhooks.wise.handle-wise-webhook",
+          "routers.wise_webhooks.handle_wise_webhook",
+          "/webhooks/wise"
+        ]
+      },
       "module": "routers.wise_webhooks",
       "function_name": "handle_wise_webhook",
       "qualified_name": "routers.wise_webhooks.handle_wise_webhook",
@@ -21,6 +32,9 @@
       },
       "http_method": "POST",
       "path": "",
+      "include_prefix": null,
+      "router_prefix": "/webhooks/wise",
+      "full_path": "/webhooks/wise",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -47,7 +61,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=",
+          "include_prefix=None",
+          "router_prefix=/webhooks/wise",
+          "full_path=/webhooks/wise",
+          "function=routers.wise_webhooks.handle_wise_webhook"
+        ]
       },
       "review_status": "generated"
     }

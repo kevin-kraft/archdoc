@@ -1,59 +1,194 @@
 {
   "id": "participants.participant-duplicate-application",
+  "identity": {
+    "catalog_id": "participants.participant-duplicate-application",
+    "logical_id": "participants.participant-duplicate-application",
+    "source_id": "service:2aa286a296111f2a",
+    "display_name": "ParticipantDuplicateApplicationService",
+    "aliases": [
+      "participants.participant-duplicate-application",
+      "services.participants.duplicates.ParticipantDuplicateApplicationService"
+    ]
+  },
   "module": "services.participants.duplicates",
   "class_name": "ParticipantDuplicateApplicationService",
   "qualified_name": "services.participants.duplicates.ParticipantDuplicateApplicationService",
+  "description": null,
+  "docstring": null,
   "source": {
     "file": "services/participants/duplicates.py",
-    "line_start": 17,
-    "line_end": 167
+    "line_start": 18,
+    "line_end": 168
   },
   "operations": [
     {
       "id": "participants.participant-duplicate-application.operation.create_participant_with_duplicate_check",
+      "identity": {
+        "catalog_id": "participants.participant-duplicate-application.operation.create_participant_with_duplicate_check",
+        "logical_id": "participants.participant-duplicate-application.operation.create_participant_with_duplicate_check",
+        "source_id": "operation:99f151a72ac33f4d",
+        "display_name": "ParticipantDuplicateApplicationService.create_participant_with_duplicate_check",
+        "aliases": [
+          "participants.participant-duplicate-application.operation.create_participant_with_duplicate_check",
+          "services.participants.duplicates.ParticipantDuplicateApplicationService.create_participant_with_duplicate_check"
+        ]
+      },
       "method": "create_participant_with_duplicate_check",
       "qualified_name": "services.participants.duplicates.ParticipantDuplicateApplicationService.create_participant_with_duplicate_check",
+      "parameters": [
+        {
+          "name": "participant_data",
+          "annotation": "ParticipantCreate",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "duplicate_handling",
+          "annotation": "str",
+          "default": "'warn'",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/participants/duplicates.py",
-        "line_start": 23,
-        "line_end": 68
+        "line_start": 24,
+        "line_end": 69
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_participant_with_duplicate_check",
+          "qualified_name=services.participants.duplicates.ParticipantDuplicateApplicationService.create_participant_with_duplicate_check"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "participants.participant-duplicate-application.operation.detect_duplicates",
+      "identity": {
+        "catalog_id": "participants.participant-duplicate-application.operation.detect_duplicates",
+        "logical_id": "participants.participant-duplicate-application.operation.detect_duplicates",
+        "source_id": "operation:30af98d17fb00bde",
+        "display_name": "ParticipantDuplicateApplicationService.detect_duplicates",
+        "aliases": [
+          "participants.participant-duplicate-application.operation.detect_duplicates",
+          "services.participants.duplicates.ParticipantDuplicateApplicationService.detect_duplicates"
+        ]
+      },
       "method": "detect_duplicates",
       "qualified_name": "services.participants.duplicates.ParticipantDuplicateApplicationService.detect_duplicates",
+      "parameters": [
+        {
+          "name": "participant_data",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "method",
+          "annotation": "DuplicateDetectionMethod",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[DuplicateMatch]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/participants/duplicates.py",
-        "line_start": 70,
-        "line_end": 76
+        "line_start": 71,
+        "line_end": 77
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=detect_duplicates",
+          "qualified_name=services.participants.duplicates.ParticipantDuplicateApplicationService.detect_duplicates"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "participants.participant-duplicate-application.operation.merge_duplicate_participants",
+      "identity": {
+        "catalog_id": "participants.participant-duplicate-application.operation.merge_duplicate_participants",
+        "logical_id": "participants.participant-duplicate-application.operation.merge_duplicate_participants",
+        "source_id": "operation:8c64a753fc7271f8",
+        "display_name": "ParticipantDuplicateApplicationService.merge_duplicate_participants",
+        "aliases": [
+          "participants.participant-duplicate-application.operation.merge_duplicate_participants",
+          "services.participants.duplicates.ParticipantDuplicateApplicationService.merge_duplicate_participants"
+        ]
+      },
       "method": "merge_duplicate_participants",
       "qualified_name": "services.participants.duplicates.ParticipantDuplicateApplicationService.merge_duplicate_participants",
+      "parameters": [
+        {
+          "name": "primary_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "duplicate_ids",
+          "annotation": "list[UUID]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/participants/duplicates.py",
-        "line_start": 78,
-        "line_end": 107
+        "line_start": 79,
+        "line_end": 108
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=merge_duplicate_participants",
+          "qualified_name=services.participants.duplicates.ParticipantDuplicateApplicationService.merge_duplicate_participants"
+        ]
       },
       "review_status": "generated"
     }
@@ -61,7 +196,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=ParticipantDuplicateApplicationService",
+      "source_path=services/participants/duplicates.py"
+    ]
   },
   "review_status": "generated"
 }

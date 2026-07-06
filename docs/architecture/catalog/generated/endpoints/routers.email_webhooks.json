@@ -4,7 +4,20 @@
   "source_file": "routers/email_webhooks.py",
   "endpoints": [
     {
-      "id": "routers.email_webhooks.post.postmark.handle-postmark-webhook",
+      "id": "routers.email_webhooks.post.webhooks.email.postmark.handle-postmark-webhook",
+      "identity": {
+        "catalog_id": "routers.email_webhooks.post.webhooks.email.postmark.handle-postmark-webhook",
+        "logical_id": "routers.email_webhooks.post.webhooks.email.postmark.handle-postmark-webhook",
+        "source_id": "endpoint:4459bd909534ca38",
+        "display_name": "POST /webhooks/email/postmark",
+        "aliases": [
+          "routers.email_webhooks.post.webhooks.email.postmark.handle-postmark-webhook",
+          "routers.email_webhooks.handle_postmark_webhook",
+          "/postmark",
+          "/webhooks/email",
+          "/webhooks/email/postmark"
+        ]
+      },
       "module": "routers.email_webhooks",
       "function_name": "handle_postmark_webhook",
       "qualified_name": "routers.email_webhooks.handle_postmark_webhook",
@@ -18,6 +31,9 @@
       },
       "http_method": "POST",
       "path": "/postmark",
+      "include_prefix": null,
+      "router_prefix": "/webhooks/email",
+      "full_path": "/webhooks/email/postmark",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -51,12 +67,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/postmark",
+          "include_prefix=None",
+          "router_prefix=/webhooks/email",
+          "full_path=/webhooks/email/postmark",
+          "function=routers.email_webhooks.handle_postmark_webhook"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_webhooks.post.sendgrid.handle-sendgrid-webhook",
+      "id": "routers.email_webhooks.post.webhooks.email.sendgrid.handle-sendgrid-webhook",
+      "identity": {
+        "catalog_id": "routers.email_webhooks.post.webhooks.email.sendgrid.handle-sendgrid-webhook",
+        "logical_id": "routers.email_webhooks.post.webhooks.email.sendgrid.handle-sendgrid-webhook",
+        "source_id": "endpoint:578b36c6ef1cb44b",
+        "display_name": "POST /webhooks/email/sendgrid",
+        "aliases": [
+          "routers.email_webhooks.post.webhooks.email.sendgrid.handle-sendgrid-webhook",
+          "routers.email_webhooks.handle_sendgrid_webhook",
+          "/sendgrid",
+          "/webhooks/email",
+          "/webhooks/email/sendgrid"
+        ]
+      },
       "module": "routers.email_webhooks",
       "function_name": "handle_sendgrid_webhook",
       "qualified_name": "routers.email_webhooks.handle_sendgrid_webhook",
@@ -70,6 +107,9 @@
       },
       "http_method": "POST",
       "path": "/sendgrid",
+      "include_prefix": null,
+      "router_prefix": "/webhooks/email",
+      "full_path": "/webhooks/email/sendgrid",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -110,12 +150,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/sendgrid",
+          "include_prefix=None",
+          "router_prefix=/webhooks/email",
+          "full_path=/webhooks/email/sendgrid",
+          "function=routers.email_webhooks.handle_sendgrid_webhook"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_webhooks.post.ses.handle-ses-webhook",
+      "id": "routers.email_webhooks.post.webhooks.email.ses.handle-ses-webhook",
+      "identity": {
+        "catalog_id": "routers.email_webhooks.post.webhooks.email.ses.handle-ses-webhook",
+        "logical_id": "routers.email_webhooks.post.webhooks.email.ses.handle-ses-webhook",
+        "source_id": "endpoint:c9add8d3e53d3f50",
+        "display_name": "POST /webhooks/email/ses",
+        "aliases": [
+          "routers.email_webhooks.post.webhooks.email.ses.handle-ses-webhook",
+          "routers.email_webhooks.handle_ses_webhook",
+          "/ses",
+          "/webhooks/email",
+          "/webhooks/email/ses"
+        ]
+      },
       "module": "routers.email_webhooks",
       "function_name": "handle_ses_webhook",
       "qualified_name": "routers.email_webhooks.handle_ses_webhook",
@@ -129,6 +190,9 @@
       },
       "http_method": "POST",
       "path": "/ses",
+      "include_prefix": null,
+      "router_prefix": "/webhooks/email",
+      "full_path": "/webhooks/email/ses",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -155,7 +219,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/ses",
+          "include_prefix=None",
+          "router_prefix=/webhooks/email",
+          "full_path=/webhooks/email/ses",
+          "function=routers.email_webhooks.handle_ses_webhook"
+        ]
       },
       "review_status": "generated"
     }

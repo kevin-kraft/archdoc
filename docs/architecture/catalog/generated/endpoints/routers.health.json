@@ -5,6 +5,17 @@
   "endpoints": [
     {
       "id": "routers.health.get.health.basic-health-check",
+      "identity": {
+        "catalog_id": "routers.health.get.health.basic-health-check",
+        "logical_id": "routers.health.get.health.basic-health-check",
+        "source_id": "endpoint:52a2e668295f7d04",
+        "display_name": "GET /health",
+        "aliases": [
+          "routers.health.get.health.basic-health-check",
+          "routers.health.basic_health_check",
+          "/health"
+        ]
+      },
       "module": "routers.health",
       "function_name": "basic_health_check",
       "qualified_name": "routers.health.basic_health_check",
@@ -18,23 +29,45 @@
       },
       "http_method": "GET",
       "path": "/health",
+      "include_prefix": null,
+      "router_prefix": null,
+      "full_path": "/health",
       "router": "router",
       "kwargs": {},
       "parameters": [],
       "source": {
         "file": "routers/health.py",
-        "line_start": 256,
-        "line_end": 267
+        "line_start": 257,
+        "line_end": 268
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/health",
+          "include_prefix=None",
+          "router_prefix=None",
+          "full_path=/health",
+          "function=routers.health.basic_health_check"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "routers.health.get.health.detailed.detailed-health-check",
+      "identity": {
+        "catalog_id": "routers.health.get.health.detailed.detailed-health-check",
+        "logical_id": "routers.health.get.health.detailed.detailed-health-check",
+        "source_id": "endpoint:ed1c5b0296e99ca8",
+        "display_name": "GET /health/detailed",
+        "aliases": [
+          "routers.health.get.health.detailed.detailed-health-check",
+          "routers.health.detailed_health_check",
+          "/health/detailed"
+        ]
+      },
       "module": "routers.health",
       "function_name": "detailed_health_check",
       "qualified_name": "routers.health.detailed_health_check",
@@ -48,6 +81,9 @@
       },
       "http_method": "GET",
       "path": "/health/detailed",
+      "include_prefix": null,
+      "router_prefix": null,
+      "full_path": "/health/detailed",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -61,18 +97,37 @@
       ],
       "source": {
         "file": "routers/health.py",
-        "line_start": 306,
-        "line_end": 405
+        "line_start": 307,
+        "line_end": 406
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/health/detailed",
+          "include_prefix=None",
+          "router_prefix=None",
+          "full_path=/health/detailed",
+          "function=routers.health.detailed_health_check"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "routers.health.get.health.live.liveness-probe",
+      "identity": {
+        "catalog_id": "routers.health.get.health.live.liveness-probe",
+        "logical_id": "routers.health.get.health.live.liveness-probe",
+        "source_id": "endpoint:774d007525b7b738",
+        "display_name": "GET /health/live",
+        "aliases": [
+          "routers.health.get.health.live.liveness-probe",
+          "routers.health.liveness_probe",
+          "/health/live"
+        ]
+      },
       "module": "routers.health",
       "function_name": "liveness_probe",
       "qualified_name": "routers.health.liveness_probe",
@@ -86,23 +141,45 @@
       },
       "http_method": "GET",
       "path": "/health/live",
+      "include_prefix": null,
+      "router_prefix": null,
+      "full_path": "/health/live",
       "router": "router",
       "kwargs": {},
       "parameters": [],
       "source": {
         "file": "routers/health.py",
-        "line_start": 271,
-        "line_end": 280
+        "line_start": 272,
+        "line_end": 281
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/health/live",
+          "include_prefix=None",
+          "router_prefix=None",
+          "full_path=/health/live",
+          "function=routers.health.liveness_probe"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "routers.health.get.health.ready.readiness-probe",
+      "identity": {
+        "catalog_id": "routers.health.get.health.ready.readiness-probe",
+        "logical_id": "routers.health.get.health.ready.readiness-probe",
+        "source_id": "endpoint:1948fd46640b42b7",
+        "display_name": "GET /health/ready",
+        "aliases": [
+          "routers.health.get.health.ready.readiness-probe",
+          "routers.health.readiness_probe",
+          "/health/ready"
+        ]
+      },
       "module": "routers.health",
       "function_name": "readiness_probe",
       "qualified_name": "routers.health.readiness_probe",
@@ -116,18 +193,29 @@
       },
       "http_method": "GET",
       "path": "/health/ready",
+      "include_prefix": null,
+      "router_prefix": null,
+      "full_path": "/health/ready",
       "router": "router",
       "kwargs": {},
       "parameters": [],
       "source": {
         "file": "routers/health.py",
-        "line_start": 284,
-        "line_end": 302
+        "line_start": 285,
+        "line_end": 303
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/health/ready",
+          "include_prefix=None",
+          "router_prefix=None",
+          "full_path=/health/ready",
+          "function=routers.health.readiness_probe"
+        ]
       },
       "review_status": "generated"
     }

@@ -1,123 +1,406 @@
 {
   "id": "sessions.advanced-session-management",
+  "identity": {
+    "catalog_id": "sessions.advanced-session-management",
+    "logical_id": "sessions.advanced-session-management",
+    "source_id": "service:ac0dfb8b44b500b1",
+    "display_name": "AdvancedSessionManagementService",
+    "aliases": [
+      "sessions.advanced-session-management",
+      "services.sessions.advanced.AdvancedSessionManagementService"
+    ]
+  },
   "module": "services.sessions.advanced",
   "class_name": "AdvancedSessionManagementService",
   "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService",
+  "description": "Advanced session management with enhanced capabilities",
+  "docstring": "Advanced session management with enhanced capabilities",
   "source": {
     "file": "services/sessions/advanced.py",
-    "line_start": 92,
-    "line_end": 1164
+    "line_start": 98,
+    "line_end": 1014
   },
   "operations": [
     {
       "id": "sessions.advanced-session-management.operation.create_session_with_enhanced_validation",
+      "identity": {
+        "catalog_id": "sessions.advanced-session-management.operation.create_session_with_enhanced_validation",
+        "logical_id": "sessions.advanced-session-management.operation.create_session_with_enhanced_validation",
+        "source_id": "operation:1253e098736f8140",
+        "display_name": "AdvancedSessionManagementService.create_session_with_enhanced_validation",
+        "aliases": [
+          "sessions.advanced-session-management.operation.create_session_with_enhanced_validation",
+          "services.sessions.advanced.AdvancedSessionManagementService.create_session_with_enhanced_validation"
+        ]
+      },
       "method": "create_session_with_enhanced_validation",
       "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.create_session_with_enhanced_validation",
+      "parameters": [
+        {
+          "name": "session_data",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Session",
+      "description": "Create a session with comprehensive validation including conflict detection",
+      "docstring": "Create a session with comprehensive validation including conflict detection",
       "source": {
         "file": "services/sessions/advanced.py",
-        "line_start": 100,
-        "line_end": 166
+        "line_start": 106,
+        "line_end": 174
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_session_with_enhanced_validation",
+          "qualified_name=services.sessions.advanced.AdvancedSessionManagementService.create_session_with_enhanced_validation"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "sessions.advanced-session-management.operation.bulk_update_session_status",
+      "identity": {
+        "catalog_id": "sessions.advanced-session-management.operation.bulk_update_session_status",
+        "logical_id": "sessions.advanced-session-management.operation.bulk_update_session_status",
+        "source_id": "operation:544cf896acd4f573",
+        "display_name": "AdvancedSessionManagementService.bulk_update_session_status",
+        "aliases": [
+          "sessions.advanced-session-management.operation.bulk_update_session_status",
+          "services.sessions.advanced.AdvancedSessionManagementService.bulk_update_session_status"
+        ]
+      },
       "method": "bulk_update_session_status",
       "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.bulk_update_session_status",
+      "parameters": [
+        {
+          "name": "session_ids",
+          "annotation": "list[UUID]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "new_status",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "reason",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": "Update status for multiple sessions with validation and conflict resolution",
+      "docstring": "Update status for multiple sessions with validation and conflict resolution",
       "source": {
         "file": "services/sessions/advanced.py",
-        "line_start": 168,
-        "line_end": 210
+        "line_start": 176,
+        "line_end": 220
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=bulk_update_session_status",
+          "qualified_name=services.sessions.advanced.AdvancedSessionManagementService.bulk_update_session_status"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "sessions.advanced-session-management.operation.process_session_completion",
+      "identity": {
+        "catalog_id": "sessions.advanced-session-management.operation.process_session_completion",
+        "logical_id": "sessions.advanced-session-management.operation.process_session_completion",
+        "source_id": "operation:8953730ca69749b7",
+        "display_name": "AdvancedSessionManagementService.process_session_completion",
+        "aliases": [
+          "sessions.advanced-session-management.operation.process_session_completion",
+          "services.sessions.advanced.AdvancedSessionManagementService.process_session_completion"
+        ]
+      },
       "method": "process_session_completion",
       "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.process_session_completion",
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "force_completion",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": "Compatibility facade for session completion.",
+      "docstring": "Compatibility facade for session completion.\n\nAttendance and outcome recording is owned by SessionParticipationService.\nCompletion and finance side effects are owned by SessionManagementService.",
       "source": {
         "file": "services/sessions/advanced.py",
-        "line_start": 212,
-        "line_end": 266
+        "line_start": 222,
+        "line_end": 267
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=process_session_completion",
+          "qualified_name=services.sessions.advanced.AdvancedSessionManagementService.process_session_completion"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "sessions.advanced-session-management.operation.get_session_completion_tracker",
+      "identity": {
+        "catalog_id": "sessions.advanced-session-management.operation.get_session_completion_tracker",
+        "logical_id": "sessions.advanced-session-management.operation.get_session_completion_tracker",
+        "source_id": "operation:3e7eea3dba306921",
+        "display_name": "AdvancedSessionManagementService.get_session_completion_tracker",
+        "aliases": [
+          "sessions.advanced-session-management.operation.get_session_completion_tracker",
+          "services.sessions.advanced.AdvancedSessionManagementService.get_session_completion_tracker"
+        ]
+      },
       "method": "get_session_completion_tracker",
       "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.get_session_completion_tracker",
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "SessionCompletionTracker",
+      "description": "Return persisted completion tracking for a session, deriving it when needed.",
+      "docstring": "Return persisted completion tracking for a session, deriving it when needed.",
       "source": {
         "file": "services/sessions/advanced.py",
-        "line_start": 268,
-        "line_end": 328
+        "line_start": 269,
+        "line_end": 329
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_session_completion_tracker",
+          "qualified_name=services.sessions.advanced.AdvancedSessionManagementService.get_session_completion_tracker"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "sessions.advanced-session-management.operation.detect_and_resolve_conflicts",
+      "identity": {
+        "catalog_id": "sessions.advanced-session-management.operation.detect_and_resolve_conflicts",
+        "logical_id": "sessions.advanced-session-management.operation.detect_and_resolve_conflicts",
+        "source_id": "operation:67895f9f7b1d2ec7",
+        "display_name": "AdvancedSessionManagementService.detect_and_resolve_conflicts",
+        "aliases": [
+          "sessions.advanced-session-management.operation.detect_and_resolve_conflicts",
+          "services.sessions.advanced.AdvancedSessionManagementService.detect_and_resolve_conflicts"
+        ]
+      },
       "method": "detect_and_resolve_conflicts",
       "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.detect_and_resolve_conflicts",
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "resolution_strategy",
+          "annotation": "str",
+          "default": "'auto'",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": "Detect and resolve conflicts for a session",
+      "docstring": "Detect and resolve conflicts for a session",
       "source": {
         "file": "services/sessions/advanced.py",
-        "line_start": 435,
-        "line_end": 480
+        "line_start": 415,
+        "line_end": 460
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=detect_and_resolve_conflicts",
+          "qualified_name=services.sessions.advanced.AdvancedSessionManagementService.detect_and_resolve_conflicts"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "sessions.advanced-session-management.operation.manage_lab_reservations",
+      "identity": {
+        "catalog_id": "sessions.advanced-session-management.operation.manage_lab_reservations",
+        "logical_id": "sessions.advanced-session-management.operation.manage_lab_reservations",
+        "source_id": "operation:4de06f09b5b426de",
+        "display_name": "AdvancedSessionManagementService.manage_lab_reservations",
+        "aliases": [
+          "sessions.advanced-session-management.operation.manage_lab_reservations",
+          "services.sessions.advanced.AdvancedSessionManagementService.manage_lab_reservations"
+        ]
+      },
       "method": "manage_lab_reservations",
       "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.manage_lab_reservations",
+      "parameters": [
+        {
+          "name": "lab_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "start_time",
+          "annotation": "datetime",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "end_time",
+          "annotation": "datetime",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "session_id",
+          "annotation": "Optional[UUID]",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": "Manage lab reservations with conflict detection and resource allocation",
+      "docstring": "Manage lab reservations with conflict detection and resource allocation",
       "source": {
         "file": "services/sessions/advanced.py",
-        "line_start": 482,
-        "line_end": 532
+        "line_start": 462,
+        "line_end": 512
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=manage_lab_reservations",
+          "qualified_name=services.sessions.advanced.AdvancedSessionManagementService.manage_lab_reservations"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "sessions.advanced-session-management.operation.get_session_analytics",
+      "identity": {
+        "catalog_id": "sessions.advanced-session-management.operation.get_session_analytics",
+        "logical_id": "sessions.advanced-session-management.operation.get_session_analytics",
+        "source_id": "operation:57f95ea36f3c09d8",
+        "display_name": "AdvancedSessionManagementService.get_session_analytics",
+        "aliases": [
+          "sessions.advanced-session-management.operation.get_session_analytics",
+          "services.sessions.advanced.AdvancedSessionManagementService.get_session_analytics"
+        ]
+      },
       "method": "get_session_analytics",
       "qualified_name": "services.sessions.advanced.AdvancedSessionManagementService.get_session_analytics",
+      "parameters": [
+        {
+          "name": "session_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "include_participation",
+          "annotation": "bool",
+          "default": "True",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "include_financials",
+          "annotation": "bool",
+          "default": "True",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": "Get comprehensive analytics for a session",
+      "docstring": "Get comprehensive analytics for a session",
       "source": {
         "file": "services/sessions/advanced.py",
-        "line_start": 534,
-        "line_end": 576
+        "line_start": 514,
+        "line_end": 556
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_session_analytics",
+          "qualified_name=services.sessions.advanced.AdvancedSessionManagementService.get_session_analytics"
+        ]
       },
       "review_status": "generated"
     }
@@ -125,7 +408,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=AdvancedSessionManagementService",
+      "source_path=services/sessions/advanced.py"
+    ]
   },
   "review_status": "generated"
 }

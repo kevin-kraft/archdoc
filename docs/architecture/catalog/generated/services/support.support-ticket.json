@@ -1,8 +1,20 @@
 {
   "id": "support.support-ticket",
+  "identity": {
+    "catalog_id": "support.support-ticket",
+    "logical_id": "support.support-ticket",
+    "source_id": "service:f2e16c176f282621",
+    "display_name": "SupportTicketService",
+    "aliases": [
+      "support.support-ticket",
+      "services.support.tickets.SupportTicketService"
+    ]
+  },
   "module": "services.support.tickets",
   "class_name": "SupportTicketService",
   "qualified_name": "services.support.tickets.SupportTicketService",
+  "description": null,
+  "docstring": null,
   "source": {
     "file": "services/support/tickets.py",
     "line_start": 35,
@@ -11,8 +23,71 @@
   "operations": [
     {
       "id": "support.support-ticket.operation.create_ticket",
+      "identity": {
+        "catalog_id": "support.support-ticket.operation.create_ticket",
+        "logical_id": "support.support-ticket.operation.create_ticket",
+        "source_id": "operation:33beba2559d5eceb",
+        "display_name": "SupportTicketService.create_ticket",
+        "aliases": [
+          "support.support-ticket.operation.create_ticket",
+          "services.support.tickets.SupportTicketService.create_ticket"
+        ]
+      },
       "method": "create_ticket",
       "qualified_name": "services.support.tickets.SupportTicketService.create_ticket",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "ticket_type",
+          "annotation": "SupportTicketType",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "subject",
+          "annotation": "str | None",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "message",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "context_type",
+          "annotation": "str | None",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "context_id",
+          "annotation": "str | None",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "context_metadata",
+          "annotation": "dict[str, object]",
+          "default": null,
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "SupportTicket",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/support/tickets.py",
         "line_start": 78,
@@ -21,14 +96,81 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=create_ticket",
+          "qualified_name=services.support.tickets.SupportTicketService.create_ticket"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "support.support-ticket.operation.list_tickets",
+      "identity": {
+        "catalog_id": "support.support-ticket.operation.list_tickets",
+        "logical_id": "support.support-ticket.operation.list_tickets",
+        "source_id": "operation:f03beab90d6146d7",
+        "display_name": "SupportTicketService.list_tickets",
+        "aliases": [
+          "support.support-ticket.operation.list_tickets",
+          "services.support.tickets.SupportTicketService.list_tickets"
+        ]
+      },
       "method": "list_tickets",
       "qualified_name": "services.support.tickets.SupportTicketService.list_tickets",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "UUID | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "status",
+          "annotation": "SupportTicketStatus | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "ticket_type",
+          "annotation": "SupportTicketType | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "context_type",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "context_id",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "search",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "100",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "list[SupportTicket]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/support/tickets.py",
         "line_start": 140,
@@ -37,14 +179,57 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=list_tickets",
+          "qualified_name=services.support.tickets.SupportTicketService.list_tickets"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "support.support-ticket.operation.get_ticket",
+      "identity": {
+        "catalog_id": "support.support-ticket.operation.get_ticket",
+        "logical_id": "support.support-ticket.operation.get_ticket",
+        "source_id": "operation:a41422d5c5ac847d",
+        "display_name": "SupportTicketService.get_ticket",
+        "aliases": [
+          "support.support-ticket.operation.get_ticket",
+          "services.support.tickets.SupportTicketService.get_ticket"
+        ]
+      },
       "method": "get_ticket",
       "qualified_name": "services.support.tickets.SupportTicketService.get_ticket",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "ticket_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "UUID | None",
+          "default": "None",
+          "kind": "keyword_only"
+        },
+        {
+          "name": "include_entries",
+          "annotation": "bool",
+          "default": "False",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "SupportTicket",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/support/tickets.py",
         "line_start": 181,
@@ -53,14 +238,57 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_ticket",
+          "qualified_name=services.support.tickets.SupportTicketService.get_ticket"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "support.support-ticket.operation.add_participant_entry",
+      "identity": {
+        "catalog_id": "support.support-ticket.operation.add_participant_entry",
+        "logical_id": "support.support-ticket.operation.add_participant_entry",
+        "source_id": "operation:976a89c9a57cf86d",
+        "display_name": "SupportTicketService.add_participant_entry",
+        "aliases": [
+          "support.support-ticket.operation.add_participant_entry",
+          "services.support.tickets.SupportTicketService.add_participant_entry"
+        ]
+      },
       "method": "add_participant_entry",
       "qualified_name": "services.support.tickets.SupportTicketService.add_participant_entry",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "ticket_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "body",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "SupportTicket",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/support/tickets.py",
         "line_start": 209,
@@ -69,14 +297,63 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=add_participant_entry",
+          "qualified_name=services.support.tickets.SupportTicketService.add_participant_entry"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "support.support-ticket.operation.add_staff_entry",
+      "identity": {
+        "catalog_id": "support.support-ticket.operation.add_staff_entry",
+        "logical_id": "support.support-ticket.operation.add_staff_entry",
+        "source_id": "operation:1e7db8f75f9052d2",
+        "display_name": "SupportTicketService.add_staff_entry",
+        "aliases": [
+          "support.support-ticket.operation.add_staff_entry",
+          "services.support.tickets.SupportTicketService.add_staff_entry"
+        ]
+      },
       "method": "add_staff_entry",
       "qualified_name": "services.support.tickets.SupportTicketService.add_staff_entry",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "ticket_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "entry_type",
+          "annotation": "SupportTicketEntryType",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "body",
+          "annotation": "str",
+          "default": null,
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "SupportTicket",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/support/tickets.py",
         "line_start": 262,
@@ -85,14 +362,63 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=add_staff_entry",
+          "qualified_name=services.support.tickets.SupportTicketService.add_staff_entry"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "support.support-ticket.operation.update_status",
+      "identity": {
+        "catalog_id": "support.support-ticket.operation.update_status",
+        "logical_id": "support.support-ticket.operation.update_status",
+        "source_id": "operation:2f7e145f68c962bd",
+        "display_name": "SupportTicketService.update_status",
+        "aliases": [
+          "support.support-ticket.operation.update_status",
+          "services.support.tickets.SupportTicketService.update_status"
+        ]
+      },
       "method": "update_status",
       "qualified_name": "services.support.tickets.SupportTicketService.update_status",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "ticket_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "status",
+          "annotation": "SupportTicketStatus",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "note",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "SupportTicket",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/support/tickets.py",
         "line_start": 300,
@@ -101,14 +427,63 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_status",
+          "qualified_name=services.support.tickets.SupportTicketService.update_status"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "support.support-ticket.operation.update_participant_status",
+      "identity": {
+        "catalog_id": "support.support-ticket.operation.update_participant_status",
+        "logical_id": "support.support-ticket.operation.update_participant_status",
+        "source_id": "operation:9c29a90a529a0df2",
+        "display_name": "SupportTicketService.update_participant_status",
+        "aliases": [
+          "support.support-ticket.operation.update_participant_status",
+          "services.support.tickets.SupportTicketService.update_participant_status"
+        ]
+      },
       "method": "update_participant_status",
       "qualified_name": "services.support.tickets.SupportTicketService.update_participant_status",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "ticket_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "status",
+          "annotation": "SupportTicketStatus",
+          "default": null,
+          "kind": "keyword_only"
+        },
+        {
+          "name": "note",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "keyword_only"
+        }
+      ],
+      "returns": "SupportTicket",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/support/tickets.py",
         "line_start": 320,
@@ -117,7 +492,11 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_participant_status",
+          "qualified_name=services.support.tickets.SupportTicketService.update_participant_status"
+        ]
       },
       "review_status": "generated"
     }
@@ -125,7 +504,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=SupportTicketService",
+      "source_path=services/support/tickets.py"
+    ]
   },
   "review_status": "generated"
 }

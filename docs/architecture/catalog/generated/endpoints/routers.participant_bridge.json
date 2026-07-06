@@ -5,6 +5,17 @@
   "endpoints": [
     {
       "id": "routers.participant_bridge.get.public.param-org-slug.bridge.sessions.param-session-id.consent.get-session-bridge-consent",
+      "identity": {
+        "catalog_id": "routers.participant_bridge.get.public.param-org-slug.bridge.sessions.param-session-id.consent.get-session-bridge-consent",
+        "logical_id": "routers.participant_bridge.get.public.param-org-slug.bridge.sessions.param-session-id.consent.get-session-bridge-consent",
+        "source_id": "endpoint:dc54cce3a32b8bf5",
+        "display_name": "GET /public/{org_slug}/bridge/sessions/{session_id}/consent",
+        "aliases": [
+          "routers.participant_bridge.get.public.param-org-slug.bridge.sessions.param-session-id.consent.get-session-bridge-consent",
+          "routers.participant_bridge.get_session_bridge_consent",
+          "/public/{org_slug}/bridge/sessions/{session_id}/consent"
+        ]
+      },
       "module": "routers.participant_bridge",
       "function_name": "get_session_bridge_consent",
       "qualified_name": "routers.participant_bridge.get_session_bridge_consent",
@@ -13,7 +24,6 @@
         "confidence": "high",
         "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call",
           "service_variable_detected",
           "service_method_call_detected",
           "endpoint_service_link_resolved"
@@ -21,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "/public/{org_slug}/bridge/sessions/{session_id}/consent",
+      "include_prefix": null,
+      "router_prefix": null,
+      "full_path": "/public/{org_slug}/bridge/sessions/{session_id}/consent",
       "router": "router",
       "kwargs": {
         "response_model": "PublicSessionBridgeConsentResponse"
@@ -50,18 +63,37 @@
       ],
       "source": {
         "file": "routers/participant_bridge.py",
-        "line_start": 121,
-        "line_end": 182
+        "line_start": 56,
+        "line_end": 70
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/public/{org_slug}/bridge/sessions/{session_id}/consent",
+          "include_prefix=None",
+          "router_prefix=None",
+          "full_path=/public/{org_slug}/bridge/sessions/{session_id}/consent",
+          "function=routers.participant_bridge.get_session_bridge_consent"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "routers.participant_bridge.get.public.param-org-slug.bridge.sessions.param-session-id.pass.get-session-bridge-pass",
+      "identity": {
+        "catalog_id": "routers.participant_bridge.get.public.param-org-slug.bridge.sessions.param-session-id.pass.get-session-bridge-pass",
+        "logical_id": "routers.participant_bridge.get.public.param-org-slug.bridge.sessions.param-session-id.pass.get-session-bridge-pass",
+        "source_id": "endpoint:6339639c1bb527d0",
+        "display_name": "GET /public/{org_slug}/bridge/sessions/{session_id}/pass",
+        "aliases": [
+          "routers.participant_bridge.get.public.param-org-slug.bridge.sessions.param-session-id.pass.get-session-bridge-pass",
+          "routers.participant_bridge.get_session_bridge_pass",
+          "/public/{org_slug}/bridge/sessions/{session_id}/pass"
+        ]
+      },
       "module": "routers.participant_bridge",
       "function_name": "get_session_bridge_pass",
       "qualified_name": "routers.participant_bridge.get_session_bridge_pass",
@@ -70,7 +102,6 @@
         "confidence": "high",
         "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call",
           "service_variable_detected",
           "service_method_call_detected",
           "endpoint_service_link_resolved"
@@ -78,6 +109,9 @@
       },
       "http_method": "GET",
       "path": "/public/{org_slug}/bridge/sessions/{session_id}/pass",
+      "include_prefix": null,
+      "router_prefix": null,
+      "full_path": "/public/{org_slug}/bridge/sessions/{session_id}/pass",
       "router": "router",
       "kwargs": {
         "response_model": "PublicSessionBridgePassResponse"
@@ -107,18 +141,37 @@
       ],
       "source": {
         "file": "routers/participant_bridge.py",
-        "line_start": 51,
-        "line_end": 114
+        "line_start": 35,
+        "line_end": 49
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/public/{org_slug}/bridge/sessions/{session_id}/pass",
+          "include_prefix=None",
+          "router_prefix=None",
+          "full_path=/public/{org_slug}/bridge/sessions/{session_id}/pass",
+          "function=routers.participant_bridge.get_session_bridge_pass"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "routers.participant_bridge.post.public.param-org-slug.bridge.sessions.param-session-id.consent.sign.sign-session-bridge-consent",
+      "identity": {
+        "catalog_id": "routers.participant_bridge.post.public.param-org-slug.bridge.sessions.param-session-id.consent.sign.sign-session-bridge-consent",
+        "logical_id": "routers.participant_bridge.post.public.param-org-slug.bridge.sessions.param-session-id.consent.sign.sign-session-bridge-consent",
+        "source_id": "endpoint:1652dcc6d4e419e1",
+        "display_name": "POST /public/{org_slug}/bridge/sessions/{session_id}/consent/sign",
+        "aliases": [
+          "routers.participant_bridge.post.public.param-org-slug.bridge.sessions.param-session-id.consent.sign.sign-session-bridge-consent",
+          "routers.participant_bridge.sign_session_bridge_consent",
+          "/public/{org_slug}/bridge/sessions/{session_id}/consent/sign"
+        ]
+      },
       "module": "routers.participant_bridge",
       "function_name": "sign_session_bridge_consent",
       "qualified_name": "routers.participant_bridge.sign_session_bridge_consent",
@@ -127,7 +180,6 @@
         "confidence": "high",
         "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call",
           "service_variable_detected",
           "service_method_call_detected",
           "endpoint_service_link_resolved"
@@ -135,6 +187,9 @@
       },
       "http_method": "POST",
       "path": "/public/{org_slug}/bridge/sessions/{session_id}/consent/sign",
+      "include_prefix": null,
+      "router_prefix": null,
+      "full_path": "/public/{org_slug}/bridge/sessions/{session_id}/consent/sign",
       "router": "router",
       "kwargs": {
         "response_model": "PublicSessionBridgeConsentSignResponse"
@@ -178,13 +233,21 @@
       ],
       "source": {
         "file": "routers/participant_bridge.py",
-        "line_start": 189,
-        "line_end": 268
+        "line_start": 77,
+        "line_end": 96
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/public/{org_slug}/bridge/sessions/{session_id}/consent/sign",
+          "include_prefix=None",
+          "router_prefix=None",
+          "full_path=/public/{org_slug}/bridge/sessions/{session_id}/consent/sign",
+          "function=routers.participant_bridge.sign_session_bridge_consent"
+        ]
       },
       "review_status": "generated"
     }

@@ -18,6 +18,8 @@ const sidebars: SidebarsConfig = {
   architectureSidebar: [
     'architecture/overview',
     'architecture/data-dictionary',
+    'architecture/payout-process',
+    'architecture/utilis-handbook',
     {
       type: 'category',
       label: 'Generated Catalogs',

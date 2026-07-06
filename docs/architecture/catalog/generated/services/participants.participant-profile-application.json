@@ -1,8 +1,20 @@
 {
   "id": "participants.participant-profile-application",
+  "identity": {
+    "catalog_id": "participants.participant-profile-application",
+    "logical_id": "participants.participant-profile-application",
+    "source_id": "service:5f38bc654b51855e",
+    "display_name": "ParticipantProfileApplicationService",
+    "aliases": [
+      "participants.participant-profile-application",
+      "services.participants.profiles.ParticipantProfileApplicationService"
+    ]
+  },
   "module": "services.participants.profiles",
   "class_name": "ParticipantProfileApplicationService",
   "qualified_name": "services.participants.profiles.ParticipantProfileApplicationService",
+  "description": null,
+  "docstring": null,
   "source": {
     "file": "services/participants/profiles.py",
     "line_start": 16,
@@ -11,8 +23,35 @@
   "operations": [
     {
       "id": "participants.participant-profile-application.operation.get_enhanced_profile",
+      "identity": {
+        "catalog_id": "participants.participant-profile-application.operation.get_enhanced_profile",
+        "logical_id": "participants.participant-profile-application.operation.get_enhanced_profile",
+        "source_id": "operation:0b0b61631c868bb8",
+        "display_name": "ParticipantProfileApplicationService.get_enhanced_profile",
+        "aliases": [
+          "participants.participant-profile-application.operation.get_enhanced_profile",
+          "services.participants.profiles.ParticipantProfileApplicationService.get_enhanced_profile"
+        ]
+      },
       "method": "get_enhanced_profile",
       "qualified_name": "services.participants.profiles.ParticipantProfileApplicationService.get_enhanced_profile",
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/participants/profiles.py",
         "line_start": 22,
@@ -21,14 +60,57 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_enhanced_profile",
+          "qualified_name=services.participants.profiles.ParticipantProfileApplicationService.get_enhanced_profile"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "participants.participant-profile-application.operation.update_profile",
+      "identity": {
+        "catalog_id": "participants.participant-profile-application.operation.update_profile",
+        "logical_id": "participants.participant-profile-application.operation.update_profile",
+        "source_id": "operation:9b1d3755a6f14280",
+        "display_name": "ParticipantProfileApplicationService.update_profile",
+        "aliases": [
+          "participants.participant-profile-application.operation.update_profile",
+          "services.participants.profiles.ParticipantProfileApplicationService.update_profile"
+        ]
+      },
       "method": "update_profile",
       "qualified_name": "services.participants.profiles.ParticipantProfileApplicationService.update_profile",
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "profile_data",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/participants/profiles.py",
         "line_start": 86,
@@ -37,7 +119,11 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_profile",
+          "qualified_name=services.participants.profiles.ParticipantProfileApplicationService.update_profile"
+        ]
       },
       "review_status": "generated"
     }
@@ -45,7 +131,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=ParticipantProfileApplicationService",
+      "source_path=services/participants/profiles.py"
+    ]
   },
   "review_status": "generated"
 }

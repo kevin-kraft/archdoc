@@ -4,7 +4,20 @@
   "source_file": "routers/permission_catalog.py",
   "endpoints": [
     {
-      "id": "routers.permission_catalog.get.catalog.get-permission-catalog",
+      "id": "routers.permission_catalog.get.permission-catalog.catalog.get-permission-catalog",
+      "identity": {
+        "catalog_id": "routers.permission_catalog.get.permission-catalog.catalog.get-permission-catalog",
+        "logical_id": "routers.permission_catalog.get.permission-catalog.catalog.get-permission-catalog",
+        "source_id": "endpoint:3bc2cd0708b723e1",
+        "display_name": "GET /permission-catalog/catalog",
+        "aliases": [
+          "routers.permission_catalog.get.permission-catalog.catalog.get-permission-catalog",
+          "routers.permission_catalog.get_permission_catalog",
+          "/catalog",
+          "/permission-catalog",
+          "/permission-catalog/catalog"
+        ]
+      },
       "module": "routers.permission_catalog",
       "function_name": "get_permission_catalog",
       "qualified_name": "routers.permission_catalog.get_permission_catalog",
@@ -18,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "/catalog",
+      "include_prefix": "/permission-catalog",
+      "router_prefix": null,
+      "full_path": "/permission-catalog/catalog",
       "router": "router",
       "kwargs": {
         "response_model": "list[PermissionCatalogResponse]"
@@ -89,18 +105,39 @@
       ],
       "source": {
         "file": "routers/permission_catalog.py",
-        "line_start": 93,
-        "line_end": 126
+        "line_start": 97,
+        "line_end": 130
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/catalog",
+          "include_prefix=/permission-catalog",
+          "router_prefix=None",
+          "full_path=/permission-catalog/catalog",
+          "function=routers.permission_catalog.get_permission_catalog"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.permission_catalog.get.categories.get-permissions-by-category",
+      "id": "routers.permission_catalog.get.permission-catalog.categories.get-permissions-by-category",
+      "identity": {
+        "catalog_id": "routers.permission_catalog.get.permission-catalog.categories.get-permissions-by-category",
+        "logical_id": "routers.permission_catalog.get.permission-catalog.categories.get-permissions-by-category",
+        "source_id": "endpoint:21db988fd36f76f4",
+        "display_name": "GET /permission-catalog/categories",
+        "aliases": [
+          "routers.permission_catalog.get.permission-catalog.categories.get-permissions-by-category",
+          "routers.permission_catalog.get_permissions_by_category",
+          "/categories",
+          "/permission-catalog",
+          "/permission-catalog/categories"
+        ]
+      },
       "module": "routers.permission_catalog",
       "function_name": "get_permissions_by_category",
       "qualified_name": "routers.permission_catalog.get_permissions_by_category",
@@ -114,6 +151,9 @@
       },
       "http_method": "GET",
       "path": "/categories",
+      "include_prefix": "/permission-catalog",
+      "router_prefix": null,
+      "full_path": "/permission-catalog/categories",
       "router": "router",
       "kwargs": {
         "response_model": "list[PermissionCategorySummary]"
@@ -143,18 +183,39 @@
       ],
       "source": {
         "file": "routers/permission_catalog.py",
-        "line_start": 130,
-        "line_end": 157
+        "line_start": 134,
+        "line_end": 165
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/categories",
+          "include_prefix=/permission-catalog",
+          "router_prefix=None",
+          "full_path=/permission-catalog/categories",
+          "function=routers.permission_catalog.get_permissions_by_category"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.permission_catalog.get.descriptions.get-permission-descriptions",
+      "id": "routers.permission_catalog.get.permission-catalog.descriptions.get-permission-descriptions",
+      "identity": {
+        "catalog_id": "routers.permission_catalog.get.permission-catalog.descriptions.get-permission-descriptions",
+        "logical_id": "routers.permission_catalog.get.permission-catalog.descriptions.get-permission-descriptions",
+        "source_id": "endpoint:8f522bc1571ebe7a",
+        "display_name": "GET /permission-catalog/descriptions",
+        "aliases": [
+          "routers.permission_catalog.get.permission-catalog.descriptions.get-permission-descriptions",
+          "routers.permission_catalog.get_permission_descriptions",
+          "/descriptions",
+          "/permission-catalog",
+          "/permission-catalog/descriptions"
+        ]
+      },
       "module": "routers.permission_catalog",
       "function_name": "get_permission_descriptions",
       "qualified_name": "routers.permission_catalog.get_permission_descriptions",
@@ -168,6 +229,9 @@
       },
       "http_method": "GET",
       "path": "/descriptions",
+      "include_prefix": "/permission-catalog",
+      "router_prefix": null,
+      "full_path": "/permission-catalog/descriptions",
       "router": "router",
       "kwargs": {
         "response_model": "list[dict[str, Any]]"
@@ -190,32 +254,57 @@
       ],
       "source": {
         "file": "routers/permission_catalog.py",
-        "line_start": 372,
-        "line_end": 378
+        "line_start": 400,
+        "line_end": 406
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/descriptions",
+          "include_prefix=/permission-catalog",
+          "router_prefix=None",
+          "full_path=/permission-catalog/descriptions",
+          "function=routers.permission_catalog.get_permission_descriptions"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.permission_catalog.get.enhanced-catalog.get-enhanced-permission-catalog",
+      "id": "routers.permission_catalog.get.permission-catalog.enhanced-catalog.get-enhanced-permission-catalog",
+      "identity": {
+        "catalog_id": "routers.permission_catalog.get.permission-catalog.enhanced-catalog.get-enhanced-permission-catalog",
+        "logical_id": "routers.permission_catalog.get.permission-catalog.enhanced-catalog.get-enhanced-permission-catalog",
+        "source_id": "endpoint:c9e11153914f97cd",
+        "display_name": "GET /permission-catalog/enhanced-catalog",
+        "aliases": [
+          "routers.permission_catalog.get.permission-catalog.enhanced-catalog.get-enhanced-permission-catalog",
+          "routers.permission_catalog.get_enhanced_permission_catalog",
+          "/enhanced-catalog",
+          "/permission-catalog",
+          "/permission-catalog/enhanced-catalog"
+        ]
+      },
       "module": "routers.permission_catalog",
       "function_name": "get_enhanced_permission_catalog",
       "qualified_name": "routers.permission_catalog.get_enhanced_permission_catalog",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
           "db_or_sqlalchemy_call",
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/enhanced-catalog",
+      "include_prefix": "/permission-catalog",
+      "router_prefix": null,
+      "full_path": "/permission-catalog/enhanced-catalog",
       "router": "router",
       "kwargs": {
         "response_model": "list[dict[str, Any]]"
@@ -287,32 +376,57 @@
       ],
       "source": {
         "file": "routers/permission_catalog.py",
-        "line_start": 382,
-        "line_end": 431
+        "line_start": 410,
+        "line_end": 459
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/enhanced-catalog",
+          "include_prefix=/permission-catalog",
+          "router_prefix=None",
+          "full_path=/permission-catalog/enhanced-catalog",
+          "function=routers.permission_catalog.get_enhanced_permission_catalog"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.permission_catalog.get.enhanced-categories.get-enhanced-permissions-by-category",
+      "id": "routers.permission_catalog.get.permission-catalog.enhanced-categories.get-enhanced-permissions-by-category",
+      "identity": {
+        "catalog_id": "routers.permission_catalog.get.permission-catalog.enhanced-categories.get-enhanced-permissions-by-category",
+        "logical_id": "routers.permission_catalog.get.permission-catalog.enhanced-categories.get-enhanced-permissions-by-category",
+        "source_id": "endpoint:67b5c535c528ec43",
+        "display_name": "GET /permission-catalog/enhanced-categories",
+        "aliases": [
+          "routers.permission_catalog.get.permission-catalog.enhanced-categories.get-enhanced-permissions-by-category",
+          "routers.permission_catalog.get_enhanced_permissions_by_category",
+          "/enhanced-categories",
+          "/permission-catalog",
+          "/permission-catalog/enhanced-categories"
+        ]
+      },
       "module": "routers.permission_catalog",
       "function_name": "get_enhanced_permissions_by_category",
       "qualified_name": "routers.permission_catalog.get_enhanced_permissions_by_category",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
           "db_or_sqlalchemy_call",
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/enhanced-categories",
+      "include_prefix": "/permission-catalog",
+      "router_prefix": null,
+      "full_path": "/permission-catalog/enhanced-categories",
       "router": "router",
       "kwargs": {
         "response_model": "list[dict[str, Any]]"
@@ -342,72 +456,39 @@
       ],
       "source": {
         "file": "routers/permission_catalog.py",
-        "line_start": 435,
-        "line_end": 474
+        "line_start": 463,
+        "line_end": 506
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
-      "review_status": "generated"
-    },
-    {
-      "id": "routers.permission_catalog.get.legacy-mapping.get-legacy-permission-mapping",
-      "module": "routers.permission_catalog",
-      "function_name": "get_legacy_permission_mapping",
-      "qualified_name": "routers.permission_catalog.get_legacy_permission_mapping",
-      "implementation": {
-        "kind": "router_internal",
-        "confidence": "medium",
-        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
-        "signals": [
-          "local_logic_detected"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/enhanced-categories",
+          "include_prefix=/permission-catalog",
+          "router_prefix=None",
+          "full_path=/permission-catalog/enhanced-categories",
+          "function=routers.permission_catalog.get_enhanced_permissions_by_category"
         ]
       },
-      "http_method": "GET",
-      "path": "/legacy-mapping",
-      "router": "router",
-      "kwargs": {
-        "response_model": "list[dict[str, Any]]"
-      },
-      "parameters": [
-        {
-          "name": "current_user",
-          "annotation": "dict",
-          "default": "Depends(get_current_user)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "db",
-          "annotation": "AsyncSession",
-          "default": "Depends(get_db_session)",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        },
-        {
-          "name": "_",
-          "annotation": "None",
-          "default": "Depends(require_permission(AdminPermissions.EDIT))",
-          "kind": "positional_or_keyword",
-          "source": "dependency"
-        }
-      ],
-      "source": {
-        "file": "routers/permission_catalog.py",
-        "line_start": 537,
-        "line_end": 560
-      },
-      "detection": {
-        "method": "rule",
-        "rule": "function_with_api_route_signal",
-        "confidence": "exact"
-      },
       "review_status": "generated"
     },
     {
-      "id": "routers.permission_catalog.get.roles.param-role-id.permissions.get-role-permissions-detailed",
+      "id": "routers.permission_catalog.get.permission-catalog.roles.param-role-id.permissions.get-role-permissions-detailed",
+      "identity": {
+        "catalog_id": "routers.permission_catalog.get.permission-catalog.roles.param-role-id.permissions.get-role-permissions-detailed",
+        "logical_id": "routers.permission_catalog.get.permission-catalog.roles.param-role-id.permissions.get-role-permissions-detailed",
+        "source_id": "endpoint:dc2675240e5f6c38",
+        "display_name": "GET /permission-catalog/roles/{role_id}/permissions",
+        "aliases": [
+          "routers.permission_catalog.get.permission-catalog.roles.param-role-id.permissions.get-role-permissions-detailed",
+          "routers.permission_catalog.get_role_permissions_detailed",
+          "/roles/{role_id}/permissions",
+          "/permission-catalog",
+          "/permission-catalog/roles/{role_id}/permissions"
+        ]
+      },
       "module": "routers.permission_catalog",
       "function_name": "get_role_permissions_detailed",
       "qualified_name": "routers.permission_catalog.get_role_permissions_detailed",
@@ -421,6 +502,9 @@
       },
       "http_method": "GET",
       "path": "/roles/{role_id}/permissions",
+      "include_prefix": "/permission-catalog",
+      "router_prefix": null,
+      "full_path": "/permission-catalog/roles/{role_id}/permissions",
       "router": "router",
       "kwargs": {
         "response_model": "RolePermissionSummary"
@@ -457,32 +541,57 @@
       ],
       "source": {
         "file": "routers/permission_catalog.py",
-        "line_start": 161,
-        "line_end": 185
+        "line_start": 169,
+        "line_end": 200
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/roles/{role_id}/permissions",
+          "include_prefix=/permission-catalog",
+          "router_prefix=None",
+          "full_path=/permission-catalog/roles/{role_id}/permissions",
+          "function=routers.permission_catalog.get_role_permissions_detailed"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.permission_catalog.get.search-enhanced.search-permissions-enhanced",
+      "id": "routers.permission_catalog.get.permission-catalog.search-enhanced.search-permissions-enhanced",
+      "identity": {
+        "catalog_id": "routers.permission_catalog.get.permission-catalog.search-enhanced.search-permissions-enhanced",
+        "logical_id": "routers.permission_catalog.get.permission-catalog.search-enhanced.search-permissions-enhanced",
+        "source_id": "endpoint:30e765aa4e982bd9",
+        "display_name": "GET /permission-catalog/search-enhanced",
+        "aliases": [
+          "routers.permission_catalog.get.permission-catalog.search-enhanced.search-permissions-enhanced",
+          "routers.permission_catalog.search_permissions_enhanced",
+          "/search-enhanced",
+          "/permission-catalog",
+          "/permission-catalog/search-enhanced"
+        ]
+      },
       "module": "routers.permission_catalog",
       "function_name": "search_permissions_enhanced",
       "qualified_name": "routers.permission_catalog.search_permissions_enhanced",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
           "db_or_sqlalchemy_call",
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/search-enhanced",
+      "include_prefix": "/permission-catalog",
+      "router_prefix": null,
+      "full_path": "/permission-catalog/search-enhanced",
       "router": "router",
       "kwargs": {
         "response_model": "list[dict[str, Any]]"
@@ -554,18 +663,39 @@
       ],
       "source": {
         "file": "routers/permission_catalog.py",
-        "line_start": 478,
-        "line_end": 533
+        "line_start": 510,
+        "line_end": 565
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/search-enhanced",
+          "include_prefix=/permission-catalog",
+          "router_prefix=None",
+          "full_path=/permission-catalog/search-enhanced",
+          "function=routers.permission_catalog.search_permissions_enhanced"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.permission_catalog.get.search.search-permissions",
+      "id": "routers.permission_catalog.get.permission-catalog.search.search-permissions",
+      "identity": {
+        "catalog_id": "routers.permission_catalog.get.permission-catalog.search.search-permissions",
+        "logical_id": "routers.permission_catalog.get.permission-catalog.search.search-permissions",
+        "source_id": "endpoint:69487dcef414018c",
+        "display_name": "GET /permission-catalog/search",
+        "aliases": [
+          "routers.permission_catalog.get.permission-catalog.search.search-permissions",
+          "routers.permission_catalog.search_permissions",
+          "/search",
+          "/permission-catalog",
+          "/permission-catalog/search"
+        ]
+      },
       "module": "routers.permission_catalog",
       "function_name": "search_permissions",
       "qualified_name": "routers.permission_catalog.search_permissions",
@@ -579,6 +709,9 @@
       },
       "http_method": "GET",
       "path": "/search",
+      "include_prefix": "/permission-catalog",
+      "router_prefix": null,
+      "full_path": "/permission-catalog/search",
       "router": "router",
       "kwargs": {
         "response_model": "list[PermissionCatalogResponse]"
@@ -650,18 +783,39 @@
       ],
       "source": {
         "file": "routers/permission_catalog.py",
-        "line_start": 329,
-        "line_end": 368
+        "line_start": 357,
+        "line_end": 396
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/search",
+          "include_prefix=/permission-catalog",
+          "router_prefix=None",
+          "full_path=/permission-catalog/search",
+          "function=routers.permission_catalog.search_permissions"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.permission_catalog.get.standard-roles.get-standard-role-templates",
+      "id": "routers.permission_catalog.get.permission-catalog.standard-roles.get-standard-role-templates",
+      "identity": {
+        "catalog_id": "routers.permission_catalog.get.permission-catalog.standard-roles.get-standard-role-templates",
+        "logical_id": "routers.permission_catalog.get.permission-catalog.standard-roles.get-standard-role-templates",
+        "source_id": "endpoint:1f2750a0f6e1b624",
+        "display_name": "GET /permission-catalog/standard-roles",
+        "aliases": [
+          "routers.permission_catalog.get.permission-catalog.standard-roles.get-standard-role-templates",
+          "routers.permission_catalog.get_standard_role_templates",
+          "/standard-roles",
+          "/permission-catalog",
+          "/permission-catalog/standard-roles"
+        ]
+      },
       "module": "routers.permission_catalog",
       "function_name": "get_standard_role_templates",
       "qualified_name": "routers.permission_catalog.get_standard_role_templates",
@@ -675,6 +829,9 @@
       },
       "http_method": "GET",
       "path": "/standard-roles",
+      "include_prefix": "/permission-catalog",
+      "router_prefix": null,
+      "full_path": "/permission-catalog/standard-roles",
       "router": "router",
       "kwargs": {
         "response_model": "list[dict[str, Any]]"
@@ -704,18 +861,39 @@
       ],
       "source": {
         "file": "routers/permission_catalog.py",
-        "line_start": 262,
-        "line_end": 278
+        "line_start": 287,
+        "line_end": 303
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/standard-roles",
+          "include_prefix=/permission-catalog",
+          "router_prefix=None",
+          "full_path=/permission-catalog/standard-roles",
+          "function=routers.permission_catalog.get_standard_role_templates"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.permission_catalog.get.stats.get-permission-catalog-stats",
+      "id": "routers.permission_catalog.get.permission-catalog.stats.get-permission-catalog-stats",
+      "identity": {
+        "catalog_id": "routers.permission_catalog.get.permission-catalog.stats.get-permission-catalog-stats",
+        "logical_id": "routers.permission_catalog.get.permission-catalog.stats.get-permission-catalog-stats",
+        "source_id": "endpoint:2cc4aff6eb6833b1",
+        "display_name": "GET /permission-catalog/stats",
+        "aliases": [
+          "routers.permission_catalog.get.permission-catalog.stats.get-permission-catalog-stats",
+          "routers.permission_catalog.get_permission_catalog_stats",
+          "/stats",
+          "/permission-catalog",
+          "/permission-catalog/stats"
+        ]
+      },
       "module": "routers.permission_catalog",
       "function_name": "get_permission_catalog_stats",
       "qualified_name": "routers.permission_catalog.get_permission_catalog_stats",
@@ -729,6 +907,9 @@
       },
       "http_method": "GET",
       "path": "/stats",
+      "include_prefix": "/permission-catalog",
+      "router_prefix": null,
+      "full_path": "/permission-catalog/stats",
       "router": "router",
       "kwargs": {
         "response_model": "PermissionCatalogStats"
@@ -758,18 +939,39 @@
       ],
       "source": {
         "file": "routers/permission_catalog.py",
-        "line_start": 189,
-        "line_end": 232
+        "line_start": 204,
+        "line_end": 257
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/stats",
+          "include_prefix=/permission-catalog",
+          "router_prefix=None",
+          "full_path=/permission-catalog/stats",
+          "function=routers.permission_catalog.get_permission_catalog_stats"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.permission_catalog.post.bulk-assign.bulk-permission-assignment",
+      "id": "routers.permission_catalog.post.permission-catalog.bulk-assign.bulk-permission-assignment",
+      "identity": {
+        "catalog_id": "routers.permission_catalog.post.permission-catalog.bulk-assign.bulk-permission-assignment",
+        "logical_id": "routers.permission_catalog.post.permission-catalog.bulk-assign.bulk-permission-assignment",
+        "source_id": "endpoint:fbdbe70ede2e7407",
+        "display_name": "POST /permission-catalog/bulk-assign",
+        "aliases": [
+          "routers.permission_catalog.post.permission-catalog.bulk-assign.bulk-permission-assignment",
+          "routers.permission_catalog.bulk_permission_assignment",
+          "/bulk-assign",
+          "/permission-catalog",
+          "/permission-catalog/bulk-assign"
+        ]
+      },
       "module": "routers.permission_catalog",
       "function_name": "bulk_permission_assignment",
       "qualified_name": "routers.permission_catalog.bulk_permission_assignment",
@@ -783,6 +985,9 @@
       },
       "http_method": "POST",
       "path": "/bulk-assign",
+      "include_prefix": "/permission-catalog",
+      "router_prefix": null,
+      "full_path": "/permission-catalog/bulk-assign",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -817,18 +1022,39 @@
       ],
       "source": {
         "file": "routers/permission_catalog.py",
-        "line_start": 282,
-        "line_end": 325
+        "line_start": 307,
+        "line_end": 353
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/bulk-assign",
+          "include_prefix=/permission-catalog",
+          "router_prefix=None",
+          "full_path=/permission-catalog/bulk-assign",
+          "function=routers.permission_catalog.bulk_permission_assignment"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.permission_catalog.post.sync-canonical.sync-permission-catalog-canonical",
+      "id": "routers.permission_catalog.post.permission-catalog.sync-canonical.sync-permission-catalog-canonical",
+      "identity": {
+        "catalog_id": "routers.permission_catalog.post.permission-catalog.sync-canonical.sync-permission-catalog-canonical",
+        "logical_id": "routers.permission_catalog.post.permission-catalog.sync-canonical.sync-permission-catalog-canonical",
+        "source_id": "endpoint:5c15e8e5c352f58a",
+        "display_name": "POST /permission-catalog/sync-canonical",
+        "aliases": [
+          "routers.permission_catalog.post.permission-catalog.sync-canonical.sync-permission-catalog-canonical",
+          "routers.permission_catalog.sync_permission_catalog_canonical",
+          "/sync-canonical",
+          "/permission-catalog",
+          "/permission-catalog/sync-canonical"
+        ]
+      },
       "module": "routers.permission_catalog",
       "function_name": "sync_permission_catalog_canonical",
       "qualified_name": "routers.permission_catalog.sync_permission_catalog_canonical",
@@ -842,6 +1068,9 @@
       },
       "http_method": "POST",
       "path": "/sync-canonical",
+      "include_prefix": "/permission-catalog",
+      "router_prefix": null,
+      "full_path": "/permission-catalog/sync-canonical",
       "router": "router",
       "kwargs": {
         "response_model": "PermissionCanonicalSyncResponse"
@@ -878,13 +1107,21 @@
       ],
       "source": {
         "file": "routers/permission_catalog.py",
-        "line_start": 236,
-        "line_end": 258
+        "line_start": 261,
+        "line_end": 283
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/sync-canonical",
+          "include_prefix=/permission-catalog",
+          "router_prefix=None",
+          "full_path=/permission-catalog/sync-canonical",
+          "function=routers.permission_catalog.sync_permission_catalog_canonical"
+        ]
       },
       "review_status": "generated"
     }

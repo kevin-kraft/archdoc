@@ -1,75 +1,229 @@
 {
   "id": "participants.participant-status-transition",
+  "identity": {
+    "catalog_id": "participants.participant-status-transition",
+    "logical_id": "participants.participant-status-transition",
+    "source_id": "service:e8f171dd46346ee2",
+    "display_name": "ParticipantStatusTransitionService",
+    "aliases": [
+      "participants.participant-status-transition",
+      "services.participants.status_transitions.ParticipantStatusTransitionService"
+    ]
+  },
   "module": "services.participants.status_transitions",
   "class_name": "ParticipantStatusTransitionService",
   "qualified_name": "services.participants.status_transitions.ParticipantStatusTransitionService",
+  "description": "Owns participant status transitions and status-history reads.",
+  "docstring": "Owns participant status transitions and status-history reads.",
   "source": {
     "file": "services/participants/status_transitions.py",
-    "line_start": 13,
-    "line_end": 159
+    "line_start": 14,
+    "line_end": 160
   },
   "operations": [
     {
       "id": "participants.participant-status-transition.operation.update_participant_status",
+      "identity": {
+        "catalog_id": "participants.participant-status-transition.operation.update_participant_status",
+        "logical_id": "participants.participant-status-transition.operation.update_participant_status",
+        "source_id": "operation:d33a99246455c07f",
+        "display_name": "ParticipantStatusTransitionService.update_participant_status",
+        "aliases": [
+          "participants.participant-status-transition.operation.update_participant_status",
+          "services.participants.status_transitions.ParticipantStatusTransitionService.update_participant_status"
+        ]
+      },
       "method": "update_participant_status",
       "qualified_name": "services.participants.status_transitions.ParticipantStatusTransitionService.update_participant_status",
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "status",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "reason",
+          "annotation": "str | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Participant",
+      "description": "Update participant status with validation and history.",
+      "docstring": "Update participant status with validation and history.",
       "source": {
         "file": "services/participants/status_transitions.py",
-        "line_start": 32,
-        "line_end": 69
+        "line_start": 33,
+        "line_end": 70
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_participant_status",
+          "qualified_name=services.participants.status_transitions.ParticipantStatusTransitionService.update_participant_status"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "participants.participant-status-transition.operation.reactivate_participant",
+      "identity": {
+        "catalog_id": "participants.participant-status-transition.operation.reactivate_participant",
+        "logical_id": "participants.participant-status-transition.operation.reactivate_participant",
+        "source_id": "operation:77229367bba2b926",
+        "display_name": "ParticipantStatusTransitionService.reactivate_participant",
+        "aliases": [
+          "participants.participant-status-transition.operation.reactivate_participant",
+          "services.participants.status_transitions.ParticipantStatusTransitionService.reactivate_participant"
+        ]
+      },
       "method": "reactivate_participant",
       "qualified_name": "services.participants.status_transitions.ParticipantStatusTransitionService.reactivate_participant",
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "Participant",
+      "description": "Reactivate a soft-deleted participant.",
+      "docstring": "Reactivate a soft-deleted participant.",
       "source": {
         "file": "services/participants/status_transitions.py",
-        "line_start": 71,
-        "line_end": 97
+        "line_start": 72,
+        "line_end": 98
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=reactivate_participant",
+          "qualified_name=services.participants.status_transitions.ParticipantStatusTransitionService.reactivate_participant"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "participants.participant-status-transition.operation.get_status_history",
+      "identity": {
+        "catalog_id": "participants.participant-status-transition.operation.get_status_history",
+        "logical_id": "participants.participant-status-transition.operation.get_status_history",
+        "source_id": "operation:038b55fcffa824a7",
+        "display_name": "ParticipantStatusTransitionService.get_status_history",
+        "aliases": [
+          "participants.participant-status-transition.operation.get_status_history",
+          "services.participants.status_transitions.ParticipantStatusTransitionService.get_status_history"
+        ]
+      },
       "method": "get_status_history",
       "qualified_name": "services.participants.status_transitions.ParticipantStatusTransitionService.get_status_history",
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "limit",
+          "annotation": "int",
+          "default": "100",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[dict]",
+      "description": "Get status history for a participant.",
+      "docstring": "Get status history for a participant.",
       "source": {
         "file": "services/participants/status_transitions.py",
-        "line_start": 99,
-        "line_end": 127
+        "line_start": 100,
+        "line_end": 128
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_status_history",
+          "qualified_name=services.participants.status_transitions.ParticipantStatusTransitionService.get_status_history"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "participants.participant-status-transition.operation.get_valid_status_transitions",
+      "identity": {
+        "catalog_id": "participants.participant-status-transition.operation.get_valid_status_transitions",
+        "logical_id": "participants.participant-status-transition.operation.get_valid_status_transitions",
+        "source_id": "operation:6b0a60e1f829ace3",
+        "display_name": "ParticipantStatusTransitionService.get_valid_status_transitions",
+        "aliases": [
+          "participants.participant-status-transition.operation.get_valid_status_transitions",
+          "services.participants.status_transitions.ParticipantStatusTransitionService.get_valid_status_transitions"
+        ]
+      },
       "method": "get_valid_status_transitions",
       "qualified_name": "services.participants.status_transitions.ParticipantStatusTransitionService.get_valid_status_transitions",
+      "parameters": [
+        {
+          "name": "participant_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[str]",
+      "description": "Get valid status transitions for a participant based on current status.",
+      "docstring": "Get valid status transitions for a participant based on current status.",
       "source": {
         "file": "services/participants/status_transitions.py",
-        "line_start": 129,
-        "line_end": 159
+        "line_start": 130,
+        "line_end": 160
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_valid_status_transitions",
+          "qualified_name=services.participants.status_transitions.ParticipantStatusTransitionService.get_valid_status_transitions"
+        ]
       },
       "review_status": "generated"
     }
@@ -77,7 +231,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=ParticipantStatusTransitionService",
+      "source_path=services/participants/status_transitions.py"
+    ]
   },
   "review_status": "generated"
 }

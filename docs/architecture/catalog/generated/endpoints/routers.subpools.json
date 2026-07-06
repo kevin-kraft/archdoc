@@ -4,7 +4,20 @@
   "source_file": "routers/subpools.py",
   "endpoints": [
     {
-      "id": "routers.subpools.delete.param-subpool-id.delete-subpool",
+      "id": "routers.subpools.delete.subpools.param-subpool-id.delete-subpool",
+      "identity": {
+        "catalog_id": "routers.subpools.delete.subpools.param-subpool-id.delete-subpool",
+        "logical_id": "routers.subpools.delete.subpools.param-subpool-id.delete-subpool",
+        "source_id": "endpoint:5439e0c8c115549b",
+        "display_name": "DELETE /subpools/{subpool_id}",
+        "aliases": [
+          "routers.subpools.delete.subpools.param-subpool-id.delete-subpool",
+          "routers.subpools.delete_subpool",
+          "/{subpool_id}",
+          "/subpools",
+          "/subpools/{subpool_id}"
+        ]
+      },
       "module": "routers.subpools",
       "function_name": "delete_subpool",
       "qualified_name": "routers.subpools.delete_subpool",
@@ -20,6 +33,9 @@
       },
       "http_method": "DELETE",
       "path": "/{subpool_id}",
+      "include_prefix": "/subpools",
+      "router_prefix": null,
+      "full_path": "/subpools/{subpool_id}",
       "router": "router",
       "kwargs": {
         "status_code": "status.HTTP_204_NO_CONTENT",
@@ -56,12 +72,32 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/{subpool_id}",
+          "include_prefix=/subpools",
+          "router_prefix=None",
+          "full_path=/subpools/{subpool_id}",
+          "function=routers.subpools.delete_subpool"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.subpools.get.root.list-subpools",
+      "id": "routers.subpools.get.subpools.list-subpools",
+      "identity": {
+        "catalog_id": "routers.subpools.get.subpools.list-subpools",
+        "logical_id": "routers.subpools.get.subpools.list-subpools",
+        "source_id": "endpoint:1d4839df0b6e3630",
+        "display_name": "GET /subpools",
+        "aliases": [
+          "routers.subpools.get.subpools.list-subpools",
+          "routers.subpools.list_subpools",
+          "/",
+          "/subpools"
+        ]
+      },
       "module": "routers.subpools",
       "function_name": "list_subpools",
       "qualified_name": "routers.subpools.list_subpools",
@@ -75,6 +111,9 @@
       },
       "http_method": "GET",
       "path": "/",
+      "include_prefix": "/subpools",
+      "router_prefix": null,
+      "full_path": "/subpools",
       "router": "router",
       "kwargs": {
         "response_model": "list[SubpoolResponse]",
@@ -104,12 +143,32 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/",
+          "include_prefix=/subpools",
+          "router_prefix=None",
+          "full_path=/subpools",
+          "function=routers.subpools.list_subpools"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.subpools.post.root.create-subpool",
+      "id": "routers.subpools.post.subpools.create-subpool",
+      "identity": {
+        "catalog_id": "routers.subpools.post.subpools.create-subpool",
+        "logical_id": "routers.subpools.post.subpools.create-subpool",
+        "source_id": "endpoint:b2e847e82b54e93b",
+        "display_name": "POST /subpools",
+        "aliases": [
+          "routers.subpools.post.subpools.create-subpool",
+          "routers.subpools.create_subpool",
+          "/",
+          "/subpools"
+        ]
+      },
       "module": "routers.subpools",
       "function_name": "create_subpool",
       "qualified_name": "routers.subpools.create_subpool",
@@ -125,6 +184,9 @@
       },
       "http_method": "POST",
       "path": "/",
+      "include_prefix": "/subpools",
+      "router_prefix": null,
+      "full_path": "/subpools",
       "router": "router",
       "kwargs": {
         "response_model": "SubpoolResponse",
@@ -161,12 +223,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/",
+          "include_prefix=/subpools",
+          "router_prefix=None",
+          "full_path=/subpools",
+          "function=routers.subpools.create_subpool"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.subpools.put.param-subpool-id.update-subpool",
+      "id": "routers.subpools.put.subpools.param-subpool-id.update-subpool",
+      "identity": {
+        "catalog_id": "routers.subpools.put.subpools.param-subpool-id.update-subpool",
+        "logical_id": "routers.subpools.put.subpools.param-subpool-id.update-subpool",
+        "source_id": "endpoint:cceec4f95450430b",
+        "display_name": "PUT /subpools/{subpool_id}",
+        "aliases": [
+          "routers.subpools.put.subpools.param-subpool-id.update-subpool",
+          "routers.subpools.update_subpool",
+          "/{subpool_id}",
+          "/subpools",
+          "/subpools/{subpool_id}"
+        ]
+      },
       "module": "routers.subpools",
       "function_name": "update_subpool",
       "qualified_name": "routers.subpools.update_subpool",
@@ -182,6 +265,9 @@
       },
       "http_method": "PUT",
       "path": "/{subpool_id}",
+      "include_prefix": "/subpools",
+      "router_prefix": null,
+      "full_path": "/subpools/{subpool_id}",
       "router": "router",
       "kwargs": {
         "response_model": "SubpoolResponse",
@@ -225,7 +311,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/{subpool_id}",
+          "include_prefix=/subpools",
+          "router_prefix=None",
+          "full_path=/subpools/{subpool_id}",
+          "function=routers.subpools.update_subpool"
+        ]
       },
       "review_status": "generated"
     }

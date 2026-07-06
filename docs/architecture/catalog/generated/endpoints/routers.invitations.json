@@ -4,7 +4,20 @@
   "source_file": "routers/invitations.py",
   "endpoints": [
     {
-      "id": "routers.invitations.get.experiments.param-experiment-id.response-stats.get-experiment-response-stats",
+      "id": "routers.invitations.get.invitations.experiments.param-experiment-id.response-stats.get-experiment-response-stats",
+      "identity": {
+        "catalog_id": "routers.invitations.get.invitations.experiments.param-experiment-id.response-stats.get-experiment-response-stats",
+        "logical_id": "routers.invitations.get.invitations.experiments.param-experiment-id.response-stats.get-experiment-response-stats",
+        "source_id": "endpoint:86fd0b7ddb98b3a5",
+        "display_name": "GET /invitations/experiments/{experiment_id}/response-stats",
+        "aliases": [
+          "routers.invitations.get.invitations.experiments.param-experiment-id.response-stats.get-experiment-response-stats",
+          "routers.invitations.get_experiment_response_stats",
+          "/experiments/{experiment_id}/response-stats",
+          "/invitations",
+          "/invitations/experiments/{experiment_id}/response-stats"
+        ]
+      },
       "module": "routers.invitations",
       "function_name": "get_experiment_response_stats",
       "qualified_name": "routers.invitations.get_experiment_response_stats",
@@ -18,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "/experiments/{experiment_id}/response-stats",
+      "include_prefix": "/invitations",
+      "router_prefix": null,
+      "full_path": "/invitations/experiments/{experiment_id}/response-stats",
       "router": "router",
       "kwargs": {
         "response_model": "ResponseStats"
@@ -60,12 +76,32 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/experiments/{experiment_id}/response-stats",
+          "include_prefix=/invitations",
+          "router_prefix=None",
+          "full_path=/invitations/experiments/{experiment_id}/response-stats",
+          "function=routers.invitations.get_experiment_response_stats"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.invitations.get.invitations.list-invitations",
+      "id": "routers.invitations.get.invitations.invitations.list-invitations",
+      "identity": {
+        "catalog_id": "routers.invitations.get.invitations.invitations.list-invitations",
+        "logical_id": "routers.invitations.get.invitations.invitations.list-invitations",
+        "source_id": "endpoint:507d9eb5da7c630d",
+        "display_name": "GET /invitations/invitations",
+        "aliases": [
+          "routers.invitations.get.invitations.invitations.list-invitations",
+          "routers.invitations.list_invitations",
+          "/invitations",
+          "/invitations/invitations"
+        ]
+      },
       "module": "routers.invitations",
       "function_name": "list_invitations",
       "qualified_name": "routers.invitations.list_invitations",
@@ -79,6 +115,9 @@
       },
       "http_method": "GET",
       "path": "/invitations",
+      "include_prefix": "/invitations",
+      "router_prefix": null,
+      "full_path": "/invitations/invitations",
       "router": "router",
       "kwargs": {
         "response_model": "list[InvitationResponse]"
@@ -156,12 +195,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/invitations",
+          "include_prefix=/invitations",
+          "router_prefix=None",
+          "full_path=/invitations/invitations",
+          "function=routers.invitations.list_invitations"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.invitations.get.invitations.param-invitation-id.responses.get-invitation-responses",
+      "id": "routers.invitations.get.invitations.invitations.param-invitation-id.responses.get-invitation-responses",
+      "identity": {
+        "catalog_id": "routers.invitations.get.invitations.invitations.param-invitation-id.responses.get-invitation-responses",
+        "logical_id": "routers.invitations.get.invitations.invitations.param-invitation-id.responses.get-invitation-responses",
+        "source_id": "endpoint:00799a321d23afb0",
+        "display_name": "GET /invitations/invitations/{invitation_id}/responses",
+        "aliases": [
+          "routers.invitations.get.invitations.invitations.param-invitation-id.responses.get-invitation-responses",
+          "routers.invitations.get_invitation_responses",
+          "/invitations/{invitation_id}/responses",
+          "/invitations",
+          "/invitations/invitations/{invitation_id}/responses"
+        ]
+      },
       "module": "routers.invitations",
       "function_name": "get_invitation_responses",
       "qualified_name": "routers.invitations.get_invitation_responses",
@@ -175,6 +235,9 @@
       },
       "http_method": "GET",
       "path": "/invitations/{invitation_id}/responses",
+      "include_prefix": "/invitations",
+      "router_prefix": null,
+      "full_path": "/invitations/invitations/{invitation_id}/responses",
       "router": "router",
       "kwargs": {
         "response_model": "list[ResponseResponse]"
@@ -217,12 +280,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/invitations/{invitation_id}/responses",
+          "include_prefix=/invitations",
+          "router_prefix=None",
+          "full_path=/invitations/invitations/{invitation_id}/responses",
+          "function=routers.invitations.get_invitation_responses"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.invitations.get.queries.list-queries",
+      "id": "routers.invitations.get.invitations.queries.list-queries",
+      "identity": {
+        "catalog_id": "routers.invitations.get.invitations.queries.list-queries",
+        "logical_id": "routers.invitations.get.invitations.queries.list-queries",
+        "source_id": "endpoint:f7607fc6f099fa89",
+        "display_name": "GET /invitations/queries",
+        "aliases": [
+          "routers.invitations.get.invitations.queries.list-queries",
+          "routers.invitations.list_queries",
+          "/queries",
+          "/invitations",
+          "/invitations/queries"
+        ]
+      },
       "module": "routers.invitations",
       "function_name": "list_queries",
       "qualified_name": "routers.invitations.list_queries",
@@ -236,6 +320,9 @@
       },
       "http_method": "GET",
       "path": "/queries",
+      "include_prefix": "/invitations",
+      "router_prefix": null,
+      "full_path": "/invitations/queries",
       "router": "router",
       "kwargs": {
         "response_model": "list[QueryResponse]"
@@ -306,12 +393,32 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/queries",
+          "include_prefix=/invitations",
+          "router_prefix=None",
+          "full_path=/invitations/queries",
+          "function=routers.invitations.list_queries"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.invitations.post.invitations.create-invitation",
+      "id": "routers.invitations.post.invitations.invitations.create-invitation",
+      "identity": {
+        "catalog_id": "routers.invitations.post.invitations.invitations.create-invitation",
+        "logical_id": "routers.invitations.post.invitations.invitations.create-invitation",
+        "source_id": "endpoint:e405559758fb4d8e",
+        "display_name": "POST /invitations/invitations",
+        "aliases": [
+          "routers.invitations.post.invitations.invitations.create-invitation",
+          "routers.invitations.create_invitation",
+          "/invitations",
+          "/invitations/invitations"
+        ]
+      },
       "module": "routers.invitations",
       "function_name": "create_invitation",
       "qualified_name": "routers.invitations.create_invitation",
@@ -325,6 +432,9 @@
       },
       "http_method": "POST",
       "path": "/invitations",
+      "include_prefix": "/invitations",
+      "router_prefix": null,
+      "full_path": "/invitations/invitations",
       "router": "router",
       "kwargs": {
         "response_model": "InvitationResponse",
@@ -368,12 +478,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/invitations",
+          "include_prefix=/invitations",
+          "router_prefix=None",
+          "full_path=/invitations/invitations",
+          "function=routers.invitations.create_invitation"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.invitations.post.invitations.param-invitation-id.cancel.cancel-invitation",
+      "id": "routers.invitations.post.invitations.invitations.param-invitation-id.cancel.cancel-invitation",
+      "identity": {
+        "catalog_id": "routers.invitations.post.invitations.invitations.param-invitation-id.cancel.cancel-invitation",
+        "logical_id": "routers.invitations.post.invitations.invitations.param-invitation-id.cancel.cancel-invitation",
+        "source_id": "endpoint:f49fd92ebd3ea499",
+        "display_name": "POST /invitations/invitations/{invitation_id}/cancel",
+        "aliases": [
+          "routers.invitations.post.invitations.invitations.param-invitation-id.cancel.cancel-invitation",
+          "routers.invitations.cancel_invitation",
+          "/invitations/{invitation_id}/cancel",
+          "/invitations",
+          "/invitations/invitations/{invitation_id}/cancel"
+        ]
+      },
       "module": "routers.invitations",
       "function_name": "cancel_invitation",
       "qualified_name": "routers.invitations.cancel_invitation",
@@ -387,6 +518,9 @@
       },
       "http_method": "POST",
       "path": "/invitations/{invitation_id}/cancel",
+      "include_prefix": "/invitations",
+      "router_prefix": null,
+      "full_path": "/invitations/invitations/{invitation_id}/cancel",
       "router": "router",
       "kwargs": {
         "response_model": "InvitationResponse"
@@ -436,12 +570,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/invitations/{invitation_id}/cancel",
+          "include_prefix=/invitations",
+          "router_prefix=None",
+          "full_path=/invitations/invitations/{invitation_id}/cancel",
+          "function=routers.invitations.cancel_invitation"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.invitations.post.invitations.param-invitation-id.remind.send-reminder",
+      "id": "routers.invitations.post.invitations.invitations.param-invitation-id.remind.send-reminder",
+      "identity": {
+        "catalog_id": "routers.invitations.post.invitations.invitations.param-invitation-id.remind.send-reminder",
+        "logical_id": "routers.invitations.post.invitations.invitations.param-invitation-id.remind.send-reminder",
+        "source_id": "endpoint:05457b895516f44e",
+        "display_name": "POST /invitations/invitations/{invitation_id}/remind",
+        "aliases": [
+          "routers.invitations.post.invitations.invitations.param-invitation-id.remind.send-reminder",
+          "routers.invitations.send_reminder",
+          "/invitations/{invitation_id}/remind",
+          "/invitations",
+          "/invitations/invitations/{invitation_id}/remind"
+        ]
+      },
       "module": "routers.invitations",
       "function_name": "send_reminder",
       "qualified_name": "routers.invitations.send_reminder",
@@ -455,6 +610,9 @@
       },
       "http_method": "POST",
       "path": "/invitations/{invitation_id}/remind",
+      "include_prefix": "/invitations",
+      "router_prefix": null,
+      "full_path": "/invitations/invitations/{invitation_id}/remind",
       "router": "router",
       "kwargs": {
         "response_model": "InvitationResponse"
@@ -504,12 +662,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/invitations/{invitation_id}/remind",
+          "include_prefix=/invitations",
+          "router_prefix=None",
+          "full_path=/invitations/invitations/{invitation_id}/remind",
+          "function=routers.invitations.send_reminder"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.invitations.post.invitations.param-invitation-id.responses.record-response",
+      "id": "routers.invitations.post.invitations.invitations.param-invitation-id.responses.record-response",
+      "identity": {
+        "catalog_id": "routers.invitations.post.invitations.invitations.param-invitation-id.responses.record-response",
+        "logical_id": "routers.invitations.post.invitations.invitations.param-invitation-id.responses.record-response",
+        "source_id": "endpoint:6d7aad4652b8330b",
+        "display_name": "POST /invitations/invitations/{invitation_id}/responses",
+        "aliases": [
+          "routers.invitations.post.invitations.invitations.param-invitation-id.responses.record-response",
+          "routers.invitations.record_response",
+          "/invitations/{invitation_id}/responses",
+          "/invitations",
+          "/invitations/invitations/{invitation_id}/responses"
+        ]
+      },
       "module": "routers.invitations",
       "function_name": "record_response",
       "qualified_name": "routers.invitations.record_response",
@@ -523,6 +702,9 @@
       },
       "http_method": "POST",
       "path": "/invitations/{invitation_id}/responses",
+      "include_prefix": "/invitations",
+      "router_prefix": null,
+      "full_path": "/invitations/invitations/{invitation_id}/responses",
       "router": "router",
       "kwargs": {
         "response_model": "ResponseResponse",
@@ -573,12 +755,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/invitations/{invitation_id}/responses",
+          "include_prefix=/invitations",
+          "router_prefix=None",
+          "full_path=/invitations/invitations/{invitation_id}/responses",
+          "function=routers.invitations.record_response"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.invitations.post.invitations.param-invitation-id.send.send-invitation",
+      "id": "routers.invitations.post.invitations.invitations.param-invitation-id.send.send-invitation",
+      "identity": {
+        "catalog_id": "routers.invitations.post.invitations.invitations.param-invitation-id.send.send-invitation",
+        "logical_id": "routers.invitations.post.invitations.invitations.param-invitation-id.send.send-invitation",
+        "source_id": "endpoint:7e79a17394b23136",
+        "display_name": "POST /invitations/invitations/{invitation_id}/send",
+        "aliases": [
+          "routers.invitations.post.invitations.invitations.param-invitation-id.send.send-invitation",
+          "routers.invitations.send_invitation",
+          "/invitations/{invitation_id}/send",
+          "/invitations",
+          "/invitations/invitations/{invitation_id}/send"
+        ]
+      },
       "module": "routers.invitations",
       "function_name": "send_invitation",
       "qualified_name": "routers.invitations.send_invitation",
@@ -592,6 +795,9 @@
       },
       "http_method": "POST",
       "path": "/invitations/{invitation_id}/send",
+      "include_prefix": "/invitations",
+      "router_prefix": null,
+      "full_path": "/invitations/invitations/{invitation_id}/send",
       "router": "router",
       "kwargs": {
         "response_model": "InvitationResponse"
@@ -641,12 +847,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/invitations/{invitation_id}/send",
+          "include_prefix=/invitations",
+          "router_prefix=None",
+          "full_path=/invitations/invitations/{invitation_id}/send",
+          "function=routers.invitations.send_invitation"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.invitations.post.queries.create-query",
+      "id": "routers.invitations.post.invitations.queries.create-query",
+      "identity": {
+        "catalog_id": "routers.invitations.post.invitations.queries.create-query",
+        "logical_id": "routers.invitations.post.invitations.queries.create-query",
+        "source_id": "endpoint:3f392514f4a9ec36",
+        "display_name": "POST /invitations/queries",
+        "aliases": [
+          "routers.invitations.post.invitations.queries.create-query",
+          "routers.invitations.create_query",
+          "/queries",
+          "/invitations",
+          "/invitations/queries"
+        ]
+      },
       "module": "routers.invitations",
       "function_name": "create_query",
       "qualified_name": "routers.invitations.create_query",
@@ -660,6 +887,9 @@
       },
       "http_method": "POST",
       "path": "/queries",
+      "include_prefix": "/invitations",
+      "router_prefix": null,
+      "full_path": "/invitations/queries",
       "router": "router",
       "kwargs": {
         "response_model": "QueryResponse",
@@ -703,12 +933,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/queries",
+          "include_prefix=/invitations",
+          "router_prefix=None",
+          "full_path=/invitations/queries",
+          "function=routers.invitations.create_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.invitations.post.queries.param-query-id.execute.execute-query",
+      "id": "routers.invitations.post.invitations.queries.param-query-id.execute.execute-query",
+      "identity": {
+        "catalog_id": "routers.invitations.post.invitations.queries.param-query-id.execute.execute-query",
+        "logical_id": "routers.invitations.post.invitations.queries.param-query-id.execute.execute-query",
+        "source_id": "endpoint:8e10cb875941bc72",
+        "display_name": "POST /invitations/queries/{query_id}/execute",
+        "aliases": [
+          "routers.invitations.post.invitations.queries.param-query-id.execute.execute-query",
+          "routers.invitations.execute_query",
+          "/queries/{query_id}/execute",
+          "/invitations",
+          "/invitations/queries/{query_id}/execute"
+        ]
+      },
       "module": "routers.invitations",
       "function_name": "execute_query",
       "qualified_name": "routers.invitations.execute_query",
@@ -722,6 +973,9 @@
       },
       "http_method": "POST",
       "path": "/queries/{query_id}/execute",
+      "include_prefix": "/invitations",
+      "router_prefix": null,
+      "full_path": "/invitations/queries/{query_id}/execute",
       "router": "router",
       "kwargs": {
         "response_model": "QueryExecutionResponse"
@@ -771,12 +1025,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/queries/{query_id}/execute",
+          "include_prefix=/invitations",
+          "router_prefix=None",
+          "full_path=/invitations/queries/{query_id}/execute",
+          "function=routers.invitations.execute_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.invitations.post.queries.param-query-id.schedule.schedule-query",
+      "id": "routers.invitations.post.invitations.queries.param-query-id.schedule.schedule-query",
+      "identity": {
+        "catalog_id": "routers.invitations.post.invitations.queries.param-query-id.schedule.schedule-query",
+        "logical_id": "routers.invitations.post.invitations.queries.param-query-id.schedule.schedule-query",
+        "source_id": "endpoint:311c7f641f3d4156",
+        "display_name": "POST /invitations/queries/{query_id}/schedule",
+        "aliases": [
+          "routers.invitations.post.invitations.queries.param-query-id.schedule.schedule-query",
+          "routers.invitations.schedule_query",
+          "/queries/{query_id}/schedule",
+          "/invitations",
+          "/invitations/queries/{query_id}/schedule"
+        ]
+      },
       "module": "routers.invitations",
       "function_name": "schedule_query",
       "qualified_name": "routers.invitations.schedule_query",
@@ -790,6 +1065,9 @@
       },
       "http_method": "POST",
       "path": "/queries/{query_id}/schedule",
+      "include_prefix": "/invitations",
+      "router_prefix": null,
+      "full_path": "/invitations/queries/{query_id}/schedule",
       "router": "router",
       "kwargs": {
         "response_model": "QueryResponse"
@@ -839,12 +1117,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/queries/{query_id}/schedule",
+          "include_prefix=/invitations",
+          "router_prefix=None",
+          "full_path=/invitations/queries/{query_id}/schedule",
+          "function=routers.invitations.schedule_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.invitations.put.queries.param-query-id.update-query",
+      "id": "routers.invitations.put.invitations.queries.param-query-id.update-query",
+      "identity": {
+        "catalog_id": "routers.invitations.put.invitations.queries.param-query-id.update-query",
+        "logical_id": "routers.invitations.put.invitations.queries.param-query-id.update-query",
+        "source_id": "endpoint:81293e3416fd9301",
+        "display_name": "PUT /invitations/queries/{query_id}",
+        "aliases": [
+          "routers.invitations.put.invitations.queries.param-query-id.update-query",
+          "routers.invitations.update_query",
+          "/queries/{query_id}",
+          "/invitations",
+          "/invitations/queries/{query_id}"
+        ]
+      },
       "module": "routers.invitations",
       "function_name": "update_query",
       "qualified_name": "routers.invitations.update_query",
@@ -858,6 +1157,9 @@
       },
       "http_method": "PUT",
       "path": "/queries/{query_id}",
+      "include_prefix": "/invitations",
+      "router_prefix": null,
+      "full_path": "/invitations/queries/{query_id}",
       "router": "router",
       "kwargs": {
         "response_model": "QueryResponse"
@@ -907,7 +1209,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/queries/{query_id}",
+          "include_prefix=/invitations",
+          "router_prefix=None",
+          "full_path=/invitations/queries/{query_id}",
+          "function=routers.invitations.update_query"
+        ]
       },
       "review_status": "generated"
     }

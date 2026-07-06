@@ -1,91 +1,264 @@
 {
   "id": "migration.orsee-migrator",
+  "identity": {
+    "catalog_id": "migration.orsee-migrator",
+    "logical_id": "migration.orsee-migrator",
+    "source_id": "service:00b30b5dc9efb47f",
+    "display_name": "OrseeMigratorService",
+    "aliases": [
+      "migration.orsee-migrator",
+      "services.migration.orsee_migrator.OrseeMigratorService"
+    ]
+  },
   "module": "services.migration.orsee_migrator",
   "class_name": "OrseeMigratorService",
   "qualified_name": "services.migration.orsee_migrator.OrseeMigratorService",
+  "description": null,
+  "docstring": null,
   "source": {
     "file": "services/migration/orsee_migrator.py",
-    "line_start": 252,
-    "line_end": 1496
+    "line_start": 265,
+    "line_end": 1517
   },
   "operations": [
     {
       "id": "migration.orsee-migrator.operation.build_source_url",
+      "identity": {
+        "catalog_id": "migration.orsee-migrator.operation.build_source_url",
+        "logical_id": "migration.orsee-migrator.operation.build_source_url",
+        "source_id": "operation:3d0eeb5d2101b03c",
+        "display_name": "OrseeMigratorService.build_source_url",
+        "aliases": [
+          "migration.orsee-migrator.operation.build_source_url",
+          "services.migration.orsee_migrator.OrseeMigratorService.build_source_url"
+        ]
+      },
       "method": "build_source_url",
       "qualified_name": "services.migration.orsee_migrator.OrseeMigratorService.build_source_url",
+      "parameters": [
+        {
+          "name": "config",
+          "annotation": "SourceConnectionConfig",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "str",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/migration/orsee_migrator.py",
-        "line_start": 320,
-        "line_end": 336
+        "line_start": 340,
+        "line_end": 357
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=build_source_url",
+          "qualified_name=services.migration.orsee_migrator.OrseeMigratorService.build_source_url"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "migration.orsee-migrator.operation.analyze_source",
+      "identity": {
+        "catalog_id": "migration.orsee-migrator.operation.analyze_source",
+        "logical_id": "migration.orsee-migrator.operation.analyze_source",
+        "source_id": "operation:3f70f941932c41ce",
+        "display_name": "OrseeMigratorService.analyze_source",
+        "aliases": [
+          "migration.orsee-migrator.operation.analyze_source",
+          "services.migration.orsee_migrator.OrseeMigratorService.analyze_source"
+        ]
+      },
       "method": "analyze_source",
       "qualified_name": "services.migration.orsee_migrator.OrseeMigratorService.analyze_source",
+      "parameters": [
+        {
+          "name": "config",
+          "annotation": "SourceConnectionConfig",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/migration/orsee_migrator.py",
-        "line_start": 338,
-        "line_end": 339
+        "line_start": 359,
+        "line_end": 360
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=analyze_source",
+          "qualified_name=services.migration.orsee_migrator.OrseeMigratorService.analyze_source"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "migration.orsee-migrator.operation.test_source_access",
+      "identity": {
+        "catalog_id": "migration.orsee-migrator.operation.test_source_access",
+        "logical_id": "migration.orsee-migrator.operation.test_source_access",
+        "source_id": "operation:b090fd622b207aea",
+        "display_name": "OrseeMigratorService.test_source_access",
+        "aliases": [
+          "migration.orsee-migrator.operation.test_source_access",
+          "services.migration.orsee_migrator.OrseeMigratorService.test_source_access"
+        ]
+      },
       "method": "test_source_access",
       "qualified_name": "services.migration.orsee_migrator.OrseeMigratorService.test_source_access",
+      "parameters": [
+        {
+          "name": "config",
+          "annotation": "SourceConnectionConfig",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/migration/orsee_migrator.py",
-        "line_start": 341,
-        "line_end": 342
+        "line_start": 362,
+        "line_end": 363
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=test_source_access",
+          "qualified_name=services.migration.orsee_migrator.OrseeMigratorService.test_source_access"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "migration.orsee-migrator.operation.run_migration",
+      "identity": {
+        "catalog_id": "migration.orsee-migrator.operation.run_migration",
+        "logical_id": "migration.orsee-migrator.operation.run_migration",
+        "source_id": "operation:2b0d37c296ebc823",
+        "display_name": "OrseeMigratorService.run_migration",
+        "aliases": [
+          "migration.orsee-migrator.operation.run_migration",
+          "services.migration.orsee_migrator.OrseeMigratorService.run_migration"
+        ]
+      },
       "method": "run_migration",
       "qualified_name": "services.migration.orsee_migrator.OrseeMigratorService.run_migration",
+      "parameters": [
+        {
+          "name": "config",
+          "annotation": "SourceConnectionConfig",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "scope",
+          "annotation": "MigrationScope",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "options",
+          "annotation": "MigrationOptions",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/migration/orsee_migrator.py",
-        "line_start": 547,
-        "line_end": 585
+        "line_start": 568,
+        "line_end": 606
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=run_migration",
+          "qualified_name=services.migration.orsee_migrator.OrseeMigratorService.run_migration"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "migration.orsee-migrator.operation.run_migration_with_checkpoint",
+      "identity": {
+        "catalog_id": "migration.orsee-migrator.operation.run_migration_with_checkpoint",
+        "logical_id": "migration.orsee-migrator.operation.run_migration_with_checkpoint",
+        "source_id": "operation:19d50f8ebe297777",
+        "display_name": "OrseeMigratorService.run_migration_with_checkpoint",
+        "aliases": [
+          "migration.orsee-migrator.operation.run_migration_with_checkpoint",
+          "services.migration.orsee_migrator.OrseeMigratorService.run_migration_with_checkpoint"
+        ]
+      },
       "method": "run_migration_with_checkpoint",
       "qualified_name": "services.migration.orsee_migrator.OrseeMigratorService.run_migration_with_checkpoint",
+      "parameters": [
+        {
+          "name": "config",
+          "annotation": "SourceConnectionConfig",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "scope",
+          "annotation": "MigrationScope",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "options",
+          "annotation": "MigrationOptions",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "checkpoint",
+          "annotation": "dict[str, Any] | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "progress_callback",
+          "annotation": "Callable[[dict[str, Any]], Awaitable[None]] | None",
+          "default": "None",
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": null,
+      "docstring": null,
       "source": {
         "file": "services/migration/orsee_migrator.py",
-        "line_start": 587,
-        "line_end": 745
+        "line_start": 608,
+        "line_end": 766
       },
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=run_migration_with_checkpoint",
+          "qualified_name=services.migration.orsee_migrator.OrseeMigratorService.run_migration_with_checkpoint"
+        ]
       },
       "review_status": "generated"
     }
@@ -93,7 +266,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=OrseeMigratorService",
+      "source_path=services/migration/orsee_migrator.py"
+    ]
   },
   "review_status": "generated"
 }

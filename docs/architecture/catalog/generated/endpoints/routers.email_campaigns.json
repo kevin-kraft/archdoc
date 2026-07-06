@@ -4,21 +4,38 @@
   "source_file": "routers/email_campaigns.py",
   "endpoints": [
     {
-      "id": "routers.email_campaigns.delete.param-campaign-id.delete-campaign",
+      "id": "routers.email_campaigns.delete.email.campaigns.param-campaign-id.delete-campaign",
+      "identity": {
+        "catalog_id": "routers.email_campaigns.delete.email.campaigns.param-campaign-id.delete-campaign",
+        "logical_id": "routers.email_campaigns.delete.email.campaigns.param-campaign-id.delete-campaign",
+        "source_id": "endpoint:cd801fe79776409b",
+        "display_name": "DELETE /email/campaigns/{campaign_id}",
+        "aliases": [
+          "routers.email_campaigns.delete.email.campaigns.param-campaign-id.delete-campaign",
+          "routers.email_campaigns.delete_campaign",
+          "/{campaign_id}",
+          "/email/campaigns",
+          "/email/campaigns/{campaign_id}"
+        ]
+      },
       "module": "routers.email_campaigns",
       "function_name": "delete_campaign",
       "qualified_name": "routers.email_campaigns.delete_campaign",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
           "db_or_sqlalchemy_call",
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "DELETE",
       "path": "/{campaign_id}",
+      "include_prefix": null,
+      "router_prefix": "/email/campaigns",
+      "full_path": "/email/campaigns/{campaign_id}",
       "router": "router",
       "kwargs": {
         "status_code": "204"
@@ -55,31 +72,54 @@
       ],
       "source": {
         "file": "routers/email_campaigns.py",
-        "line_start": 304,
-        "line_end": 335
+        "line_start": 320,
+        "line_end": 351
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/{campaign_id}",
+          "include_prefix=None",
+          "router_prefix=/email/campaigns",
+          "full_path=/email/campaigns/{campaign_id}",
+          "function=routers.email_campaigns.delete_campaign"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_campaigns.get.list-campaigns",
+      "id": "routers.email_campaigns.get.email.campaigns.list-campaigns",
+      "identity": {
+        "catalog_id": "routers.email_campaigns.get.email.campaigns.list-campaigns",
+        "logical_id": "routers.email_campaigns.get.email.campaigns.list-campaigns",
+        "source_id": "endpoint:a2ba122cbd31eb59",
+        "display_name": "GET /email/campaigns",
+        "aliases": [
+          "routers.email_campaigns.get.email.campaigns.list-campaigns",
+          "routers.email_campaigns.list_campaigns",
+          "/email/campaigns"
+        ]
+      },
       "module": "routers.email_campaigns",
       "function_name": "list_campaigns",
       "qualified_name": "routers.email_campaigns.list_campaigns",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "",
+      "include_prefix": null,
+      "router_prefix": "/email/campaigns",
+      "full_path": "/email/campaigns",
       "router": "router",
       "kwargs": {
         "response_model": "list[CampaignListItem]"
@@ -151,32 +191,143 @@
       ],
       "source": {
         "file": "routers/email_campaigns.py",
-        "line_start": 102,
-        "line_end": 135
+        "line_start": 110,
+        "line_end": 143
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=",
+          "include_prefix=None",
+          "router_prefix=/email/campaigns",
+          "full_path=/email/campaigns",
+          "function=routers.email_campaigns.list_campaigns"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_campaigns.get.param-campaign-id.deliveries.get-campaign-deliveries",
+      "id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.content-preview.get-campaign-content-preview",
+      "identity": {
+        "catalog_id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.content-preview.get-campaign-content-preview",
+        "logical_id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.content-preview.get-campaign-content-preview",
+        "source_id": "endpoint:31114356f187fdbe",
+        "display_name": "GET /email/campaigns/{campaign_id}/content-preview",
+        "aliases": [
+          "routers.email_campaigns.get.email.campaigns.param-campaign-id.content-preview.get-campaign-content-preview",
+          "routers.email_campaigns.get_campaign_content_preview",
+          "/{campaign_id}/content-preview",
+          "/email/campaigns",
+          "/email/campaigns/{campaign_id}/content-preview"
+        ]
+      },
+      "module": "routers.email_campaigns",
+      "function_name": "get_campaign_content_preview",
+      "qualified_name": "routers.email_campaigns.get_campaign_content_preview",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/{campaign_id}/content-preview",
+      "include_prefix": null,
+      "router_prefix": "/email/campaigns",
+      "full_path": "/email/campaigns/{campaign_id}/content-preview",
+      "router": "router",
+      "kwargs": {
+        "response_model": "CampaignContentPreviewResponse"
+      },
+      "parameters": [
+        {
+          "name": "campaign_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "DB_SESSION_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "auth_ctx",
+          "annotation": "tuple[str, str]",
+          "default": "AUTH_WITH_ORG_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "CAMPAIGN_READ_DEPENDENCY",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        }
+      ],
+      "source": {
+        "file": "routers/email_campaigns.py",
+        "line_start": 484,
+        "line_end": 516
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{campaign_id}/content-preview",
+          "include_prefix=None",
+          "router_prefix=/email/campaigns",
+          "full_path=/email/campaigns/{campaign_id}/content-preview",
+          "function=routers.email_campaigns.get_campaign_content_preview"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.deliveries.get-campaign-deliveries",
+      "identity": {
+        "catalog_id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.deliveries.get-campaign-deliveries",
+        "logical_id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.deliveries.get-campaign-deliveries",
+        "source_id": "endpoint:493737af415b1a85",
+        "display_name": "GET /email/campaigns/{campaign_id}/deliveries",
+        "aliases": [
+          "routers.email_campaigns.get.email.campaigns.param-campaign-id.deliveries.get-campaign-deliveries",
+          "routers.email_campaigns.get_campaign_deliveries",
+          "/{campaign_id}/deliveries",
+          "/email/campaigns",
+          "/email/campaigns/{campaign_id}/deliveries"
+        ]
+      },
       "module": "routers.email_campaigns",
       "function_name": "get_campaign_deliveries",
       "qualified_name": "routers.email_campaigns.get_campaign_deliveries",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
           "db_or_sqlalchemy_call",
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/{campaign_id}/deliveries",
+      "include_prefix": null,
+      "router_prefix": "/email/campaigns",
+      "full_path": "/email/campaigns/{campaign_id}/deliveries",
       "router": "router",
       "kwargs": {
         "response_model": "list[CampaignDeliveryResponse]"
@@ -234,32 +385,57 @@
       ],
       "source": {
         "file": "routers/email_campaigns.py",
-        "line_start": 416,
-        "line_end": 454
+        "line_start": 520,
+        "line_end": 582
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{campaign_id}/deliveries",
+          "include_prefix=None",
+          "router_prefix=/email/campaigns",
+          "full_path=/email/campaigns/{campaign_id}/deliveries",
+          "function=routers.email_campaigns.get_campaign_deliveries"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_campaigns.get.param-campaign-id.engagements.get-campaign-engagements",
+      "id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.engagements.get-campaign-engagements",
+      "identity": {
+        "catalog_id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.engagements.get-campaign-engagements",
+        "logical_id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.engagements.get-campaign-engagements",
+        "source_id": "endpoint:15a0289911949f6c",
+        "display_name": "GET /email/campaigns/{campaign_id}/engagements",
+        "aliases": [
+          "routers.email_campaigns.get.email.campaigns.param-campaign-id.engagements.get-campaign-engagements",
+          "routers.email_campaigns.get_campaign_engagements",
+          "/{campaign_id}/engagements",
+          "/email/campaigns",
+          "/email/campaigns/{campaign_id}/engagements"
+        ]
+      },
       "module": "routers.email_campaigns",
       "function_name": "get_campaign_engagements",
       "qualified_name": "routers.email_campaigns.get_campaign_engagements",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
           "db_or_sqlalchemy_call",
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/{campaign_id}/engagements",
+      "include_prefix": null,
+      "router_prefix": "/email/campaigns",
+      "full_path": "/email/campaigns/{campaign_id}/engagements",
       "router": "router",
       "kwargs": {
         "response_model": "list[CampaignEngagementResponse]"
@@ -317,31 +493,56 @@
       ],
       "source": {
         "file": "routers/email_campaigns.py",
-        "line_start": 458,
-        "line_end": 496
+        "line_start": 586,
+        "line_end": 624
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{campaign_id}/engagements",
+          "include_prefix=None",
+          "router_prefix=/email/campaigns",
+          "full_path=/email/campaigns/{campaign_id}/engagements",
+          "function=routers.email_campaigns.get_campaign_engagements"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_campaigns.get.param-campaign-id.get-campaign",
+      "id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.get-campaign",
+      "identity": {
+        "catalog_id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.get-campaign",
+        "logical_id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.get-campaign",
+        "source_id": "endpoint:af677ca87832d060",
+        "display_name": "GET /email/campaigns/{campaign_id}",
+        "aliases": [
+          "routers.email_campaigns.get.email.campaigns.param-campaign-id.get-campaign",
+          "routers.email_campaigns.get_campaign",
+          "/{campaign_id}",
+          "/email/campaigns",
+          "/email/campaigns/{campaign_id}"
+        ]
+      },
       "module": "routers.email_campaigns",
       "function_name": "get_campaign",
       "qualified_name": "routers.email_campaigns.get_campaign",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/{campaign_id}",
+      "include_prefix": null,
+      "router_prefix": "/email/campaigns",
+      "full_path": "/email/campaigns/{campaign_id}",
       "router": "router",
       "kwargs": {
         "response_model": "CampaignResponse"
@@ -378,32 +579,56 @@
       ],
       "source": {
         "file": "routers/email_campaigns.py",
-        "line_start": 139,
-        "line_end": 163
+        "line_start": 147,
+        "line_end": 171
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{campaign_id}",
+          "include_prefix=None",
+          "router_prefix=/email/campaigns",
+          "full_path=/email/campaigns/{campaign_id}",
+          "function=routers.email_campaigns.get_campaign"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_campaigns.get.param-campaign-id.preview.preview-campaign-targeting",
+      "id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.preview.preview-campaign-targeting",
+      "identity": {
+        "catalog_id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.preview.preview-campaign-targeting",
+        "logical_id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.preview.preview-campaign-targeting",
+        "source_id": "endpoint:6e776cf8ea308406",
+        "display_name": "GET /email/campaigns/{campaign_id}/preview",
+        "aliases": [
+          "routers.email_campaigns.get.email.campaigns.param-campaign-id.preview.preview-campaign-targeting",
+          "routers.email_campaigns.preview_campaign_targeting",
+          "/{campaign_id}/preview",
+          "/email/campaigns",
+          "/email/campaigns/{campaign_id}/preview"
+        ]
+      },
       "module": "routers.email_campaigns",
       "function_name": "preview_campaign_targeting",
       "qualified_name": "routers.email_campaigns.preview_campaign_targeting",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "db_or_sqlalchemy_call",
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/{campaign_id}/preview",
+      "include_prefix": null,
+      "router_prefix": "/email/campaigns",
+      "full_path": "/email/campaigns/{campaign_id}/preview",
       "router": "router",
       "kwargs": {
         "response_model": "TargetingPreview"
@@ -440,31 +665,56 @@
       ],
       "source": {
         "file": "routers/email_campaigns.py",
-        "line_start": 380,
-        "line_end": 412
+        "line_start": 396,
+        "line_end": 480
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{campaign_id}/preview",
+          "include_prefix=None",
+          "router_prefix=/email/campaigns",
+          "full_path=/email/campaigns/{campaign_id}/preview",
+          "function=routers.email_campaigns.preview_campaign_targeting"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_campaigns.get.param-campaign-id.stats.get-campaign-stats",
+      "id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.stats.get-campaign-stats",
+      "identity": {
+        "catalog_id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.stats.get-campaign-stats",
+        "logical_id": "routers.email_campaigns.get.email.campaigns.param-campaign-id.stats.get-campaign-stats",
+        "source_id": "endpoint:bb83dace29da8d6b",
+        "display_name": "GET /email/campaigns/{campaign_id}/stats",
+        "aliases": [
+          "routers.email_campaigns.get.email.campaigns.param-campaign-id.stats.get-campaign-stats",
+          "routers.email_campaigns.get_campaign_stats",
+          "/{campaign_id}/stats",
+          "/email/campaigns",
+          "/email/campaigns/{campaign_id}/stats"
+        ]
+      },
       "module": "routers.email_campaigns",
       "function_name": "get_campaign_stats",
       "qualified_name": "routers.email_campaigns.get_campaign_stats",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "GET",
       "path": "/{campaign_id}/stats",
+      "include_prefix": null,
+      "router_prefix": "/email/campaigns",
+      "full_path": "/email/campaigns/{campaign_id}/stats",
       "router": "router",
       "kwargs": {
         "response_model": "CampaignStats"
@@ -501,31 +751,56 @@
       ],
       "source": {
         "file": "routers/email_campaigns.py",
-        "line_start": 339,
-        "line_end": 376
+        "line_start": 355,
+        "line_end": 392
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/{campaign_id}/stats",
+          "include_prefix=None",
+          "router_prefix=/email/campaigns",
+          "full_path=/email/campaigns/{campaign_id}/stats",
+          "function=routers.email_campaigns.get_campaign_stats"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_campaigns.patch.param-campaign-id.update-campaign",
+      "id": "routers.email_campaigns.patch.email.campaigns.param-campaign-id.update-campaign",
+      "identity": {
+        "catalog_id": "routers.email_campaigns.patch.email.campaigns.param-campaign-id.update-campaign",
+        "logical_id": "routers.email_campaigns.patch.email.campaigns.param-campaign-id.update-campaign",
+        "source_id": "endpoint:06ac6d1141538707",
+        "display_name": "PATCH /email/campaigns/{campaign_id}",
+        "aliases": [
+          "routers.email_campaigns.patch.email.campaigns.param-campaign-id.update-campaign",
+          "routers.email_campaigns.update_campaign",
+          "/{campaign_id}",
+          "/email/campaigns",
+          "/email/campaigns/{campaign_id}"
+        ]
+      },
       "module": "routers.email_campaigns",
       "function_name": "update_campaign",
       "qualified_name": "routers.email_campaigns.update_campaign",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "PATCH",
       "path": "/{campaign_id}",
+      "include_prefix": null,
+      "router_prefix": "/email/campaigns",
+      "full_path": "/email/campaigns/{campaign_id}",
       "router": "router",
       "kwargs": {
         "response_model": "CampaignResponse"
@@ -569,31 +844,54 @@
       ],
       "source": {
         "file": "routers/email_campaigns.py",
-        "line_start": 167,
-        "line_end": 191
+        "line_start": 175,
+        "line_end": 199
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PATCH",
+          "path=/{campaign_id}",
+          "include_prefix=None",
+          "router_prefix=/email/campaigns",
+          "full_path=/email/campaigns/{campaign_id}",
+          "function=routers.email_campaigns.update_campaign"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_campaigns.post.create-campaign",
+      "id": "routers.email_campaigns.post.email.campaigns.create-campaign",
+      "identity": {
+        "catalog_id": "routers.email_campaigns.post.email.campaigns.create-campaign",
+        "logical_id": "routers.email_campaigns.post.email.campaigns.create-campaign",
+        "source_id": "endpoint:3c72649ed0c66510",
+        "display_name": "POST /email/campaigns",
+        "aliases": [
+          "routers.email_campaigns.post.email.campaigns.create-campaign",
+          "routers.email_campaigns.create_campaign",
+          "/email/campaigns"
+        ]
+      },
       "module": "routers.email_campaigns",
       "function_name": "create_campaign",
       "qualified_name": "routers.email_campaigns.create_campaign",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "POST",
       "path": "",
+      "include_prefix": null,
+      "router_prefix": "/email/campaigns",
+      "full_path": "/email/campaigns",
       "router": "router",
       "kwargs": {
         "response_model": "CampaignResponse"
@@ -630,31 +928,56 @@
       ],
       "source": {
         "file": "routers/email_campaigns.py",
-        "line_start": 78,
-        "line_end": 98
+        "line_start": 84,
+        "line_end": 106
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=",
+          "include_prefix=None",
+          "router_prefix=/email/campaigns",
+          "full_path=/email/campaigns",
+          "function=routers.email_campaigns.create_campaign"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_campaigns.post.param-campaign-id.cancel.cancel-campaign",
+      "id": "routers.email_campaigns.post.email.campaigns.param-campaign-id.cancel.cancel-campaign",
+      "identity": {
+        "catalog_id": "routers.email_campaigns.post.email.campaigns.param-campaign-id.cancel.cancel-campaign",
+        "logical_id": "routers.email_campaigns.post.email.campaigns.param-campaign-id.cancel.cancel-campaign",
+        "source_id": "endpoint:c7e261f8d7e59909",
+        "display_name": "POST /email/campaigns/{campaign_id}/cancel",
+        "aliases": [
+          "routers.email_campaigns.post.email.campaigns.param-campaign-id.cancel.cancel-campaign",
+          "routers.email_campaigns.cancel_campaign",
+          "/{campaign_id}/cancel",
+          "/email/campaigns",
+          "/email/campaigns/{campaign_id}/cancel"
+        ]
+      },
       "module": "routers.email_campaigns",
       "function_name": "cancel_campaign",
       "qualified_name": "routers.email_campaigns.cancel_campaign",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "POST",
       "path": "/{campaign_id}/cancel",
+      "include_prefix": null,
+      "router_prefix": "/email/campaigns",
+      "full_path": "/email/campaigns/{campaign_id}/cancel",
       "router": "router",
       "kwargs": {
         "response_model": "CampaignResponse"
@@ -698,32 +1021,57 @@
       ],
       "source": {
         "file": "routers/email_campaigns.py",
-        "line_start": 277,
-        "line_end": 300
+        "line_start": 293,
+        "line_end": 316
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{campaign_id}/cancel",
+          "include_prefix=None",
+          "router_prefix=/email/campaigns",
+          "full_path=/email/campaigns/{campaign_id}/cancel",
+          "function=routers.email_campaigns.cancel_campaign"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_campaigns.post.param-campaign-id.schedule.schedule-campaign",
+      "id": "routers.email_campaigns.post.email.campaigns.param-campaign-id.schedule.schedule-campaign",
+      "identity": {
+        "catalog_id": "routers.email_campaigns.post.email.campaigns.param-campaign-id.schedule.schedule-campaign",
+        "logical_id": "routers.email_campaigns.post.email.campaigns.param-campaign-id.schedule.schedule-campaign",
+        "source_id": "endpoint:d75185830159af4a",
+        "display_name": "POST /email/campaigns/{campaign_id}/schedule",
+        "aliases": [
+          "routers.email_campaigns.post.email.campaigns.param-campaign-id.schedule.schedule-campaign",
+          "routers.email_campaigns.schedule_campaign",
+          "/{campaign_id}/schedule",
+          "/email/campaigns",
+          "/email/campaigns/{campaign_id}/schedule"
+        ]
+      },
       "module": "routers.email_campaigns",
       "function_name": "schedule_campaign",
       "qualified_name": "routers.email_campaigns.schedule_campaign",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
           "db_or_sqlalchemy_call",
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "POST",
       "path": "/{campaign_id}/schedule",
+      "include_prefix": null,
+      "router_prefix": "/email/campaigns",
+      "full_path": "/email/campaigns/{campaign_id}/schedule",
       "router": "router",
       "kwargs": {
         "response_model": "CampaignResponse"
@@ -767,31 +1115,56 @@
       ],
       "source": {
         "file": "routers/email_campaigns.py",
-        "line_start": 221,
-        "line_end": 273
+        "line_start": 229,
+        "line_end": 289
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{campaign_id}/schedule",
+          "include_prefix=None",
+          "router_prefix=/email/campaigns",
+          "full_path=/email/campaigns/{campaign_id}/schedule",
+          "function=routers.email_campaigns.schedule_campaign"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.email_campaigns.post.param-campaign-id.send.send-campaign",
+      "id": "routers.email_campaigns.post.email.campaigns.param-campaign-id.send.send-campaign",
+      "identity": {
+        "catalog_id": "routers.email_campaigns.post.email.campaigns.param-campaign-id.send.send-campaign",
+        "logical_id": "routers.email_campaigns.post.email.campaigns.param-campaign-id.send.send-campaign",
+        "source_id": "endpoint:a77fc9669d3540fa",
+        "display_name": "POST /email/campaigns/{campaign_id}/send",
+        "aliases": [
+          "routers.email_campaigns.post.email.campaigns.param-campaign-id.send.send-campaign",
+          "routers.email_campaigns.send_campaign",
+          "/{campaign_id}/send",
+          "/email/campaigns",
+          "/email/campaigns/{campaign_id}/send"
+        ]
+      },
       "module": "routers.email_campaigns",
       "function_name": "send_campaign",
       "qualified_name": "routers.email_campaigns.send_campaign",
       "implementation": {
-        "kind": "service_candidate",
-        "confidence": "medium",
-        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
         "signals": [
-          "direct_service_class_call"
+          "direct_service_class_call",
+          "endpoint_service_link_resolved"
         ]
       },
       "http_method": "POST",
       "path": "/{campaign_id}/send",
+      "include_prefix": null,
+      "router_prefix": "/email/campaigns",
+      "full_path": "/email/campaigns/{campaign_id}/send",
       "router": "router",
       "kwargs": {
         "response_model": "CampaignResponse"
@@ -828,13 +1201,21 @@
       ],
       "source": {
         "file": "routers/email_campaigns.py",
-        "line_start": 195,
-        "line_end": 217
+        "line_start": 203,
+        "line_end": 225
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/{campaign_id}/send",
+          "include_prefix=None",
+          "router_prefix=/email/campaigns",
+          "full_path=/email/campaigns/{campaign_id}/send",
+          "function=routers.email_campaigns.send_campaign"
+        ]
       },
       "review_status": "generated"
     }

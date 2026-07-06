@@ -5,6 +5,17 @@
   "endpoints": [
     {
       "id": "routers.admin_events.get.admin.events.list-admin-events",
+      "identity": {
+        "catalog_id": "routers.admin_events.get.admin.events.list-admin-events",
+        "logical_id": "routers.admin_events.get.admin.events.list-admin-events",
+        "source_id": "endpoint:372a840d6b0ea2ff",
+        "display_name": "GET /admin/events",
+        "aliases": [
+          "routers.admin_events.get.admin.events.list-admin-events",
+          "routers.admin_events.list_admin_events",
+          "/admin/events"
+        ]
+      },
       "module": "routers.admin_events",
       "function_name": "list_admin_events",
       "qualified_name": "routers.admin_events.list_admin_events",
@@ -18,6 +29,9 @@
       },
       "http_method": "GET",
       "path": "/admin/events",
+      "include_prefix": null,
+      "router_prefix": null,
+      "full_path": "/admin/events",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -80,13 +94,21 @@
       ],
       "source": {
         "file": "routers/admin_events.py",
-        "line_start": 153,
-        "line_end": 189
+        "line_start": 160,
+        "line_end": 196
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/admin/events",
+          "include_prefix=None",
+          "router_prefix=None",
+          "full_path=/admin/events",
+          "function=routers.admin_events.list_admin_events"
+        ]
       },
       "review_status": "generated"
     }

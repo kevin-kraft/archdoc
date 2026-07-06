@@ -272,6 +272,7 @@ def query_endpoints(
 def query_operations(
     search: str = "",
     coverage: str = "all",
+    relation: str = "all",
     review_status: str = "all",
     sort: str = "service",
     direction: str = "asc",
@@ -286,7 +287,7 @@ def query_operations(
             return TablePage()
         overlay = read_overlay()
         overlay_index = _overlay_index(overlay)
-        where, params = _operation_where(run_id, search, coverage, review_status)
+        where, params = _operation_where(run_id, search, coverage, relation, review_status)
         order_by = _operation_order_by(sort, direction)
         safe_limit = max(1, min(limit, 500))
         safe_offset = max(0, offset)
@@ -299,10 +300,9 @@ def query_operations(
             """,
             params,
         ).fetchone()["count"]
-        rows = []
-        for row in conn.execute(
+        operation_rows = conn.execute(
             f"""
-            SELECT go.service_id, go.payload_json AS operation_json, gs.payload_json AS service_json
+            SELECT go.id AS operation_id, go.service_id, go.payload_json AS operation_json, gs.payload_json AS service_json
                  , EXISTS (
                      SELECT 1 FROM generated_links gl
                      WHERE gl.import_run_id = go.import_run_id AND gl.operation_id = go.id
@@ -315,7 +315,14 @@ def query_operations(
             LIMIT ? OFFSET ?
             """,
             [*params, safe_limit, safe_offset],
-        ).fetchall():
+        ).fetchall()
+        operation_links_by_id = _operation_links_for_operation_ids(
+            conn,
+            run_id,
+            [str(row["operation_id"]) for row in operation_rows],
+        )
+        rows = []
+        for row in operation_rows:
             service_raw = _json_load(row["service_json"])
             service = _apply_overlay(service_raw, _overlay_for_item(overlay_index, "service", service_raw))
             operation_raw = _json_load(row["operation_json"])
@@ -323,9 +330,46 @@ def query_operations(
             rows.append({
                 "service": service,
                 "operation": operation,
+                "operation_links": operation_links_by_id.get(str(row["operation_id"]), []),
                 "_linked": bool(row["linked"]),
             })
     return TablePage(rows=rows, total=total, limit=safe_limit, offset=safe_offset)
+
+
+def _operation_links_for_operation_ids(
+    conn: sqlite3.Connection,
+    run_id: str,
+    operation_ids: list[str],
+) -> dict[str, list[dict[str, Any]]]:
+    if not operation_ids:
+        return {}
+
+    placeholders = ",".join("?" for _ in operation_ids)
+    rows = conn.execute(
+        f"""
+        SELECT source_operation_id, target_operation_id, payload_json
+        FROM generated_operation_links
+        WHERE import_run_id = ?
+          AND (
+            source_operation_id IN ({placeholders})
+            OR target_operation_id IN ({placeholders})
+          )
+        ORDER BY source_operation_id, target_operation_id, ordinal
+        """,
+        [run_id, *operation_ids, *operation_ids],
+    ).fetchall()
+
+    grouped: dict[str, list[dict[str, Any]]] = {operation_id: [] for operation_id in operation_ids}
+    for row in rows:
+        link = _json_load(row["payload_json"])
+        source_operation_id = str(row["source_operation_id"] or "")
+        target_operation_id = str(row["target_operation_id"] or "")
+        if source_operation_id in grouped:
+            grouped[source_operation_id].append(link)
+        if target_operation_id in grouped and target_operation_id != source_operation_id:
+            grouped[target_operation_id].append(link)
+
+    return grouped
 
 
 def query_interfaces(
@@ -1667,6 +1711,9 @@ def _attach_operation_dependencies_to_trace(
             operation_node_id = f"operation:{target_operation_id}"
             _add_trace_node(nodes, operation_node_id, "operation", target_operation_id, operation.get("method") if operation else target_operation_id, operation or operation_link.get("target", {}))
             _add_trace_edge(edges, f"operation:{source_operation_id}", operation_node_id, "calls_service")
+            if target_service_id:
+                _add_trace_edge(edges, f"service:{target_service_id}", operation_node_id, "owns")
+            _attach_operation_actions_to_trace(nodes, edges, operation_node_id, _actions_for_operation(conn, run_id, target_operation_id))
 
 
 def _read_service_by_id(conn: sqlite3.Connection, run_id: str, service_id: str) -> dict[str, Any] | None:
@@ -2626,6 +2673,7 @@ def _operation_where(
     run_id: str,
     search: str,
     coverage: str,
+    relation: str,
     review_status: str,
 ) -> tuple[str, list[Any]]:
     clauses = ["go.import_run_id = ?"]
@@ -2651,6 +2699,11 @@ def _operation_where(
         clauses.append("EXISTS (SELECT 1 FROM generated_links gl WHERE gl.import_run_id = go.import_run_id AND gl.operation_id = go.id)")
     elif coverage == "open":
         clauses.append("NOT EXISTS (SELECT 1 FROM generated_links gl WHERE gl.import_run_id = go.import_run_id AND gl.operation_id = go.id)")
+    if relation == "none":
+        clauses.append("NOT EXISTS (SELECT 1 FROM generated_operation_links gol WHERE gol.import_run_id = go.import_run_id AND (gol.source_operation_id = go.id OR gol.target_operation_id = go.id))")
+    elif relation != "all":
+        clauses.append("EXISTS (SELECT 1 FROM generated_operation_links gol WHERE gol.import_run_id = go.import_run_id AND (gol.source_operation_id = go.id OR gol.target_operation_id = go.id) AND gol.link_type = ?)")
+        params.append(relation)
     if review_status != "all":
         clauses.append(
             """

@@ -4,7 +4,20 @@
   "source_file": "routers/admin_orsee_migration.py",
   "endpoints": [
     {
-      "id": "routers.admin_orsee_migration.get.jobs.param-job-id.get-orsee-migration-job-status",
+      "id": "routers.admin_orsee_migration.get.admin.orsee-migration.jobs.param-job-id.get-orsee-migration-job-status",
+      "identity": {
+        "catalog_id": "routers.admin_orsee_migration.get.admin.orsee-migration.jobs.param-job-id.get-orsee-migration-job-status",
+        "logical_id": "routers.admin_orsee_migration.get.admin.orsee-migration.jobs.param-job-id.get-orsee-migration-job-status",
+        "source_id": "endpoint:9fd6385cb8089463",
+        "display_name": "GET /admin/orsee-migration/jobs/{job_id}",
+        "aliases": [
+          "routers.admin_orsee_migration.get.admin.orsee-migration.jobs.param-job-id.get-orsee-migration-job-status",
+          "routers.admin_orsee_migration.get_orsee_migration_job_status",
+          "/jobs/{job_id}",
+          "/admin/orsee-migration",
+          "/admin/orsee-migration/jobs/{job_id}"
+        ]
+      },
       "module": "routers.admin_orsee_migration",
       "function_name": "get_orsee_migration_job_status",
       "qualified_name": "routers.admin_orsee_migration.get_orsee_migration_job_status",
@@ -18,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "/jobs/{job_id}",
+      "include_prefix": null,
+      "router_prefix": "/admin/orsee-migration",
+      "full_path": "/admin/orsee-migration/jobs/{job_id}",
       "router": "router",
       "kwargs": {
         "response_model": "OrseeMigrationJobStatusResponse"
@@ -67,12 +83,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/jobs/{job_id}",
+          "include_prefix=None",
+          "router_prefix=/admin/orsee-migration",
+          "full_path=/admin/orsee-migration/jobs/{job_id}",
+          "function=routers.admin_orsee_migration.get_orsee_migration_job_status"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_orsee_migration.get.mapping-concept.get-mapping-concept",
+      "id": "routers.admin_orsee_migration.get.admin.orsee-migration.mapping-concept.get-mapping-concept",
+      "identity": {
+        "catalog_id": "routers.admin_orsee_migration.get.admin.orsee-migration.mapping-concept.get-mapping-concept",
+        "logical_id": "routers.admin_orsee_migration.get.admin.orsee-migration.mapping-concept.get-mapping-concept",
+        "source_id": "endpoint:65ea155af2a4d9ec",
+        "display_name": "GET /admin/orsee-migration/mapping-concept",
+        "aliases": [
+          "routers.admin_orsee_migration.get.admin.orsee-migration.mapping-concept.get-mapping-concept",
+          "routers.admin_orsee_migration.get_mapping_concept",
+          "/mapping-concept",
+          "/admin/orsee-migration",
+          "/admin/orsee-migration/mapping-concept"
+        ]
+      },
       "module": "routers.admin_orsee_migration",
       "function_name": "get_mapping_concept",
       "qualified_name": "routers.admin_orsee_migration.get_mapping_concept",
@@ -86,6 +123,9 @@
       },
       "http_method": "GET",
       "path": "/mapping-concept",
+      "include_prefix": null,
+      "router_prefix": "/admin/orsee-migration",
+      "full_path": "/admin/orsee-migration/mapping-concept",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -112,12 +152,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/mapping-concept",
+          "include_prefix=None",
+          "router_prefix=/admin/orsee-migration",
+          "full_path=/admin/orsee-migration/mapping-concept",
+          "function=routers.admin_orsee_migration.get_mapping_concept"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_orsee_migration.post.analyze.analyze-orsee-source",
+      "id": "routers.admin_orsee_migration.post.admin.orsee-migration.analyze.analyze-orsee-source",
+      "identity": {
+        "catalog_id": "routers.admin_orsee_migration.post.admin.orsee-migration.analyze.analyze-orsee-source",
+        "logical_id": "routers.admin_orsee_migration.post.admin.orsee-migration.analyze.analyze-orsee-source",
+        "source_id": "endpoint:7a84716f181ff5b9",
+        "display_name": "POST /admin/orsee-migration/analyze",
+        "aliases": [
+          "routers.admin_orsee_migration.post.admin.orsee-migration.analyze.analyze-orsee-source",
+          "routers.admin_orsee_migration.analyze_orsee_source",
+          "/analyze",
+          "/admin/orsee-migration",
+          "/admin/orsee-migration/analyze"
+        ]
+      },
       "module": "routers.admin_orsee_migration",
       "function_name": "analyze_orsee_source",
       "qualified_name": "routers.admin_orsee_migration.analyze_orsee_source",
@@ -133,6 +194,9 @@
       },
       "http_method": "POST",
       "path": "/analyze",
+      "include_prefix": null,
+      "router_prefix": "/admin/orsee-migration",
+      "full_path": "/admin/orsee-migration/analyze",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -180,12 +244,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/analyze",
+          "include_prefix=None",
+          "router_prefix=/admin/orsee-migration",
+          "full_path=/admin/orsee-migration/analyze",
+          "function=routers.admin_orsee_migration.analyze_orsee_source"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_orsee_migration.post.jobs.start-orsee-migration-job",
+      "id": "routers.admin_orsee_migration.post.admin.orsee-migration.jobs.start-orsee-migration-job",
+      "identity": {
+        "catalog_id": "routers.admin_orsee_migration.post.admin.orsee-migration.jobs.start-orsee-migration-job",
+        "logical_id": "routers.admin_orsee_migration.post.admin.orsee-migration.jobs.start-orsee-migration-job",
+        "source_id": "endpoint:9eb4235d68b01fe1",
+        "display_name": "POST /admin/orsee-migration/jobs",
+        "aliases": [
+          "routers.admin_orsee_migration.post.admin.orsee-migration.jobs.start-orsee-migration-job",
+          "routers.admin_orsee_migration.start_orsee_migration_job",
+          "/jobs",
+          "/admin/orsee-migration",
+          "/admin/orsee-migration/jobs"
+        ]
+      },
       "module": "routers.admin_orsee_migration",
       "function_name": "start_orsee_migration_job",
       "qualified_name": "routers.admin_orsee_migration.start_orsee_migration_job",
@@ -199,6 +284,9 @@
       },
       "http_method": "POST",
       "path": "/jobs",
+      "include_prefix": null,
+      "router_prefix": "/admin/orsee-migration",
+      "full_path": "/admin/orsee-migration/jobs",
       "router": "router",
       "kwargs": {
         "response_model": "OrseeMigrationJobStartResponse"
@@ -248,12 +336,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/jobs",
+          "include_prefix=None",
+          "router_prefix=/admin/orsee-migration",
+          "full_path=/admin/orsee-migration/jobs",
+          "function=routers.admin_orsee_migration.start_orsee_migration_job"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_orsee_migration.post.run.run-orsee-migration",
+      "id": "routers.admin_orsee_migration.post.admin.orsee-migration.run.run-orsee-migration",
+      "identity": {
+        "catalog_id": "routers.admin_orsee_migration.post.admin.orsee-migration.run.run-orsee-migration",
+        "logical_id": "routers.admin_orsee_migration.post.admin.orsee-migration.run.run-orsee-migration",
+        "source_id": "endpoint:3ed8ada42b9e74ab",
+        "display_name": "POST /admin/orsee-migration/run",
+        "aliases": [
+          "routers.admin_orsee_migration.post.admin.orsee-migration.run.run-orsee-migration",
+          "routers.admin_orsee_migration.run_orsee_migration",
+          "/run",
+          "/admin/orsee-migration",
+          "/admin/orsee-migration/run"
+        ]
+      },
       "module": "routers.admin_orsee_migration",
       "function_name": "run_orsee_migration",
       "qualified_name": "routers.admin_orsee_migration.run_orsee_migration",
@@ -269,6 +378,9 @@
       },
       "http_method": "POST",
       "path": "/run",
+      "include_prefix": null,
+      "router_prefix": "/admin/orsee-migration",
+      "full_path": "/admin/orsee-migration/run",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -316,12 +428,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/run",
+          "include_prefix=None",
+          "router_prefix=/admin/orsee-migration",
+          "full_path=/admin/orsee-migration/run",
+          "function=routers.admin_orsee_migration.run_orsee_migration"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_orsee_migration.post.test-connection.test-orsee-source-connection",
+      "id": "routers.admin_orsee_migration.post.admin.orsee-migration.test-connection.test-orsee-source-connection",
+      "identity": {
+        "catalog_id": "routers.admin_orsee_migration.post.admin.orsee-migration.test-connection.test-orsee-source-connection",
+        "logical_id": "routers.admin_orsee_migration.post.admin.orsee-migration.test-connection.test-orsee-source-connection",
+        "source_id": "endpoint:4bde1e666655b30d",
+        "display_name": "POST /admin/orsee-migration/test-connection",
+        "aliases": [
+          "routers.admin_orsee_migration.post.admin.orsee-migration.test-connection.test-orsee-source-connection",
+          "routers.admin_orsee_migration.test_orsee_source_connection",
+          "/test-connection",
+          "/admin/orsee-migration",
+          "/admin/orsee-migration/test-connection"
+        ]
+      },
       "module": "routers.admin_orsee_migration",
       "function_name": "test_orsee_source_connection",
       "qualified_name": "routers.admin_orsee_migration.test_orsee_source_connection",
@@ -337,6 +470,9 @@
       },
       "http_method": "POST",
       "path": "/test-connection",
+      "include_prefix": null,
+      "router_prefix": "/admin/orsee-migration",
+      "full_path": "/admin/orsee-migration/test-connection",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -384,7 +520,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/test-connection",
+          "include_prefix=None",
+          "router_prefix=/admin/orsee-migration",
+          "full_path=/admin/orsee-migration/test-connection",
+          "function=routers.admin_orsee_migration.test_orsee_source_connection"
+        ]
       },
       "review_status": "generated"
     }

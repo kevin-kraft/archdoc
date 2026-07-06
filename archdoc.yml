@@ -14,11 +14,11 @@ scan:
     - "**/tests/**"
 
 output:
-  raw_facts: docs-site-docasaurus/docs/architecture/generated_raw/raw_code_facts.json
-  catalog_dir: ../docs/architecture/catalog/generated
-  docusaurus_static_dir: docs-site-docasaurus/site/static/archdoc
-  overlays_dir: docs-site-docasaurus/docs/architecture/overlays
-  schema_dir: docs-site-docasaurus/docs/architecture/schemas
+  raw_facts: teamprojekt_utilis_docs/docs/architecture/generated_raw/raw_code_facts.json
+  catalog_dir: teamprojekt_utilis_docs/docs/architecture/catalog/generated
+  docusaurus_static_dir: teamprojekt_utilis_docs/site/static/archdoc
+  overlays_dir: teamprojekt_utilis_docs/docs/architecture/overlays
+  schema_dir: teamprojekt_utilis_docs/docs/architecture/schemas
 
 mapping:
   services:

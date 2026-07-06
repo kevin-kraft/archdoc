@@ -1,8 +1,20 @@
 {
   "id": "participants.participant-profile",
+  "identity": {
+    "catalog_id": "participants.participant-profile",
+    "logical_id": "participants.participant-profile",
+    "source_id": "service:15f6e3f4922e4cde",
+    "display_name": "ParticipantProfileService",
+    "aliases": [
+      "participants.participant-profile",
+      "services.participants.domain.profile.ParticipantProfileService"
+    ]
+  },
   "module": "services.participants.domain.profile",
   "class_name": "ParticipantProfileService",
   "qualified_name": "services.participants.domain.profile.ParticipantProfileService",
+  "description": "Manages custom profile fields for participants",
+  "docstring": "Manages custom profile fields for participants",
   "source": {
     "file": "services/participants/domain/profile.py",
     "line_start": 16,
@@ -11,8 +23,29 @@
   "operations": [
     {
       "id": "participants.participant-profile.operation.get_profile_fields",
+      "identity": {
+        "catalog_id": "participants.participant-profile.operation.get_profile_fields",
+        "logical_id": "participants.participant-profile.operation.get_profile_fields",
+        "source_id": "operation:7f5a8a9f6dbe0b79",
+        "display_name": "ParticipantProfileService.get_profile_fields",
+        "aliases": [
+          "participants.participant-profile.operation.get_profile_fields",
+          "services.participants.domain.profile.ParticipantProfileService.get_profile_fields"
+        ]
+      },
       "method": "get_profile_fields",
       "qualified_name": "services.participants.domain.profile.ParticipantProfileService.get_profile_fields",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "list[dict[str, Any]]",
+      "description": "Get all profile fields for an organization",
+      "docstring": "Get all profile fields for an organization",
       "source": {
         "file": "services/participants/domain/profile.py",
         "line_start": 22,
@@ -21,14 +54,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=get_profile_fields",
+          "qualified_name=services.participants.domain.profile.ParticipantProfileService.get_profile_fields"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "participants.participant-profile.operation.add_profile_field",
+      "identity": {
+        "catalog_id": "participants.participant-profile.operation.add_profile_field",
+        "logical_id": "participants.participant-profile.operation.add_profile_field",
+        "source_id": "operation:8e27b3030651eb7d",
+        "display_name": "ParticipantProfileService.add_profile_field",
+        "aliases": [
+          "participants.participant-profile.operation.add_profile_field",
+          "services.participants.domain.profile.ParticipantProfileService.add_profile_field"
+        ]
+      },
       "method": "add_profile_field",
       "qualified_name": "services.participants.domain.profile.ParticipantProfileService.add_profile_field",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "field_data",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": "Add a new profile field",
+      "docstring": "Add a new profile field",
       "source": {
         "file": "services/participants/domain/profile.py",
         "line_start": 37,
@@ -37,14 +107,57 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=add_profile_field",
+          "qualified_name=services.participants.domain.profile.ParticipantProfileService.add_profile_field"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "participants.participant-profile.operation.update_profile_field",
+      "identity": {
+        "catalog_id": "participants.participant-profile.operation.update_profile_field",
+        "logical_id": "participants.participant-profile.operation.update_profile_field",
+        "source_id": "operation:2671fd944dc41f40",
+        "display_name": "ParticipantProfileService.update_profile_field",
+        "aliases": [
+          "participants.participant-profile.operation.update_profile_field",
+          "services.participants.domain.profile.ParticipantProfileService.update_profile_field"
+        ]
+      },
       "method": "update_profile_field",
       "qualified_name": "services.participants.domain.profile.ParticipantProfileService.update_profile_field",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "field_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "field_data",
+          "annotation": "dict[str, Any]",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "dict[str, Any]",
+      "description": "Update an existing profile field",
+      "docstring": "Update an existing profile field",
       "source": {
         "file": "services/participants/domain/profile.py",
         "line_start": 67,
@@ -53,14 +166,51 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=update_profile_field",
+          "qualified_name=services.participants.domain.profile.ParticipantProfileService.update_profile_field"
+        ]
       },
       "review_status": "generated"
     },
     {
       "id": "participants.participant-profile.operation.delete_profile_field",
+      "identity": {
+        "catalog_id": "participants.participant-profile.operation.delete_profile_field",
+        "logical_id": "participants.participant-profile.operation.delete_profile_field",
+        "source_id": "operation:52a3c78289b0ea59",
+        "display_name": "ParticipantProfileService.delete_profile_field",
+        "aliases": [
+          "participants.participant-profile.operation.delete_profile_field",
+          "services.participants.domain.profile.ParticipantProfileService.delete_profile_field"
+        ]
+      },
       "method": "delete_profile_field",
       "qualified_name": "services.participants.domain.profile.ParticipantProfileService.delete_profile_field",
+      "parameters": [
+        {
+          "name": "org_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "field_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword"
+        },
+        {
+          "name": "user_id",
+          "annotation": "UUID",
+          "default": null,
+          "kind": "positional_or_keyword"
+        }
+      ],
+      "returns": "bool",
+      "description": "Delete a profile field",
+      "docstring": "Delete a profile field",
       "source": {
         "file": "services/participants/domain/profile.py",
         "line_start": 134,
@@ -69,7 +219,11 @@
       "detection": {
         "method": "public_method_in_service_class",
         "rule": "public_method_in_service_class",
-        "confidence": "high"
+        "confidence": "high",
+        "evidence": [
+          "method_name=delete_profile_field",
+          "qualified_name=services.participants.domain.profile.ParticipantProfileService.delete_profile_field"
+        ]
       },
       "review_status": "generated"
     }
@@ -77,7 +231,11 @@
   "detection": {
     "method": "rule",
     "rule": "class_suffix_and_service_path",
-    "confidence": "high"
+    "confidence": "high",
+    "evidence": [
+      "class_name=ParticipantProfileService",
+      "source_path=services/participants/domain/profile.py"
+    ]
   },
   "review_status": "generated"
 }

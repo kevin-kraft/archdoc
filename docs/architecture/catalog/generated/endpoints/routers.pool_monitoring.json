@@ -4,7 +4,20 @@
   "source_file": "routers/pool_monitoring.py",
   "endpoints": [
     {
-      "id": "routers.pool_monitoring.get.diagnostics.pool-diagnostics",
+      "id": "routers.pool_monitoring.get.monitoring.db-pool.diagnostics.pool-diagnostics",
+      "identity": {
+        "catalog_id": "routers.pool_monitoring.get.monitoring.db-pool.diagnostics.pool-diagnostics",
+        "logical_id": "routers.pool_monitoring.get.monitoring.db-pool.diagnostics.pool-diagnostics",
+        "source_id": "endpoint:3897899a4052c2dd",
+        "display_name": "GET /monitoring/db-pool/diagnostics",
+        "aliases": [
+          "routers.pool_monitoring.get.monitoring.db-pool.diagnostics.pool-diagnostics",
+          "routers.pool_monitoring.pool_diagnostics",
+          "/diagnostics",
+          "/monitoring/db-pool",
+          "/monitoring/db-pool/diagnostics"
+        ]
+      },
       "module": "routers.pool_monitoring",
       "function_name": "pool_diagnostics",
       "qualified_name": "routers.pool_monitoring.pool_diagnostics",
@@ -18,6 +31,9 @@
       },
       "http_method": "GET",
       "path": "/diagnostics",
+      "include_prefix": null,
+      "router_prefix": "/monitoring/db-pool",
+      "full_path": "/monitoring/db-pool/diagnostics",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -37,12 +53,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/diagnostics",
+          "include_prefix=None",
+          "router_prefix=/monitoring/db-pool",
+          "full_path=/monitoring/db-pool/diagnostics",
+          "function=routers.pool_monitoring.pool_diagnostics"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.pool_monitoring.get.health.pool-health",
+      "id": "routers.pool_monitoring.get.monitoring.db-pool.health.pool-health",
+      "identity": {
+        "catalog_id": "routers.pool_monitoring.get.monitoring.db-pool.health.pool-health",
+        "logical_id": "routers.pool_monitoring.get.monitoring.db-pool.health.pool-health",
+        "source_id": "endpoint:835e71210a3967b5",
+        "display_name": "GET /monitoring/db-pool/health",
+        "aliases": [
+          "routers.pool_monitoring.get.monitoring.db-pool.health.pool-health",
+          "routers.pool_monitoring.pool_health",
+          "/health",
+          "/monitoring/db-pool",
+          "/monitoring/db-pool/health"
+        ]
+      },
       "module": "routers.pool_monitoring",
       "function_name": "pool_health",
       "qualified_name": "routers.pool_monitoring.pool_health",
@@ -56,6 +93,9 @@
       },
       "http_method": "GET",
       "path": "/health",
+      "include_prefix": null,
+      "router_prefix": "/monitoring/db-pool",
+      "full_path": "/monitoring/db-pool/health",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -75,12 +115,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/health",
+          "include_prefix=None",
+          "router_prefix=/monitoring/db-pool",
+          "full_path=/monitoring/db-pool/health",
+          "function=routers.pool_monitoring.pool_health"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.pool_monitoring.get.stats.pool-lifetime-stats",
+      "id": "routers.pool_monitoring.get.monitoring.db-pool.stats.pool-lifetime-stats",
+      "identity": {
+        "catalog_id": "routers.pool_monitoring.get.monitoring.db-pool.stats.pool-lifetime-stats",
+        "logical_id": "routers.pool_monitoring.get.monitoring.db-pool.stats.pool-lifetime-stats",
+        "source_id": "endpoint:bf13bd780a41c4a1",
+        "display_name": "GET /monitoring/db-pool/stats",
+        "aliases": [
+          "routers.pool_monitoring.get.monitoring.db-pool.stats.pool-lifetime-stats",
+          "routers.pool_monitoring.pool_lifetime_stats",
+          "/stats",
+          "/monitoring/db-pool",
+          "/monitoring/db-pool/stats"
+        ]
+      },
       "module": "routers.pool_monitoring",
       "function_name": "pool_lifetime_stats",
       "qualified_name": "routers.pool_monitoring.pool_lifetime_stats",
@@ -94,6 +155,9 @@
       },
       "http_method": "GET",
       "path": "/stats",
+      "include_prefix": null,
+      "router_prefix": "/monitoring/db-pool",
+      "full_path": "/monitoring/db-pool/stats",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -113,12 +177,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/stats",
+          "include_prefix=None",
+          "router_prefix=/monitoring/db-pool",
+          "full_path=/monitoring/db-pool/stats",
+          "function=routers.pool_monitoring.pool_lifetime_stats"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.pool_monitoring.get.status.pool-status",
+      "id": "routers.pool_monitoring.get.monitoring.db-pool.status.pool-status",
+      "identity": {
+        "catalog_id": "routers.pool_monitoring.get.monitoring.db-pool.status.pool-status",
+        "logical_id": "routers.pool_monitoring.get.monitoring.db-pool.status.pool-status",
+        "source_id": "endpoint:efdd49e629d82e4c",
+        "display_name": "GET /monitoring/db-pool/status",
+        "aliases": [
+          "routers.pool_monitoring.get.monitoring.db-pool.status.pool-status",
+          "routers.pool_monitoring.pool_status",
+          "/status",
+          "/monitoring/db-pool",
+          "/monitoring/db-pool/status"
+        ]
+      },
       "module": "routers.pool_monitoring",
       "function_name": "pool_status",
       "qualified_name": "routers.pool_monitoring.pool_status",
@@ -132,6 +217,9 @@
       },
       "http_method": "GET",
       "path": "/status",
+      "include_prefix": null,
+      "router_prefix": "/monitoring/db-pool",
+      "full_path": "/monitoring/db-pool/status",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -151,12 +239,33 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/status",
+          "include_prefix=None",
+          "router_prefix=/monitoring/db-pool",
+          "full_path=/monitoring/db-pool/status",
+          "function=routers.pool_monitoring.pool_status"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.pool_monitoring.post.alert-check.check-pool-alerts",
+      "id": "routers.pool_monitoring.post.monitoring.db-pool.alert-check.check-pool-alerts",
+      "identity": {
+        "catalog_id": "routers.pool_monitoring.post.monitoring.db-pool.alert-check.check-pool-alerts",
+        "logical_id": "routers.pool_monitoring.post.monitoring.db-pool.alert-check.check-pool-alerts",
+        "source_id": "endpoint:279f26c424f6d65c",
+        "display_name": "POST /monitoring/db-pool/alert-check",
+        "aliases": [
+          "routers.pool_monitoring.post.monitoring.db-pool.alert-check.check-pool-alerts",
+          "routers.pool_monitoring.check_pool_alerts",
+          "/alert-check",
+          "/monitoring/db-pool",
+          "/monitoring/db-pool/alert-check"
+        ]
+      },
       "module": "routers.pool_monitoring",
       "function_name": "check_pool_alerts",
       "qualified_name": "routers.pool_monitoring.check_pool_alerts",
@@ -170,6 +279,9 @@
       },
       "http_method": "POST",
       "path": "/alert-check",
+      "include_prefix": null,
+      "router_prefix": "/monitoring/db-pool",
+      "full_path": "/monitoring/db-pool/alert-check",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -196,7 +308,15 @@
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/alert-check",
+          "include_prefix=None",
+          "router_prefix=/monitoring/db-pool",
+          "full_path=/monitoring/db-pool/alert-check",
+          "function=routers.pool_monitoring.check_pool_alerts"
+        ]
       },
       "review_status": "generated"
     }

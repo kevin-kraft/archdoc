@@ -3,6 +3,8 @@ export {
   ConfidenceBadge,
   LinkStateIcon,
   MethodBadge,
+  OperationRelationBadge,
+  OperationRelationSummary,
   PrimarySecondary,
   SeverityBadge,
   SortHeader,
@@ -11,4 +13,4 @@ export {
   nextSort,
 } from '@site/src/components/archdoc/TablePrimitives';
 
-export type {SortDirection, SortState} from '@site/src/components/archdoc/TablePrimitives';
+export type {OperationRelationLink, SortDirection, SortState} from '@site/src/components/archdoc/TablePrimitives';

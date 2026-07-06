@@ -4,22 +4,37 @@
   "source_file": "routers/admin_audit_log.py",
   "endpoints": [
     {
-      "id": "routers.admin_audit_log.get.audit-log.export.export-audit-log",
+      "id": "routers.admin_audit_log.get.admin.audit-log.export.export-audit-log",
+      "identity": {
+        "catalog_id": "routers.admin_audit_log.get.admin.audit-log.export.export-audit-log",
+        "logical_id": "routers.admin_audit_log.get.admin.audit-log.export.export-audit-log",
+        "source_id": "endpoint:6276a10e1d276b13",
+        "display_name": "GET /admin/audit-log/export",
+        "aliases": [
+          "routers.admin_audit_log.get.admin.audit-log.export.export-audit-log",
+          "routers.admin_audit_log.export_audit_log",
+          "/audit-log/export",
+          "/admin",
+          "/admin/audit-log/export"
+        ]
+      },
       "module": "routers.admin_audit_log",
       "function_name": "export_audit_log",
       "qualified_name": "routers.admin_audit_log.export_audit_log",
       "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
         "signals": [
           "db_or_sqlalchemy_call",
-          "direct_service_class_call",
-          "endpoint_service_link_resolved"
+          "direct_service_class_call"
         ]
       },
       "http_method": "GET",
       "path": "/audit-log/export",
+      "include_prefix": "/admin",
+      "router_prefix": null,
+      "full_path": "/admin/audit-log/export",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -59,6 +74,41 @@
           "source": "default"
         },
         {
+          "name": "target_type",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "ip_address",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "search",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
+          "name": "sort_by",
+          "annotation": "str",
+          "default": "Query('timestamp', pattern='^(timestamp|action|actor|target|severity|ip)$')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "sort_direction",
+          "annotation": "str",
+          "default": "Query('desc', pattern='^(asc|desc)$')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
           "name": "db",
           "annotation": "AsyncSession",
           "default": "DB_SESSION_DEPENDENCY",
@@ -89,18 +139,39 @@
       ],
       "source": {
         "file": "routers/admin_audit_log.py",
-        "line_start": 523,
-        "line_end": 690
+        "line_start": 575,
+        "line_end": 757
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/audit-log/export",
+          "include_prefix=/admin",
+          "router_prefix=None",
+          "full_path=/admin/audit-log/export",
+          "function=routers.admin_audit_log.export_audit_log"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_audit_log.get.audit-log.get-audit-log",
+      "id": "routers.admin_audit_log.get.admin.audit-log.get-audit-log",
+      "identity": {
+        "catalog_id": "routers.admin_audit_log.get.admin.audit-log.get-audit-log",
+        "logical_id": "routers.admin_audit_log.get.admin.audit-log.get-audit-log",
+        "source_id": "endpoint:73479074ba413404",
+        "display_name": "GET /admin/audit-log",
+        "aliases": [
+          "routers.admin_audit_log.get.admin.audit-log.get-audit-log",
+          "routers.admin_audit_log.get_audit_log",
+          "/audit-log",
+          "/admin",
+          "/admin/audit-log"
+        ]
+      },
       "module": "routers.admin_audit_log",
       "function_name": "get_audit_log",
       "qualified_name": "routers.admin_audit_log.get_audit_log",
@@ -114,6 +185,9 @@
       },
       "http_method": "GET",
       "path": "/audit-log",
+      "include_prefix": "/admin",
+      "router_prefix": null,
+      "full_path": "/admin/audit-log",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -127,7 +201,7 @@
         {
           "name": "page_size",
           "annotation": "int",
-          "default": "Query(50, ge=1, le=200)",
+          "default": "Query(100, ge=1, le=200)",
           "kind": "positional_or_keyword",
           "source": "query"
         },
@@ -167,6 +241,13 @@
           "source": "default"
         },
         {
+          "name": "ip_address",
+          "annotation": "Optional[str]",
+          "default": "None",
+          "kind": "positional_or_keyword",
+          "source": "default"
+        },
+        {
           "name": "start_date",
           "annotation": "Optional[datetime]",
           "default": "None",
@@ -186,6 +267,20 @@
           "default": "None",
           "kind": "positional_or_keyword",
           "source": "default"
+        },
+        {
+          "name": "sort_by",
+          "annotation": "str",
+          "default": "Query('timestamp', pattern='^(timestamp|action|actor|target|severity|ip)$')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "sort_direction",
+          "annotation": "str",
+          "default": "Query('desc', pattern='^(asc|desc)$')",
+          "kind": "positional_or_keyword",
+          "source": "query"
         },
         {
           "name": "db",
@@ -218,18 +313,39 @@
       ],
       "source": {
         "file": "routers/admin_audit_log.py",
-        "line_start": 296,
-        "line_end": 400
+        "line_start": 340,
+        "line_end": 452
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/audit-log",
+          "include_prefix=/admin",
+          "router_prefix=None",
+          "full_path=/admin/audit-log",
+          "function=routers.admin_audit_log.get_audit_log"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_audit_log.get.audit-log.stats.get-audit-stats",
+      "id": "routers.admin_audit_log.get.admin.audit-log.stats.get-audit-stats",
+      "identity": {
+        "catalog_id": "routers.admin_audit_log.get.admin.audit-log.stats.get-audit-stats",
+        "logical_id": "routers.admin_audit_log.get.admin.audit-log.stats.get-audit-stats",
+        "source_id": "endpoint:cae3b9e5bfb2897e",
+        "display_name": "GET /admin/audit-log/stats",
+        "aliases": [
+          "routers.admin_audit_log.get.admin.audit-log.stats.get-audit-stats",
+          "routers.admin_audit_log.get_audit_stats",
+          "/audit-log/stats",
+          "/admin",
+          "/admin/audit-log/stats"
+        ]
+      },
       "module": "routers.admin_audit_log",
       "function_name": "get_audit_stats",
       "qualified_name": "routers.admin_audit_log.get_audit_stats",
@@ -243,6 +359,9 @@
       },
       "http_method": "GET",
       "path": "/audit-log/stats",
+      "include_prefix": "/admin",
+      "router_prefix": null,
+      "full_path": "/admin/audit-log/stats",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -277,32 +396,55 @@
       ],
       "source": {
         "file": "routers/admin_audit_log.py",
-        "line_start": 404,
-        "line_end": 501
+        "line_start": 456,
+        "line_end": 553
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/audit-log/stats",
+          "include_prefix=/admin",
+          "router_prefix=None",
+          "full_path=/admin/audit-log/stats",
+          "function=routers.admin_audit_log.get_audit_stats"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.admin_audit_log.get.audit-log.verify.verify-audit-log-chain",
+      "id": "routers.admin_audit_log.get.admin.audit-log.verify.verify-audit-log-chain",
+      "identity": {
+        "catalog_id": "routers.admin_audit_log.get.admin.audit-log.verify.verify-audit-log-chain",
+        "logical_id": "routers.admin_audit_log.get.admin.audit-log.verify.verify-audit-log-chain",
+        "source_id": "endpoint:b8056f37b8387b90",
+        "display_name": "GET /admin/audit-log/verify",
+        "aliases": [
+          "routers.admin_audit_log.get.admin.audit-log.verify.verify-audit-log-chain",
+          "routers.admin_audit_log.verify_audit_log_chain",
+          "/audit-log/verify",
+          "/admin",
+          "/admin/audit-log/verify"
+        ]
+      },
       "module": "routers.admin_audit_log",
       "function_name": "verify_audit_log_chain",
       "qualified_name": "routers.admin_audit_log.verify_audit_log_chain",
       "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
+        "kind": "service_candidate",
+        "confidence": "medium",
+        "reason": "Endpoint appears to call a service class directly, but no service variable was inferred.",
         "signals": [
-          "direct_service_class_call",
-          "endpoint_service_link_resolved"
+          "direct_service_class_call"
         ]
       },
       "http_method": "GET",
       "path": "/audit-log/verify",
+      "include_prefix": "/admin",
+      "router_prefix": null,
+      "full_path": "/admin/audit-log/verify",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -351,13 +493,21 @@
       ],
       "source": {
         "file": "routers/admin_audit_log.py",
-        "line_start": 505,
-        "line_end": 519
+        "line_start": 557,
+        "line_end": 571
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/audit-log/verify",
+          "include_prefix=/admin",
+          "router_prefix=None",
+          "full_path=/admin/audit-log/verify",
+          "function=routers.admin_audit_log.verify_audit_log_chain"
+        ]
       },
       "review_status": "generated"
     }

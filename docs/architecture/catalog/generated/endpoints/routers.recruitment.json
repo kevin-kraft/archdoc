@@ -4,7 +4,20 @@
   "source_file": "routers/recruitment.py",
   "endpoints": [
     {
-      "id": "routers.recruitment.delete.negative-list.param-participant-id.remove-from-negative-list",
+      "id": "routers.recruitment.delete.recruitment.negative-list.param-participant-id.remove-from-negative-list",
+      "identity": {
+        "catalog_id": "routers.recruitment.delete.recruitment.negative-list.param-participant-id.remove-from-negative-list",
+        "logical_id": "routers.recruitment.delete.recruitment.negative-list.param-participant-id.remove-from-negative-list",
+        "source_id": "endpoint:22c7252620af11a9",
+        "display_name": "DELETE /recruitment/negative-list/{participant_id}",
+        "aliases": [
+          "routers.recruitment.delete.recruitment.negative-list.param-participant-id.remove-from-negative-list",
+          "routers.recruitment.remove_from_negative_list",
+          "/negative-list/{participant_id}",
+          "/recruitment",
+          "/recruitment/negative-list/{participant_id}"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "remove_from_negative_list",
       "qualified_name": "routers.recruitment.remove_from_negative_list",
@@ -20,6 +33,9 @@
       },
       "http_method": "DELETE",
       "path": "/negative-list/{participant_id}",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/negative-list/{participant_id}",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -61,18 +77,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 435,
-        "line_end": 446
+        "line_start": 504,
+        "line_end": 515
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/negative-list/{participant_id}",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/negative-list/{participant_id}",
+          "function=routers.recruitment.remove_from_negative_list"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.delete.permanent-queries.param-query-id.delete-permanent-query",
+      "id": "routers.recruitment.delete.recruitment.permanent-queries.param-query-id.delete-permanent-query",
+      "identity": {
+        "catalog_id": "routers.recruitment.delete.recruitment.permanent-queries.param-query-id.delete-permanent-query",
+        "logical_id": "routers.recruitment.delete.recruitment.permanent-queries.param-query-id.delete-permanent-query",
+        "source_id": "endpoint:f9739f06f2d095c3",
+        "display_name": "DELETE /recruitment/permanent-queries/{query_id}",
+        "aliases": [
+          "routers.recruitment.delete.recruitment.permanent-queries.param-query-id.delete-permanent-query",
+          "routers.recruitment.delete_permanent_query",
+          "/permanent-queries/{query_id}",
+          "/recruitment",
+          "/recruitment/permanent-queries/{query_id}"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "delete_permanent_query",
       "qualified_name": "routers.recruitment.delete_permanent_query",
@@ -88,6 +125,9 @@
       },
       "http_method": "DELETE",
       "path": "/permanent-queries/{query_id}",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/permanent-queries/{query_id}",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -129,18 +169,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 592,
-        "line_end": 605
+        "line_start": 641,
+        "line_end": 654
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/permanent-queries/{query_id}",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/permanent-queries/{query_id}",
+          "function=routers.recruitment.delete_permanent_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.delete.saved-queries.param-query-id.delete-saved-query",
+      "id": "routers.recruitment.delete.recruitment.saved-queries.param-query-id.delete-saved-query",
+      "identity": {
+        "catalog_id": "routers.recruitment.delete.recruitment.saved-queries.param-query-id.delete-saved-query",
+        "logical_id": "routers.recruitment.delete.recruitment.saved-queries.param-query-id.delete-saved-query",
+        "source_id": "endpoint:973f6b9cfcc997f7",
+        "display_name": "DELETE /recruitment/saved-queries/{query_id}",
+        "aliases": [
+          "routers.recruitment.delete.recruitment.saved-queries.param-query-id.delete-saved-query",
+          "routers.recruitment.delete_saved_query",
+          "/saved-queries/{query_id}",
+          "/recruitment",
+          "/recruitment/saved-queries/{query_id}"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "delete_saved_query",
       "qualified_name": "routers.recruitment.delete_saved_query",
@@ -156,6 +217,9 @@
       },
       "http_method": "DELETE",
       "path": "/saved-queries/{query_id}",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/saved-queries/{query_id}",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -197,18 +261,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 245,
-        "line_end": 258
+        "line_start": 290,
+        "line_end": 303
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/saved-queries/{query_id}",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/saved-queries/{query_id}",
+          "function=routers.recruitment.delete_saved_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.delete.targeting-rules.param-rule-id.delete-targeting-rule",
+      "id": "routers.recruitment.delete.recruitment.targeting-rules.param-rule-id.delete-targeting-rule",
+      "identity": {
+        "catalog_id": "routers.recruitment.delete.recruitment.targeting-rules.param-rule-id.delete-targeting-rule",
+        "logical_id": "routers.recruitment.delete.recruitment.targeting-rules.param-rule-id.delete-targeting-rule",
+        "source_id": "endpoint:f835034e02a5c5d8",
+        "display_name": "DELETE /recruitment/targeting-rules/{rule_id}",
+        "aliases": [
+          "routers.recruitment.delete.recruitment.targeting-rules.param-rule-id.delete-targeting-rule",
+          "routers.recruitment.delete_targeting_rule",
+          "/targeting-rules/{rule_id}",
+          "/recruitment",
+          "/recruitment/targeting-rules/{rule_id}"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "delete_targeting_rule",
       "qualified_name": "routers.recruitment.delete_targeting_rule",
@@ -224,6 +309,9 @@
       },
       "http_method": "DELETE",
       "path": "/targeting-rules/{rule_id}",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/targeting-rules/{rule_id}",
       "router": "router",
       "kwargs": {},
       "parameters": [
@@ -265,18 +353,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 137,
-        "line_end": 150
+        "line_start": 182,
+        "line_end": 195
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=DELETE",
+          "path=/targeting-rules/{rule_id}",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/targeting-rules/{rule_id}",
+          "function=routers.recruitment.delete_targeting_rule"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.get.analytics.query-performance.get-query-performance-metrics",
+      "id": "routers.recruitment.get.recruitment.analytics.query-performance.get-query-performance-metrics",
+      "identity": {
+        "catalog_id": "routers.recruitment.get.recruitment.analytics.query-performance.get-query-performance-metrics",
+        "logical_id": "routers.recruitment.get.recruitment.analytics.query-performance.get-query-performance-metrics",
+        "source_id": "endpoint:bb7b39c0757ff76f",
+        "display_name": "GET /recruitment/analytics/query-performance",
+        "aliases": [
+          "routers.recruitment.get.recruitment.analytics.query-performance.get-query-performance-metrics",
+          "routers.recruitment.get_query_performance_metrics",
+          "/analytics/query-performance",
+          "/recruitment",
+          "/recruitment/analytics/query-performance"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "get_query_performance_metrics",
       "qualified_name": "routers.recruitment.get_query_performance_metrics",
@@ -292,6 +401,9 @@
       },
       "http_method": "GET",
       "path": "/analytics/query-performance",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/analytics/query-performance",
       "router": "router",
       "kwargs": {
         "response_model": "dict"
@@ -328,18 +440,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 835,
-        "line_end": 853
+        "line_start": 859,
+        "line_end": 877
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/analytics/query-performance",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/analytics/query-performance",
+          "function=routers.recruitment.get_query_performance_metrics"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.get.assignment-history.get-assignment-history",
+      "id": "routers.recruitment.get.recruitment.assignment-history.get-assignment-history",
+      "identity": {
+        "catalog_id": "routers.recruitment.get.recruitment.assignment-history.get-assignment-history",
+        "logical_id": "routers.recruitment.get.recruitment.assignment-history.get-assignment-history",
+        "source_id": "endpoint:5960781b3c198bac",
+        "display_name": "GET /recruitment/assignment-history",
+        "aliases": [
+          "routers.recruitment.get.recruitment.assignment-history.get-assignment-history",
+          "routers.recruitment.get_assignment_history",
+          "/assignment-history",
+          "/recruitment",
+          "/recruitment/assignment-history"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "get_assignment_history",
       "qualified_name": "routers.recruitment.get_assignment_history",
@@ -353,6 +486,9 @@
       },
       "http_method": "GET",
       "path": "/assignment-history",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/assignment-history",
       "router": "router",
       "kwargs": {
         "response_model": "list[AssignmentHistoryResponse]"
@@ -403,18 +539,220 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 450,
-        "line_end": 493
+        "line_start": 519,
+        "line_end": 562
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/assignment-history",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/assignment-history",
+          "function=routers.recruitment.get_assignment_history"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.get.participants.param-participant-id.assignments.get-participant-assignments",
+      "id": "routers.recruitment.get.recruitment.experiments.param-experiment-id.diagnostics.get-experiment-recruitment-diagnostics",
+      "identity": {
+        "catalog_id": "routers.recruitment.get.recruitment.experiments.param-experiment-id.diagnostics.get-experiment-recruitment-diagnostics",
+        "logical_id": "routers.recruitment.get.recruitment.experiments.param-experiment-id.diagnostics.get-experiment-recruitment-diagnostics",
+        "source_id": "endpoint:a0559999ec21bf09",
+        "display_name": "GET /recruitment/experiments/{experiment_id}/diagnostics",
+        "aliases": [
+          "routers.recruitment.get.recruitment.experiments.param-experiment-id.diagnostics.get-experiment-recruitment-diagnostics",
+          "routers.recruitment.get_experiment_recruitment_diagnostics",
+          "/experiments/{experiment_id}/diagnostics",
+          "/recruitment",
+          "/recruitment/experiments/{experiment_id}/diagnostics"
+        ]
+      },
+      "module": "routers.recruitment",
+      "function_name": "get_experiment_recruitment_diagnostics",
+      "qualified_name": "routers.recruitment.get_experiment_recruitment_diagnostics",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/experiments/{experiment_id}/diagnostics",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/experiments/{experiment_id}/diagnostics",
+      "router": "router",
+      "kwargs": {
+        "response_model": "RecruitmentDiagnosticResponse"
+      },
+      "parameters": [
+        {
+          "name": "experiment_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "participant_id",
+          "annotation": "Optional[str]",
+          "default": "Query(None, description='Optional participant ID for per-person diagnostics')",
+          "kind": "positional_or_keyword",
+          "source": "query"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 327,
+        "line_end": 349
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/experiments/{experiment_id}/diagnostics",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/experiments/{experiment_id}/diagnostics",
+          "function=routers.recruitment.get_experiment_recruitment_diagnostics"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.get.recruitment.experiments.param-experiment-id.evidence-report.get-experiment-recruitment-evidence-report",
+      "identity": {
+        "catalog_id": "routers.recruitment.get.recruitment.experiments.param-experiment-id.evidence-report.get-experiment-recruitment-evidence-report",
+        "logical_id": "routers.recruitment.get.recruitment.experiments.param-experiment-id.evidence-report.get-experiment-recruitment-evidence-report",
+        "source_id": "endpoint:3bbab2c068183f12",
+        "display_name": "GET /recruitment/experiments/{experiment_id}/evidence-report",
+        "aliases": [
+          "routers.recruitment.get.recruitment.experiments.param-experiment-id.evidence-report.get-experiment-recruitment-evidence-report",
+          "routers.recruitment.get_experiment_recruitment_evidence_report",
+          "/experiments/{experiment_id}/evidence-report",
+          "/recruitment",
+          "/recruitment/experiments/{experiment_id}/evidence-report"
+        ]
+      },
+      "module": "routers.recruitment",
+      "function_name": "get_experiment_recruitment_evidence_report",
+      "qualified_name": "routers.recruitment.get_experiment_recruitment_evidence_report",
+      "implementation": {
+        "kind": "service_operation",
+        "confidence": "high",
+        "reason": "Endpoint was linked to at least one service operation.",
+        "signals": [
+          "service_variable_detected",
+          "service_method_call_detected",
+          "endpoint_service_link_resolved"
+        ]
+      },
+      "http_method": "GET",
+      "path": "/experiments/{experiment_id}/evidence-report",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/experiments/{experiment_id}/evidence-report",
+      "router": "router",
+      "kwargs": {
+        "response_model": "RecruitmentEvidenceReportResponse"
+      },
+      "parameters": [
+        {
+          "name": "experiment_id",
+          "annotation": "str",
+          "default": null,
+          "kind": "positional_or_keyword",
+          "source": "body_or_positional"
+        },
+        {
+          "name": "db",
+          "annotation": "AsyncSession",
+          "default": "Depends(get_db_session)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "org_id",
+          "annotation": "str",
+          "default": "Depends(require_org_context)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "_",
+          "annotation": "None",
+          "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        }
+      ],
+      "source": {
+        "file": "routers/recruitment.py",
+        "line_start": 307,
+        "line_end": 323
+      },
+      "detection": {
+        "method": "rule",
+        "rule": "function_with_api_route_signal",
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/experiments/{experiment_id}/evidence-report",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/experiments/{experiment_id}/evidence-report",
+          "function=routers.recruitment.get_experiment_recruitment_evidence_report"
+        ]
+      },
+      "review_status": "generated"
+    },
+    {
+      "id": "routers.recruitment.get.recruitment.participants.param-participant-id.assignments.get-participant-assignments",
+      "identity": {
+        "catalog_id": "routers.recruitment.get.recruitment.participants.param-participant-id.assignments.get-participant-assignments",
+        "logical_id": "routers.recruitment.get.recruitment.participants.param-participant-id.assignments.get-participant-assignments",
+        "source_id": "endpoint:4396058d0c3ed244",
+        "display_name": "GET /recruitment/participants/{participant_id}/assignments",
+        "aliases": [
+          "routers.recruitment.get.recruitment.participants.param-participant-id.assignments.get-participant-assignments",
+          "routers.recruitment.get_participant_assignments",
+          "/participants/{participant_id}/assignments",
+          "/recruitment",
+          "/recruitment/participants/{participant_id}/assignments"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "get_participant_assignments",
       "qualified_name": "routers.recruitment.get_participant_assignments",
@@ -430,6 +768,9 @@
       },
       "http_method": "GET",
       "path": "/participants/{participant_id}/assignments",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/participants/{participant_id}/assignments",
       "router": "router",
       "kwargs": {
         "response_model": "dict"
@@ -466,18 +807,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 856,
-        "line_end": 874
+        "line_start": 880,
+        "line_end": 898
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/participants/{participant_id}/assignments",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/participants/{participant_id}/assignments",
+          "function=routers.recruitment.get_participant_assignments"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.get.permanent-queries.list-permanent-queries",
+      "id": "routers.recruitment.get.recruitment.permanent-queries.list-permanent-queries",
+      "identity": {
+        "catalog_id": "routers.recruitment.get.recruitment.permanent-queries.list-permanent-queries",
+        "logical_id": "routers.recruitment.get.recruitment.permanent-queries.list-permanent-queries",
+        "source_id": "endpoint:994b3ffc6d33dd78",
+        "display_name": "GET /recruitment/permanent-queries",
+        "aliases": [
+          "routers.recruitment.get.recruitment.permanent-queries.list-permanent-queries",
+          "routers.recruitment.list_permanent_queries",
+          "/permanent-queries",
+          "/recruitment",
+          "/recruitment/permanent-queries"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "list_permanent_queries",
       "qualified_name": "routers.recruitment.list_permanent_queries",
@@ -491,6 +853,9 @@
       },
       "http_method": "GET",
       "path": "/permanent-queries",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/permanent-queries",
       "router": "router",
       "kwargs": {
         "response_model": "list[PermanentQueryResponse]"
@@ -527,18 +892,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 524,
-        "line_end": 554
+        "line_start": 592,
+        "line_end": 609
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/permanent-queries",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/permanent-queries",
+          "function=routers.recruitment.list_permanent_queries"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.get.saved-queries.list-saved-queries",
+      "id": "routers.recruitment.get.recruitment.saved-queries.list-saved-queries",
+      "identity": {
+        "catalog_id": "routers.recruitment.get.recruitment.saved-queries.list-saved-queries",
+        "logical_id": "routers.recruitment.get.recruitment.saved-queries.list-saved-queries",
+        "source_id": "endpoint:7d961bb4eb77ba37",
+        "display_name": "GET /recruitment/saved-queries",
+        "aliases": [
+          "routers.recruitment.get.recruitment.saved-queries.list-saved-queries",
+          "routers.recruitment.list_saved_queries",
+          "/saved-queries",
+          "/recruitment",
+          "/recruitment/saved-queries"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "list_saved_queries",
       "qualified_name": "routers.recruitment.list_saved_queries",
@@ -552,6 +938,9 @@
       },
       "http_method": "GET",
       "path": "/saved-queries",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/saved-queries",
       "router": "router",
       "kwargs": {
         "response_model": "list[SavedQueryResponse]"
@@ -588,18 +977,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 167,
-        "line_end": 196
+        "line_start": 212,
+        "line_end": 241
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/saved-queries",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/saved-queries",
+          "function=routers.recruitment.list_saved_queries"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.get.saved-queries.param-query-id.get-saved-query",
+      "id": "routers.recruitment.get.recruitment.saved-queries.param-query-id.get-saved-query",
+      "identity": {
+        "catalog_id": "routers.recruitment.get.recruitment.saved-queries.param-query-id.get-saved-query",
+        "logical_id": "routers.recruitment.get.recruitment.saved-queries.param-query-id.get-saved-query",
+        "source_id": "endpoint:b80dc88b4a694e4e",
+        "display_name": "GET /recruitment/saved-queries/{query_id}",
+        "aliases": [
+          "routers.recruitment.get.recruitment.saved-queries.param-query-id.get-saved-query",
+          "routers.recruitment.get_saved_query",
+          "/saved-queries/{query_id}",
+          "/recruitment",
+          "/recruitment/saved-queries/{query_id}"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "get_saved_query",
       "qualified_name": "routers.recruitment.get_saved_query",
@@ -613,6 +1023,9 @@
       },
       "http_method": "GET",
       "path": "/saved-queries/{query_id}",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/saved-queries/{query_id}",
       "router": "router",
       "kwargs": {
         "response_model": "SavedQueryResponse"
@@ -649,18 +1062,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 199,
-        "line_end": 225
+        "line_start": 244,
+        "line_end": 270
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/saved-queries/{query_id}",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/saved-queries/{query_id}",
+          "function=routers.recruitment.get_saved_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.get.targeting-rules.list-targeting-rules",
+      "id": "routers.recruitment.get.recruitment.targeting-rules.list-targeting-rules",
+      "identity": {
+        "catalog_id": "routers.recruitment.get.recruitment.targeting-rules.list-targeting-rules",
+        "logical_id": "routers.recruitment.get.recruitment.targeting-rules.list-targeting-rules",
+        "source_id": "endpoint:6ae736dab3bc550a",
+        "display_name": "GET /recruitment/targeting-rules",
+        "aliases": [
+          "routers.recruitment.get.recruitment.targeting-rules.list-targeting-rules",
+          "routers.recruitment.list_targeting_rules",
+          "/targeting-rules",
+          "/recruitment",
+          "/recruitment/targeting-rules"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "list_targeting_rules",
       "qualified_name": "routers.recruitment.list_targeting_rules",
@@ -674,6 +1108,9 @@
       },
       "http_method": "GET",
       "path": "/targeting-rules",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/targeting-rules",
       "router": "router",
       "kwargs": {
         "response_model": "list[TargetingRuleResponse]"
@@ -703,18 +1140,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 84,
-        "line_end": 95
+        "line_start": 129,
+        "line_end": 140
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/targeting-rules",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/targeting-rules",
+          "function=routers.recruitment.list_targeting_rules"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.get.targeting-rules.param-rule-id.get-targeting-rule",
+      "id": "routers.recruitment.get.recruitment.targeting-rules.param-rule-id.get-targeting-rule",
+      "identity": {
+        "catalog_id": "routers.recruitment.get.recruitment.targeting-rules.param-rule-id.get-targeting-rule",
+        "logical_id": "routers.recruitment.get.recruitment.targeting-rules.param-rule-id.get-targeting-rule",
+        "source_id": "endpoint:4a456b88bf31950e",
+        "display_name": "GET /recruitment/targeting-rules/{rule_id}",
+        "aliases": [
+          "routers.recruitment.get.recruitment.targeting-rules.param-rule-id.get-targeting-rule",
+          "routers.recruitment.get_targeting_rule",
+          "/targeting-rules/{rule_id}",
+          "/recruitment",
+          "/recruitment/targeting-rules/{rule_id}"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "get_targeting_rule",
       "qualified_name": "routers.recruitment.get_targeting_rule",
@@ -728,6 +1186,9 @@
       },
       "http_method": "GET",
       "path": "/targeting-rules/{rule_id}",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/targeting-rules/{rule_id}",
       "router": "router",
       "kwargs": {
         "response_model": "TargetingRuleResponse"
@@ -764,34 +1225,55 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 98,
-        "line_end": 114
+        "line_start": 143,
+        "line_end": 159
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=GET",
+          "path=/targeting-rules/{rule_id}",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/targeting-rules/{rule_id}",
+          "function=routers.recruitment.get_targeting_rule"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.assign.assign-participants",
+      "id": "routers.recruitment.post.recruitment.assign.assign-participants",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.assign.assign-participants",
+        "logical_id": "routers.recruitment.post.recruitment.assign.assign-participants",
+        "source_id": "endpoint:b60531923da67d25",
+        "display_name": "POST /recruitment/assign",
+        "aliases": [
+          "routers.recruitment.post.recruitment.assign.assign-participants",
+          "routers.recruitment.assign_participants",
+          "/assign",
+          "/recruitment",
+          "/recruitment/assign"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "assign_participants",
       "qualified_name": "routers.recruitment.assign_participants",
       "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
         "signals": [
-          "db_or_sqlalchemy_call",
-          "service_variable_detected",
-          "service_method_call_detected",
-          "endpoint_service_link_resolved"
+          "local_logic_detected"
         ]
       },
       "http_method": "POST",
       "path": "/assign",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/assign",
       "router": "router",
       "kwargs": {
         "response_model": "ParticipantAssignmentResponse"
@@ -819,6 +1301,20 @@
           "source": "dependency"
         },
         {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_admin_edit",
+          "annotation": "bool",
+          "default": "Depends(has_permission('admin:edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
           "name": "_",
           "annotation": "None",
           "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
@@ -828,36 +1324,59 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 316,
-        "line_end": 362
+        "line_start": 409,
+        "line_end": 424
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/assign",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/assign",
+          "function=routers.recruitment.assign_participants"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.assignments.experiment.assign-to-experiment",
+      "id": "routers.recruitment.post.recruitment.assignments.experiment.assign-to-experiment",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.assignments.experiment.assign-to-experiment",
+        "logical_id": "routers.recruitment.post.recruitment.assignments.experiment.assign-to-experiment",
+        "source_id": "endpoint:33e43f7ea55fa465",
+        "display_name": "POST /recruitment/assignments/experiment",
+        "aliases": [
+          "routers.recruitment.post.recruitment.assignments.experiment.assign-to-experiment",
+          "routers.recruitment.assign_to_experiment",
+          "/assignments/experiment",
+          "/recruitment",
+          "/recruitment/assignments/experiment"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "assign_to_experiment",
       "qualified_name": "routers.recruitment.assign_to_experiment",
       "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
         "signals": [
-          "service_variable_detected",
-          "service_method_call_detected",
-          "endpoint_service_link_resolved"
+          "local_logic_detected"
         ]
       },
       "http_method": "POST",
       "path": "/assignments/experiment",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/assignments/experiment",
       "router": "router",
       "kwargs": {
-        "response_model": "ParticipantAssignmentResponse"
+        "response_model": "ParticipantAssignmentResponse",
+        "include_in_schema": "False"
       },
       "parameters": [
         {
@@ -910,6 +1429,20 @@
           "source": "dependency"
         },
         {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_admin_edit",
+          "annotation": "bool",
+          "default": "Depends(has_permission('admin:edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
           "name": "_",
           "annotation": "None",
           "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
@@ -919,18 +1452,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 718,
-        "line_end": 756
+        "line_start": 771,
+        "line_end": 790
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/assignments/experiment",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/assignments/experiment",
+          "function=routers.recruitment.assign_to_experiment"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.assignments.session.assign-to-session",
+      "id": "routers.recruitment.post.recruitment.assignments.session.assign-to-session",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.assignments.session.assign-to-session",
+        "logical_id": "routers.recruitment.post.recruitment.assignments.session.assign-to-session",
+        "source_id": "endpoint:d9b7dba0de4dd43b",
+        "display_name": "POST /recruitment/assignments/session",
+        "aliases": [
+          "routers.recruitment.post.recruitment.assignments.session.assign-to-session",
+          "routers.recruitment.assign_to_session",
+          "/assignments/session",
+          "/recruitment",
+          "/recruitment/assignments/session"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "assign_to_session",
       "qualified_name": "routers.recruitment.assign_to_session",
@@ -946,6 +1500,9 @@
       },
       "http_method": "POST",
       "path": "/assignments/session",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/assignments/session",
       "router": "router",
       "kwargs": {
         "response_model": "ParticipantAssignmentResponse"
@@ -1003,36 +1560,59 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 759,
-        "line_end": 795
+        "line_start": 793,
+        "line_end": 829
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/assignments/session",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/assignments/session",
+          "function=routers.recruitment.assign_to_session"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.assignments.targeted.execute-targeted-assignment",
+      "id": "routers.recruitment.post.recruitment.assignments.targeted.execute-targeted-assignment",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.assignments.targeted.execute-targeted-assignment",
+        "logical_id": "routers.recruitment.post.recruitment.assignments.targeted.execute-targeted-assignment",
+        "source_id": "endpoint:3fef1c28a172f05e",
+        "display_name": "POST /recruitment/assignments/targeted",
+        "aliases": [
+          "routers.recruitment.post.recruitment.assignments.targeted.execute-targeted-assignment",
+          "routers.recruitment.execute_targeted_assignment",
+          "/assignments/targeted",
+          "/recruitment",
+          "/recruitment/assignments/targeted"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "execute_targeted_assignment",
       "qualified_name": "routers.recruitment.execute_targeted_assignment",
       "implementation": {
-        "kind": "service_operation",
-        "confidence": "high",
-        "reason": "Endpoint was linked to at least one service operation.",
+        "kind": "router_internal",
+        "confidence": "medium",
+        "reason": "Endpoint contains local logic, but no service operation link was detected at mapping time.",
         "signals": [
-          "service_variable_detected",
-          "service_method_call_detected",
-          "endpoint_service_link_resolved"
+          "local_logic_detected"
         ]
       },
       "http_method": "POST",
       "path": "/assignments/targeted",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/assignments/targeted",
       "router": "router",
       "kwargs": {
-        "response_model": "ParticipantAssignmentResponse"
+        "response_model": "ParticipantAssignmentResponse",
+        "include_in_schema": "False"
       },
       "parameters": [
         {
@@ -1078,6 +1658,20 @@
           "source": "dependency"
         },
         {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_admin_edit",
+          "annotation": "bool",
+          "default": "Depends(has_permission('admin:edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
           "name": "_",
           "annotation": "None",
           "default": "Depends(require_permission(RecruitmentPermissions.ASSIGN))",
@@ -1087,18 +1681,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 798,
-        "line_end": 830
+        "line_start": 836,
+        "line_end": 854
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/assignments/targeted",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/assignments/targeted",
+          "function=routers.recruitment.execute_targeted_assignment"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.deassign.deassign-participants",
+      "id": "routers.recruitment.post.recruitment.deassign.deassign-participants",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.deassign.deassign-participants",
+        "logical_id": "routers.recruitment.post.recruitment.deassign.deassign-participants",
+        "source_id": "endpoint:02aa0f8084604f67",
+        "display_name": "POST /recruitment/deassign",
+        "aliases": [
+          "routers.recruitment.post.recruitment.deassign.deassign-participants",
+          "routers.recruitment.deassign_participants",
+          "/deassign",
+          "/recruitment",
+          "/recruitment/deassign"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "deassign_participants",
       "qualified_name": "routers.recruitment.deassign_participants",
@@ -1115,6 +1730,9 @@
       },
       "http_method": "POST",
       "path": "/deassign",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/deassign",
       "router": "router",
       "kwargs": {
         "response_model": "ParticipantDeassignmentResponse"
@@ -1142,6 +1760,20 @@
           "source": "dependency"
         },
         {
+          "name": "current_user",
+          "annotation": "CurrentUserContext",
+          "default": "Depends(get_current_user)",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
+          "name": "can_admin_edit",
+          "annotation": "bool",
+          "default": "Depends(has_permission('admin:edit'))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
           "name": "_",
           "annotation": "None",
           "default": "Depends(require_permission(RecruitmentPermissions.DEASSIGN))",
@@ -1151,18 +1783,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 365,
-        "line_end": 407
+        "line_start": 427,
+        "line_end": 476
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/deassign",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/deassign",
+          "function=routers.recruitment.deassign_participants"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.dsl.execute.execute-dsl-query",
+      "id": "routers.recruitment.post.recruitment.dsl.execute.execute-dsl-query",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.dsl.execute.execute-dsl-query",
+        "logical_id": "routers.recruitment.post.recruitment.dsl.execute.execute-dsl-query",
+        "source_id": "endpoint:56d08598000d0445",
+        "display_name": "POST /recruitment/dsl/execute",
+        "aliases": [
+          "routers.recruitment.post.recruitment.dsl.execute.execute-dsl-query",
+          "routers.recruitment.execute_dsl_query",
+          "/dsl/execute",
+          "/recruitment",
+          "/recruitment/dsl/execute"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "execute_dsl_query",
       "qualified_name": "routers.recruitment.execute_dsl_query",
@@ -1178,6 +1831,9 @@
       },
       "http_method": "POST",
       "path": "/dsl/execute",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/dsl/execute",
       "router": "router",
       "kwargs": {
         "response_model": "ParticipantSearchResponse"
@@ -1235,18 +1891,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 648,
-        "line_end": 677
+        "line_start": 697,
+        "line_end": 726
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/dsl/execute",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/dsl/execute",
+          "function=routers.recruitment.execute_dsl_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.dsl.optimize.optimize-dsl-query",
+      "id": "routers.recruitment.post.recruitment.dsl.optimize.optimize-dsl-query",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.dsl.optimize.optimize-dsl-query",
+        "logical_id": "routers.recruitment.post.recruitment.dsl.optimize.optimize-dsl-query",
+        "source_id": "endpoint:7906797cea9af40e",
+        "display_name": "POST /recruitment/dsl/optimize",
+        "aliases": [
+          "routers.recruitment.post.recruitment.dsl.optimize.optimize-dsl-query",
+          "routers.recruitment.optimize_dsl_query",
+          "/dsl/optimize",
+          "/recruitment",
+          "/recruitment/dsl/optimize"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "optimize_dsl_query",
       "qualified_name": "routers.recruitment.optimize_dsl_query",
@@ -1262,6 +1939,9 @@
       },
       "http_method": "POST",
       "path": "/dsl/optimize",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/dsl/optimize",
       "router": "router",
       "kwargs": {
         "response_model": "dict"
@@ -1298,18 +1978,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 698,
-        "line_end": 713
+        "line_start": 747,
+        "line_end": 762
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/dsl/optimize",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/dsl/optimize",
+          "function=routers.recruitment.optimize_dsl_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.dsl.validate.validate-dsl-query",
+      "id": "routers.recruitment.post.recruitment.dsl.validate.validate-dsl-query",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.dsl.validate.validate-dsl-query",
+        "logical_id": "routers.recruitment.post.recruitment.dsl.validate.validate-dsl-query",
+        "source_id": "endpoint:28ed3f79cd1b5d8a",
+        "display_name": "POST /recruitment/dsl/validate",
+        "aliases": [
+          "routers.recruitment.post.recruitment.dsl.validate.validate-dsl-query",
+          "routers.recruitment.validate_dsl_query",
+          "/dsl/validate",
+          "/recruitment",
+          "/recruitment/dsl/validate"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "validate_dsl_query",
       "qualified_name": "routers.recruitment.validate_dsl_query",
@@ -1325,6 +2026,9 @@
       },
       "http_method": "POST",
       "path": "/dsl/validate",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/dsl/validate",
       "router": "router",
       "kwargs": {
         "response_model": "dict"
@@ -1361,18 +2065,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 680,
-        "line_end": 695
+        "line_start": 729,
+        "line_end": 744
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/dsl/validate",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/dsl/validate",
+          "function=routers.recruitment.validate_dsl_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.export.export-participants",
+      "id": "routers.recruitment.post.recruitment.export.export-participants",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.export.export-participants",
+        "logical_id": "routers.recruitment.post.recruitment.export.export-participants",
+        "source_id": "endpoint:5392a546ecff9164",
+        "display_name": "POST /recruitment/export",
+        "aliases": [
+          "routers.recruitment.post.recruitment.export.export-participants",
+          "routers.recruitment.export_participants",
+          "/export",
+          "/recruitment",
+          "/recruitment/export"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "export_participants",
       "qualified_name": "routers.recruitment.export_participants",
@@ -1388,6 +2113,9 @@
       },
       "http_method": "POST",
       "path": "/export",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/export",
       "router": "router",
       "kwargs": {
         "response_model": "ExportResponse"
@@ -1424,18 +2152,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 609,
-        "line_end": 643
+        "line_start": 658,
+        "line_end": 692
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/export",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/export",
+          "function=routers.recruitment.export_participants"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.negative-list.add-to-negative-list",
+      "id": "routers.recruitment.post.recruitment.negative-list.add-to-negative-list",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.negative-list.add-to-negative-list",
+        "logical_id": "routers.recruitment.post.recruitment.negative-list.add-to-negative-list",
+        "source_id": "endpoint:17a7c850161afe81",
+        "display_name": "POST /recruitment/negative-list",
+        "aliases": [
+          "routers.recruitment.post.recruitment.negative-list.add-to-negative-list",
+          "routers.recruitment.add_to_negative_list",
+          "/negative-list",
+          "/recruitment",
+          "/recruitment/negative-list"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "add_to_negative_list",
       "qualified_name": "routers.recruitment.add_to_negative_list",
@@ -1451,6 +2200,9 @@
       },
       "http_method": "POST",
       "path": "/negative-list",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/negative-list",
       "router": "router",
       "kwargs": {
         "response_model": "NegativeListResponse"
@@ -1494,18 +2246,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 411,
-        "line_end": 432
+        "line_start": 480,
+        "line_end": 501
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/negative-list",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/negative-list",
+          "function=routers.recruitment.add_to_negative_list"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.permanent-queries.create-permanent-query",
+      "id": "routers.recruitment.post.recruitment.permanent-queries.create-permanent-query",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.permanent-queries.create-permanent-query",
+        "logical_id": "routers.recruitment.post.recruitment.permanent-queries.create-permanent-query",
+        "source_id": "endpoint:71e22ff93a8a3cef",
+        "display_name": "POST /recruitment/permanent-queries",
+        "aliases": [
+          "routers.recruitment.post.recruitment.permanent-queries.create-permanent-query",
+          "routers.recruitment.create_permanent_query",
+          "/permanent-queries",
+          "/recruitment",
+          "/recruitment/permanent-queries"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "create_permanent_query",
       "qualified_name": "routers.recruitment.create_permanent_query",
@@ -1521,6 +2294,9 @@
       },
       "http_method": "POST",
       "path": "/permanent-queries",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/permanent-queries",
       "router": "router",
       "kwargs": {
         "response_model": "PermanentQueryResponse"
@@ -1564,18 +2340,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 497,
-        "line_end": 521
+        "line_start": 566,
+        "line_end": 589
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/permanent-queries",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/permanent-queries",
+          "function=routers.recruitment.create_permanent_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.saved-queries.create-saved-query",
+      "id": "routers.recruitment.post.recruitment.saved-queries.create-saved-query",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.saved-queries.create-saved-query",
+        "logical_id": "routers.recruitment.post.recruitment.saved-queries.create-saved-query",
+        "source_id": "endpoint:9253080ba9352536",
+        "display_name": "POST /recruitment/saved-queries",
+        "aliases": [
+          "routers.recruitment.post.recruitment.saved-queries.create-saved-query",
+          "routers.recruitment.create_saved_query",
+          "/saved-queries",
+          "/recruitment",
+          "/recruitment/saved-queries"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "create_saved_query",
       "qualified_name": "routers.recruitment.create_saved_query",
@@ -1591,6 +2388,9 @@
       },
       "http_method": "POST",
       "path": "/saved-queries",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/saved-queries",
       "router": "router",
       "kwargs": {
         "response_model": "SavedQueryResponse"
@@ -1634,18 +2434,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 154,
-        "line_end": 164
+        "line_start": 199,
+        "line_end": 209
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/saved-queries",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/saved-queries",
+          "function=routers.recruitment.create_saved_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.search.search-participants",
+      "id": "routers.recruitment.post.recruitment.search.search-participants",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.search.search-participants",
+        "logical_id": "routers.recruitment.post.recruitment.search.search-participants",
+        "source_id": "endpoint:6656a9749ddd0bc4",
+        "display_name": "POST /recruitment/search",
+        "aliases": [
+          "routers.recruitment.post.recruitment.search.search-participants",
+          "routers.recruitment.search_participants",
+          "/search",
+          "/recruitment",
+          "/recruitment/search"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "search_participants",
       "qualified_name": "routers.recruitment.search_participants",
@@ -1662,6 +2483,9 @@
       },
       "http_method": "POST",
       "path": "/search",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/search",
       "router": "router",
       "kwargs": {
         "response_model": "ParticipantSearchResponse"
@@ -1689,6 +2513,13 @@
           "source": "dependency"
         },
         {
+          "name": "can_view_pii",
+          "annotation": "bool",
+          "default": "Depends(has_permission(ParticipantPermissions.VIEW_PII))",
+          "kind": "positional_or_keyword",
+          "source": "dependency"
+        },
+        {
           "name": "_",
           "annotation": "None",
           "default": "Depends(require_permission(RecruitmentPermissions.SEARCH))",
@@ -1698,18 +2529,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 262,
-        "line_end": 313
+        "line_start": 353,
+        "line_end": 406
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/search",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/search",
+          "function=routers.recruitment.search_participants"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.post.targeting-rules.create-targeting-rule",
+      "id": "routers.recruitment.post.recruitment.targeting-rules.create-targeting-rule",
+      "identity": {
+        "catalog_id": "routers.recruitment.post.recruitment.targeting-rules.create-targeting-rule",
+        "logical_id": "routers.recruitment.post.recruitment.targeting-rules.create-targeting-rule",
+        "source_id": "endpoint:e896f285fa4d198a",
+        "display_name": "POST /recruitment/targeting-rules",
+        "aliases": [
+          "routers.recruitment.post.recruitment.targeting-rules.create-targeting-rule",
+          "routers.recruitment.create_targeting_rule",
+          "/targeting-rules",
+          "/recruitment",
+          "/recruitment/targeting-rules"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "create_targeting_rule",
       "qualified_name": "routers.recruitment.create_targeting_rule",
@@ -1725,6 +2577,9 @@
       },
       "http_method": "POST",
       "path": "/targeting-rules",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/targeting-rules",
       "router": "router",
       "kwargs": {
         "response_model": "TargetingRuleResponse"
@@ -1768,18 +2623,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 70,
-        "line_end": 81
+        "line_start": 115,
+        "line_end": 126
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=POST",
+          "path=/targeting-rules",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/targeting-rules",
+          "function=routers.recruitment.create_targeting_rule"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.put.permanent-queries.param-query-id.update-permanent-query",
+      "id": "routers.recruitment.put.recruitment.permanent-queries.param-query-id.update-permanent-query",
+      "identity": {
+        "catalog_id": "routers.recruitment.put.recruitment.permanent-queries.param-query-id.update-permanent-query",
+        "logical_id": "routers.recruitment.put.recruitment.permanent-queries.param-query-id.update-permanent-query",
+        "source_id": "endpoint:9c705df62d34ad73",
+        "display_name": "PUT /recruitment/permanent-queries/{query_id}",
+        "aliases": [
+          "routers.recruitment.put.recruitment.permanent-queries.param-query-id.update-permanent-query",
+          "routers.recruitment.update_permanent_query",
+          "/permanent-queries/{query_id}",
+          "/recruitment",
+          "/recruitment/permanent-queries/{query_id}"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "update_permanent_query",
       "qualified_name": "routers.recruitment.update_permanent_query",
@@ -1795,6 +2671,9 @@
       },
       "http_method": "PUT",
       "path": "/permanent-queries/{query_id}",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/permanent-queries/{query_id}",
       "router": "router",
       "kwargs": {
         "response_model": "PermanentQueryResponse"
@@ -1845,18 +2724,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 557,
-        "line_end": 589
+        "line_start": 612,
+        "line_end": 638
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/permanent-queries/{query_id}",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/permanent-queries/{query_id}",
+          "function=routers.recruitment.update_permanent_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.put.saved-queries.param-query-id.update-saved-query",
+      "id": "routers.recruitment.put.recruitment.saved-queries.param-query-id.update-saved-query",
+      "identity": {
+        "catalog_id": "routers.recruitment.put.recruitment.saved-queries.param-query-id.update-saved-query",
+        "logical_id": "routers.recruitment.put.recruitment.saved-queries.param-query-id.update-saved-query",
+        "source_id": "endpoint:5c95e4892e2e7407",
+        "display_name": "PUT /recruitment/saved-queries/{query_id}",
+        "aliases": [
+          "routers.recruitment.put.recruitment.saved-queries.param-query-id.update-saved-query",
+          "routers.recruitment.update_saved_query",
+          "/saved-queries/{query_id}",
+          "/recruitment",
+          "/recruitment/saved-queries/{query_id}"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "update_saved_query",
       "qualified_name": "routers.recruitment.update_saved_query",
@@ -1872,6 +2772,9 @@
       },
       "http_method": "PUT",
       "path": "/saved-queries/{query_id}",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/saved-queries/{query_id}",
       "router": "router",
       "kwargs": {
         "response_model": "SavedQueryResponse"
@@ -1922,18 +2825,39 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 228,
-        "line_end": 242
+        "line_start": 273,
+        "line_end": 287
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/saved-queries/{query_id}",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/saved-queries/{query_id}",
+          "function=routers.recruitment.update_saved_query"
+        ]
       },
       "review_status": "generated"
     },
     {
-      "id": "routers.recruitment.put.targeting-rules.param-rule-id.update-targeting-rule",
+      "id": "routers.recruitment.put.recruitment.targeting-rules.param-rule-id.update-targeting-rule",
+      "identity": {
+        "catalog_id": "routers.recruitment.put.recruitment.targeting-rules.param-rule-id.update-targeting-rule",
+        "logical_id": "routers.recruitment.put.recruitment.targeting-rules.param-rule-id.update-targeting-rule",
+        "source_id": "endpoint:6197bd4ee998083a",
+        "display_name": "PUT /recruitment/targeting-rules/{rule_id}",
+        "aliases": [
+          "routers.recruitment.put.recruitment.targeting-rules.param-rule-id.update-targeting-rule",
+          "routers.recruitment.update_targeting_rule",
+          "/targeting-rules/{rule_id}",
+          "/recruitment",
+          "/recruitment/targeting-rules/{rule_id}"
+        ]
+      },
       "module": "routers.recruitment",
       "function_name": "update_targeting_rule",
       "qualified_name": "routers.recruitment.update_targeting_rule",
@@ -1950,6 +2874,9 @@
       },
       "http_method": "PUT",
       "path": "/targeting-rules/{rule_id}",
+      "include_prefix": "/recruitment",
+      "router_prefix": null,
+      "full_path": "/recruitment/targeting-rules/{rule_id}",
       "router": "router",
       "kwargs": {
         "response_model": "TargetingRuleResponse"
@@ -2000,13 +2927,21 @@
       ],
       "source": {
         "file": "routers/recruitment.py",
-        "line_start": 117,
-        "line_end": 134
+        "line_start": 162,
+        "line_end": 179
       },
       "detection": {
         "method": "rule",
         "rule": "function_with_api_route_signal",
-        "confidence": "exact"
+        "confidence": "exact",
+        "evidence": [
+          "http_method=PUT",
+          "path=/targeting-rules/{rule_id}",
+          "include_prefix=/recruitment",
+          "router_prefix=None",
+          "full_path=/recruitment/targeting-rules/{rule_id}",
+          "function=routers.recruitment.update_targeting_rule"
+        ]
       },
       "review_status": "generated"
     }

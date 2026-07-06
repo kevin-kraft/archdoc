@@ -171,14 +171,25 @@ def _router_import_modules(file: FileFact) -> dict[str, str]:
     modules: dict[str, str] = {}
 
     for import_fact in file.imports:
-        if import_fact.type != "from_import" or import_fact.module != "routers":
+        if import_fact.type != "from_import":
+            continue
+
+        router_module = _normalized_router_module(import_fact.module)
+        if router_module is None:
             continue
 
         for name in import_fact.names:
             local_name = name.alias or name.name
-            modules[local_name] = f"routers.{name.name}"
+            modules[local_name] = f"{router_module}.{name.name}"
 
     return modules
+
+
+def _normalized_router_module(module: str | None) -> str | None:
+    if module in {"routers", "app.routers"}:
+        return "routers"
+
+    return None
 
 
 def _clean_prefix_value(value: str | None) -> str | None:
