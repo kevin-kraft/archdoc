@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1766" height="875" viewBox="0 0 1766 875" role="img" aria-labelledby="title desc">
+  <title id="title">Utilis RACI Matrix</title>
+  <desc id="desc">RACI responsibility matrix for the Utilis setup and payout process.</desc>
+  <foreignObject width="1766" height="875">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="matrix">
+      <style>
+        .matrix { width: 1766px; height: 875px; overflow: hidden; background: #d6deee; font-family: Arial, Helvetica, sans-serif; color: #fff; }
+        table { width: 1766px; border-collapse: collapse; table-layout: fixed; font-size: 24px; line-height: 1.08; }
+        th, td { border: 1px solid #17222b; height: 28px; padding: 0 3px; text-align: left; vertical-align: middle; font-weight: 400; overflow: hidden; }
+        th { height: 58px; background: #f7f7f5; color: #2e4b59; font-size: 25px; }
+        .no { width: 142px; text-align: right; }
+        .step { width: 620px; }
+        .role { width: 143px; }
+        .experimenter { width: 172px; }
+        .lab { width: 113px; }
+        .backoffice { width: 142px; }
+        .label { background: #315a9c; color: #fff; }
+        .light { background: #d6deee; }
+        .mid { background: #b3c6e4; }
+        .info { background: #aec0de; color: #304b5a; text-align: center; font-size: 24px; }
+        .r { background: #14a9df; }
+        .ra { background: #7777f4; }
+        .i { background: #cc73ef; }
+        .c { background: #6bad45; }
+        .a { background: #ffc20a; }
+        .tall td { height: 58px; }
+      </style>
+      <table aria-label="Utilis RACI matrix">
+        <thead>
+          <tr>
+            <th class="no">No.</th><th class="step">Process step</th><th class="role">Participant</th><th class="experimenter">Experimenter</th><th class="lab">Lab<br />Manager</th><th class="role">Finance<br />Admin</th><th class="role">Admin</th><th class="role">Super Admin</th><th class="backoffice">Backoffice /<br />Accounting</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="label no">1</td><td class="label step">Setup Utilis</td><td class="mid"></td><td class="mid"></td><td class="mid"></td><td class="mid"></td><td class="mid"></td><td class="ra">R+A</td><td class="mid"></td></tr>
+          <tr><td class="label no">2</td><td class="label step">Create Admin-Accounts</td><td class="light"></td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="ra">R+A</td><td class="light"></td></tr>
+          <tr><td class="label no">3</td><td class="label step">Create Lab</td><td class="mid"></td><td class="i">I</td><td class="ra">R+A</td><td class="i">I</td><td class="i">I</td><td class="i">I</td><td class="i">I</td></tr>
+          <tr><td class="label no">4</td><td class="label step">Invite Participants</td><td class="i">I</td><td class="light"></td><td class="ra">R+A</td><td class="light"></td><td class="c">C</td><td class="c">C</td><td class="light"></td></tr>
+          <tr><td class="label no">5</td><td class="label step">Create Participant Accounts</td><td class="ra">R+A</td><td class="mid"></td><td class="mid"></td><td class="mid"></td><td class="mid"></td><td class="i">I</td><td class="mid"></td></tr>
+          <tr><td class="label no">6</td><td class="label step">Enter/Update payout details in Participant Portal</td><td class="ra">R+A</td><td class="light"></td><td class="light"></td><td class="light"></td><td class="light"></td><td class="light"></td><td class="light"></td></tr>
+          <tr><td colspan="9" class="info">Utilis setup is Done. Accounts are created. Utilis is ready to work</td></tr>
+          <tr class="tall"><td class="label no">1</td><td class="label step">Create and prepare study/session as compensation-<br />relevant</td><td class="light"></td><td class="ra">R+A</td><td class="c">C</td><td class="a">A</td><td class="light"></td><td class="light"></td><td class="light"></td></tr>
+          <tr><td class="label no">2</td><td class="label step">Target Participants</td><td class="mid"></td><td class="ra">R+A</td><td class="c">C</td><td class="mid"></td><td class="mid"></td><td class="mid"></td><td class="mid"></td></tr>
+          <tr><td class="label no">3</td><td class="label step">Participant books session</td><td class="r">R</td><td class="a">A</td><td class="light"></td><td class="light"></td><td class="light"></td><td class="light"></td><td class="light"></td></tr>
+          <tr><td class="label no">4</td><td class="label step">Conduct session and record attendance</td><td class="mid"></td><td class="ra">R+A</td><td class="c">C</td><td class="mid"></td><td class="mid"></td><td class="mid"></td><td class="mid"></td></tr>
+          <tr><td class="label no">5</td><td class="label step">Record compensation / payout claim</td><td class="i">I</td><td class="ra">R+A</td><td class="light"></td><td class="i">I</td><td class="light"></td><td class="light"></td><td class="light"></td></tr>
+          <tr><td class="label no">6</td><td class="label step">Validate master data and payout readiness</td><td class="i">I</td><td class="mid"></td><td class="mid"></td><td class="ra">R+A</td><td class="i"></td><td class="mid"></td><td class="c">C</td></tr>
+          <tr><td class="label no">7</td><td class="label step">Manually clarify missing or inconsistent data</td><td class="r">R</td><td class="c">C</td><td class="c">C</td><td class="a">A</td><td class="i"></td><td class="light"></td><td class="i">I</td></tr>
+          <tr><td class="label no">8</td><td class="label step">Create payout in Utilis</td><td class="light"></td><td class="light"></td><td class="light"></td><td class="ra">R+A</td><td class="c">C</td><td class="mid"></td><td class="mid"></td></tr>
+          <tr><td class="label no">9</td><td class="label step">Apply threshold checks and route for approval</td><td class="light"></td><td class="light"></td><td class="light"></td><td class="ra">R+A</td><td class="c">C</td><td class="light"></td><td class="light"></td></tr>
+          <tr><td class="label no">10</td><td class="label step">First-level payout approval</td><td class="light"></td><td class="c">C</td><td class="light"></td><td class="ra">R+A</td><td class="r">R</td><td class="mid"></td><td class="mid"></td></tr>
+          <tr class="tall"><td class="label no">11</td><td class="label step">Second-level approval for four-eyes principle/high<br />amounts</td><td class="light"></td><td class="light"></td><td class="light"></td><td class="ra">R+A</td><td class="i"></td><td class="c">C</td><td class="light"></td></tr>
+          <tr><td class="label no">12</td><td class="label step">Decide payout mode (KIT: backoffice)</td><td class="mid"></td><td class="mid"></td><td class="mid"></td><td class="ra">R+A</td><td class="c">C</td><td class="mid"></td><td class="i">I</td></tr>
+          <tr><td class="label no">13</td><td class="label step">Trigger payment or generate export/batch</td><td class="light"></td><td class="light"></td><td class="light"></td><td class="ra">R+A</td><td class="c">C</td><td class="light"></td><td class="r">R</td></tr>
+          <tr><td class="label no">14</td><td class="label step">Execute external payout</td><td class="mid"></td><td class="mid"></td><td class="mid"></td><td class="c">C</td><td class="mid"></td><td class="mid"></td><td class="ra">R+A</td></tr>
+          <tr><td class="label no">15</td><td class="label step">Receive and synchronize payment status</td><td class="light"></td><td class="light"></td><td class="light"></td><td class="ra">R+A</td><td class="light"></td><td class="light"></td><td class="c">C</td></tr>
+          <tr><td class="label no">16</td><td class="label step">Handle errors, retries and escalations</td><td class="mid"></td><td class="mid"></td><td class="mid"></td><td class="ra">R+A</td><td class="c">C</td><td class="c">C</td><td class="c">C</td></tr>
+          <tr><td class="label no">17</td><td class="label step">Mark payout as paid / completed in Utilis</td><td class="i">I</td><td class="light"></td><td class="light"></td><td class="r">R</td><td class="a">A</td><td class="c">C</td><td class="i">I</td></tr>
+          <tr><td class="label no">18</td><td class="label step">Perform reconciliation, audit trail and final documentation</td><td class="mid"></td><td class="mid"></td><td class="mid"></td><td class="r">R</td><td class="a">A</td><td class="c">C</td><td class="r">R</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </foreignObject>
+</svg>

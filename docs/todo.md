@@ -11,3 +11,5 @@ async def delete_provider(
     - eine Darstellung von Permissions in User Stories, mit endpoints die keine Service Verbindung haben 
     - bessere Darstellung von Informationen im Trace
         - Schlecht: Types werden einfach hintereinander angezeigt sowie Endpoints ==> Sortieren, Besseren Graphen darstellen vielleicht (eher vie in service action graph aber fokusiert) 
+
+- 

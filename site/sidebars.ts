@@ -18,6 +18,7 @@ const sidebars: SidebarsConfig = {
   architectureSidebar: [
     'architecture/overview',
     'architecture/data-dictionary',
+    'architecture/raci-matrix',
     'architecture/payout-process',
     'architecture/utilis-handbook',
     {
