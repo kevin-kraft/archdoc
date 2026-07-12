@@ -81,7 +81,7 @@ backend source at:
 ../api/app
 ```
 
-The configuration assumes the following directory structure:
+The default configuration assumes the following directory structure:
 
 ```text
 my-python-backend/
