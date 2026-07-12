@@ -18,6 +18,7 @@ docs/architecture/catalog/generated/
 docs/architecture/schemas/
 site/static/archdoc/*.json
 graphify-out/
+recovery-backups/
 
 # Project-specific documentation assets (kept locally, not published)
 site/static/archdoc/diagrams/
