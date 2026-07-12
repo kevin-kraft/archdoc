@@ -5,6 +5,9 @@ __pycache__/
 **/__pycache__/
 **/*.pyc
 
+# Archive files
+*.zip
+
 # Docusaurus / Node outputs
 site/node_modules/
 site/build/
