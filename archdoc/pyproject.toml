@@ -1,16 +1,57 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "archdoc"
-version = "0.1.0"
+version = "0.1.1"
 description = "Deterministic architecture fact extraction and mapping for Python backends"
+readme = "README.md"
 requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+
 dependencies = [
   "pydantic>=2.0",
   "pyyaml>=6.0",
   "typer>=0.12.0"
 ]
 
+authors = [
+  { name = "Kevin Kraft", email = "k.krafti@web.de" }
+]
+
+keywords = [
+  "architecture",
+  "documentation",
+  "static-analysis",
+  "python",
+  "docusaurus"
+]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Documentation"
+]
+
 [project.scripts]
 archdoc = "archdoc.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/kevin-kraft/archdoc"
+Repository = "https://github.com/kevin-kraft/archdoc"
+Issues = "https://github.com/kevin-kraft/archdoc/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+archdoc = ["templates/*.yml"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

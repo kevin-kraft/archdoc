@@ -1,11 +1,13 @@
-# Archdoc Manual Setup
+# Archdoc Development Setup
 
-This guide explains how to install and run the local `archdoc` package without
-Docker.
+This guide explains how to run the generator, review backend, and frontend as
+separate development processes. For the simplest review-only setup, use the
+Docker quick start in the repository [README](../README.md).
 
 ## Requirements
 
 - Python 3.11 or newer
+- Node.js 20 or newer and npm (for frontend development)
 - A checkout that contains this docs repository
 - For a full Utilis scan: access to the Utilis backend source expected by
   `archdoc.yml`
@@ -140,7 +142,7 @@ The current test harness uses Python's standard `unittest`, so no separate
 ./.venv/bin/python -m unittest discover -s archdoc/tests -v
 ```
 
-## 6. Optional: Run The Review Backend
+## 6. Run The Review Backend
 
 Install backend dependencies into the same virtual environment:
 
@@ -170,12 +172,14 @@ stores review state in:
 - `docs/architecture/archdoc-review.sqlite3`
 - `docs/architecture/overlays/review-overlay.json`
 
-## 7. Optional: Run The Docusaurus Site
+Keep this process running while using the interactive review features.
+
+## 7. Run The Docusaurus Site
 
 From `site`:
 
 ```bash
-npm install
+npm ci
 npm run start
 ```
 
@@ -187,6 +191,21 @@ For Docker deployments, open the site through the published nginx port, for
 example `http://localhost:8088`. API calls stay on the same origin and are
 proxied from `/api/*` and `/health` to the backend container. The browser does
 not need direct access to `http://localhost:8010` in this mode.
+
+## Docker Runtime Model
+
+The Docker deployment contains two services:
+
+- `docs-backend`: FastAPI plus the SQLite read model on an internal port
+- `docs-site`: a built Docusaurus site served by nginx on host port `8088`
+
+nginx proxies `/api/*` and `/health` to the backend. Only the frontend port is
+published, so browser requests remain same-origin. SQLite and overlay state are
+stored in the named `archdoc-review-data` volume.
+
+The images copy the generated catalog at build time. They do not run `archdoc
+scan` or `archdoc map`. Generate the catalog before building when the source
+snapshot has changed.
 
 ## Common Problems
 

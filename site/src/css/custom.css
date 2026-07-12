@@ -1,34 +1,90 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
 :root {
   --ifm-container-width-xl: 90%;
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #3048f5;
+  --ifm-color-primary-dark: #243be0;
+  --ifm-color-primary-darker: #2137d3;
+  --ifm-color-primary-darkest: #1726a9;
+  --ifm-color-primary-light: #4b60ff;
+  --ifm-color-primary-lighter: #6274ff;
+  --ifm-color-primary-lightest: #9aa5ff;
+  --ifm-color-primary-contrast-background: #ffffff;
+  --ifm-font-color-base: #171d38;
+  --ifm-heading-color: #141a33;
+  --ifm-background-color: #f8f9ff;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.96);
+  --ifm-footer-background-color: #151b36;
+  --archdoc-brand-blue: #3048f5;
+  --archdoc-brand-blue-light: #6678ff;
+  --archdoc-brand-navy: #151b36;
+  --archdoc-brand-surface: #f3f5ff;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(48, 72, 245, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-   --ifm-container-width-xl: 90%;
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-container-width-xl: 90%;
+  --ifm-color-primary: #7182ff;
+  --ifm-color-primary-dark: #5b6eff;
+  --ifm-color-primary-darker: #4d61fa;
+  --ifm-color-primary-darkest: #3048f5;
+  --ifm-color-primary-light: #8997ff;
+  --ifm-color-primary-lighter: #9ca8ff;
+  --ifm-color-primary-lightest: #c4caff;
+  --ifm-color-primary-contrast-background: #11162d;
+  --ifm-font-color-base: #edf0ff;
+  --ifm-heading-color: #ffffff;
+  --ifm-background-color: #10152b;
+  --ifm-background-surface-color: #171d38;
+  --ifm-navbar-background-color: rgba(16, 21, 43, 0.96);
+  --ifm-footer-background-color: #0b0f21;
+  --archdoc-brand-surface: #171d38;
+  --docusaurus-highlighted-code-line-bg: rgba(113, 130, 255, 0.18);
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(48, 72, 245, 0.16);
+  box-shadow: 0 8px 28px rgba(21, 27, 54, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.navbar__logo {
+  width: 142px;
+  height: 38px;
+  margin-right: 1rem;
+  border-radius: 7px;
+  padding: 3px 6px;
+  background: #ffffff;
+}
+
+.navbar__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.navbar__link--active,
+.navbar__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+.button--primary {
+  border-color: var(--archdoc-brand-blue);
+  background: linear-gradient(135deg, var(--archdoc-brand-blue), #243be0);
+  box-shadow: 0 8px 20px rgba(48, 72, 245, 0.22);
+}
+
+.button--primary:hover {
+  border-color: var(--ifm-color-primary-dark);
+  background: linear-gradient(135deg, #243be0, #1726a9);
+}
+
+.footer--dark {
+  --ifm-footer-background-color: var(--archdoc-brand-navy);
+}
+
+::selection {
+  background: rgba(48, 72, 245, 0.24);
 }
 
 

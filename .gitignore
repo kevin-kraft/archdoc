@@ -12,10 +12,16 @@ site/.docusaurus/
 site/.cache-loader/
 
 # Generated Archdoc data
+.archdoc/
 docs/architecture/generated_raw/
 docs/architecture/catalog/generated/
 docs/architecture/schemas/
 site/static/archdoc/*.json
+graphify-out/
+
+# Project-specific documentation assets (kept locally, not published)
+site/static/archdoc/diagrams/
+site/static/archdoc/manuals/
 
 # Local review state
 docs/architecture/archdoc-review.sqlite3

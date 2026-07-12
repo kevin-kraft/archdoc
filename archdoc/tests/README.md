@@ -18,3 +18,5 @@ The harness currently covers:
 - endpoint-to-service linking
 - database action and transaction detection
 - deterministic duplicate catalog ID resolution
+- packaged configuration initialization and overwrite protection
+- parity between the repository example and packaged template

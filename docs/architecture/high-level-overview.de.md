@@ -1,12 +1,12 @@
 # Archdoc High-Level Overview
 
-Dieses Dokument erklaert die aktuelle Architektur von Archdoc auf Deutsch. Es
-ist als Vorbereitung fuer eine kurze Demo oder Praesentation gedacht.
+Dieses Dokument erklaert die implementierte Architektur von Archdoc vom
+Source-Code-Scan bis zur SQLite-basierten Review-Oberflaeche.
 
 ## Zielbild
 
-Archdoc soll eine deterministische Pipeline fuer Architektur-Dokumentation,
-Analyse und Review werden.
+Archdoc ist eine deterministische Pipeline fuer Architektur-Dokumentation,
+Analyse und Review.
 
 Aktuell besteht das System aus drei groben Teilen:
 
@@ -97,7 +97,7 @@ Das Frontend macht aktuell:
 - Service Operation Tabelle
 - Service Action Graph
 - Validation Issues
-- User Story Demo View
+- User Story Review und Trace View
 - Review Controls
 - Static Fallback, falls Backend nicht laeuft
 
@@ -361,7 +361,7 @@ Manuelle User Stories liegen in:
 
 - `docs/architecture/user-stories/*.md`
 
-Die Demo verlinkt User Stories ueber Endpoint-Referenzen auf echte Backend-
+Die Review-Ansicht verlinkt User Stories ueber Endpoint-Referenzen auf echte Backend-
 Architektur.
 
 ```mermaid
@@ -396,32 +396,18 @@ Aktuell vorhanden:
 - DB Query Details
 - Model/Entity Details
 - Worker Action Detection
-- erste User Story Demo
+- User Story Review und Trace View
 
-## Was noch fehlt
+## Moegliche Erweiterungen
 
 ### 1. Service-to-Service Verbindungen
 
-Aktuell liegt der Fokus auf:
-
-```text
-Endpoint -> Service Operation
-Service Operation -> Actions
-```
-
-Noch nicht vollstaendig modelliert ist:
-
-```text
-Service Operation -> anderer Service -> weitere Operation
-```
-
-Warum wichtig:
-
-- viele Business-Prozesse laufen ueber mehrere Services
-- aktuelle Graphen zeigen noch nicht alle Service-Abhaengigkeiten
-- Refactoring-Risiken zwischen Services werden dadurch noch nicht voll sichtbar
-
-Zielbild:
+High-confidence Service-zu-Service-Aufrufe und geerbte Facade-Operationen
+werden bereits als Operation-Dependency-Links erzeugt, in SQLite importiert und
+im Service-Graph-Inspector dargestellt. Dynamische oder indirekte Aufrufmuster
+bleiben eine heuristische Grenze und sollten ueber Validation und Review
+kontrolliert werden. Ein solcher erkannter Ablauf kann beispielsweise so
+dargestellt werden:
 
 ```mermaid
 flowchart LR
@@ -456,7 +442,7 @@ flowchart LR
 
 ### 3. Full User Stories
 
-Die User Story Demo ist aktuell ein erster Read Model Ansatz.
+Die User-Story-Ansicht ist aktuell ein Read-Model-Ansatz.
 
 Noch fehlt:
 

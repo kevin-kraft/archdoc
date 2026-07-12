@@ -1,13 +1,11 @@
 # Archdoc High-Level Overview
 
-This document explains the current Archdoc architecture demo from source-code
-analysis to the review UI. It is written as a practical briefing for explaining
-the system tomorrow.
+This document explains the implemented Archdoc architecture from source-code
+analysis to the SQLite-backed review UI.
 
 ## Goal
 
-Archdoc is intended to become a deterministic architecture documentation and
-review pipeline.
+Archdoc is a deterministic architecture documentation and review pipeline.
 
 The current system has three major responsibilities:
 
@@ -98,7 +96,7 @@ It currently owns:
 - review/status controls
 - service action graph
 - database-action detail panel
-- user-story demo page
+- user-story review and trace view
 - static fallback loading
 
 ## Data Layers
@@ -357,7 +355,7 @@ Manual user stories live in:
 
 - `docs/architecture/user-stories/*.md`
 
-The current demo page links a user story to generated backend architecture via
+The current review view links a user story to generated backend architecture via
 declared endpoint references.
 
 ```mermaid
@@ -369,16 +367,16 @@ flowchart LR
   E --> F["Architecture Actions"]
 ```
 
-Example demo story:
+Example catalog trace:
 
 - `US-ADMIN-001`
 - endpoint: `POST /users/{user_id}/reset-password`
 - linked service: `admin.admin-user`
 - linked operation: `reset_password`
 
-## Current Demo Narrative
+## End-to-End Workflow
 
-For tomorrow, the simplest explanation is:
+The operational workflow is:
 
 1. Archdoc scans the backend source code deterministically.
 2. It maps source facts into architecture catalogs.
@@ -395,7 +393,7 @@ For tomorrow, the simplest explanation is:
 Docusaurus is still useful because:
 
 - docs, generated pages, and MDX are already integrated
-- the architecture viewer can be demoed quickly
+- the architecture viewer can be deployed with the documentation
 - static JSON fallback still works
 - the team can read narrative docs next to interactive views
 
@@ -406,7 +404,8 @@ A separate React app may make sense later when:
 - authentication and multi-user review workflows matter
 - the UI is no longer primarily documentation-adjacent
 
-For the current demo phase, Docusaurus is a good shell.
+For the current documentation-centered workflow, Docusaurus remains a useful
+shell.
 
 ## Known Limits
 
@@ -419,9 +418,9 @@ Current limits:
 - query parsing is expression-based, not a full SQLAlchemy semantic interpreter
 - duplicate model/service names should later become stronger validator signals
 
-## Recommended Next Steps
+## Possible Next Steps
 
-Good next steps after the demo:
+Possible extensions are:
 
 1. Add a first-class user-story schema file and validator.
 2. Add frontend-action references to user stories.

@@ -1,3 +1,4 @@
+LICENSE
 README.md
 pyproject.toml
 src/archdoc/__init__.py
@@ -16,6 +17,7 @@ src/archdoc/catalog/loader.py
 src/archdoc/catalog/models.py
 src/archdoc/catalog/writer.py
 src/archdoc/config/__init__.py
+src/archdoc/config/initializer.py
 src/archdoc/config/loader.py
 src/archdoc/config/models.py
 src/archdoc/exporter/docusaurus_exporter.py
@@ -43,6 +45,8 @@ src/archdoc/scanner/extract_imports.py
 src/archdoc/scanner/extract_signals.py
 src/archdoc/scanner/extract_symbols.py
 src/archdoc/scanner/python_scanner.py
+src/archdoc/templates/__init__.py
+src/archdoc/templates/archdoc.example.yml
 src/archdoc/utils/__init__.py
 src/archdoc/utils/class_index.py
 src/archdoc/utils/json.py
@@ -53,4 +57,5 @@ src/archdoc/validator/class_resource_profile.py
 src/archdoc/validator/models.py
 src/archdoc/validator/writer.py
 tests/test_archdoc_pipeline.py
+tests/test_config_initializer.py
 tests/test_python_scanner.py

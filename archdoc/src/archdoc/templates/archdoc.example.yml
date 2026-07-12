@@ -1,0 +1,59 @@
+# Generic configuration for a Python backend. Create with: archdoc init
+project:
+  name: my-python-backend
+  root: .
+  source_root: app
+
+scan:
+  include:
+    - "**/*.py"
+  exclude:
+    - "**/__pycache__/**"
+    - "**/.venv/**"
+    - "**/venv/**"
+    - "**/migrations/**"
+    - "**/tests/**"
+
+output:
+  raw_facts: .archdoc/raw_code_facts.json
+  catalog_dir: .archdoc/catalog
+  schema_dir: .archdoc/schemas
+  # docusaurus_static_dir: docs-site/static/archdoc
+  # overlays_dir: docs/architecture/overlays
+
+mapping:
+  services:
+    paths: [services, app/services]
+    class_suffixes: [Service]
+    exclude_classes: []
+    public_methods_as_operations: true
+    ignore_method_prefixes: ["_"]
+    ignore_methods: [__init__]
+  endpoints:
+    paths: [routers, api, app/routers]
+    route_signal_kind: api_route
+  actions:
+    enabled: true
+    include_unmatched_type_usages: true
+  entities:
+    enabled: true
+    paths: [models, app/models]
+    class_base_names: [Base, DeclarativeBase]
+    field_value_calls: [Column, mapped_column, relationship]
+    table_name_fields: [__tablename__]
+    include_pydantic_models: true
+  workers:
+    enabled: true
+    worker_classes: [Worker]
+    dispatch_calls:
+      - name: enqueue_job
+    job_model_constructors:
+      - class_name: Job
+    queue_method_suffixes: [.delay, .apply_async, .enqueue, .send_task]
+    injected_attribute_names: [worker]
+  operation_links:
+    enabled: true
+
+naming:
+  service_id_template: "{domain}.{class_slug}"
+  operation_id_template: "{service_id}.operation.{method_name}"

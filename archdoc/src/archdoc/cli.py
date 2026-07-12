@@ -2,6 +2,7 @@ from pathlib import Path
 
 import typer
 
+from archdoc.config.initializer import initialize_config
 from archdoc.config.loader import load_config
 from archdoc.facts.loader import load_raw_facts
 from archdoc.facts.writer import write_raw_facts
@@ -36,6 +37,34 @@ app = typer.Typer(
 @app.callback()
 def main():
     pass
+
+
+@app.command("init")
+def init_config(
+    output: Path = typer.Option(
+        Path("archdoc.yml"),
+        "--output",
+        "-o",
+        help="Destination for the generated configuration file.",
+    ),
+    force: bool = typer.Option(
+        False,
+        "--force",
+        help="Replace an existing configuration file.",
+    ),
+):
+    """Create a documented Archdoc configuration template."""
+    try:
+        written_path = initialize_config(output, force=force)
+    except FileExistsError:
+        typer.echo(
+            f"Configuration already exists: {output}. Use --force to replace it.",
+            err=True,
+        )
+        raise typer.Exit(code=1)
+
+    typer.echo(f"Created Archdoc configuration: {written_path}")
+    typer.echo("Next: adjust project.source_root, then run archdoc scan -c archdoc.yml")
 
 
 @app.command()

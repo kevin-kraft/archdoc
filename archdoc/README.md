@@ -1,204 +1,164 @@
-# archdoc — deterministic architecture documentation generator
+# archdoc — deterministic architecture documentation for Python
 
-This package is a deterministic documentation generator for Python backends.
-It does not infer business meaning from runtime behavior. Instead, it reads the source tree, extracts syntax-level facts from Python AST, maps those facts to service and endpoint catalog records, validates the result, and writes stable JSON artifacts for downstream docs.
+`archdoc` scans Python source code, extracts syntax-level facts through the
+standard-library AST, maps configurable architecture concepts, and writes
+stable JSON artifacts for documentation and review tooling.
 
-For the current end-to-end architecture, including the SQLite UI backend,
-overlay layer, and Docusaurus review frontend, see:
+The project is developed publicly at
+[kevin-kraft/archdoc](https://github.com/kevin-kraft/archdoc). The repository
+also contains the architecture visualization and review application.
 
-- [../docs/architecture/README.md](../docs/architecture/README.md)
+## Design goals
 
-## Scope
+- deterministic output for an unchanged source tree and configuration
+- static analysis without importing or executing the analyzed application
+- explicit, project-specific mapping rules instead of hidden inference
+- stable source references and identifiers for downstream tooling
+- replaceable generated data kept separate from manual review state
 
-The implementation in this repository is centered on these files:
+`archdoc` is rule-based. It documents evidence found in source code; it does
+not claim to prove runtime behavior or business meaning.
 
-- [utilis/docs-site-docasaurus/archdoc/src/archdoc/cli.py](utilis/docs-site-docasaurus/archdoc/src/archdoc/cli.py)
-- [utilis/docs-site-docasaurus/archdoc/src/archdoc/scanner/python_scanner.py](utilis/docs-site-docasaurus/archdoc/src/archdoc/scanner/python_scanner.py)
-- [utilis/docs-site-docasaurus/archdoc/src/archdoc/mapper/service_mapper.py](utilis/docs-site-docasaurus/archdoc/src/archdoc/mapper/service_mapper.py)
-- [utilis/docs-site-docasaurus/archdoc/src/archdoc/mapper/endpoint_mapper.py](utilis/docs-site-docasaurus/archdoc/src/archdoc/mapper/endpoint_mapper.py)
-- [utilis/docs-site-docasaurus/archdoc/src/archdoc/linker/endpoint_service_linker.py](utilis/docs-site-docasaurus/archdoc/src/archdoc/linker/endpoint_service_linker.py)
-- [utilis/docs-site-docasaurus/archdoc/src/archdoc/config/loader.py](utilis/docs-site-docasaurus/archdoc/src/archdoc/config/loader.py)
-- [utilis/docs-site-docasaurus/archdoc/src/archdoc/facts/writer.py](utilis/docs-site-docasaurus/archdoc/src/archdoc/facts/writer.py)
-- [utilis/docs-site-docasaurus/archdoc/src/archdoc/exporter/docusaurus_exporter.py](utilis/docs-site-docasaurus/archdoc/src/archdoc/exporter/docusaurus_exporter.py)
+## Installation
 
-## Configuration source
+`archdoc` requires Python 3.11 or newer.
 
-The current generator configuration is defined in:
+```bash
+python -m pip install archdoc
+```
 
-- [utilis/docs-site-docasaurus/archdoc.yml](utilis/docs-site-docasaurus/archdoc.yml)
+For development directly from the repository:
 
-Observed defaults from that file:
+```bash
+python -m pip install -e .
+```
 
-- project name: utilis
-- source root: api/app
-- include pattern: **/*.py
-- exclude patterns: __pycache__, .venv, venv, migrations, tests
-- raw facts output: docs-site-docasaurus/docs/architecture/generated_raw/raw_code_facts.json
-- catalog output: ../docs/architecture/catalog/generated
-- Docusaurus static export: docs-site-docasaurus/site/static/archdoc
+## Quick start
+
+Create a starter configuration in the project that should be analyzed:
+
+```bash
+archdoc init
+```
+
+This creates `archdoc.yml` in the current directory. Existing files are not
+overwritten unless `--force` is supplied:
+
+```bash
+archdoc init --output config/archdoc.yml
+archdoc init --force
+```
+
+Adjust `project.name` and `project.source_root`, then run:
+
+```bash
+archdoc scan -c archdoc.yml
+archdoc map -c archdoc.yml
+```
+
+The documented starter configuration is available as
+[archdoc.example.yml](archdoc.example.yml). The same template is included in
+the installed Python package, so `archdoc init` also works after installation
+from a wheel.
+
+## Configuration
+
+All paths are resolved relative to the configuration file and
+`project.root`. The main sections are:
+
+- `project`: project name, project root, and Python source root
+- `scan`: included and excluded file patterns
+- `output`: destinations for raw facts, catalogs, and schemas
+- `mapping`: rules for services, endpoints, actions, entities, and workers
+- `naming`: templates for stable architecture identifiers
+
+Minimal example:
+
+```yaml
+project:
+  name: example-backend
+  root: .
+  source_root: app
+
+scan:
+  include:
+    - "**/*.py"
+  exclude:
+    - "**/.venv/**"
+    - "**/migrations/**"
+    - "**/tests/**"
+
+output:
+  raw_facts: .archdoc/raw_code_facts.json
+  catalog_dir: .archdoc/catalog
+  schema_dir: .archdoc/schemas
+```
+
+Mapping behavior is configurable because naming conventions and project
+layouts differ between Python backends. The generated template documents the
+available service, endpoint, entity, worker, and operation-link sections.
 
 ## Pipeline
 
-### 1. Scan phase
+### Scan
 
-Command: `archdoc scan -c archdoc.yml`
+`archdoc scan`:
 
-What happens:
+1. loads and validates the YAML configuration;
+2. discovers matching Python files in a stable order;
+3. parses each file with `ast.parse()`;
+4. extracts imports, classes, functions, methods, decorators, calls,
+   assignments, and architecture signals;
+5. writes the raw facts JSON artifact.
 
-1. Load YAML config.
-2. Resolve the project root and source root.
-3. Find Python files with `source_root.glob(include_pattern)`.
-4. Exclude files matching the configured glob patterns.
-5. Parse each file with Python `ast.parse()`.
-6. Extract syntax-level facts:
-   - imports
-   - classes
-   - top-level functions
-   - calls
-   - assignments
-   - decorators
-   - route-like signals
-   - service/model-like signals
-7. Write the raw facts JSON document.
+### Map
 
-Deterministic properties of this phase:
+`archdoc map`:
 
-- file discovery is sorted before processing (`return sorted(filtered)`)
-- AST traversal is deterministic for a given source tree
-- output JSON is written with `indent=2` and `ensure_ascii=False`
+1. loads the raw facts;
+2. maps configured services and their operations;
+3. maps route-decorated endpoint functions;
+4. links endpoints to detected service operations;
+5. maps architecture actions and operation dependencies;
+6. validates the resulting catalog;
+7. writes JSON artifacts for downstream consumers.
 
-### 2. Map phase
-
-Command: `archdoc map -c archdoc.yml`
-
-What happens:
-
-1. Load the raw facts JSON produced in phase 1.
-2. Build service catalog entries from classes that match configured service paths and suffixes.
-3. Build endpoint catalog entries from route-decorated functions.
-4. Link endpoints to inferred service operations.
-5. Validate the generated catalog.
-6. Optionally export Docusaurus static JSON data.
-
-## What is considered a service
-
-The current service mapping rules are visible in [utilis/docs-site-docasaurus/archdoc/src/archdoc/mapper/service_mapper.py](utilis/docs-site-docasaurus/archdoc/src/archdoc/mapper/service_mapper.py):
-
-- a file must be under a configured service path such as `services` or `app/services`
-- the class name must end with a configured suffix such as `Service`
-- public methods are treated as operations by default
-- methods matching configured ignore lists are excluded
-- service IDs are derived from the class name and path domain
-
-This is a heuristic rule set, not a full semantic analysis of the codebase.
-
-## What is considered an endpoint
-
-The current endpoint mapping rules are visible in [utilis/docs-site-docasaurus/archdoc/src/archdoc/mapper/endpoint_mapper.py](utilis/docs-site-docasaurus/archdoc/src/archdoc/mapper/endpoint_mapper.py):
-
-- a file must be under a configured endpoint path such as `routers` or `app/routers`
-- the function must contain a FastAPI-style route signal such as `@router.get("/x")`
-- the endpoint ID is generated from module, HTTP method, path, and function name
-- the implementation kind is classified from call patterns and assignments
-
-## How service-to-endpoint links are inferred
-
-The linking logic in [utilis/docs-site-docasaurus/archdoc/src/archdoc/linker/endpoint_service_linker.py](utilis/docs-site-docasaurus/archdoc/src/archdoc/linker/endpoint_service_linker.py) uses a rule-based matcher:
-
-- infer variable types from parameters and assignments
-- match top-level meaningful calls to known service operations
-- fall back to direct class-style calls such as `AuditService.log_event(...)`
-- prefer inherited service classes when available
-
-This produces stable links but relies on naming and call-shape heuristics.
-
-## Generated artifacts
-
-The current generated outputs under the repository are:
-
-- raw facts: [utilis/docs-site-docasaurus/docs/architecture/generated_raw/raw_code_facts.json](utilis/docs-site-docasaurus/docs/architecture/generated_raw/raw_code_facts.json)
-- service catalog: [utilis/docs-site-docasaurus/docs/architecture/catalog/generated/services](utilis/docs-site-docasaurus/docs/architecture/catalog/generated/services)
-- endpoint catalog: [utilis/docs-site-docasaurus/docs/architecture/catalog/generated/endpoints](utilis/docs-site-docasaurus/docs/architecture/catalog/generated/endpoints)
-- links: [utilis/docs-site-docasaurus/docs/architecture/catalog/generated/links](utilis/docs-site-docasaurus/docs/architecture/catalog/generated/links)
-- validation report: [utilis/docs-site-docasaurus/docs/architecture/catalog/generated/reports/validation_report.json](utilis/docs-site-docasaurus/docs/architecture/catalog/generated/reports/validation_report.json)
-
-## Manual overlay layer
-
-Generated catalog files are treated as read-only output. Manual review state,
-labels, ownership, notes, and future BPMN/user-story links live in separate
-overlay JSON files.
-
-The overlay schema is defined in:
-
-- [utilis/docs-site-docasaurus/archdoc/src/archdoc/overlay/models.py](utilis/docs-site-docasaurus/archdoc/src/archdoc/overlay/models.py)
-
-The configured overlay directory is:
-
-- [utilis/docs-site-docasaurus/docs/architecture/overlays](utilis/docs-site-docasaurus/docs/architecture/overlays)
-
-Example overlay document:
-
-- [utilis/docs-site-docasaurus/docs/architecture/overlays/review-overlay.example.json](utilis/docs-site-docasaurus/docs/architecture/overlays/review-overlay.example.json)
-
-Overlay entries target generated catalog items by stable ID and target type.
-Supported target types include services, operations, endpoints,
-endpoint-service links, validation issues, user stories, BPMN processes, and
-BPMN tasks. This keeps deterministic generated output separate from human
-review decisions.
-
-## JSON schema export
-
-`archdoc` can export JSON Schema files for the generated artifacts and overlay
-contract without running UI, backend, or database code.
-
-Command:
+### Export schemas
 
 ```bash
 archdoc export-schemas -c archdoc.yml
 ```
 
-Configured output directory:
+This exports JSON Schemas for consumers that need an explicit contract for the
+generated artifacts.
 
-- [utilis/docs-site-docasaurus/docs/architecture/schemas](utilis/docs-site-docasaurus/docs/architecture/schemas)
+## Detection model
 
-The exported schemas are intended as the contract for a separate review/backend
-application. `scan` and `map` do not read or write review overlays, and the
-schema export stays an explicit command.
+Services are detected through configurable source paths, class suffixes, and
+method rules. Endpoints are detected through route decorators and configured
+router paths. Links are inferred from parameters, assignments, object
+construction, and call shapes.
 
-The current validation report in this checkout shows:
+These rules deliberately favor traceability and reproducibility over opaque
+semantic guesses. Dynamic dispatch, runtime registration, metaprogramming, and
+unconventional project layouts may require adjusted configuration or manual
+review.
 
-- 83 services
-- 558 operations
-- 730 endpoints
-- 428 endpoint-service links
-- 363 linked endpoints
-- 367 unlinked endpoints
-- 248 unreferenced operations
-- 6 errors
-- 247 warnings
-- 370 infos
+## Source layout
 
-This snapshot is useful as a deterministic baseline for the current generator run, but it is not a proof that the mapping is semantically complete.
+Important implementation entry points:
 
-## Known uncertainty and caveats
+- [CLI](src/archdoc/cli.py)
+- [configuration models](src/archdoc/config/models.py)
+- [configuration loader](src/archdoc/config/loader.py)
+- [Python scanner](src/archdoc/scanner/python_scanner.py)
+- [service mapper](src/archdoc/mapper/service_mapper.py)
+- [endpoint mapper](src/archdoc/mapper/endpoint_mapper.py)
+- [endpoint-service linker](src/archdoc/linker/endpoint_service_linker.py)
+- [catalog validator](src/archdoc/validator/catalog_validator.py)
+- [tests](tests/README.md)
 
-The following items are intentionally marked as uncertain because the code relies on heuristics rather than a formal specification:
+## License
 
-1. Service detection is name-based (`...Service`) and path-based. It may miss classes that use different naming or live outside the configured paths. [UNCERTAIN]
-2. Endpoint detection depends on route decorators and signal extraction. It may not catch non-standard routing patterns. [UNCERTAIN]
-3. Service-to-endpoint links are inferred from call patterns and variable type hints. They may be incomplete when the call shape is dynamic or indirect. [UNCERTAIN]
-4. The current implementation treats duplicate IDs as validation errors, but the exact business meaning of those duplicates is not encoded in the generator itself. [UNCERTAIN]
-5. The implementation classifies endpoint kinds from simple rules such as DB calls, external calls, and single-helper delegation. These are heuristic classifications, not authoritative architecture labels. [UNCERTAIN]
-
-## Deterministic summary
-
-If the goal is reproducibility, the most important deterministic properties are:
-
-- explicit YAML configuration
-- AST-based extraction rather than runtime introspection
-- sorted file discovery
-- stable sorting of service and endpoint records
-- explicit JSON writer with fixed formatting
-- validation report generated from the same catalog data
-
-For that reason, this generator is best described as a deterministic, rule-based documentation pipeline rather than a fully semantic architecture model.
+Copyright © Kevin Kraft. Licensed under the
+[Apache License 2.0](LICENSE).

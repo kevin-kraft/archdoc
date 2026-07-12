@@ -7,8 +7,6 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Archdoc',
   tagline: 'Deterministic architecture catalog review',
-  favicon: 'img/favicon.ico',
-
   future: {
     v4: true,
   },
@@ -32,21 +30,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -55,15 +40,13 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Archdoc',
       logo: {
-        alt: 'Archdoc Logo',
-        src: 'img/logo.svg',
+        alt: 'Archdoc',
+        src: 'img/archdoc-logo.png',
       },
       items: [
         {
@@ -78,13 +61,6 @@ const config: Config = {
           position: 'left',
           label: 'Architecture',
         },
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
-        {to: '/blog', label: 'Blog', position: 'left'},
       ],
     },
     footer: {
@@ -94,43 +70,30 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Architecture Overview',
+              to: '/docs/architecture/overview',
+            },
+            {
+              label: 'Data Dictionary',
+              to: '/docs/architecture/data-dictionary',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'Review',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'API Endpoints',
+              to: '/docs/architecture/generated/api-endpoints',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: 'Validation',
+              to: '/docs/architecture/generated/validation',
             },
           ],
         },
       ],
-      copyright: `Copyright (c) ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright (c) ${new Date().getFullYear()} Kevin Kraft · Licensed under the Apache License 2.0 · Developed as part of the IBU seminar project.`,
     },
     prism: {
       theme: prismThemes.github,

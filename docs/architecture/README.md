@@ -1,8 +1,8 @@
 # Archdoc Architecture README
 
-This folder contains the current architecture documentation pipeline for the
-Utilis codebase. The system is intentionally split into a deterministic JSON
-generator and a separate review UI/backend layer.
+This folder documents the implemented architecture documentation and review
+pipeline for the Utilis codebase. The system is intentionally split into a
+deterministic JSON generator and a separate review backend/frontend layer.
 
 For local manual setup and package installation, see:
 
@@ -168,13 +168,12 @@ tolerance for `/api` path prefixes. A story detail view can then show the linked
 router endpoint, endpoint-service link, service, operation, and operation-owned
 architecture actions.
 
-The first demo view is available at:
+The user-story review view is available at:
 
 - `site/docs/architecture/generated/user-stories.mdx`
 
-The current implementation is a read model for demo and review workflows. It
-does not edit generated JSON and does not yet parse frontend click traces or
-BPMN models.
+The current implementation is a read model for review workflows. It does not
+edit generated JSON and does not yet parse frontend click traces or BPMN models.
 
 ### Identity and Provenance
 
@@ -288,7 +287,7 @@ thin compatibility wrappers for MDX/Docusaurus imports.
 
 ### 1. Generate Architecture Data
 
-Run from `docs-site-docasaurus`:
+Run from the repository root:
 
 ```bash
 archdoc scan -c archdoc.yml
@@ -335,6 +334,21 @@ The effective catalog endpoint still exists for compatibility and smaller
 overview use cases:
 
 - `GET /api/catalog/effective`
+
+## Docker Deployment
+
+`docker-compose.yml` starts the review application as two services:
+
+- `docs-backend` runs FastAPI and imports packaged generated JSON into SQLite.
+- `docs-site` serves the built Docusaurus site through nginx and proxies
+  `/api/*` and `/health` to the backend.
+
+Only nginx is published on host port `8088`. The backend remains on the internal
+Compose network. Its SQLite database and review overlay live in the named
+`archdoc-review-data` volume and survive normal container replacement.
+
+The generator is deliberately not part of container startup. A new source scan
+must be run before rebuilding the images when a newer catalog is required.
 
 ## SQLite Model
 
