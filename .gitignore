@@ -30,6 +30,7 @@ docs/architecture/overlays/review-overlay.json
 # Project-specific documentation assets (kept locally, not published)
 site/static/archdoc/diagrams/
 site/static/archdoc/manuals/
+archdoc.yml
 
 # Local review state
 docs/architecture/archdoc-review.sqlite3
