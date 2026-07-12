@@ -84,9 +84,9 @@ backend source at:
 The configuration assumes the following directory structure:
 
 ```text
-utilis/
+my-python-backend/
 ├── api/
-│   └── app/
+│   └── app/ (Here starts your backend)
 └── archdoc/
     ├── archdoc.yml
     ├── ui_backend/
